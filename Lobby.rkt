@@ -13,7 +13,7 @@
 
 ;Starting point
 (define WORLD (make-Character (circle 20 "solid" "green")
-                                         (make-pos 250 250)))
+                                         (make-pos 960 540)))
 
 ;Purpose: Draw The World
 ;Contract: drawWorld: Character --> image
@@ -48,9 +48,10 @@
     ))
 
 ;test
-;(check-expect (moveCharacter (make-character (circle 20 "solid" "green")
-                                            ; (make-pos 250 250)) "left")
-             ; (place-image 
+(check-expect (moveCharacter (make-Character (circle 20 "solid" "green")
+                                             (make-pos 250 250)) "left")
+              (make-Character (circle 20 "solid" "blue")
+                              (make-pos 200 250)))
 (test)
 ;;;; currentStatus --> Current Position And Image Of The Character
 ;big-bang Draw The World And Add Movement Functionality
