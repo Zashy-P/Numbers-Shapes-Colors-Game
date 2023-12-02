@@ -3,27 +3,41 @@
 (require 2htdp/universe)
 (require test-engine/racket-tests)
 
+;=======================================================================================
+;************************************ MENU *********************************************
+;=======================================================================================
+
+
+
+
+
+
+
+
+;=======================================================================================
+;******************************* Character & Lobby**************************************
+;=======================================================================================
 ;Character --> image(skin), pos(x,y)
 (define-struct pos (x y))
 (define-struct Character (skin pos))
 
-;world width & height
-(define worldWidth 1920)
-(define worldHeight 1080)
+;Lobby width & height
+(define lobbyWidth 1920)
+(define lobbyHeight 1080)
 
 ;Starting point
-(define WORLD (make-Character (circle 20 "solid" "green")
+(define LOBBY (make-Character (circle 20 "solid" "green")
                                          (make-pos 960 540)))
 
-;Purpose: Draw The World
-;Contract: drawWorld: Character --> image
-(define (drawWorld ic)
+;Purpose: Draw The Lobby
+;Contract: drawLobby: Character --> image
+(define (drawLobby ic)
   (place-image (Character-skin ic)
                (pos-x (Character-pos ic)) (pos-y (Character-pos ic))
-               (empty-scene worldWidth worldHeight)))
+               (empty-scene lobbyWidth lobbyHeight)))
 
 ;test
-(check-expect (drawWorld (make-Character (circle 20 "solid" "green")
+(check-expect (drawLobby (make-Character (circle 20 "solid" "green")
                                          (make-pos 250 250)))
               (place-image (circle 20 "solid" "green")
                            250 250
@@ -54,11 +68,11 @@
                               (make-pos 200 250)))
 (test)
 ;;;; currentStatus --> Current Position And Image Of The Character
-;big-bang Draw The World And Add Movement Functionality
+;big-bang Draws The lobby And Add Movement Functionality
 ;(define currentStatus
 
-(big-bang WORLD
-    (on-draw drawWorld)
+(big-bang LOBBY
+    (on-draw drawLobby)
     (on-key moveCharacter))
 ;)
 
