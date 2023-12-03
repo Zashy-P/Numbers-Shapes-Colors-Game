@@ -17,18 +17,26 @@
 ; and then we can use the pointer to select the button
 
 ;Pointer --> image, pos(x,y)
-(define-struct pointer (image pos))
+(define-struct pointer (img pos))
 (define-struct pointerPos (x y))
 
 ;Starting point for the pointer
-;(define POINTER (...)) Just got a bit lazy to draw the pointer so i will do it later
+(define POINTER (make-pointer (triangle 50 "solid" "red")
+                                         (make-pointerPos 960 540)))
+
 
 ;Purpose: Draws a pointer with given x,y coordinates
-;Contract: drawPointer: imgage(img) pos(x), pos(y) --> image
-(define (drawPointer img x y)
-  (...))
+;Contract: drawPointer: pointer(img) --> image
+(define (drawPointer pointer )
+  (place-image (pointer-img pointer)
+               (pointerPos-x (pointer-pos pointer)) (pointerPos-y (pointer-pos pointer))
+               (empty-scene 1920 1080)))
 ;test
-
+(check-expect (drawPointer (make-pointer (circle 50 "solid" "red")
+                                         (make-pointerPos 960 540)))
+              (place-image (circle 50 "solid" "red")
+                           960 540
+                           (empty-scene 1920 1080))) 
 
 ;Purpose: Moves the pointer using mouse input
 ;Contract: movePointer: pointer, mouse-input --> image
@@ -56,13 +64,15 @@
 
 ;Purpose: Draws the menu
 ;Contract: menu: button1, button2, button3 --> image
-(define (menu b1 b2 b3)
-  (place-image (above b1 b2 b3) 960 540 (empty-scene 1920 1080)))
-(menu startButton ChLockerButton leaderBoard)
+(define (menu pointer)
+  (place-image (overlay (pointer-img pointer) (above startButton ChLockerButton leaderBoard)) 960 540 (empty-scene 1920 1080)))
 
-;(big-bang POINTER ;Still did not finish the functions so i commented it out
-    ;(on-draw menu)
-    ;(on-mouse movePointer))
+(big-bang POINTER 
+    (on-draw menu)
+    ;(on-mouse movePointer)
+    )
+
+
 
 
 
@@ -82,6 +92,7 @@
 ;Lobby width & height
 (define lobbyWidth 1920)
 (define lobbyHeight 1080)
+(define lobbyScene (empty-scene lobbyWidth lobbyHeight))
 
 ;Starting point
 (define LOBBY (make-Character (circle 20 "solid" "green")
@@ -92,7 +103,7 @@
 (define (drawLobby ic)
   (place-image (Character-skin ic)
                (chPos-x (Character-pos ic)) (chPos-y (Character-pos ic))
-               (empty-scene lobbyWidth lobbyHeight)))
+               lobbyScene))
 
 ;test
 (check-expect (drawLobby (make-Character (circle 20 "solid" "green")
