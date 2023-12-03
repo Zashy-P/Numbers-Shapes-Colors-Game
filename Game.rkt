@@ -26,8 +26,9 @@
 
 ;Purpose: Moves the pointer using mouse input
 ;Contract: movePointer: pointer, mouse-input --> image
-(define (movePointer p mi)
-  (...))
+(define (movePointer worldState x y event) ; I am not sure of the parameters but these r the parameters
+  (...))                                   ; that big-bang on-mouse requires i am so lost i tried to
+                                           ; to make it work but i failed
 
 
 ;Purpose: Draws a button with given string and x,y coordinates
@@ -82,14 +83,14 @@
 (define-struct chPos (x y))
 (define-struct Character (skin pos))
 
-;Lobby width & height
+;Defining the lobby's width and height and scene
 (define lobbyWidth 1920)
 (define lobbyHeight 1080)
 (define lobbyScene (empty-scene lobbyWidth lobbyHeight))
 
-;Starting point
-(define LOBBY (make-Character (circle 20 "solid" "green")
-                                         (make-chPos 960 540)))
+;Starting character
+(define c1 (make-Character (circle 20 "solid" "green")
+                              (make-chPos 960 540)))
 
 ;Purpose: Draw The Lobby
 ;Contract: drawLobby: Character --> image
@@ -105,22 +106,22 @@
                            250 250
                            (empty-scene 1920 1080)))
 
-;Helper Function To Move Character
-(define (updatePosx c x)
-  (+ (chPos-x (Character-pos c)) x))
-(define (updatePosy c y)  
+;defines the speed of the character
+(define ChSpeed 50)
+;helper function to update the x,y coordinates of the Character
+(define (updateChPosx c cs)
+  (+ (chPos-x (Character-pos c)) cs))
+(define (updateChPosy c cs)  
   (+ (
-    chPos-y (Character-pos c)) y))
-
+    chPos-y (Character-pos c)) cs))
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
-;Contract: moveCharacter: Character, keyboard-input --> image
-
+;Contract: moveCharacter: Character(c), keyboard-input(ki) --> image
 (define (moveCharacter c ki)
   (cond
-    [(or (key=? ki "left") (key=? ki "a")) (make-Character (circle 20 "solid" "blue") (make-chPos (updatePosx c -50) (chPos-y (Character-pos c))))]
-    [(or (key=? ki "right") (key=? ki "d")) (make-Character (circle 20 "solid" "green") (make-chPos (updatePosx c 50) (chPos-y (Character-pos c))))]
-    [(or (key=? ki "up") (key=? ki "w")) (make-Character (circle 20 "solid" "yellow") (make-chPos (chPos-x (Character-pos c)) (updatePosy c -50)))]
-    [(or (key=? ki "down") (key=? ki "s")) (make-Character (circle 20 "solid" "red") (make-chPos (chPos-x (Character-pos c)) (updatePosy c 50)))]
+    [(or (key=? ki "left") (key=? ki "a")) (make-Character (circle 20 "solid" "blue") (make-chPos (updateChPosx c (* ChSpeed -1)) (chPos-y (Character-pos c))))]
+    [(or (key=? ki "right") (key=? ki "d")) (make-Character (circle 20 "solid" "green") (make-chPos (updateChPosx c ChSpeed) (chPos-y (Character-pos c))))]
+    [(or (key=? ki "up") (key=? ki "w")) (make-Character (circle 20 "solid" "yellow") (make-chPos (chPos-x (Character-pos c)) (updateChPosy c (* ChSpeed -1))))]
+    [(or (key=? ki "down") (key=? ki "s")) (make-Character (circle 20 "solid" "red") (make-chPos (chPos-x (Character-pos c)) (updateChPosy c ChSpeed)))]
     [else c]
     ))
 
@@ -129,12 +130,12 @@
                                              (make-chPos 250 250)) "left")
               (make-Character (circle 20 "solid" "blue")
                               (make-chPos 200 250)))
-(test)
+
 ;;;; currentStatus --> Current Position And Image Of The Character
 ;big-bang Draws The lobby And Add Movement Functionality
 ;(define currentStatus
 
-(big-bang LOBBY
+(big-bang c1
     (on-draw drawLobby)
     (on-key moveCharacter))
 ;)
@@ -142,3 +143,5 @@
 ;Displays the scenes
 (define (sceneSelector Lobby numberLand colorLand shapeLand)
   ...)
+
+(test)
