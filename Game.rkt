@@ -24,25 +24,10 @@
 (define POINTER (make-pointer (triangle 50 "solid" "red")
                                          (make-pointerPos 960 540)))
 
-
-;Purpose: Draws a pointer with given x,y coordinates
-;Contract: drawPointer: pointer(img) --> image
-(define (drawPointer pointer )
-  (place-image (pointer-img pointer)
-               (pointerPos-x (pointer-pos pointer)) (pointerPos-y (pointer-pos pointer))
-               (empty-scene 1920 1080)))
-;test
-(check-expect (drawPointer (make-pointer (circle 50 "solid" "red")
-                                         (make-pointerPos 960 540)))
-              (place-image (circle 50 "solid" "red")
-                           960 540
-                           (empty-scene 1920 1080))) 
-
 ;Purpose: Moves the pointer using mouse input
 ;Contract: movePointer: pointer, mouse-input --> image
 (define (movePointer p mi)
   (...))
-
 
 
 ;Purpose: Draws a button with given string and x,y coordinates
@@ -63,10 +48,18 @@
 (define leaderBoard (drawButton "LeaderBoard"))
 
 ;Purpose: Draws the menu
-;Contract: menu: button1, button2, button3 --> image
+;Contract: menu: pointer  --> image
+
+
+;function
 (define (menu pointer)
   (place-image (overlay (pointer-img pointer) (above startButton ChLockerButton leaderBoard)) 960 540 (empty-scene 1920 1080)))
 
+;test
+(check-expect (menu (make-pointer (triangle 20 "solid" "red") (make-pointerPos 960 540))) 
+(place-image (overlay (triangle 20 "solid" "red") (above startButton ChLockerButton leaderBoard)) 960 540 (empty-scene 1920 1080)))
+
+;big-bang Draws The menu And Add Movement Functionality
 (big-bang POINTER 
     (on-draw menu)
     ;(on-mouse movePointer)
