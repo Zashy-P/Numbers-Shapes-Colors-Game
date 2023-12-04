@@ -29,7 +29,7 @@
 (define (drawButton string)
   (overlay (text/font string 18 "indigo"
            #f 'modern 'italic 'normal #f) 
-           (rectangle 200 30 "outline" "green")))
+           (rectangle 200 30 "outline" "Light Steel Blue")))
 
 ;test
 (check-expect (drawButton "Start" )
