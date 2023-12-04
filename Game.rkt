@@ -13,35 +13,38 @@
 ; I code in VSC then just paste the code in DrRacket to see the images but i think we will be able
 ;  to see them in VSC when we use big-bang on-draw function
 
-;I am thinking should we do a struct for a pointer contating the pointer image and x,y coordinates
-; and then we can use the pointer to select the button
-
 ;Pointer --> image, pos(x,y)
 (define-struct pointer (img pos))
 (define-struct pointerPos (x y))
 
 ;Starting point for the pointer
 (define POINTER (make-pointer (triangle 50 "solid" "red")
-                                         (make-pointerPos 960 540)))
+                              (make-pointerPos 960 540)))
 
 ;Purpose: Moves the pointer using mouse input
 ;Contract: movePointer: pointer, mouse-input --> image
+;function
 (define (movePointer worldState x y event) ; I am not sure of the parameters but these r the parameters
   (...))                                   ; that big-bang on-mouse requires i am so lost i tried to
                                            ; to make it work but i failed
 
+;test
+;...
 
 ;Purpose: Draws a button with given string and x,y coordinates
 ;Contract: drawButton: string, pos(x), pos(y) --> image
 ;we can change the font & box(button) shape to our liking later on
+;function
 (define (drawButton string)
   (overlay (text/font string 18 "indigo"
-             #f 'modern 'italic 'normal #f) (rectangle 200 30 "outline" "green")))
+           #f 'modern 'italic 'normal #f) 
+           (rectangle 200 30 "outline" "green")))
 
 ;test
 (check-expect (drawButton "Start" )
               (overlay (text/font "Start" 18 "indigo"
-             #f 'modern 'italic 'normal #f) (rectangle 200 30 "outline" "green")))
+              #f 'modern 'italic 'normal #f) 
+              (rectangle 200 30 "outline" "green")))
 
 ;defining the start, character locker and leaderboard buttons
 (define startButton (drawButton "Start"))
@@ -50,17 +53,21 @@
 
 ;Purpose: Draws the menu
 ;Contract: menu: pointer  --> image
-
-
 ;function
 (define (menu pointer)
-  (place-image (overlay (pointer-img pointer) (above startButton ChLockerButton leaderBoard)) 960 540 (empty-scene 1920 1080)))
+  (place-image (overlay (pointer-img pointer) 
+               (above startButton ChLockerButton leaderBoard)) 
+               960 540 
+               (empty-scene 1920 1080)))
 
 ;test
 (check-expect (menu (make-pointer (triangle 20 "solid" "red") (make-pointerPos 960 540))) 
-(place-image (overlay (triangle 20 "solid" "red") (above startButton ChLockerButton leaderBoard)) 960 540 (empty-scene 1920 1080)))
+(place-image (overlay (triangle 20 "solid" "red") 
+             (above startButton ChLockerButton leaderBoard)) 
+             960 540 
+             (empty-scene 1920 1080)))
 
-;big-bang Draws The menu And Add Movement Functionality
+;big-bang Draws The menu And Adds Movement Functionality
 (big-bang POINTER 
     (on-draw menu)
     ;(on-mouse movePointer)
@@ -106,14 +113,13 @@
                            250 250
                            (empty-scene 1920 1080)))
 
-;defines the speed of the character
+;defines character speed
 (define ChSpeed 50)
 ;helper function to update the x,y coordinates of the Character
 (define (updateChPosx c cs)
   (+ (chPos-x (Character-pos c)) cs))
 (define (updateChPosy c cs)  
-  (+ (
-    chPos-y (Character-pos c)) cs))
+  (+ (chPos-y (Character-pos c)) cs))
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
 ;Contract: moveCharacter: Character(c), keyboard-input(ki) --> image
 (define (moveCharacter c ki)
