@@ -3,34 +3,20 @@
 (require 2htdp/universe)
 (require test-engine/racket-tests)
 
+;=======================================================================================
+;************************************ world ********************************************
+;=======================================================================================
+;World --> Scene, Character LeaderBoard(not now later)
+(define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
+;Character --> image(skin), pos(x,y)
+(define-struct Character (skin pos))
+(define-struct ChPos (x y))
 
 
 
 ;=======================================================================================
 ;************************************ MENU *********************************************
 ;=======================================================================================
-;note that if u r using VSC you wont be able to see the images so u have to run it in DrRacket IDE
-; I code in VSC then just paste the code in DrRacket to see the images but i think we will be able
-;  to see them in VSC when we use big-bang on-draw function
-
-;Pointer --> image, pos(x,y)
-(define-struct pointer (img pos))
-(define-struct pointerPos (x y))
-
-;Starting point for the pointer
-(define POINTER (make-pointer (triangle 50 "solid" "red")
-                              (make-pointerPos 960 540)))
-
-;Purpose: Moves the pointer using mouse input
-;Contract: movePointer: pointer, mouse-input --> image
-;function
-(define (movePointer worldState x y event) ; I am not sure of the parameters but these r the parameters
-  (...))                                   ; that big-bang on-mouse requires i am so lost i tried to
-                                           ; to make it work but i failed
-
-;test
-;...
-
 ;Purpose: Draws a button with given string and x,y coordinates
 ;Contract: drawButton: string, pos(x), pos(y) --> image
 ;we can change the font & box(button) shape to our liking later on
@@ -52,102 +38,89 @@
 (define leaderBoard (drawButton "LeaderBoard"))
 
 ;Purpose: Draws the menu
-;Contract: menu: pointer  --> image
+;Contract: menu --> image
 ;function
-(define (menu pointer)
-  (place-image (overlay (pointer-img pointer) 
-               (above startButton ChLockerButton leaderBoard)) 
+(define menu 
+  (place-image (above startButton ChLockerButton leaderBoard)
                960 540 
                (empty-scene 1920 1080)))
 
-;test
-(check-expect (menu (make-pointer (triangle 20 "solid" "red") (make-pointerPos 960 540))) 
-(place-image (overlay (triangle 20 "solid" "red") 
-             (above startButton ChLockerButton leaderBoard)) 
-             960 540 
-             (empty-scene 1920 1080)))
-
-;big-bang Draws The menu And Adds Movement Functionality
-(big-bang POINTER 
-    (on-draw menu)
-    ;(on-mouse movePointer)
-    )
 
 
 
-
-
-
-
-
-
-
+; I have initialWorld in menu cuz its basically the menu
+(define initialWorld (make-world "menu" (make-Character (circle 20 "solid" "green") (make-ChPos 960 540))))
 
 ;=======================================================================================
 ;******************************* Character & Lobby**************************************
 ;=======================================================================================
-;Character --> image(skin), pos(x,y)
-(define-struct chPos (x y))
-(define-struct Character (skin pos))
-
-;Defining the lobby's width and height and scene
-(define lobbyWidth 1920)
-(define lobbyHeight 1080)
-(define lobbyScene (empty-scene lobbyWidth lobbyHeight))
-
-;Starting character
-(define c1 (make-Character (circle 20 "solid" "green")
-                              (make-chPos 960 540)))
-
-;Purpose: Draw The Lobby
-;Contract: drawLobby: Character --> image
-(define (drawLobby ic)
-  (place-image (Character-skin ic)
-               (chPos-x (Character-pos ic)) (chPos-y (Character-pos ic))
-               lobbyScene))
-
-;test
-(check-expect (drawLobby (make-Character (circle 20 "solid" "green")
-                                         (make-chPos 250 250)))
-              (place-image (circle 20 "solid" "green")
-                           250 250
-                           (empty-scene 1920 1080)))
-
+;defines the Lobby scene later on we will have a function that selects scenes for now we can select scenes manually
+(define LobbyWidth 1920)
+(define LobbyHeight 1080)
+(define LobbyScene (empty-scene LobbyWidth LobbyHeight))
+(define Lobby (make-world "Lobby" (make-Character (circle 20 "solid" "green") (make-ChPos 960 540))))
 ;defines character speed
 (define ChSpeed 50)
 ;helper function to update the x,y coordinates of the Character
 (define (updateChPosx c cs)
-  (+ (chPos-x (Character-pos c)) cs))
+  (+ (ChPos-x (Character-pos c)) cs))
 (define (updateChPosy c cs)  
-  (+ (chPos-y (Character-pos c)) cs))
+  (+ (ChPos-y (Character-pos c)) cs))
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
-;Contract: moveCharacter: Character(c), keyboard-input(ki) --> image
-(define (moveCharacter c ki)
+;Contract: moveCharacter: world(w), keyboard-input(ki) --> image
+(define (moveCharacter w ki)
+  (if (string=? (world-scene w) "menu") "controls needed" ;we need to add controls on menu stuff                                           
   (cond
-    [(or (key=? ki "left") (key=? ki "a")) (make-Character (circle 20 "solid" "blue") (make-chPos (updateChPosx c (* ChSpeed -1)) (chPos-y (Character-pos c))))]
-    [(or (key=? ki "right") (key=? ki "d")) (make-Character (circle 20 "solid" "green") (make-chPos (updateChPosx c ChSpeed) (chPos-y (Character-pos c))))]
-    [(or (key=? ki "up") (key=? ki "w")) (make-Character (circle 20 "solid" "yellow") (make-chPos (chPos-x (Character-pos c)) (updateChPosy c (* ChSpeed -1))))]
-    [(or (key=? ki "down") (key=? ki "s")) (make-Character (circle 20 "solid" "red") (make-chPos (chPos-x (Character-pos c)) (updateChPosy c ChSpeed)))]
-    [else c]
-    ))
+    [(or (key=? ki "left") (key=? ki "a")) 
+     (make-world "Lobby" 
+                 (make-Character (circle 20 "solid" "blue") 
+                                 (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
+                                             (ChPos-y (Character-pos (world-character w))))))]
+    [(or (key=? ki "right") (key=? ki "d")) 
+     (make-world "Lobby" 
+                 (make-Character (circle 20 "solid" "green") 
+                                 (make-ChPos (updateChPosx (world-character w) ChSpeed) 
+                                             (ChPos-y (Character-pos (world-character w))))))]
+    [(or (key=? ki "up") (key=? ki "w")) 
+     (make-world "Lobby" 
+                 (make-Character (circle 20 "solid" "yellow") 
+                                 (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                             (updateChPosy (world-character w) (* ChSpeed -1)))))]
+    [(or (key=? ki "down") (key=? ki "s")) 
+     (make-world "Lobby" 
+                 (make-Character (circle 20 "solid" "red") 
+                                 (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                             (updateChPosy (world-character w) ChSpeed))))]
+    [else w]
+    )))
 
-;test
-(check-expect (moveCharacter (make-Character (circle 20 "solid" "green")
-                                             (make-chPos 250 250)) "left")
-              (make-Character (circle 20 "solid" "blue")
-                              (make-chPos 200 250)))
+;=======================================================================================
+;************************************ Mouse-Input **************************************
+;=======================================================================================
+;Purpose: Register the mouse input on the buttons
+;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
+(define (mouseRegister w x y me)
+  (...))
 
-;;;; currentStatus --> Current Position And Image Of The Character
-;big-bang Draws The lobby And Add Movement Functionality
-;(define currentStatus
 
-(big-bang c1
-    (on-draw drawLobby)
-    (on-key moveCharacter))
-;)
 
-;Displays the scenes
-(define (sceneSelector Lobby numberLand colorLand shapeLand)
-  ...)
 
+;=======================================================================================
+;***************************** Drawing World + big-bang ********************************
+;=======================================================================================
+(define (drawWorld scene)
+  (cond [(string=? (world-scene scene) "menu") menu]
+        [(string=? (world-scene scene) "Lobby") (place-image (Character-skin (world-character scene)) (ChPos-x (Character-pos (world-character scene))) (ChPos-y (Character-pos (world-character scene))) LobbyScene)]
+        [else (empty-scene 1920 1080)]))
+
+;since its all under the same struct we can easily change scenes we just need a function to detirmine 
+; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
+;  untill we make that function
+(big-bang initialWorld
+(on-draw drawWorld))
+
+(big-bang Lobby
+(on-draw drawWorld)
+(on-key moveCharacter))
 (test)
+               
