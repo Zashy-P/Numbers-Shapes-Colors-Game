@@ -6,6 +6,7 @@
 ;=======================================================================================
 ;************************************ world ********************************************
 ;=======================================================================================
+
 ;World --> Scene, Character LeaderBoard(not now later)
 (define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
 ;Character --> image(skin), pos(x,y)
@@ -23,15 +24,18 @@
 (define LobbyHeight 1080)
 (define menuWidth 1920)
 (define menuHeight 1080)
+(define chSelectWidth 1920)
+(define chSelectHeight 1080)
 (define centerWidth 960)
 (define centerHeight 540)
 ;scene resolutions
 (define LobbyScene (empty-scene LobbyWidth LobbyHeight))
 (define menuScene (empty-scene menuWidth menuHeight))
-
+(define chSelectScene (empty-scene chSelectWidth chSelectHeight))
 ;=======================================================================================
 ;************************************ MENU *********************************************
 ;=======================================================================================
+
 ; Button --> image,pos(x,y)
 (define-struct button (image pos))
 (define-struct buttonPos(x y))
@@ -55,7 +59,7 @@
 ;defining Buttons: Start, Tutorial, LeaderBoard
 (define startButton (make-button 
                     (drawButton "Start") 
-                    (make-buttonPos centerWidth centerHeight)))
+                    (make-buttonPos centerWidth centerHeight))) ;pos is pointless here ;/
 (define TutorialButton (make-button 
                        (drawButton "Tutorial") 
                        (make-buttonPos centerWidth centerHeight)))
@@ -71,7 +75,8 @@
                                  (button-image TutorialButton)
                                  (rectangle 400 60 "solid" "Royal Blue")
                                  (button-image leaderBoard)) 
-                                 (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) ;(bitmap "C:/Users/zaina/Downloads/background 2.jpg"))
+                                 (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) 
+                                 ;(bitmap "C:/Users/zaina/Downloads/background 2.jpg"))
                                  centerWidth centerHeight
                                  menuScene))
 
@@ -81,10 +86,40 @@
 (define initialWorld (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 
 ;=======================================================================================
+;******************************* Character Select**************************************
+;=======================================================================================
+
+;Purpose: Draw the character select buttons
+;Contract: drawChSelectButtons: button --> image
+;function
+(define (drawChSelectButton button)
+  (place-image (button-image button) (buttonPos-x (button-pos button)) (buttonPos-y (button-pos button)) (rectangle 400 60 "solid" "Alice Blue")))
+
+;test
+
+(check-expect (drawChSelectButton (make-button (triangle 30 "solid" "red") (make-buttonPos 100 100))) (place-image (triangle 30 "solid" "red") 100 100 (rectangle 400 60 "solid" "Alice Blue")))
+(check-expect (drawChSelectButton (make-button skinOneEast (make-buttonPos 100 100))) (place-image skinOneEast 100 100 (rectangle 400 60 "solid" "Alice Blue")))
+
+;Character Select Buttons
+(define skinOneButton (make-button skinOneNorth (make-buttonPos 100 100)))
+(define skinTwoButton (make-button skinOneSouth (make-buttonPos 100 100))) ;pos is pointless here ;/
+(define skinThreeButton (make-button skinOneEast (make-buttonPos 1000 100)))
+
+;Draw The Character Select Menu
+(define characterSelectMenu
+  (place-image (overlay (above (beside (button-image skinOneButton) (button-image skinTwoButton)) 
+                                (button-image skinThreeButton)) 
+                                (bitmap "C:/Users/abdul/OneDrive/Pictures/empty_menu-removebg 1920 x 1080.png"))
+                                ;(bitmap ""))
+                                centerWidth centerHeight chSelectScene))
+(define chSelect (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
+
+;=======================================================================================
 ;******************************* Character & Lobby**************************************
 ;=======================================================================================
-;defines the Lobby scene later on we will have a function that selects scenes for now we can select scenes manually
-(define Lobby (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
+
+;defines the Lobby scene once clicked 
+(define cLobby (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 ;defines character speed
 (define ChSpeed 50)
 
@@ -150,13 +185,15 @@
 (check-expect (moveCharacter (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) "up") (make-world "Lobby" (make-Character skinOneNorth (make-ChPos 960 490))))
 (check-expect (moveCharacter (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) "down") (make-world "Lobby" (make-Character skinOneSouth (make-ChPos 960 590))))
 
+
 ;=======================================================================================
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
+
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
 
-;start button y-axis start from 455(bottom) to 395(top)
+;start button y-axis start from 450(bottom) to 390(top)
 ;start button x-axis start from 760(left) to 1160(right)
 
 ;Tutorial button y-axis start from 575(bottom) to 515(top)
@@ -168,17 +205,18 @@
 ;function
 (define (mouseRegister w x y me)
   (cond
-  [(and (and (<= y 455)
-             (>= y 395))
+  [(and (and (<= y 450) ;start button
+             (>= y 390))
         (and (>= x 760)   
              (<= x 1160))
         (and (string=? (world-scene w) "menu")
              (mouse=? me "button-down"))) 
-        Lobby]
+        chSelect]
+
   [else w]))
 
 ;test
-(check-expect (mouseRegister (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) 800 400 "button-down") Lobby)
+(check-expect (mouseRegister (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) 800 400 "button-down") chSelect)
 
 ;=======================================================================================
 ;***************************** Drawing World + big-bang ********************************
@@ -190,6 +228,8 @@
 (define (drawWorld world)
   (cond [(string=? (world-scene world) "menu") 
                     menu]
+        [(string=? (world-scene world) "chSelect")
+                    characterSelectMenu]
         [(string=? (world-scene world) "Lobby") 
                     (place-image (Character-skin (world-character world)) 
                                  (ChPos-x (Character-pos (world-character world))) 
@@ -207,6 +247,8 @@
 (define (sceneSelector world)
   (cond [(string=? (world-scene world) "menu")
                    (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
+        [(string=? (world-scene world) "chSelect")
+                    (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
         [(string=? (world-scene world) "Lobby")
                    (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
         [else world]))
