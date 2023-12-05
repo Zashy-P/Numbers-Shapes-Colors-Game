@@ -7,8 +7,10 @@
 ;************************************ world ********************************************
 ;=======================================================================================
 
-;World --> Scene, Character LeaderBoard(not now later)
-(define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
+;World --> Scene, Character, Background LeaderBoard(not now later)
+(define-struct world (scene character)) ;background)) ;leaderBoard)) will do leaderBoard Later
+;Background --> image pos
+
 ;Character --> image(skin), pos(x,y)
 (define-struct Character (skin pos))
 (define-struct ChPos (x y))
@@ -20,18 +22,21 @@
 (define skinOneSouth(circle 20 "solid" "red"))
 
 ;Resolutions
-(define LobbyWidth 1920)
-(define LobbyHeight 1080)
 (define menuWidth 1920)
 (define menuHeight 1080)
 (define chSelectWidth 1920)
 (define chSelectHeight 1080)
+(define LobbyWidth 1920)
+(define LobbyHeight 1080)
+(define tutorialWidth 1920)
+(define tutorialHeight 1080)
 (define centerWidth 960)
 (define centerHeight 540)
 ;scene resolutions
-(define LobbyScene (empty-scene LobbyWidth LobbyHeight))
 (define menuScene (empty-scene menuWidth menuHeight))
 (define chSelectScene (empty-scene chSelectWidth chSelectHeight))
+(define LobbyScene (empty-scene LobbyWidth LobbyHeight))
+(define tutorialScene (empty-scene tutorialWidth tutorialHeight))
 ;=======================================================================================
 ;************************************ MENU *********************************************
 ;=======================================================================================
@@ -67,6 +72,11 @@
                     (drawButton "LeaderBoard") 
                     (make-buttonPos centerWidth centerHeight)))
 
+;Menu background just comment others bitmap and uncomment yours
+(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) ;abdulrahman bitmap
+;(define menuBg (bitmap)) ;zainab bitmap
+;(define menuBg (bitmap)) ;maysam bitmap
+
 ;Purpose: Draws the menu with empty space in between them using rectangles
 ;Contract: menu --> image
 (define menu       
@@ -75,8 +85,7 @@
                                  (button-image TutorialButton)
                                  (rectangle 400 60 "solid" "Royal Blue")
                                  (button-image leaderBoard)) 
-                                 (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) 
-                                 ;(bitmap "C:/Users/zaina/Downloads/background 2.jpg"))
+                                 menuBg)
                                  centerWidth centerHeight
                                  menuScene))
 
@@ -105,12 +114,16 @@
 (define skinTwoButton (make-button skinOneSouth (make-buttonPos 100 100))) ;pos is pointless here ;/
 (define skinThreeButton (make-button skinOneEast (make-buttonPos 1000 100)))
 
+;Character Select Background just comment others bitmap and uncomment yours 
+(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg")) ;abdulrahman bitmap
+;(bitmap) ;zainab bitmap
+;(bitmap) ;maysam bitmap
+
 ;Draw The Character Select Menu
 (define characterSelectMenu
   (place-image (overlay (above (beside (button-image skinOneButton) (button-image skinTwoButton)) 
                                 (button-image skinThreeButton)) 
-                                (bitmap "C:/Users/abdul/OneDrive/Pictures/empty_menu-removebg 1920 x 1080.png"))
-                                ;(bitmap ""))
+                                chSelectBg)
                                 centerWidth centerHeight chSelectScene))
 (define chSelect (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 
@@ -122,6 +135,21 @@
 (define cLobby (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 ;defines character speed
 (define ChSpeed 50)
+
+;Lobby background just comment others bitmap and uncomment yours
+(define lobbyBg (place-image (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg") centerWidth centerHeight LobbyScene)) ;abdulrahman bitmap
+;(define lobbyBg (bitmap)) ;zainab bitmap
+;(define lobbyBg (bitmap)) ;maysam bitmap
+
+;Purpose: Draws the Character in the Lobby
+;Contract: drawLobby: world --> image
+(define (drawLobby world) (place-image (overlay (Character-skin (world-character world)) 
+                                                lobbyBg)
+                                                (ChPos-x (Character-pos (world-character world))) 
+                                                (ChPos-y (Character-pos (world-character world))) 
+                                                LobbyScene))
+;test 
+(check-expect (drawLobby (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (place-image (overlay skinOneEast lobbyBg) centerWidth centerHeight LobbyScene))
 
 ;Purpose: helper function to update the x coordinates of the Character
 ;Contract: updateChPosx: Character(c), number(cs) --> pos(x)
@@ -147,25 +175,25 @@
 ;Contract: moveCharacter: world(w), keyboard-input(ki) --> image
 ;function
 (define (moveCharacter w ki)
-  (if (string=? (world-scene w) "Lobby")                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial"))                                          
   (cond
     [(or (key=? ki "left") (key=? ki "a")) 
-     (make-world "Lobby" 
+     (make-world (world-scene w) 
                  (make-Character skinOneWest 
                                  (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
                                              (ChPos-y (Character-pos (world-character w))))))]
     [(or (key=? ki "right") (key=? ki "d")) 
-     (make-world "Lobby" 
+     (make-world (world-scene w) 
                  (make-Character skinOneEast 
                                  (make-ChPos (updateChPosx (world-character w) ChSpeed) 
                                              (ChPos-y (Character-pos (world-character w))))))]
     [(or (key=? ki "up") (key=? ki "w")) 
-     (make-world "Lobby" 
+     (make-world (world-scene w) 
                  (make-Character skinOneNorth 
                                  (make-ChPos (ChPos-x (Character-pos (world-character w))) 
                                              (updateChPosy (world-character w) (* ChSpeed -1)))))]
     [(or (key=? ki "down") (key=? ki "s")) 
-     (make-world "Lobby" 
+     (make-world (world-scene w) 
                  (make-Character skinOneSouth 
                                  (make-ChPos (ChPos-x (Character-pos (world-character w))) 
                                              (updateChPosy (world-character w) ChSpeed))))]
@@ -185,6 +213,30 @@
 (check-expect (moveCharacter (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) "up") (make-world "Lobby" (make-Character skinOneNorth (make-ChPos 960 490))))
 (check-expect (moveCharacter (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) "down") (make-world "Lobby" (make-Character skinOneSouth (make-ChPos 960 590))))
 
+;=======================================================================================
+;******************************* Tutorial**************************************
+;=======================================================================================
+
+;defines the Tutorial background just comment others bitmap and uncomment yours
+(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Screenshots/physics/Projectile Motion/Screenshot (35).png")) ;abdulrahman bitmap
+;(define tutorialBg (bitmap)) ;zainab bitmap
+;(define tutorialBg (bitmap)) ;maysam bitmap
+
+;Purpose: Draws the Tutorial
+;Contract: drawTutorial: world(w) --> image
+(define (drawTutorial world)
+  (place-image (overlay (Character-skin (world-character world)) 
+                         tutorialBg)
+                                 (ChPos-x (Character-pos (world-character world))) 
+                                 (ChPos-y (Character-pos (world-character world))) 
+                                 tutorialScene))
+
+;test
+(check-expect (drawTutorial (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (place-image (overlay skinOneEast tutorialBg) centerWidth centerHeight tutorialScene))
+
+;defines the tutorial scene once clicked
+(define cTutorial (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
+
 
 ;=======================================================================================
 ;************************************ Mouse-Input **************************************
@@ -196,10 +248,10 @@
 ;start button y-axis start from 450(bottom) to 390(top)
 ;start button x-axis start from 760(left) to 1160(right)
 
-;Tutorial button y-axis start from 575(bottom) to 515(top)
+;Tutorial button y-axis start from 570(bottom) to 510(top)
 ;Tutorial button x-axis start from 760(left) to 1160(right)
 
-;LeaderBoard button y-axis start from 695(bottom) to 635(top)
+;LeaderBoard button y-axis start from 690(bottom) to 630(top)
 ;LeaderBoard button x-axis start from 760(left) to 1160(right)
 
 ;function
@@ -211,12 +263,19 @@
              (<= x 1160))
         (and (string=? (world-scene w) "menu")
              (mouse=? me "button-down"))) 
-        chSelect]
-
+        cLobby]
+  [(and (and (<= y 570) ;tutorial button
+             (>= y 510))
+        (and (>= x 760)   
+             (<= x 1160))
+        (and (string=? (world-scene w) "menu")
+             (mouse=? me "button-down"))) 
+        cTutorial]
   [else w]))
 
 ;test
-(check-expect (mouseRegister (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) 800 400 "button-down") chSelect)
+(check-expect (mouseRegister (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) 800 400 "button-down") cLobby)
+(check-expect (mouseRegister (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) 800 550 "button-down") cTutorial)
 
 ;=======================================================================================
 ;***************************** Drawing World + big-bang ********************************
@@ -231,15 +290,16 @@
         [(string=? (world-scene world) "chSelect")
                     characterSelectMenu]
         [(string=? (world-scene world) "Lobby") 
-                    (place-image (Character-skin (world-character world)) 
-                                 (ChPos-x (Character-pos (world-character world))) 
-                                 (ChPos-y (Character-pos (world-character world))) 
-                                 LobbyScene)]
+                    (drawLobby world)]
+        [(string=? (world-scene world) "tutorial")
+                    (drawTutorial world)]
         [else (empty-scene 1920 1080)]))
 
 ;test
 (check-expect (drawWorld (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) menu)
-(check-expect (drawWorld (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (place-image (Character-skin (make-Character skinOneEast (make-ChPos centerWidth centerHeight))) (ChPos-x (Character-pos (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (ChPos-y (Character-pos (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) LobbyScene))
+(check-expect (drawWorld (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) characterSelectMenu)
+(check-expect (drawWorld (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (drawLobby (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))))
+(check-expect (drawWorld (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (drawTutorial (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))))
 
 ;Purpose: selects the scene
 ;contract: sceneSelector: world(w) --> world(w)
@@ -251,12 +311,15 @@
                     (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
         [(string=? (world-scene world) "Lobby")
                    (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
+        [(string=? (world-scene world) "tutorial")
+                    (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))]
         [else world]))
   
 ;test
 (check-expect (sceneSelector (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (make-world "menu" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (make-world "chSelect" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 (check-expect (sceneSelector (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (make-world "Lobby" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
-
+(check-expect (sceneSelector (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight)))) (make-world "tutorial" (make-Character skinOneEast (make-ChPos centerWidth centerHeight))))
 
 ;since its all under the same struct we can easily change scenes we just need a function to detirmine 
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
@@ -266,5 +329,4 @@
 (on-key moveCharacter)
 (on-mouse mouseRegister))
 
-(define x 10)
 (test)
