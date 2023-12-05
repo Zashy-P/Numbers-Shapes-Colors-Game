@@ -224,4 +224,5 @@
 (on-key moveCharacter)
 (on-mouse mouseRegister))
 
+(define x 10)
 (test)
