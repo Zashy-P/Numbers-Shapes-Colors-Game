@@ -16,7 +16,7 @@
 
 ;(define skinOneEast (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
 (define skinOneWest(circle 20 "solid" "blue"))
-(define skinOneEast(circle 20 "solid" "green"))
+(define skinOneEast(bitmap "C:/Users/zaina/Downloads/boy_right_side-removebg-preview.png"))
 (define skinOneNorth(circle 20 "solid" "orange"))
 (define skinOneSouth(circle 20 "solid" "red"))
 
@@ -27,23 +27,23 @@
 ;Backgrounds just comment others bitmap and uncomment yours
 
 ;Menu Background 
-(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) ;abdulrahman bitmap
-;(define menuBg (bitmap)) ;zainab bitmap
+;(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) ;abdulrahman bitmap
+(define menuBg (bitmap "C:/Users/zaina/OneDrive/Desktop/CMPE Term 1 Project/Photos/background 1919x1079.jpg")) ;zainab bitmap
 ;(define menuBg (bitmap)) ;maysam bitmap
 
 ;Character Select Background
-(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg")) ;abdulrahman bitmap
-;(bitmap) ;zainab bitmap
-;(bitmap) ;maysam bitmap
+;(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg")) ;abdulrahman bitmap
+(define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection 1.jpg")) ;zainab bitmap
+;(define chSelectBg (bitmap)) ;maysam bitmap
 
 ;Tutorial Background
-(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Screenshots/physics/Projectile Motion/Screenshot (35).png")) ;abdulrahman bitmap
-;(define tutorialBg (bitmap)) ;zainab bitmap
+;(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Screenshots/physics/Projectile Motion/Screenshot (35).png")) ;abdulrahman bitmap
+(define tutorialBg (empty-scene 1920 1080)) ;zainab bitmap
 ;(define tutorialBg (bitmap)) ;maysam bitmap
 
 ;Lobby background
-(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg")) ;abdulrahman bitmap
-;(define lobbyBg (bitmap)) ;zainab bitmap
+;(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Pictures/Untitled_Artwork.jpg")) ;abdulrahman bitmap
+(define lobbyBg (empty-scene 1920 1080)) ;zainab bitmap
 ;(define lobbyBg (bitmap)) ;maysam bitmap
 
 ;=======================================================================================
