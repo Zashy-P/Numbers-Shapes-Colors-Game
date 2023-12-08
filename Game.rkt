@@ -258,7 +258,7 @@
 ;Contract: moveCharacter: world(w), keyboard-input(ki) --> image
 ;function
 (define (moveCharacter w ki)
-  (if (or (and (string=? (skin-name (Character-skin (world-character w))) "boy") (string=? (world-scene w) "Lobby")) (and (string=? (skin-name (Character-skin (world-character w))) "boy") (string=? (world-scene w) "tutorial")))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial"))                                          
     (cond
         [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "left") (key=? ki "a"))) 
         (make-world (world-scene w) 
