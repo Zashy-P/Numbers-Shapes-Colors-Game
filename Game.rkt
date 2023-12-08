@@ -4,7 +4,7 @@
 (require test-engine/racket-tests)
 
 ;=======================================================================================
-;************************************ world ********************************************
+;************************************ structs ******************************************
 ;=======================================================================================
 
 ;World --> Scene, Character, LeaderBoard(not now later)
@@ -13,84 +13,150 @@
 ;Character --> image(skin), pos(x,y)
 (define-struct Character (skin pos))
 (define-struct ChPos (x y))
+;skin --> name direction
+(define-struct skin(name direction))
+;skinD --> west east south north
+(define-struct skinD(west east south north))
 
+;=======================================================================================
+;************************************ Images *******************************************
+;=======================================================================================
 ;Character skins
 ;abdulrahman's bitmaps
+
+;boy skin
 (define skinBoyWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
 (define skinBoyEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
 (define skinBoyNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
 (define skinBoySouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
+(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+
+;Janitor skin
+(define skinJanitorWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
+(define skinJanitorEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
+(define skinJanitorNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
+(define skinJanitorSouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
+(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+
+;Scientist skin
+(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
+(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
+(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
+(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+
+;Police woman skin
+(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
+(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
+(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
+(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
 
 ;zainab's bitmaps
+
+;boy skin
 ;(define skinBoyWest (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
 ;(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
 ;(define skinBoyNorth (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
 ;(define skinBoySouth (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
-;(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Pictures/4669e110c981b83cf8185ba56501f27d.jpg"))
+;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
-;maysam's bitmaps
-;(define skinBoyWest (bitmap ""))
-;(define skinBoyEast (bitmap ""))
-;(define skinBoyNorth (bitmap ""))
-;(define skinBoySouth (bitmap ""))
-
-;Janitor skin
-;abdulrahman's bitmaps
-(define skinJanitorWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
-(define skinJanitorEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
-(define skinJanitorNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
-(define skinJanitorSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
-
-;zainab's bitmaps
+;janitor skin
 ;(define skinJanitorWest (bitmap ""))
 ;(define skinJanitorEast (bitmap ""))
 ;(define skinJanitorNorth (bitmap ""))
 ;(define skinJanitorSouth (bitmap ""))
+;(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+
+;Scientist skin
+;(define skinScientistWest (bitmap ""))
+;(define skinScientistEast (bitmap ""))
+;(define skinScientistNorth (bitmap ""))
+;(define skinScientistSouth (bitmap ""))
+
+;Police woman skin
+;(define skinPoliceWomantWest (bitmap ""))
+;(define skinPoliceWomantEast (bitmap ""))
+;(define skinPoliceWomantNorth (bitmap ""))
+;(define skinPoliceWomantSouth (bitmap ""))
 
 ;maysam's bitmaps
+
+;boy skin
+;(define skinBoyWest (bitmap ""))
+;(define skinBoyEast (bitmap ""))
+;(define skinBoyNorth (bitmap ""))
+;(define skinBoySouth (bitmap ""))
+;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+
+;janitor skin
 ;(define skinJanitorWest (bitmap ""))
 ;(define skinJanitorEast (bitmap ""))
 ;(define skinJanitorNorth (bitmap ""))
 ;(define skinJanitorSouth (bitmap ""))
 
 ;Scientist skin
-;abdulrahman's bitmaps
-(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
-(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
-
-;zainab's bitmaps
 ;(define skinScientistWest (bitmap ""))
 ;(define skinScientistEast (bitmap ""))
 ;(define skinScientistNorth (bitmap ""))
 ;(define skinScientistSouth (bitmap ""))
 
-;maysam's bitmaps
-;(define skinScientistWest (bitmap ""))
-;(define skinScientistEast (bitmap ""))
-;(define skinScientistNorth (bitmap ""))
-;(define skinScientistSouth (bitmap ""))
-
-;Police Woman
-;abdulrahman's bitmaps
-(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
-(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
-(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
-(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
-
-
-;zainab's bitmaps
+;Police woman skin
 ;(define skinPoliceWomantWest (bitmap ""))
 ;(define skinPoliceWomantEast (bitmap ""))
 ;(define skinPoliceWomantNorth (bitmap ""))
 ;(define skinPoliceWomantSouth (bitmap ""))
 
-;maysam's bitmaps
-;(define skinPoliceWomantWest (bitmap ""))
-;(define skinPoliceWomantEast (bitmap ""))
-;(define skinPoliceWomantNorth (bitmap ""))
-;(define skinPoliceWomantSouth (bitmap ""))
+;Backgrounds just comment others bitmap and uncomment yours
+;abdulrahman's bitmap
+
+;Menu Background 
+(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
+
+;Character Select Backgrounds
+(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
+(define chSelect2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
+
+;Tutorial Pop Up Background
+(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+
+;Tutorial Background
+(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+
+;Lobby Background
+(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
+
+;zainab's bitmap
+
+;Menu Background
+;(define menuBg (bitmap "")) 
+
+;Character Select Background
+;(define chSelectBg (bitmap "")) 
+
+;Tutorial Pop Up Background
+;(define tutorialPopUpBg (bitmap ""))
+
+;Tutorial Background
+;(define tutorialBg (bitmap ""))
+
+;Lobby Background
+;(define lobbyBg (bitmap ""))
+
+;maysam's bitmap
+
+;Menu Background 
+;(define menuBg (bitmap "")) 
+
+;Character Select Background
+;(define chSelectBg (bitmap ""))
+
+;Tutorial Pop Up Background
+;(define tutorialPopUpBg (bitmap ""))
+
+;Tutorial Background
+;(define tutorialBg (bitmap ""))
+
+;Lobby Background
+;(define lobbyBg (bitmap ""))
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
@@ -103,69 +169,11 @@
 (define worldCenterWidth 960)
 (define worldCenterHeight 540)
 
-;Backgrounds just comment others bitmap and uncomment yours
-
-;Menu Background 
-(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Final menu background.jpg")) ;abdulrahman bitmap
-;(define menuBg (bitmap)) ;zainab bitmap
-;(define menuBg (bitmap)) ;maysam bitmap
-
-;Character Select Background
-(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/character select 1.jpeg")) ;abdulrahman bitmap
-;(bitmap) ;zainab bitmap
-;(bitmap) ;maysam bitmap
-
-;Tutorial Pop Up Background
-(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) ;abdulrahman bitmap
-;(define lobbyBg (bitmap)) ;zainab bitmap
-;(define lobbyBg (bitmap)) ;maysam bitmap
-
-;Tutorial Background
-(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/menu background.jpg")) ;abdulrahman bitmap
-;(define tutorialBg (bitmap)) ;zainab bitmap
-;(define tutorialBg (bitmap)) ;maysam bitmap
-
-;Lobby Background
-(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/background 2.jpg")) ;abdulrahman bitmap
-;(define lobbyBg (bitmap)) ;zainab bitmap
-;(define lobbyBg (bitmap)) ;maysam bitmap
-
 ;=======================================================================================
 ;************************************ MENU *********************************************
 ;=======================================================================================
 
-; Button --> image,pos(x,y)
-;(define-struct button (image pos))
-;(define-struct buttonPos(x y))
-
-
-;Purpose: Draws a button with given string and x,y coordinates
-;Contract: drawButton: string --> image
-;we can change the font & box(button) shape to our liking later on
-;function
-;(define (drawButton string)
-;  (overlay (text/font string 18 "indigo"
-;           "Gill Sans" 'swiss 'normal 'bold #f) 
-;           (rectangle 400 60 "solid" "Alice Blue")))
-
-;test
-;(check-expect (drawButton "Start" )
-;              (overlay (text/font "Start" 18 "indigo"
-;                       "Gill Sans" 'swiss 'normal 'bold #f) 
-;                       (rectangle 400 60 "solid" "Alice Blue")))
-
-;defining Buttons: Start, Tutorial, LeaderBoard
-;(define startButton (make-button 
-;                    (drawButton "Start") 
-;                    (make-buttonPos worldCenterWidth worldCenterHeight))) ;pos is pointless here ;/
-;(define TutorialButton (make-button 
-;                       (drawButton "Tutorial") 
-;                       (make-buttonPos worldCenterWidth worldCenterHeight)))
-;(define leaderBoard (make-button 
-;                    (drawButton "LeaderBoard") 
-;                    (make-buttonPos worldCenterWidth worldCenterHeight)))
-
-;Purpose: Draws the menu with empty space in between them using rectangles
+;Purpose: Draws the menu 
 ;Contract: menu --> image
 (define menu    
   (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
@@ -173,38 +181,18 @@
 
 
 ; I have initialWorld in menu cuz its basically the menu
-(define initialWorld (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(define initialWorld (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
 
 ;=======================================================================================
 ;******************************* Character Select**************************************
 ;=======================================================================================
-
-;Purpose: Draw the character select buttons
-;Contract: drawChSelectButtons: button --> image
-;function
-;(define (drawChSelectButton button)
- ; (place-image (button-image button) (buttonPos-x (button-pos button)) (buttonPos-y (button-pos button)) (rectangle 400 60 "solid" "Alice Blue")))
-
-;test
-
-;(check-expect (drawChSelectButton (make-button (triangle 30 "solid" "red") (make-buttonPos 100 100))) (place-image (triangle 30 "solid" "red") 100 100 (rectangle 400 60 "solid" "Alice Blue")))
-;(check-expect (drawChSelectButton (make-button skinBoyEast (make-buttonPos 100 100))) (place-image skinBoyEast 100 100 (rectangle 400 60 "solid" "Alice Blue")))
-
-;Character Select Buttons
-;(define skinBoyButton (make-button skinBoyNorth (make-buttonPos 100 100)))
-;(define skinTwoButton (make-button skinBoySouth (make-buttonPos 100 100))) ;pos is pointless here ;/
-;(define skinThreeButton (make-button skinBoyEast (make-buttonPos 1000 100)))
-
-;Draw The Character Select Menu
-;(define characterSelectMenu
-  ;(place-image (above (beside (button-image skinBoyButton) (button-image skinTwoButton)) 
-                            ;  (button-image skinThreeButton))                               
-                              ; worldCenterWidth worldCenterHeight chSelectBg))
               
 ;Draw The Character Select Menu
 (define characterSelectMenu
    (place-image chSelectBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
+(define characterSelect2
+    (place-image chSelect2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 ;=======================================================================================
 ;******************************* Character & Lobby**************************************
 ;=======================================================================================
@@ -214,12 +202,13 @@
 
 ;Purpose: Draws the Character in the Lobby
 ;Contract: drawLobby: world --> image
-(define (drawLobby world) (place-image  (Character-skin (world-character world)) 
+(define (drawLobby world) (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          lobbyBg))
 ;test 
-(check-expect (drawLobby (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (place-image skinBoyEast worldCenterWidth worldCenterHeight lobbyBg))
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (place-image skinBoyEast worldCenterWidth worldCenterHeight lobbyBg))
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (place-image skinJanitorEast worldCenterWidth worldCenterHeight lobbyBg))
 
 ;Purpose: helper function to update the x coordinates of the Character
 ;Contract: updateChPosx: Character(c), number(cs) --> pos(x)
@@ -228,8 +217,8 @@
   (+ (ChPos-x (Character-pos c)) cs))
 
 ;test
-(check-expect (updateChPosx (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)) 50) 1010)
-(check-expect (updateChPosx (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)) -50) 910)  
+(check-expect (updateChPosx (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) 50) 1010)
+(check-expect (updateChPosx (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) -50) 910)  
 
 ;Purpose: helper function to update the y coordinates of the Character
 ;Contract: updateChPosy: Character(c), number(cs) --> pos(y)
@@ -238,51 +227,85 @@
   (+ (ChPos-y (Character-pos c)) cs))
 
 ;test
-(check-expect (updateChPosy (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)) 50) 590)
-(check-expect (updateChPosy (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)) -50) 490)
+(check-expect (updateChPosy (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) 50) 590)
+(check-expect (updateChPosy (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) -50) 490)
+(check-expect (updateChPosx (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) 50) 1010)
+(check-expect (updateChPosx (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) -50) 910)
+;Purpose: helper function to update the skin of the character 
+;Contract: skinUpdater: skin(s) --> skinD
+;function
+(define (skinUpdater s)
+  (cond
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "boy"))
+     (skinD-west boySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "boy"))
+     (skinD-east boySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "boy"))
+     (skinD-south boySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boy"))
+     (skinD-north boySkin)]
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "janitor"))
+     (skinD-west janitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "janitor"))
+        (skinD-east janitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "janitor"))
+        (skinD-south janitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "janitor"))
+        (skinD-north janitorSkin)] 
+))
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
 ;Contract: moveCharacter: world(w), keyboard-input(ki) --> image
 ;function
 (define (moveCharacter w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial"))                                          
-  (cond
-    [(or (key=? ki "left") (key=? ki "a")) 
-     (make-world (world-scene w) 
-                 (make-Character skinBoyWest 
-                                 (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
-                                             (ChPos-y (Character-pos (world-character w))))))]
-    [(or (key=? ki "right") (key=? ki "d")) 
-     (make-world (world-scene w) 
-                 (make-Character skinBoyEast 
-                                 (make-ChPos (updateChPosx (world-character w) ChSpeed) 
-                                             (ChPos-y (Character-pos (world-character w))))))]
-    [(or (key=? ki "up") (key=? ki "w")) 
-     (make-world (world-scene w) 
-                 (make-Character skinBoyNorth 
-                                 (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                             (updateChPosy (world-character w) (* ChSpeed -1)))))]
-    [(or (key=? ki "down") (key=? ki "s")) 
-     (make-world (world-scene w) 
-                 (make-Character skinBoySouth 
-                                 (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                             (updateChPosy (world-character w) ChSpeed))))]
-    [else w]
-    )w)
-    )
+  (if (or (and (string=? (skin-name (Character-skin (world-character w))) "boy") (string=? (world-scene w) "Lobby")) (and (string=? (skin-name (Character-skin (world-character w))) "boy") (string=? (world-scene w) "tutorial")))                                          
+    (cond
+        [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "left") (key=? ki "a"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "boy" "left") 
+                                    (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
+                                                (ChPos-y (Character-pos (world-character w))))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "right") (key=? ki "d"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "boy" "right")  
+                                    (make-ChPos (updateChPosx (world-character w) ChSpeed) 
+                                                (ChPos-y (Character-pos (world-character w))))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "up") (key=? ki "w")))
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "boy" "up")  
+                                    (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "down") (key=? ki "s"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "boy" "down")  
+                                    (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                                (updateChPosy (world-character w) ChSpeed))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "left") (key=? ki "a"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "janitor" "left") 
+                                    (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
+                                                (ChPos-y (Character-pos (world-character w))))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "right") (key=? ki "d")))
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "janitor" "right")  
+                                    (make-ChPos (updateChPosx (world-character w) ChSpeed) 
+                                                (ChPos-y (Character-pos (world-character w))))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "up") (key=? ki "w"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "janitor" "up")  
+                                    (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+        [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "down") (key=? ki "s"))) 
+        (make-world (world-scene w) 
+                    (make-Character (make-skin "janitor" "down")  
+                                    (make-ChPos (ChPos-x (Character-pos (world-character w))) 
+                                                (updateChPosy (world-character w) ChSpeed))))]
+        [else w]
+        )
+    w))
 
-;test ;Question should we keep this style or should we just write in one line this style makes it more readable for us but it takes more time to write this way
-(check-expect (moveCharacter 
-              (make-world "Lobby" 
-                          (make-Character skinBoyEast 
-                                          (make-ChPos worldCenterWidth worldCenterHeight)))
-                                           "left")
-                                            (make-world "Lobby" 
-                                                        (make-Character skinBoyWest 
-                                                                        (make-ChPos 950 540))))
-(check-expect (moveCharacter (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) "right") (make-world "Lobby" (make-Character skinBoyEast (make-ChPos 970 540))))
-(check-expect (moveCharacter (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) "up") (make-world "Lobby" (make-Character skinBoyNorth (make-ChPos 960 530))))
-(check-expect (moveCharacter (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) "down") (make-world "Lobby" (make-Character skinBoySouth (make-ChPos 960 550))))
+
+;test 
 
 ;=======================================================================================
 ;******************************* Tutorial**************************************
@@ -290,38 +313,53 @@
 
 ;Purpose: Draws the Tutorial Pop up
 ;Contract: drawTutorial: world(w) --> image
-(define (drawTutorialPopUp world)
+(define drawTutorialPopUp
   (place-image tutorialPopUpBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
 ;Purpose: Draws the Tutorial
 ;Contract: drawTutorial: world(w) --> image
 (define (drawTutorial world)
-  (place-image (Character-skin (world-character world)) 
+  (place-image (skinUpdater (Character-skin (world-character world))) 
                (ChPos-x (Character-pos (world-character world))) 
                (ChPos-y (Character-pos (world-character world))) 
                 tutorialBg))
 
 ;test
-(check-expect (drawTutorial (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (place-image skinBoyEast worldCenterWidth worldCenterHeight tutorialBg))
+(check-expect (drawTutorial (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (place-image skinBoyEast worldCenterWidth worldCenterHeight tutorialBg))
 
 ;=======================================================================================
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
 
 ;defines the character select scene once clicked
-(define cChSelect (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cChSelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
 
 ;defines the Lobby scene once clicked 
-(define (cLobby world) (make-world "Lobby" (make-Character (Character-skin (world-character world)) (make-ChPos worldCenterWidth worldCenterHeight))))
+(define (cLobby world) 
+    (cond
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "Lobby"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [else world]))
 
 ;defines the tutorial pop up scene once confirm on chSelect is clicked
-(define cTutorialPopUp (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(define (cTutorialPopUp world)
+    (cond
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorialPopUp"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [else world]))
 
 ;defines the tutorial scene once yes on tutorial pop up is clicked
-(define cTutorial (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(define (cTutorial world) 
+    (cond
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorial"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [else world]))
 
 ;makes the skin boy once clicked
-(define cBoySelect (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cBoySelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+
+;makes the skin janitor once clicked
+(define cJanitorSelect (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
 
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
@@ -366,27 +404,34 @@
         (and (>= x 757)   
              (<= x 1148))) 
         cChSelect]
- ; [(and (and (string=? (world-scene w) "chSelect") ;Boy character select
-       ;      (mouse=? me "button-down"))
-       ; (and (<= y 772) 
-       ;      (>= y 271))
-       ; (and (>= x 66)   
-        ;     (<= x 448))) 
-       ; cBoySelect]
-  [(and (and (string=? (world-scene w) "chSelect") ;chSelect confirm button
+  [(and (and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) ;Boy character select
+             (mouse=? me "button-down"))
+        (and (<= y 772) 
+             (>= y 271))
+        (and (>= x 66)   
+             (<= x 448))) 
+        cBoySelect]
+  [(and (and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) ;Janitor character select
+                 (mouse=? me "button-down"))
+        (and (<= y 772) 
+             (>= y 271))
+        (and (>= x 531)   
+             (<= x 913)))
+        cJanitorSelect]
+  [(and (and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) ;chSelect confirm button
              (mouse=? me "button-down"))
         (and (<= y 1080) 
              (>= y 931))
         (and (>= x 1570)   
              (<= x 1855))) 
-        cTutorialPopUp]
+        (cTutorialPopUp w)]
   [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
              (mouse=? me "button-down"))
         (and (<= y 770) 
              (>= y 670))
         (and (>= x 567)   
              (<= x 915)))
-         cTutorial]
+         (cTutorial w)]
   [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp no button
              (mouse=? me "button-down"))
         (and (<= y 770)
@@ -397,10 +442,6 @@
   [else w]))
 
 ;test
-(check-expect (mouseRegister (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) 800 390 "button-down") (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (mouseRegister (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) 1700 1000 "button-down") (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (mouseRegister (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) 700 700 "button-down") (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (mouseRegister (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))) 1200 700 "button-down") (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
 
 ;=======================================================================================
 ;***************************** Drawing World + big-bang ********************************
@@ -414,43 +455,54 @@
                     menu]
         [(string=? (world-scene world) "chSelect")
                     characterSelectMenu]
+        [(string=? (world-scene world) "chSelect2")
+                    characterSelect2]
         [(string=? (world-scene world) "Lobby") 
                     (drawLobby world)]
         [(string=? (world-scene world) "tutorialPopUp")
-                    (drawTutorialPopUp world)]
+                    drawTutorialPopUp]
         [(string=? (world-scene world) "tutorial")
                     (drawTutorial world)]
         [else (empty-scene 1920 1080)]))
 
 ;test
-(check-expect (drawWorld (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) menu)
-(check-expect (drawWorld (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) characterSelectMenu)
-(check-expect (drawWorld (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (drawLobby (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))))
-(check-expect (drawWorld (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (drawTutorialPopUp (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))))
-(check-expect (drawWorld (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (drawTutorial (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))))
 
 ;Purpose: selects the scene
 ;contract: sceneSelector: world(w) --> world(w)
 ;function
 (define (sceneSelector world)
-  (cond [(string=? (world-scene world) "menu")
-                   (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (world-scene world) "chSelect")
-                    (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (world-scene world) "Lobby")
-                   (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (world-scene world) "tutorial")
-                    (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (world-scene world) "tutorialPopUp")
-                    (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))]
+  (cond [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "menu"))
+                   (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "chSelect"))
+                    (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "Lobby"))
+                   (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "tutorial"))
+                    (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "tutorialPopUp"))
+                    (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "menu"))
+                   (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "chSelect"))
+                    (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "Lobby"))
+                   (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "tutorial"))
+                    (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
         [else world]))
   
 ;test
-(check-expect (sceneSelector (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character skinBoyEast (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+
 ;since its all under the same struct we can easily change scenes we just need a function to detirmine 
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
 ;  untill we make that function
