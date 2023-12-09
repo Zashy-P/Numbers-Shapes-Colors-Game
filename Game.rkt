@@ -1,15 +1,15 @@
-#lang htdp/bsl
+#lang racket/gui
 (require 2htdp/image)
 (require 2htdp/universe)
 (require test-engine/racket-tests)
+(require (only-in racket/gui/base play-sound))
 
 ;=======================================================================================
 ;************************************ structs ******************************************
 ;=======================================================================================
 
-;World --> Scene, Character, LeaderBoard(not now later)
-(define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
-
+;World --> Scene, Character, Sound, LeaderBoard(not now later)
+(define-struct world (scene character sound)) ;leaderBoard)) will do leaderBoard Later
 ;Character --> image(skin), pos(x,y)
 (define-struct Character (skin pos))
 (define-struct ChPos (x y))
@@ -17,7 +17,21 @@
 (define-struct skin(name direction))
 ;skinD --> west east south north
 (define-struct skinD(west east south north))
+;Sound --> Sound Path, Boolean
+(define-struct Sound (path boolean))
 
+;=======================================================================================
+;************************************ Sound ********************************************
+;=======================================================================================
+
+;Path to the Button Click sound effect
+(define buttonClick1Path "./buttonClick1.mp3")
+(define footstepPath "./concreteFootsteps.mp3")
+
+(define (soundPLayer w)
+ (if (boolean=? (Sound-boolean (world-sound w)) #true)
+     (play-sound (Sound-path (world-sound w)) #true)
+     w))
 ;=======================================================================================
 ;************************************ Images *******************************************
 ;=======================================================================================
@@ -192,7 +206,7 @@
 
 
 ; I have initialWorld in menu cuz its basically the menu
-(define initialWorld (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define initialWorld (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
 
 ;=======================================================================================
 ;******************************* Character Select**************************************
@@ -306,87 +320,103 @@
         (make-world (world-scene w) 
                     (make-Character (make-skin "boy" "left") 
                                     (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "right") (key=? ki "d"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "boy" "right")  
                                     (make-ChPos (updateChPosx (world-character w) ChSpeed) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "up") (key=? ki "w")))
         (make-world (world-scene w) 
                     (make-Character (make-skin "boy" "up")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "down") (key=? ki "s"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "boy" "down")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) ChSpeed))))]
+                                                (updateChPosy (world-character w) ChSpeed))) 
+                                                (make-Sound footstepPath #true))]
 
         [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "left") (key=? ki "a"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "janitor" "left") 
                                     (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "right") (key=? ki "d")))
         (make-world (world-scene w) 
                     (make-Character (make-skin "janitor" "right")  
                                     (make-ChPos (updateChPosx (world-character w) ChSpeed) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "up") (key=? ki "w"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "janitor" "up")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "janitor") (or (key=? ki "down") (key=? ki "s"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "janitor" "down")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) ChSpeed))))]
+                                                (updateChPosy (world-character w) ChSpeed))) 
+                                                (make-Sound footstepPath #true))]
 
 
         [(and (string=? (skin-name (Character-skin (world-character w))) "scientist") (or (key=? ki "left") (key=? ki "a"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "scientist" "left") 
                                     (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "scientist") (or (key=? ki "right") (key=? ki "d")))
         (make-world (world-scene w) 
                     (make-Character (make-skin "scientist" "right")  
                                     (make-ChPos (updateChPosx (world-character w) ChSpeed) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "scientist") (or (key=? ki "up") (key=? ki "w"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "scientist" "up")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "scientist") (or (key=? ki "down") (key=? ki "s"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "scientist" "down")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) ChSpeed))))]
+                                                (updateChPosy (world-character w) ChSpeed))) 
+                                                (make-Sound footstepPath #true))]
 
                                                 
         [(and (string=? (skin-name (Character-skin (world-character w))) "policeWoman") (or (key=? ki "left") (key=? ki "a"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "policeWoman" "left") 
                                     (make-ChPos (updateChPosx (world-character w) (* ChSpeed -1)) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "policeWoman") (or (key=? ki "right") (key=? ki "d")))
         (make-world (world-scene w) 
                     (make-Character (make-skin "policeWoman" "right")  
                                     (make-ChPos (updateChPosx (world-character w) ChSpeed) 
-                                                (ChPos-y (Character-pos (world-character w))))))]
+                                                (ChPos-y (Character-pos (world-character w))))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "policeWoman") (or (key=? ki "up") (key=? ki "w"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "policeWoman" "up")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) (* ChSpeed -1)))))]
+                                                (updateChPosy (world-character w) (* ChSpeed -1)))) 
+                                                (make-Sound footstepPath #true))]
         [(and (string=? (skin-name (Character-skin (world-character w))) "policeWoman") (or (key=? ki "down") (key=? ki "s"))) 
         (make-world (world-scene w) 
                     (make-Character (make-skin "policeWoman" "down")  
                                     (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                (updateChPosy (world-character w) ChSpeed))))]
+                                                (updateChPosy (world-character w) ChSpeed))) 
+                                                (make-Sound footstepPath #true))]
         [else w]
         )
     w))
@@ -419,46 +449,46 @@
 ;=======================================================================================
 
 ;defines the character select scene once clicked
-(define cChSelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cChSelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true)))
 
 ;defines the Lobby scene once clicked 
 (define (cLobby world) 
     (cond
-        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "Lobby"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "Lobby"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "Lobby"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "Lobby"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "Lobby"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "Lobby"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
         [else world]))
 
 ;defines the tutorial pop up scene once confirm on chSelect is clicked
 (define (cTutorialPopUp world)
     (cond
-        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorialPopUp"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "tutorialPopUp"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-         [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "tutorialPopUp"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorialPopUp"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "tutorialPopUp"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+         [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "tutorialPopUp"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
         [else world]))
 
 ;defines the tutorial scene once yes on tutorial pop up is clicked
 (define (cTutorial world) 
     (cond
-        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorial"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "tutorial"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "tutorial"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (make-world "tutorial"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (make-world "tutorial"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
+        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (make-world "tutorial"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true))]
         [else world]))
 
 ;makes the skin boy once clicked
-(define cBoySelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cBoySelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true)))
 
 ;makes the skin janitor once clicked
-(define cJanitorSelect (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cJanitorSelect (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true)))
 
 ;makes the skin janitor once clicked
-(define cScientistSelect (make-world "chSelect3" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cScientistSelect (make-world "chSelect3" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true)))
 
 ;makes the skin janitor once clicked
-(define cPoliceWomanSelect (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(define cPoliceWomanSelect (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #true)))
 
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
@@ -596,68 +626,68 @@
 ;function
 (define (sceneSelector world)
   (cond [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "menu"))
-                   (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "chSelect"))
-                    (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "Lobby"))
-                   (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "tutorial"))
-                    (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "tutorialPopUp"))
-                    (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
 
         [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "menu"))
-                   (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "chSelect"))
-                    (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "Lobby"))
-                   (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (world-scene world) "tutorial"))
-                    (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
 
        [(and (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (world-scene world) "menu"))
-                   (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (world-scene world) "chSelect"))
-                    (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (world-scene world) "Lobby"))
-                   (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (world-scene world) "tutorial"))
-                    (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
 
         [(and (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (world-scene world) "menu"))
-                   (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (world-scene world) "chSelect"))
-                    (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (world-scene world) "Lobby"))
-                   (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                   (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [(and (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (world-scene world) "tutorial"))
-                    (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))]
+                    (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))]
         [else world]))
   
 ;test
-(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorial" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorialPopUp" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
 
-(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "menu" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "chSelect" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorialPopUp" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
 
-(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "menu" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "chSelect" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorialPopUp" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
 
-(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
-(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)))) (make-world "tutorialPopUp" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight))))
+(check-expect (sceneSelector (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "menu" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "chSelect" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
+(check-expect (sceneSelector (make-world "tutorialPopUp" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false))) (make-world "tutorialPopUp" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight)) (make-Sound buttonClick1Path #false)))
 
 ;since its all under the same struct we can easily change scenes we just need a function to detirmine 
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
@@ -667,7 +697,8 @@
 (on-draw drawWorld)
 (on-key keyboardControl)
 (on-mouse mouseRegister)
-(state #true) ;useful to see what is exactly going on
+;(on-tick soundPLayer) ;ontick for soundPLayer is wrong I am not quite sure how to add it
+;(state #true) ;useful to see what is exactly going on
 ;(display-mode 'fullscreen) ;we need to add a quit game thing if we r going to do
 )
 
