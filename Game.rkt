@@ -41,8 +41,8 @@
 ;Scientist skin
 (define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
 (define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.jpg"))
+(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.jpg"))
 (define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
 
 ;Police woman skin
@@ -297,9 +297,9 @@
 ))
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
-;Contract: moveCharacter: world(w), keyboard-input(ki) --> image
+;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
-(define (moveCharacter w ki)
+(define (keyboardControl w ki)
   (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial"))                                          
     (cond
         [(and (string=? (skin-name (Character-skin (world-character w))) "boy") (or (key=? ki "left") (key=? ki "a"))) 
@@ -503,6 +503,7 @@
         (and (>= x 757)   
              (<= x 1148))) 
         cChSelect]
+
   [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
              (mouse=? me "button-down"))
         (and (<= y 772) 
@@ -510,6 +511,7 @@
         (and (>= x 66)   
              (<= x 448))) 
         cBoySelect]
+
   [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Janitor character select
                  (mouse=? me "button-down"))
         (and (<= y 772) 
@@ -517,6 +519,7 @@
         (and (>= x 531)   
              (<= x 913)))
         cJanitorSelect]
+
   [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Scientist character select
                  (mouse=? me "button-down"))
         (and (<= y 772) 
@@ -524,6 +527,7 @@
         (and (>= x 990)   
              (<= x 1370)))
         cScientistSelect]
+
   [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Police Woman character select
                  (mouse=? me "button-down"))
         (and (<= y 772) 
@@ -531,6 +535,7 @@
         (and (>= x 1460)   
              (<= x 1840)))
         cPoliceWomanSelect]
+
   [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4"))  ;chSelect confirm button
              (mouse=? me "button-down"))
         (and (<= y 1080) 
@@ -538,6 +543,7 @@
         (and (>= x 1570)   
              (<= x 1855))) 
         (cTutorialPopUp w)]
+
   [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
              (mouse=? me "button-down"))
         (and (<= y 770) 
@@ -552,6 +558,7 @@
         (and (>= x 1029)
              (<= x 1376))) 
              (cLobby w)]
+
   [else w]))
 
 ;test
@@ -656,8 +663,12 @@
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
 ;  untill we make that function
 (big-bang (sceneSelector initialWorld)
+(name "Teachify")
 (on-draw drawWorld)
-(on-key moveCharacter)
-(on-mouse mouseRegister))
+(on-key keyboardControl)
+(on-mouse mouseRegister)
+(state #true) ;useful to see what is exactly going on
+;(display-mode 'fullscreen) ;we need to add a quit game thing if we r going to do
+)
 
 (test)
