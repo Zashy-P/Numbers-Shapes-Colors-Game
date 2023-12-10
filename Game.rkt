@@ -148,7 +148,7 @@
 ;(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
 
 ;ShapeS1 (s1 is scene one) Background
-;(define shapeS1Bg (empty-scene 1920 1080))
+;(define olorS1Bg (empty-scene 1920 1080))
 
 ;zainab's bitmap
 
@@ -173,6 +173,12 @@
 ;ShapeS1 (s1 is scene one) Background
 (define shapeS1Bg (empty-scene 1920 1080))
 
+;ColorS1 (s1 is scene one) Background
+(define colorS1Bg (empty-scene 1920 1080))
+
+;NumberS1 (s1 is scene one) Background
+(define numberS1Bg (empty-scene 1920 1080))
+
 ;maysam's bitmap
 
 ;Menu Background 
@@ -195,6 +201,7 @@
 
 ;ShapeS1 (s1 is scene one) Background
 ;(define shapeS1Bg (empty-scene 1920 1080))
+
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
@@ -252,6 +259,32 @@
 
 (define (swShape w) (begin (thread playBellRingSound) (make-world "shapeS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight)))))
 
+
+;=======================================================================================
+;************************************ Color Game ***************************************
+;=======================================================================================
+
+(define (drawColorS1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorS1Bg))
+          
+(define (swColor w) (begin (thread playBellRingSound) (make-world "colorS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight)))))
+
+;=======================================================================================
+;************************************ Number Game **************************************
+;=======================================================================================
+
+(define (drawNumberS1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         numberS1Bg))
+
+(define (swNumber w) (begin (thread playBellRingSound) (make-world "numberS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight)))))
 
 
 
@@ -336,11 +369,11 @@
 ;shape door y coordinates 590(bottom) 530(top)
 ;shape door x coordinates 310(left) 380(right)
 
-;number door y coordinates ?(bottom) ?(top)
-;number door x coordinates ?(left) ?(right)
+;number door y coordinates 220(bottom) 220(top)
+;number door x coordinates 1030 (left) 1120(right)
 
-;color door y coordinates ?(bottom) ?(top)
-;color door x coordinates ?(left) ?(right)
+;color door y coordinates 600(bottom) 540(top)
+;color door x coordinates 1600(left) 1710(right)
 
 ;tutorial door y coordinates ?(bottom) ?(top)
 ;tutorial door x coordinates ?(left) ?(right)
@@ -358,6 +391,20 @@
         (and (>= (ChPos-x (Character-pos (world-character w))) 310)
              (<= (ChPos-x (Character-pos (world-character w))) 380))) 
              (swShape w)]
+         
+         [(and (string=? (world-scene w) "Lobby") ;Color Door
+        (and (<= (ChPos-y (Character-pos (world-character w))) 600)
+             (>= (ChPos-y (Character-pos (world-character w))) 540))
+        (and (>= (ChPos-x (Character-pos (world-character w))) 1600)
+             (<= (ChPos-x (Character-pos (world-character w))) 1620))) 
+             (swColor w)]
+
+          [(and (string=? (world-scene w) "Lobby") ;Number Door
+        (and (<= (ChPos-y (Character-pos (world-character w))) 220)
+             (>= (ChPos-y (Character-pos (world-character w))) 220))
+        (and (>= (ChPos-x (Character-pos (world-character w))) 1030)
+             (<= (ChPos-x (Character-pos (world-character w))) 1120))) 
+             (swNumber w)]
 
         [(or (key=? ki "left") (key=? ki "a")) 
           (begin
@@ -591,6 +638,11 @@
                     (drawTutorial world)]
         [(string=? (world-scene world) "shapeS1")
                     (drawShapeS1 world)]
+       [(string=? (world-scene world) "colorS1")
+                    (drawColorS1 world)]
+       [(string=? (world-scene world) "numberS1")
+                    (drawNumberS1 world)]
+
         [else (empty-scene 1920 1080)]))
 
 ;test
@@ -610,7 +662,11 @@
         [(string=? (world-scene world) "tutorialPopUp")
                     (cTutorialPopUp)]
         [(string=? (world-scene world) "shapeS1")
-                    (swShape)]            
+                    (swShape)]
+        [(string=? (world-scene world) "colorS1")
+                    (swColor)] 
+        [(string=? (world-scene world) "numberS1")
+                    (swNumber)]            
 
         [else world]))
   
