@@ -701,7 +701,7 @@
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
 ;  untill we make that function
 (big-bang (sceneSelector initialWorld)
-(name "Teachify")
+(name "Bilgi Kids")
 (on-draw drawWorld)
 (on-key keyboardControl)
 (on-mouse mouseRegister)
