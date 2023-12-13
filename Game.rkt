@@ -156,14 +156,15 @@
 ;Lobby Background
 (define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
 
-;ShapeS1 (s1 is scene one) Background
-(define shapeS1Bg (empty-scene 1920 1080))
+;ShapeLobby 
+(define shapeLobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/shapes background.jpg"))
+(define shapeLevel1Bg (empty-scene 1920 1080))
+(define shapeElevatorBg (empty-scene 1920 1080))
+;ColorLobby 
+(define colorLobbyBg (empty-scene 1920 1080))
 
-;ColorS1 (s1 is scene one) Background
-(define colorS1Bg (empty-scene 1920 1080))
-
-;NumberS1 (s1 is scene one) Background
-(define numberS1Bg (empty-scene 1920 1080))
+;NumberLobby 
+(define numberLobbyBg (empty-scene 1920 1080))
 
 ;zainab's bitmap
 
@@ -185,14 +186,15 @@
 ;Lobby Background
 ;(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
 
-;ShapeS1 (s1 is scene one) Background
-;(define shapeS1Bg (empty-scene 1920 1080))
+;ShapeLobby 
+;(define shapeLobbyBg (empty-scene 1920 1080))
+;(define shapeLevel1Bg (empty-scene 1920 1080))
+;(define shapeElevatorBg (empty-scene 1920 1080))
+;ColorLobby 
+;(define colorLobbyBg (empty-scene 1920 1080))
 
-;ColorS1 (s1 is scene one) Background
-;(define colorS1Bg (empty-scene 1920 1080))
-
-;NumberS1 (s1 is scene one) Background
-;(define numberS1Bg (empty-scene 1920 1080))
+;NumberLobby 
+;(define numberLobbyBg (empty-scene 1920 1080))
 
 ;maysam's bitmap
 
@@ -214,14 +216,15 @@
 ;Lobby Background
 ;(define lobbyBg (bitmap ""))
 
-;ShapeS1 (s1 is scene one) Background
-;(define shapeS1Bg (empty-scene 1920 1080))
+;ShapeLobby (Lobby is scene one) Background
+;(define shapeLobbyBg (empty-scene 1920 1080))
+;(define shapeLevel1Bg (empty-scene 1920 1080))
+;(define shapeElevatorBg (empty-scene 1920 1080))
+;ColorLobby (Lobby is scene one) Background
+;(define colorLobbyBg (empty-scene 1920 1080))
 
-;ColorS1 (s1 is scene one) Background
-;(define colorS1Bg (empty-scene 1920 1080))
-
-;NumberS1 (s1 is scene one) Background
-;(define numberS1Bg (empty-scene 1920 1080))
+;NumberLobby (Lobby is scene one) Background
+;(define numberLobbyBg (empty-scene 1920 1080))
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
@@ -233,6 +236,8 @@
 ;world's center width and height
 (define worldCenterWidth 960)
 (define worldCenterHeight 540)
+(define lobbyCenterWidth 1010)
+(define lobbyCenterHeight 700)
 
 ;=======================================================================================
 ;************************************ MENU *********************************************
@@ -269,42 +274,51 @@
 ;************************************ Shape Game ***************************************
 ;=======================================================================================
 
-(define (drawShapeS1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+(define (drawShapeLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         shapeS1Bg))
+                                         shapeLobbyBg))
+(define (drawShapeLevel1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         shapeLevel1Bg))
+(define elevator    
+  (place-image shapeElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
 
-(define (swShape w) (begin (thread playBellRingSound) (make-world "shapeS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
-
+(define (swShapeLobby w) (begin (thread playBellRingSound) (make-world "shapeLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel1 w) (begin (thread playBellRingSound) (make-world "shapeLevel1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeElevator w) (begin (thread playBellRingSound) (make-world "shapeElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 ;=======================================================================================
 ;************************************ Color Game ***************************************
 ;=======================================================================================
 
-(define (drawColorS1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+(define (drawColorLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         colorS1Bg))
+                                         colorLobbyBg))
           
-(define (swColor w) (begin (thread playBellRingSound) (make-world "colorS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swColor w) (begin (thread playBellRingSound) (make-world "colorLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;=======================================================================================
 ;************************************ Number Game **************************************
 ;=======================================================================================
 
-(define (drawNumberS1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+(define (drawNumberLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         numberS1Bg))
+                                         numberLobbyBg))
 
-(define (swNumber w) (begin (thread playBellRingSound) (make-world "numberS1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swNumber w) (begin (thread playBellRingSound) (make-world "numberLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 
 
@@ -388,6 +402,11 @@
 
 ;shape door y coordinates 700(bottom) 670(top)
 ;shape door x coordinates 420(left) 370(right)
+;shape elevator y coordinates 850(bottom) 390(top)
+;shape elevator x coordinates 130(left) 340(right)
+;shape level 1 door y coordinates 630(bottom) 290(top)
+;shape level 1 door x coordinates 820 (left) 1110(right)
+
 
 ;color door y coordinates 710(bottom) 660(top)
 ;color door x coordinates 1530(left) 1550(right)
@@ -402,31 +421,46 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeS1") (string=? (world-scene w) "color1") (string=? (world-scene w) "numberS1"))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobby") (string=? (world-scene w) "color1") (string=? (world-scene w) "numberLobby") (string=? (world-scene w) "shapeLevel1"))                                          
     (cond                                       
 
-        [(and (string=? (world-scene w) "Lobby") ;Shape Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 700)
+     [(and (string=? (world-scene w) "Lobby") ;Shape Door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 700)
              (>= (ChPos-y (Character-pos (world-character w))) 670))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 370)
+      (and (>= (ChPos-x (Character-pos (world-character w))) 370)
              (<= (ChPos-x (Character-pos (world-character w))) 420))) 
-             (swShape w)]
+             (swShapeLobby w)]
+          
+         [(and (string=? (world-scene w) "shapeLobby") ;Shape elevator
+      (and (<= (ChPos-y (Character-pos (world-character w))) 850)
+             (>= (ChPos-y (Character-pos (world-character w))) 390))
+      (and (>= (ChPos-x (Character-pos (world-character w))) 130)
+             (<= (ChPos-x (Character-pos (world-character w))) 340))) 
+             (swShapeElevator w)]
+
+     [(and (string=? (world-scene w) "shapeLobby") ;Shape Level 1 door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+             (>= (ChPos-y (Character-pos (world-character w))) 290))
+      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+             (swShapeLevel1 w)]
+
          
-         [(and (string=? (world-scene w) "Lobby") ;Color Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 710)
+     [(and (string=? (world-scene w) "Lobby") ;Color Door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 710)
              (>= (ChPos-y (Character-pos (world-character w))) 660))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
+      (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
              (<= (ChPos-x (Character-pos (world-character w))) 1550))) 
              (swColor w)]
 
-          [(and (string=? (world-scene w) "Lobby") ;Number Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 300)
+     [(and (string=? (world-scene w) "Lobby") ;Number Door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 300)
              (>= (ChPos-y (Character-pos (world-character w))) 300))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
+      (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
              (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
              (swNumber w)]
 
-        [(or (key=? ki "left") (key=? ki "a")) 
+     [(or (key=? ki "left") (key=? ki "a")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -435,7 +469,7 @@
                                            (ChPos-y (Character-pos (world-character w)))) 
                                            (+ (Character-stepCount (world-character w)) 1))))]
 
-        [(or (key=? ki "right") (key=? ki "d"))
+     [(or (key=? ki "right") (key=? ki "d"))
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -444,7 +478,7 @@
                                            (ChPos-y (Character-pos (world-character w))))
                                            (+ (Character-stepCount (world-character w)) 1))))]
 
-        [(or (key=? ki "up") (key=? ki "w")) 
+     [(or (key=? ki "up") (key=? ki "w")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -453,7 +487,7 @@
                                            (updateChPosy (world-character w) (* ChSpeed -1)))
                                            (+ (Character-stepCount (world-character w)) 1))))]
 
-        [(or (key=? ki "down") (key=? ki "s")) 
+     [(or (key=? ki "down") (key=? ki "s")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -461,8 +495,7 @@
                                (make-ChPos (ChPos-x (Character-pos (world-character w))) 
                                            (updateChPosy (world-character w) ChSpeed))
                                            (+ (Character-stepCount (world-character w)) 1))))]
-                   
-
+               
         [else w]
         
     )w))
@@ -499,10 +532,10 @@
 ;defines the Lobby scene once clicked 
 (define (cLobby world) 
     (cond
-        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (begin (thread playButtonClick1Sound) (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "boy") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))]
-        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "janitor") (begin (thread playButtonClick1Sound) (make-world "Lobby" (make-Character (make-skin "janitor" "down") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "boy") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "boy" "down") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "scientist") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "scientist" "down") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0)))]
+        [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (begin (thread playButtonClick1Sound) (make-world "Lobby"(make-Character (make-skin "policeWoman" "down") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0)))]
         [else world]))
 
 ;defines the tutorial pop up scene once confirm on chSelect is clicked
@@ -660,12 +693,16 @@
                     drawTutorialPopUp]
         [(string=? (world-scene world) "tutorial")
                     (drawTutorial world)]
-        [(string=? (world-scene world) "shapeS1")
-                    (drawShapeS1 world)]
-       [(string=? (world-scene world) "colorS1")
-                    (drawColorS1 world)]
-       [(string=? (world-scene world) "numberS1")
-                    (drawNumberS1 world)]
+        [(string=? (world-scene world) "shapeLobby")
+                    (drawShapeLobby world)]
+       [(string=? (world-scene world) "colorLobby")
+                    (drawColorLobby world)]
+       [(string=? (world-scene world) "numberLobby")
+                    (drawNumberLobby world)]
+       [(string=? (world-scene world) "shapeLevel1")
+                    (drawShapeLevel1 world)]
+       [(string=? (world-scene world) "shapeElevator")
+                    elevator]
 
         [else (empty-scene 1920 1080)]))
 
@@ -685,11 +722,11 @@
                     (cTutorial world)]
         [(string=? (world-scene world) "tutorialPopUp")
                     (cTutorialPopUp)]
-        [(string=? (world-scene world) "shapeS1")
-                    (swShape)]
-        [(string=? (world-scene world) "colorS1")
+        [(string=? (world-scene world) "shapeLobby")
+                    (swShapeLobby)]
+        [(string=? (world-scene world) "colorLobby")
                     (swColor)] 
-        [(string=? (world-scene world) "numberS1")
+        [(string=? (world-scene world) "numberLobby")
                     (swNumber)]            
 
         [else world]))
