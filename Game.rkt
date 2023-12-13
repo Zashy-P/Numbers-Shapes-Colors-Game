@@ -386,17 +386,17 @@
 
 ;x,y coordinates of the doors 
 
-;shape door y coordinates 590(bottom) 530(top)
-;shape door x coordinates 310(left) 380(right)
+;shape door y coordinates 700(bottom) 670(top)
+;shape door x coordinates 420(left) 370(right)
 
-;number door y coordinates 220(bottom) 220(top)
-;number door x coordinates 1030 (left) 1120(right)
+;color door y coordinates 710(bottom) 660(top)
+;color door x coordinates 1530(left) 1550(right)
 
-;color door y coordinates 600(bottom) 540(top)
-;color door x coordinates 1600(left) 1710(right)
+;number door y coordinates 300(bottom) 300(top)
+;number door x coordinates 1060 (left) 1140(right)
 
-;tutorial door y coordinates ?(bottom) ?(top)
-;tutorial door x coordinates ?(left) ?(right)
+
+
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing 
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
@@ -406,24 +406,24 @@
     (cond                                       
 
         [(and (string=? (world-scene w) "Lobby") ;Shape Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 590)
-             (>= (ChPos-y (Character-pos (world-character w))) 530))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 310)
-             (<= (ChPos-x (Character-pos (world-character w))) 380))) 
+        (and (<= (ChPos-y (Character-pos (world-character w))) 700)
+             (>= (ChPos-y (Character-pos (world-character w))) 670))
+        (and (>= (ChPos-x (Character-pos (world-character w))) 370)
+             (<= (ChPos-x (Character-pos (world-character w))) 420))) 
              (swShape w)]
          
          [(and (string=? (world-scene w) "Lobby") ;Color Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 600)
-             (>= (ChPos-y (Character-pos (world-character w))) 540))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 1600)
-             (<= (ChPos-x (Character-pos (world-character w))) 1620))) 
+        (and (<= (ChPos-y (Character-pos (world-character w))) 710)
+             (>= (ChPos-y (Character-pos (world-character w))) 660))
+        (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
+             (<= (ChPos-x (Character-pos (world-character w))) 1550))) 
              (swColor w)]
 
           [(and (string=? (world-scene w) "Lobby") ;Number Door
-        (and (<= (ChPos-y (Character-pos (world-character w))) 220)
-             (>= (ChPos-y (Character-pos (world-character w))) 220))
-        (and (>= (ChPos-x (Character-pos (world-character w))) 1030)
-             (<= (ChPos-x (Character-pos (world-character w))) 1120))) 
+        (and (<= (ChPos-y (Character-pos (world-character w))) 300)
+             (>= (ChPos-y (Character-pos (world-character w))) 300))
+        (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
+             (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
              (swNumber w)]
 
         [(or (key=? ki "left") (key=? ki "a")) 
