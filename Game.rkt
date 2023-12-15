@@ -17,8 +17,6 @@
 (define-struct skin(name direction))
 ;skinD --> west east south north
 (define-struct skinD(west east south north))
-;Sound --> Sound Path, Boolean
-(define-struct Sound (path boolean))
 
 ;=======================================================================================
 ;************************************ Sound ********************************************
@@ -30,6 +28,8 @@
 (define footstep2Path "./Concretefootstep2.mp3")
 (define footstepSounds (list footstepPath footstep2Path))
 (define bellRingPath "./bellRing.wav")
+(define wrongChoiceEffectPath "./wrongChoiceEffect.mp3")
+(define correctAnswerEffectPath "./correctAnswerEffect.wav")
 
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
@@ -42,6 +42,12 @@
 
 (define (playBellRingSound)
   (play-sound bellRingPath #f))
+
+(define (playWrongChoiceEffectSound)
+  (play-sound wrongChoiceEffectPath #f))
+
+(define (playCorrectAnswerEffectSound)
+  (play-sound correctAnswerEffectPath #f))  
 
 ;=======================================================================================
 ;************************************ Images *******************************************
@@ -157,14 +163,27 @@
 (define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
 
 ;ShapeLobby 
-(define shapeLobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/shapes background.jpg"))
-(define shapeLevel1Bg (empty-scene 1920 1080))
-(define shapeElevatorBg (empty-scene 1920 1080))
+(define shapeLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
+(define shapeLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
+(define shapeLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
+(define shapeLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
+(define shapeLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
+(define shapeLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
+(define shapeLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
+
+(define shapeLevel2Bg (empty-scene 1920 1080))
+
+(define shapeLevel3Bg (empty-scene 1920 1080))
+
 ;ColorLobby 
 (define colorLobbyBg (empty-scene 1920 1080))
 
 ;NumberLobby 
 (define numberLobbyBg (empty-scene 1920 1080))
+
+;Elevator Background
+(define ElevatorBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/elevator.jpg"))
+
 
 ;zainab's bitmap
 
@@ -187,9 +206,12 @@
 ;(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
 
 ;ShapeLobby 
-;(define shapeLobbyBg (empty-scene 1920 1080))
-;(define shapeLevel1Bg (empty-scene 1920 1080))
-;(define shapeElevatorBg (empty-scene 1920 1080))
+;(define shapeLobbyL1Bg (empty-scene 1920 1080))
+;(define shapeLevel1Q1Bg (empty-scene 1920 1080))
+
+;Elevator Background
+;(define ElevatorBg (bitmap ""))
+
 ;ColorLobby 
 ;(define colorLobbyBg (empty-scene 1920 1080))
 
@@ -217,9 +239,12 @@
 ;(define lobbyBg (bitmap ""))
 
 ;ShapeLobby (Lobby is scene one) Background
-;(define shapeLobbyBg (empty-scene 1920 1080))
-;(define shapeLevel1Bg (empty-scene 1920 1080))
-;(define shapeElevatorBg (empty-scene 1920 1080))
+;(define shapeLobbyL1Bg (empty-scene 1920 1080))
+;(define shapeLevel1Q1Bg (empty-scene 1920 1080))
+
+;Elevator Background
+;(define ElevatorBg (bitmap ""))
+
 ;ColorLobby (Lobby is scene one) Background
 ;(define colorLobbyBg (empty-scene 1920 1080))
 
@@ -273,26 +298,80 @@
 ;=======================================================================================
 ;************************************ Shape Game ***************************************
 ;=======================================================================================
+;Purpose: Draws The lobbies of the shape game
+;Contract: drawShapeLobby: world --> image
+(define (drawShapeLobby world) 
+     (cond
+          [(string=? (world-scene world) "shapeLobbyL1")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                              (ChPos-x (Character-pos (world-character world))) 
+                                              (ChPos-y (Character-pos (world-character world)))
+                                              shapeLobbyL1Bg)]
+          [(string=? (world-scene world) "shapeLobbyL2")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         shapeLobbyL2Bg)]   
+          [(string=? (world-scene world) "shapeLobbyL3")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         shapeLobbyL3Bg)]))
+;test
 
-(define (drawShapeLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
-                                        (ChPos-x (Character-pos (world-character world))) 
-                                        (ChPos-y (Character-pos (world-character world)))
-                                         shapeLobbyBg))
-(define (drawShapeLevel1 world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
-                                        (ChPos-x (Character-pos (world-character world))) 
-                                        (ChPos-y (Character-pos (world-character world)))
-                                         shapeLevel1Bg))
+;Purpose: Draws The Levels of the shape game 
+(define (drawShapeLevel world) 
+     (cond
+
+          [(string=? (world-scene world) "shapeLevel1Q1")
+          (place-image shapeLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel1Q2")
+          (place-image shapeLevel1Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel1Q3")
+          (place-image shapeLevel1Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel1Q4")
+          (place-image shapeLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+          [(string=? (world-scene world) "shapeLevel2")
+          (place-image shapeLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3")
+          (place-image shapeLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+
+;Elevator image basically 
 (define elevator    
-  (place-image shapeElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+  (place-image ElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
 
-(define (swShapeLobby w) (begin (thread playBellRingSound) (make-world "shapeLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swShapeLevel1 w) (begin (thread playBellRingSound) (make-world "shapeLevel1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLobbyL1 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLobbyL2 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLobbyL3 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swShapeLevel1 w) (begin (thread playBellRingSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel2 w) (begin (thread playBellRingSound) (make-world "shapeLevel2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel3 w) (begin (thread playBellRingSound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
 (define (swShapeElevator w) (begin (thread playBellRingSound) (make-world "shapeElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swShapeLevel1Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel1Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+;Purpose: plays the wrong answer sound effect and returns the world to the same question
+;Contract: wrongAnswer: world --> world
+(define (wrongAnswer w)
+     (cond
+     [(string=? (world-scene w) "shapeLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "shapeLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "shapeLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "shapeLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
+;test
+
 
 ;=======================================================================================
 ;************************************ Color Game ***************************************
@@ -421,7 +500,7 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobby") (string=? (world-scene w) "color1") (string=? (world-scene w) "numberLobby") (string=? (world-scene w) "shapeLevel1"))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "color1") (string=? (world-scene w) "numberLobby"))                                          
     (cond                                       
 
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -429,21 +508,35 @@
              (>= (ChPos-y (Character-pos (world-character w))) 670))
       (and (>= (ChPos-x (Character-pos (world-character w))) 370)
              (<= (ChPos-x (Character-pos (world-character w))) 420))) 
-             (swShapeLobby w)]
+             (swShapeLobbyL1 w)]
           
-         [(and (string=? (world-scene w) "shapeLobby") ;Shape elevator
+         [(and (or (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3")) ;Shape elevator
       (and (<= (ChPos-y (Character-pos (world-character w))) 850)
              (>= (ChPos-y (Character-pos (world-character w))) 390))
       (and (>= (ChPos-x (Character-pos (world-character w))) 130)
              (<= (ChPos-x (Character-pos (world-character w))) 340))) 
              (swShapeElevator w)]
 
-     [(and (string=? (world-scene w) "shapeLobby") ;Shape Level 1 door
+     [(and (string=? (world-scene w) "shapeLobbyL1") ;Shape Level 1 door
       (and (<= (ChPos-y (Character-pos (world-character w))) 630)
              (>= (ChPos-y (Character-pos (world-character w))) 290))
       (and (>= (ChPos-x (Character-pos (world-character w))) 820)
              (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
              (swShapeLevel1 w)]
+
+     [(and (string=? (world-scene w) "shapeLobbyL2") ;Shape Level 2 door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+             (>= (ChPos-y (Character-pos (world-character w))) 290))
+      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+             (swShapeLevel2 w)]
+
+     [(and (string=? (world-scene w) "shapeLobbyL3") ;Shape Level 3 door
+      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+             (>= (ChPos-y (Character-pos (world-character w))) 290))
+      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+             (swShapeLevel3 w)]
 
          
      [(and (string=? (world-scene w) "Lobby") ;Color Door
@@ -594,6 +687,22 @@
 ;TutorialPopUpNo button y-axis start from 770(bottom) to 670(top)
 ;TutorialPopUpNo button x-axis start from 1029(left) to 1376(right)
 
+;Elevator Level 1 button y-axis start from 453(bottom) to 419(top)
+;Elevator Level 1 button x-axis start from 1443(left) to 1480(right)
+;Elevator Level 2 button y-axis start from 505(bottom) to 471(top)
+;Elevator Level 2 button x-axis start from 1443(left) to 1480(right)
+;Elevator Level 3 button y-axis start from 556(bottom) to 522(top)
+;Elevator Level 3 button x-axis start from 1443(left) to 1480(right)
+
+;Shape Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
+;Shape Level 1 topLeft question button x-axis start from 357(left) to 855(right)
+;Shape Level 1 bottomLeft question button y-axis start from 990(bottom) to 844(top)
+;Shape Level 1 bottomLeft question button x-axis start from 357(left) to 855(right)
+;Shape Level 1 topRight question button y-axis start from 808(bottom) to 663(top)
+;Shape Level 1 topRight question button x-axis start from 1067(left) to 1564(right)
+;Shape Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
+;Shape Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
+
 ;LeaderBoard button y-axis start from ?(bottom) to ?(top)
 ;LeaderBoard button x-axis start from ?(left) to ?(right)
 
@@ -602,68 +711,222 @@
 ;function
 (define (mouseRegister w x y me)
   (cond
-  [(and (and (string=? (world-scene w) "menu") ;Play button
-             (mouse=? me "button-down"))
-        (and (<= y 480) 
-             (>= y 377))
-        (and (>= x 757)   
-             (<= x 1148))) 
-        (cChSelect)]
 
-  [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
-             (mouse=? me "button-down"))
-        (and (<= y 772) 
-             (>= y 271))
-        (and (>= x 66)   
-             (<= x 448))) 
-        (cBoySelect)]
+     [(and (and (string=? (world-scene w) "menu") ;Play button
+                (mouse=? me "button-down"))
+          (and (<= y 480) 
+               (>= y 377))
+          (and (>= x 757)   
+               (<= x 1148))) 
+          (cChSelect)]
 
-  [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Janitor character select
-                 (mouse=? me "button-down"))
-        (and (<= y 772) 
-             (>= y 271))
-        (and (>= x 531)   
-             (<= x 913)))
-        (cJanitorSelect)]
+     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
+                (mouse=? me "button-down"))
+          (and (<= y 772) 
+               (>= y 271))
+          (and (>= x 66)   
+               (<= x 448))) 
+          (cBoySelect)]
 
-  [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Scientist character select
-                 (mouse=? me "button-down"))
-        (and (<= y 772) 
-             (>= y 271))
-        (and (>= x 990)   
-             (<= x 1370)))
-        (cScientistSelect)]
+     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Janitor character select
+                (mouse=? me "button-down"))
+          (and (<= y 772) 
+               (>= y 271))
+          (and (>= x 531)   
+               (<= x 913)))
+          (cJanitorSelect)]
 
-  [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Police Woman character select
-                 (mouse=? me "button-down"))
-        (and (<= y 772) 
-             (>= y 271))
-        (and (>= x 1460)   
-             (<= x 1840)))
-        (cPoliceWomanSelect)]
+     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Scientist character select
+                (mouse=? me "button-down"))
+          (and (<= y 772) 
+               (>= y 271))
+          (and (>= x 990)   
+               (<= x 1370)))
+          (cScientistSelect)]
 
-  [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4"))  ;chSelect confirm button
-             (mouse=? me "button-down"))
-        (and (<= y 1080) 
-             (>= y 931))
-        (and (>= x 1570)   
-             (<= x 1855))) 
-        (cTutorialPopUp w)]
+     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Police Woman character select
+                (mouse=? me "button-down"))
+          (and (<= y 772) 
+               (>= y 271))
+          (and (>= x 1460)   
+               (<= x 1840)))
+          (cPoliceWomanSelect)]
 
-  [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
-             (mouse=? me "button-down"))
+     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4"))  ;chSelect confirm button
+                (mouse=? me "button-down"))
+          (and (<= y 1080) 
+               (>= y 931))
+          (and (>= x 1570)   
+               (<= x 1855))) 
+          (cTutorialPopUp w)]
+
+     [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
+                (mouse=? me "button-down"))
         (and (<= y 770) 
              (>= y 670))
         (and (>= x 567)   
              (<= x 915)))
          (cTutorial w)]
-  [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp no button
-             (mouse=? me "button-down"))
+
+     [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp no button
+                (mouse=? me "button-down"))
         (and (<= y 770)
              (>= y 670))
         (and (>= x 1029)
              (<= x 1376))) 
              (cLobby w)]
+
+     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 1 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 453)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swShapeLobbyL1 w)]
+
+     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 2 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 505)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swShapeLobbyL2 w)]
+
+     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 3 Elevator Button3
+                (mouse=? me "button-down"))
+        (and (<= y 556)
+             (>= y 522))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swShapeLobbyL3 w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 topRight Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swShapeLevel1Q2 w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 2 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 2 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 2 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 2 bottomLeft Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swShapeLevel1Q3 w)]  
+        
+     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 3 topRight Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 3 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swShapeLevel1Q4 w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 3 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 3 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]   
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 4 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 4 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 4 topLeft Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swShapeLobbyL2 w)]
+
+     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 4 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]             
 
   [else w]))
 
@@ -693,14 +956,28 @@
                     drawTutorialPopUp]
         [(string=? (world-scene world) "tutorial")
                     (drawTutorial world)]
-        [(string=? (world-scene world) "shapeLobby")
+        [(string=? (world-scene world) "shapeLobbyL1")
+                    (drawShapeLobby world)]
+        [(string=? (world-scene world) "shapeLobbyL2")
+                    (drawShapeLobby world)]
+        [(string=? (world-scene world) "shapeLobbyL3")
                     (drawShapeLobby world)]
        [(string=? (world-scene world) "colorLobby")
                     (drawColorLobby world)]
        [(string=? (world-scene world) "numberLobby")
                     (drawNumberLobby world)]
-       [(string=? (world-scene world) "shapeLevel1")
-                    (drawShapeLevel1 world)]
+       [(string=? (world-scene world) "shapeLevel1Q1")
+                    (drawShapeLevel world)]
+       [(string=? (world-scene world) "shapeLevel1Q2")
+                    (drawShapeLevel world)]
+       [(string=? (world-scene world) "shapeLevel1Q3")
+                    (drawShapeLevel world)]
+       [(string=? (world-scene world) "shapeLevel1Q4")
+                    (drawShapeLevel world)]
+       [(string=? (world-scene world) "shapeLevel2")
+                    (drawShapeLevel world)]
+       [(string=? (world-scene world) "shapeLevel3")
+                    (drawShapeLevel world)]
        [(string=? (world-scene world) "shapeElevator")
                     elevator]
 
@@ -722,8 +999,8 @@
                     (cTutorial world)]
         [(string=? (world-scene world) "tutorialPopUp")
                     (cTutorialPopUp)]
-        [(string=? (world-scene world) "shapeLobby")
-                    (swShapeLobby)]
+        [(string=? (world-scene world) "shapeLobbyL1")
+                    (swShapeLobbyL1)]
         [(string=? (world-scene world) "colorLobby")
                     (swColor)] 
         [(string=? (world-scene world) "numberLobby")
