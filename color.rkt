@@ -232,7 +232,7 @@
 (define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
 (define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
-(define colorLevel2Bg (empty-scene 1920 1080))
+(define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
 ;(define colorLevel2GameBg (bitmap ""))
 ;(define colorLevel2RedSquare (bitmap ""))
 ;(define colorLevel2OrangeSquare (bitmap ""))
@@ -473,6 +473,7 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL3Bg)]))
+
 ;test
 
 ;Purpose: Draws The Levels of the Color game 
@@ -488,9 +489,15 @@
           (place-image colorLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "colorLevel1Q5")
           (place-image colorLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-
+       
           [(string=? (world-scene world) "colorLevel2")
-          (place-image colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2Bg)]
+
           [(string=? (world-scene world) "colorLevel3")
           (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
@@ -526,6 +533,8 @@
 (define (swColorLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
+
+;change sound effecta
 ;(define (swColorLevel2Game w) (begin (thread playBellRingSound) (make-world "colorLevel2Game" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2RedSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2RedSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2OrangeSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2OrangeSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -534,7 +543,32 @@
 ;(define (swColorLevel2BlueSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2PurpleSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
+(define (drawColorLevel2 world)
+     (cond
+          [(string=? (world-scene world) "colorLevel2")
+          (place-image  colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "redFrameClicked")
+          (overlay/xy (rectangle 100 100 "solid" "red") 1125 988) colorLevel2Bg]
+          
+          [else world]))
 
+(define (mouseColor world x y)
+     (cond
+          [(string=? (world-scene world) "colorLevel2")
+          (cond
+               [(and (= x 712) (= y 951))
+                    (make-world "redFramedClicked" (world-character world))]
+                    [else world])]
+          [else world]))
+
+(define (mouseLevel2 world x y)
+     (cond 
+          [(string=? (world-scene world) "colorLevel2")
+          (cond
+               [(and (= x 712) (= y 951))
+                    (make-world "redFramedClicked" (world-character world))]
+               [else world])]
+          [else world]))
 
 
 
@@ -654,7 +688,7 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "numberLobby"))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "numberLobby"))                                          
     (cond                                       
 
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -735,7 +769,6 @@
           (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
                (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
                (swNumber w)]
-
 
 
      [(or (key=? ki "left") (key=? ki "a")) 
