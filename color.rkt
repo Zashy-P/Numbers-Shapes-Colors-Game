@@ -432,7 +432,12 @@
      [(string=? (world-scene w) "shapeLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "shapeLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "shapeLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "shapeLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
+     [(string=? (world-scene w) "shapeLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
 ;test
 
 
@@ -529,15 +534,6 @@
 ;(define (swColorLevel2BlueSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2PurpleSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
-;Purpose: plays the wrong answer sound effect and returns the world to the same question
-;Contract: wrongAnswer: world --> world
-(define (wrongAnswerColor w)
-     (cond
-     [(string=? (world-scene w) "colorLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
 
 
 
@@ -1148,7 +1144,7 @@
              (>= y 663))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomRight wrong button
                 (mouse=? me "button-down"))
@@ -1156,7 +1152,7 @@
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topLeft right button
                 (mouse=? me "button-down"))
@@ -1172,7 +1168,7 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topRight wrong button
                 (mouse=? me "button-down"))
@@ -1180,7 +1176,7 @@
              (>= y 663))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomRight wrong button
                 (mouse=? me "button-down"))
@@ -1188,7 +1184,7 @@
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topLeft wrong button
                 (mouse=? me "button-down"))
@@ -1196,7 +1192,7 @@
              (>= y 663))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomLeft Correct button
                 (mouse=? me "button-down"))
@@ -1220,7 +1216,7 @@
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor   w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topLeft wrong button
                 (mouse=? me "button-down"))
@@ -1228,7 +1224,7 @@
              (>= y 663))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomLeft wrong button
                 (mouse=? me "button-down"))
@@ -1236,7 +1232,7 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]   
+             (wrongAnswer w)]   
 
      [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topRight wrong button
                 (mouse=? me "button-down"))
@@ -1244,7 +1240,7 @@
              (>= y 663))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight right button
                 (mouse=? me "button-down"))
@@ -1260,7 +1256,7 @@
              (>= y 663))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomLeft wrong button
                 (mouse=? me "button-down"))
@@ -1268,7 +1264,7 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q") ;color Level 5 topRight wrong button
                 (mouse=? me "button-down"))
@@ -1276,7 +1272,7 @@
              (>= y 663))
         (and (>= x 1067)
              (<= x 1564))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight right button
                 (mouse=? me "button-down"))
@@ -1292,7 +1288,7 @@
              (>= y 663))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]
+             (wrongAnswer w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft correct button
                 (mouse=? me "button-down"))
@@ -1300,8 +1296,7 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]    
-
+             (wrongAnswer w)]    
 
 
   [else w]))
