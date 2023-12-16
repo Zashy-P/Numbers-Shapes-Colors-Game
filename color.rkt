@@ -230,6 +230,7 @@
 (define colorLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
 (define colorLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
 (define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
+(define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
 (define colorLevel2Bg (empty-scene 1920 1080))
 ;(define colorLevel2GameBg (bitmap ""))
@@ -480,6 +481,8 @@
           (place-image colorLevel1Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "colorLevel1Q4")
           (place-image colorLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel1Q5")
+          (place-image colorLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
           [(string=? (world-scene world) "colorLevel2")
           (place-image colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
@@ -516,6 +519,7 @@
 (define (swColorLevel1Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel1Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 ;(define (swColorLevel2Game w) (begin (thread playBellRingSound) (make-world "colorLevel2Game" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2RedSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2RedSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -533,8 +537,7 @@
      [(string=? (world-scene w) "colorLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "colorLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "colorLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-
-     ))
+     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
 
 
 
@@ -1217,7 +1220,7 @@
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (  w)]
+             (wrongAnswerColor   w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topLeft wrong button
                 (mouse=? me "button-down"))
@@ -1243,13 +1246,13 @@
              (<= x 1564))) 
              (wrongAnswerColor w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight wrong button
+     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight right button
                 (mouse=? me "button-down"))
         (and (<= y 990)
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (swColorLobbyL2 w)]
+             (swColorLevel1Q5 w)]
 
      [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topLeft Correct button
                 (mouse=? me "button-down"))
@@ -1265,7 +1268,39 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswerColor w)]   
+             (wrongAnswerColor w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q") ;color Level 5 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswerColor w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight right button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swColorLobbyL2 w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswerColor w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswerColor w)]    
 
 
 
@@ -1335,6 +1370,8 @@
        [(string=? (world-scene world) "colorLevel1Q3")
                     (drawColorLevel world)]
        [(string=? (world-scene world) "colorLevel1Q4")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel1Q5")
                     (drawColorLevel world)]
        [(string=? (world-scene world) "colorLevel2")
                     (drawColorLevel world)]
