@@ -641,9 +641,17 @@
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "boy"))
      (skinD-south boySkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boy"))
-
-
      (skinD-north boySkin)]
+     
+    ;[(and (string=? (skin-direction s) "left") (string=? (skin-name s) "boyRed"))
+    ; (skinD-west boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "right") (string=? (skin-name s) "boyRed"))
+    ; (skinD-east boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "down") (string=? (skin-name s) "boyRed"))
+     ;(skinD-south boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boyRed"))
+
+     
     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "janitor"))
      (skinD-west janitorSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "janitor"))

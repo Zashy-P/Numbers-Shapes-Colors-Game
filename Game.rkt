@@ -56,62 +56,62 @@
 ;abdulrahman's bitmaps
 
 ;boy skin
-(define skinBoyWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
-(define skinBoyEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
-(define skinBoyNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
-(define skinBoySouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
-(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+;(define skinBoyWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
+;(define skinBoyEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
+;(define skinBoyNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
+;(define skinBoySouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
+;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;Janitor skin
-(define skinJanitorWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
-(define skinJanitorEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
-(define skinJanitorNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
-(define skinJanitorSouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
-(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+;(define skinJanitorWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
+;;(define skinJanitorEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
+;(define skinJanitorNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
+;(define skinJanitorSouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
+;(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
 
 ;Scientist skin
-(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
-(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
-(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
+;(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
+;(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
+;(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
+;(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+;;(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
 
 ;Police woman skin
-(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
-(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
-(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
-(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
-(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+;(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
+;(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
+;(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
+;(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
+;(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
 
 ;zainab's bitmaps
 
 ;boy skin
-;(define skinBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
-;(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
-;(define skinBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
-;(define skinBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
-;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+(define skinBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
+(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
+(define skinBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
+(define skinBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
+(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;janitor skin
-;(define skinJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
-;(define skinJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
-;(define skinJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
-;(define skinJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
-;(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+(define skinJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
+(define skinJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
+(define skinJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
+(define skinJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
+(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
 
 ;Scientist skin
-;(define skinScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
-;(define skinScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-;(define skinScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-;(define skinScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
-;(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
+(define skinScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
+(define skinScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
+(define skinScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
+(define skinScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
 
 ;Police woman skin
-;(define skinPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
-;(define skinPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
-;(define skinPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
-;(define skinPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
-;(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+(define skinPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
+(define skinPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
+(define skinPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
+(define skinPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
+(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
 
 ;maysam's bitmaps
 
@@ -145,78 +145,128 @@
 ;abdulrahman's bitmap
 
 ;Menu Background 
-(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
+;(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
 
 ;Character Select Backgrounds
-(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
-(define chSelect2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
-(define chSelect3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
-(define chSelect4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
+;(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
+;(define chSelect2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
+;(define chSelect3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
+;(define chSelect4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
 
 ;Tutorial Pop Up Background
-(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+;(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
 
 ;Tutorial Background
-(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+;(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
+;(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
 
 ;ShapeLobby 
-(define shapeLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
-(define shapeLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
-(define shapeLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
-(define shapeLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
-(define shapeLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
-(define shapeLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
-(define shapeLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
+;(define shapeLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
+;(define shapeLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
+;(define shapeLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
+;(define shapeLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
+;(define shapeLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
+;(define shapeLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
+;(define shapeLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
 
-(define shapeLevel2Bg (empty-scene 1920 1080))
+;(define shapeLevel2Bg (empty-scene 1920 1080))
 
-(define shapeLevel3Bg (empty-scene 1920 1080))
-
-;ColorLobby 
-(define colorLobbyBg (empty-scene 1920 1080))
+;(define shapeLevel3Bg (empty-scene 1920 1080))
 
 ;NumberLobby 
-(define numberLobbyBg (empty-scene 1920 1080))
+;(define numberLobbyBg (empty-scene 1920 1080))
+
+
+;ColorLobby 
+;(define colorLobbyL1Bg (bitmap ""))
+;(define colorLobbyL2Bg (bitmap ""))
+;(define colorLobbyL3Bg (bitmap ""))
+;(define colorLevel1Q1Bg (bitmap ""))
+;(define colorLevel1Q2Bg (bitmap ""))
+;(define colorLevel1Q3Bg (bitmap ""))
+;(define colorLevel1Q4Bg (bitmap ))
+
+;(define colorLevel2Bg (empty-scene 1920 1080))
+
+;(define colorLevel3Bg (empty-scene 1920 1080))
+
 
 ;Elevator Background
-(define ElevatorBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/elevator.jpg"))
+;(define ElevatorBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/elevator.jpg"))
 
 
 ;zainab's bitmap
 
 ;Menu Background
-;(define menuBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
-;(define chSelect2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
-;(define chSelect3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
-;(define chSelect4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
+(define menuBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
+(define chSelect2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
+(define chSelect3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
+(define chSelect4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
 
 ;Character Select Background
-;(define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
+(define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
 
 ;Tutorial Pop Up Background
-;(define tutorialPopUpBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
+(define tutorialPopUpBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
 
 ;Tutorial Background
-;(define tutorialBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
+(define tutorialBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
 
 ;Lobby Background
-;(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
-
-;ShapeLobby 
-;(define shapeLobbyL1Bg (empty-scene 1920 1080))
-;(define shapeLevel1Q1Bg (empty-scene 1920 1080))
+(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
 
 ;Elevator Background
-;(define ElevatorBg (bitmap ""))
+(define ElevatorBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/elevator.jpg"))
+
 
 ;ColorLobby 
-;(define colorLobbyBg (empty-scene 1920 1080))
+(define colorLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 1.jpg"))
+(define colorLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 2.jpg"))
+(define colorLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 3.jpg"))
+
+(define colorLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 1.jpg"))
+(define colorLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
+(define colorLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
+(define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
+(define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
+
+(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
+
+
+(define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
+;(define colorLevel2GameBg (bitmap ""))
+;(define colorLevel2RedSquareBg (bitmap ""))
+;(define colorLevel2OrangeSquareBg (bitmap ""))
+;(define colorLevel2YellowSquareBg (bitmap ""))
+;(define colorLevel2GreenSquareBg (bitmap ""))
+;(define colorLevel2BlueSquareBg (bitmap ""))
+;(define colorLevel2PurpleSquareBg (bitmap ""))
+
+
+(define colorLevel3Bg (empty-scene 1920 1080))
+
+;ShapeLobby 
+(define shapeLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
+(define shapeLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
+(define shapeLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
+
+(define shapeLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
+(define shapeLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
+(define shapeLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
+(define shapeLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
+
+(define shapeLevel2Bg (empty-scene 1920 1080))
+
+
+(define shapeLevel3Bg (empty-scene 1920 1080))
+
 
 ;NumberLobby 
-;(define numberLobbyBg (empty-scene 1920 1080))
+(define numberLobbyBg (empty-scene 1920 1080))
+
+
 
 ;maysam's bitmap
 
@@ -245,11 +295,25 @@
 ;Elevator Background
 ;(define ElevatorBg (bitmap ""))
 
-;ColorLobby (Lobby is scene one) Background
-;(define colorLobbyBg (empty-scene 1920 1080))
+;ColorLobby 
+;(define colorLobbyL1Bg (bitmap ""))
+;(define colorLobbyL2Bg (bitmap ""))
+;(define colorLobbyL3Bg (bitmap ""))
+;(define colorLevel1Q1Bg (bitmap ""))
+;(define colorLevel1Q2Bg (bitmap ""))
+;(define colorLevel1Q3Bg (bitmap ""))
+;(define colorLevel1Q4Bg (bitmap ))
+
+;(define colorLevel2Bg (empty-scene 1920 1080))
+
+;(define colorLevel3Bg (empty-scene 1920 1080))
+
 
 ;NumberLobby (Lobby is scene one) Background
 ;(define numberLobbyBg (empty-scene 1920 1080))
+
+
+
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
@@ -258,9 +322,12 @@
 ;(define skinBoyNorth (line 0 2 "red"))
 ;(define skinBoySouth (line 0 2 "red"))
 
+
 ;world's center width and height
 (define worldCenterWidth 960)
 (define worldCenterHeight 540)
+
+;lobby's center width and height
 (define lobbyCenterWidth 1010)
 (define lobbyCenterHeight 700)
 
@@ -347,7 +414,6 @@
 (define elevator    
   (place-image ElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
-
 (define (swShapeLobbyL1 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLobbyL2 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLobbyL3 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -369,22 +435,144 @@
      [(string=? (world-scene w) "shapeLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "shapeLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "shapeLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "shapeLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
+     [(string=? (world-scene w) "shapeLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
 ;test
 
 
 ;=======================================================================================
 ;************************************ Color Game ***************************************
 ;=======================================================================================
+;purpose: draw the lobbies/levels of the color game
+;contract: drawColorLobby: world --> image
+;test
 
-(define (drawColorLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+(define (drawColorLobby world) 
+     (cond
+
+          [(string=? (world-scene world) "colorLobbyL1")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                              (ChPos-x (Character-pos (world-character world))) 
+                                              (ChPos-y (Character-pos (world-character world)))
+                                              colorLobbyL1Bg)]
+
+          [(string=? (world-scene world) "colorLobbyL2")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         colorLobbyBg))
+                                         colorLobbyL2Bg)]   
+                                         
+          [(string=? (world-scene world) "colorLobbyL3")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLobbyL3Bg)]))
+;test
+
+;Purpose: Draws The Levels of the Color game 
+(define (drawColorLevel world) 
+     (cond
+          [(string=? (world-scene world) "colorLevel1Q1")
+          (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel1Q2")
+          (place-image colorLevel1Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel1Q3")
+          (place-image colorLevel1Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel1Q4")
+          (place-image colorLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel1Q5")
+          (place-image colorLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+       
+          [(string=? (world-scene world) "colorLevel2")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2Bg)]
+
+          [(string=? (world-scene world) "colorLevel3")
+          (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+          ;[(string=? (world-scene world) "colorLevel2Game")
+          ;[(string=? (world-scene world) "colorLevel2RedSquare")
+          ;(place-image colorLevel2RedSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ;[(string=? (world-scene world) "colorLevel2OrangeSquare")
+          ;(place-image colorLevel2OrangeSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ;[(string=? (world-scene world) "colorLevel2YellowSquare")
+          ;(place-image colorLevel2YellowSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ;[(string=? (world-scene world) "colorLevel2GreenSquare")
+          ;(place-image colorLevel2GreenSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ;[(string=? (world-scene world) "colorLevel2BlueSquare")
+          ;(place-image colorLevel2BlueSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ;[(string=? (world-scene world) "colorLevel2PurpleSquare")
+          ;(place-image colorLevel2PurpleSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          ))
           
-(define (swColor w) (begin (thread playBellRingSound) (make-world "colorLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLobbyL2 w) (begin (thread playBellRingSound) (make-world "colorLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLobbyL3 w) (begin (thread playBellRingSound) (make-world "colorLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorLevel1 w) (begin (thread playBellRingSound) (make-world "colorLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2 w) (begin (thread playBellRingSound) (make-world "colorLevel2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel3 w) (begin (thread playBellRingSound) (make-world "colorLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorElevator w) (begin (thread playBellRingSound) (make-world "colorElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorLevel1Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel1Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+;change sound effecta
+;(define (swColorLevel2Game w) (begin (thread playBellRingSound) (make-world "colorLevel2Game" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2RedSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2RedSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2OrangeSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2OrangeSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2YellowSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2YellowSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2GreenSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2GreenSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2BlueSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+;(define (swColorLevel2PurpleSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (drawColorScore world)
+      (cond
+          [(string=? (world-scene world) "colorLevel1Score5")
+          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
+         ))
+
+         
+(define (drawColorLevel2 world)
+     (cond
+          [(string=? (world-scene world) "colorLevel2")
+          (place-image  colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "redFrameClicked")
+          (overlay/xy (rectangle 100 100 "solid" "red") 169 405) colorLevel2Bg]
+          
+          [else world]))
+
+
+
+(define redSquare (rectangle 144 125 "solid" "red"))
+
+(define (overlayRedSquare w)
+     (define colorLevel2WithRedSquare (overlay/xy redSquare colorLevel2Bg 169 405))
+     (make-world colorLevel2WithRedSquare (world-character w)))
+
+
+
+
 
 ;=======================================================================================
 ;************************************ Number Game **************************************
@@ -447,6 +635,16 @@
      (skinD-south boySkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boy"))
      (skinD-north boySkin)]
+     
+    ;[(and (string=? (skin-direction s) "left") (string=? (skin-name s) "boyRed"))
+    ; (skinD-west boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "right") (string=? (skin-name s) "boyRed"))
+    ; (skinD-east boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "down") (string=? (skin-name s) "boyRed"))
+     ;(skinD-south boyRedSkin)]
+    ;[(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boyRed"))
+
+     
     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "janitor"))
      (skinD-west janitorSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "janitor"))
@@ -493,6 +691,8 @@
 ;number door y coordinates 300(bottom) 300(top)
 ;number door x coordinates 1060 (left) 1140(right)
 
+;exit lobby door y coordinates  792(bottom)  726(top)
+;exit lobby door x coordinates 1515(left)  1693(right)
 
 
 
@@ -500,7 +700,7 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "color1") (string=? (world-scene w) "numberLobby"))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "numberLobby"))                                          
     (cond                                       
 
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -533,25 +733,56 @@
 
      [(and (string=? (world-scene w) "shapeLobbyL3") ;Shape Level 3 door
       (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-             (>= (ChPos-y (Character-pos (world-character w))) 290))
+          (>= (ChPos-y (Character-pos (world-character w))) 290))
       (and (>= (ChPos-x (Character-pos (world-character w))) 820)
              (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
              (swShapeLevel3 w)]
 
-         
+
+
      [(and (string=? (world-scene w) "Lobby") ;Color Door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 710)
-             (>= (ChPos-y (Character-pos (world-character w))) 660))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
-             (<= (ChPos-x (Character-pos (world-character w))) 1550))) 
-             (swColor w)]
+       (and (<= (ChPos-y (Character-pos (world-character w))) 710)
+            (>= (ChPos-y (Character-pos (world-character w))) 660))
+       (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
+            (<= (ChPos-x (Character-pos (world-character w))) 1550))) 
+            (swColorLobbyL1 w)]
+
+     [(and (or (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3")) ;color elevator
+     (and (<= (ChPos-y (Character-pos (world-character w))) 850)
+          (>= (ChPos-y (Character-pos (world-character w))) 390))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 130)
+          (<= (ChPos-x (Character-pos (world-character w))) 340))) 
+          (swColorElevator w)]
+
+     [(and (string=? (world-scene w) "colorLobbyL1") ;color Level 1 door
+     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+          (>= (ChPos-y (Character-pos (world-character w))) 290))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+          (swColorLevel1 w)]
+
+     [(and (string=? (world-scene w) "colorLobbyL2") ;color Level 2 door
+     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+          (>= (ChPos-y (Character-pos (world-character w))) 290))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+          (swColorLevel2 w)]
+
+     [(and (string=? (world-scene w) "colorLobbyL3") ;color Level 3 door
+          (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+               (>= (ChPos-y (Character-pos (world-character w))) 290))
+          (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+               (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+               (swColorLevel3 w)]
+
 
      [(and (string=? (world-scene w) "Lobby") ;Number Door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 300)
-             (>= (ChPos-y (Character-pos (world-character w))) 300))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
-             (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
-             (swNumber w)]
+          (and (<= (ChPos-y (Character-pos (world-character w))) 300)
+               (>= (ChPos-y (Character-pos (world-character w))) 300))
+          (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
+               (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
+               (swNumber w)]
+
 
      [(or (key=? ki "left") (key=? ki "a")) 
           (begin 
@@ -618,6 +849,7 @@
 ;=======================================================================================
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
+
 
 ;defines the character select scene once clicked
 (define (cChSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
@@ -694,24 +926,85 @@
 ;Elevator Level 3 button y-axis start from 556(bottom) to 522(top)
 ;Elevator Level 3 button x-axis start from 1443(left) to 1480(right)
 
-;Shape Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
-;Shape Level 1 topLeft question button x-axis start from 357(left) to 855(right)
-;Shape Level 1 bottomLeft question button y-axis start from 990(bottom) to 844(top)
-;Shape Level 1 bottomLeft question button x-axis start from 357(left) to 855(right)
-;Shape Level 1 topRight question button y-axis start from 808(bottom) to 663(top)
-;Shape Level 1 topRight question button x-axis start from 1067(left) to 1564(right)
-;Shape Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
-;Shape Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
+;Shape, Color, and Number Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
+;Shape, Color, and Number Level 1 topLeft question button x-axis start from 357(left) to 855(right)
+;Shape, Color, and Number Level 1 bottomLeft question button y-axis start from 990(bottom) to 844(top)
+;Shape, Color, and Number Level 1 bottomLeft question button x-axis start from 357(left) to 855(right)
+;Shape, Color, and Number Level 1 topRight question button y-axis start from 808(bottom) to 663(top)
+;Shape, Color, and Number Level 1 topRight question button x-axis start from 1067(left) to 1564(right)
+;Shape, Color, and Number Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
+;Shape, Color, and Number Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
+
+;Color Level 2:
+;red frame
+;y-axis:  530(bottom)  405(top)
+;x-axiis:  169(left)  313(right)
+
+;orange frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;yellow frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;green frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;blue frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;purple frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+
+;red paint bucket
+;y-axis:  446(bottom)  393(top)
+;x-axiis:  898(left)  942(right)
+
+;orange paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;yellow paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;green paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;blue paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;purple paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+
+;ScoreBoard next button:
+;y-axis:  1018(bottom)  917(top)
+;x-axiis:  1028(left)  1397(right)
+
+;ScoreBoard exit button:
+;y-axis:  1018(bottom)  910(top)
+;x-axiis:  584(left)  953(right)
 
 ;LeaderBoard button y-axis start from ?(bottom) to ?(top)
 ;LeaderBoard button x-axis start from ?(left) to ?(right)
 
+
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
 ;function
+
+
 (define (mouseRegister w x y me)
   (cond
-
      [(and (and (string=? (world-scene w) "menu") ;Play button
                 (mouse=? me "button-down"))
           (and (<= y 480) 
@@ -926,7 +1219,222 @@
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswer w)]             
+             (wrongAnswer w)] 
+
+
+     [(and (and (string=? (world-scene w) "colorElevator") ;Level 1 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 453)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swColorLobbyL1 w)]
+
+     [(and (and (string=? (world-scene w) "colorElevator") ;Level 2 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 505)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swColorLobbyL2 w)]
+
+     [(and (and (string=? (world-scene w) "colorElevator") ;Level 3 Elevator Button3
+                (mouse=? me "button-down"))
+        (and (<= y 556)
+             (>= y 522))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swColorLobbyL3 w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topRight Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topLeft right button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swColorLevel1Q2  w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomLeft Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swColorLevel1Q3 w)]  
+        
+     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topRight Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swColorLevel1Q4 w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]   
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight right button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swColorLevel1Q5 w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topLeft Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q") ;color Level 5 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swColorLevel1Score5 w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 score board exit button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 910))
+        (and (>= x 584)   
+             (<= x 953)))
+         (swColorLobbyL1 w)]  
+
+     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 next button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 917))
+        (and (>= x 1028)   
+             (<= x 1397)))
+         (swColorLobbyL2 w)]
+
+
+    [(and (and (string=? (world-scene w) "colorLevel2") 
+               (mouse=? me "button-down"))
+          (and (<= y 446) 
+               (>= y 393))
+          (and (>= x 898)   
+               (<= x 942))
+          (and (<= y 530) 
+               (>= y 405))
+          (and (>= x 169)   
+               (<= x 313)))
+     (overlayRedSquare w)] 
+
 
   [else w]))
 
@@ -962,8 +1470,6 @@
                     (drawShapeLobby world)]
         [(string=? (world-scene world) "shapeLobbyL3")
                     (drawShapeLobby world)]
-       [(string=? (world-scene world) "colorLobby")
-                    (drawColorLobby world)]
        [(string=? (world-scene world) "numberLobby")
                     (drawNumberLobby world)]
        [(string=? (world-scene world) "shapeLevel1Q1")
@@ -981,6 +1487,33 @@
        [(string=? (world-scene world) "shapeElevator")
                     elevator]
 
+       [(string=? (world-scene world) "colorLobbyL1")
+                    (drawColorLobby world)]
+        [(string=? (world-scene world) "colorLobbyL2")
+                    (drawColorLobby world)]
+        [(string=? (world-scene world) "colorLobbyL3")
+                    (drawColorLobby world)]
+       [(string=? (world-scene world) "colorLobby")
+                    (drawColorLobby world)]
+       [(string=? (world-scene world) "colorLevel1Q1")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel1Q2")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel1Q3")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel1Q4")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel1Q5")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel3")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorElevator")
+                    elevator]
+       [(string=? (world-scene world) "colorLevel1Score5")
+                    (drawColorScore world)]
+       
         [else (empty-scene 1920 1080)]))
 
 ;test
@@ -1001,8 +1534,8 @@
                     (cTutorialPopUp)]
         [(string=? (world-scene world) "shapeLobbyL1")
                     (swShapeLobbyL1)]
-        [(string=? (world-scene world) "colorLobby")
-                    (swColor)] 
+        [(string=? (world-scene world) "colorLobbyL1")
+                    (swColorLobbyL1)] 
         [(string=? (world-scene world) "numberLobby")
                     (swNumber)]            
 
