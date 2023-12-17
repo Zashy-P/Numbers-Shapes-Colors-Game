@@ -232,6 +232,9 @@
 (define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
 (define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
+(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
+
+
 (define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
 ;(define colorLevel2GameBg (bitmap ""))
 ;(define colorLevel2RedSquare (bitmap ""))
@@ -473,7 +476,12 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL3Bg)]))
-
+(define (drawColorScore world)
+      (cond
+          [(string=? (world-scene world) "colorLevel1Score5")
+          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
+         ))
 ;test
 
 ;Purpose: Draws The Levels of the Color game 
@@ -533,6 +541,7 @@
 (define (swColorLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
+(define (swColorLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 ;change sound effecta
 ;(define (swColorLevel2Game w) (begin (thread playBellRingSound) (make-world "colorLevel2Game" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -912,14 +921,73 @@
 ;Elevator Level 3 button y-axis start from 556(bottom) to 522(top)
 ;Elevator Level 3 button x-axis start from 1443(left) to 1480(right)
 
-;Shape Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
-;Shape Level 1 topLeft question button x-axis start from 357(left) to 855(right)
-;Shape Level 1 bottomLeft question button y-axis start from 990(bottom) to 844(top)
-;Shape Level 1 bottomLeft question button x-axis start from 357(left) to 855(right)
-;Shape Level 1 topRight question button y-axis start from 808(bottom) to 663(top)
-;Shape Level 1 topRight question button x-axis start from 1067(left) to 1564(right)
-;Shape Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
-;Shape Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
+;Shape, Color, and Number Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
+;Shape, Color, and Number Level 1 topLeft question button x-axis start from 357(left) to 855(right)
+;Shape, Color, and Number Level 1 bottomLeft question button y-axis start from 990(bottom) to 844(top)
+;Shape, Color, and Number Level 1 bottomLeft question button x-axis start from 357(left) to 855(right)
+;Shape, Color, and Number Level 1 topRight question button y-axis start from 808(bottom) to 663(top)
+;Shape, Color, and Number Level 1 topRight question button x-axis start from 1067(left) to 1564(right)
+;Shape, Color, and Number Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
+;Shape, Color, and Number Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
+
+;Color Level 2:
+;red frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;orange frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;yellow frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;green frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;blue frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;purple frame
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+
+;red paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;orange paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;yellow paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;green paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;blue paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+;purple paint bucket
+;y-axis:  (bottom)  (top)
+;x-axiis:  (left)  (right)
+
+
+;ScoreBoard next button:
+;y-axis:  1018(bottom)  917(top)
+;x-axiis:  1028(left)  1397(right)
+
+;ScoreBoard exit button:
+;y-axis:  1018(bottom)  910(top)
+;x-axiis:  584(left)  953(right)
 
 ;LeaderBoard button y-axis start from ?(bottom) to ?(top)
 ;LeaderBoard button x-axis start from ?(left) to ?(right)
@@ -1307,15 +1375,15 @@
              (<= x 1564))) 
              (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight right button
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight correct button
                 (mouse=? me "button-down"))
         (and (<= y 990)
              (>= y 844))
         (and (>= x 1067)
              (<= x 1564))) 
-             (swColorLobbyL2 w)]
+             (swColorLevel1Score5 w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft Correct button
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft wrong button
                 (mouse=? me "button-down"))
         (and (<= y 808)
              (>= y 663))
@@ -1323,13 +1391,29 @@
              (<= x 855))) 
              (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft correct button
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft wrong button
                 (mouse=? me "button-down"))
         (and (<= y 990)
              (>= y 844))
         (and (>= x 357)
              (<= x 855))) 
-             (wrongAnswer w)]    
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 score board exit button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 910))
+        (and (>= x 584)   
+             (<= x 953)))
+         (swColorLobbyL1 w)]  
+
+     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 next button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 917))
+        (and (>= x 1028)   
+             (<= x 1397)))
+         (swColorLobbyL2 w)]  
 
 
   [else w]))
@@ -1407,6 +1491,8 @@
                     (drawColorLevel world)]
        [(string=? (world-scene world) "colorElevator")
                     elevator]
+       [(string=? (world-scene world) "colorLevel1Score5")
+                    (drawColorScore world)]
 
         [else (empty-scene 1920 1080)]))
 
