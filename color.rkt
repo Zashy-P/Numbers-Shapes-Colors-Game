@@ -476,12 +476,6 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL3Bg)]))
-(define (drawColorScore world)
-      (cond
-          [(string=? (world-scene world) "colorLevel1Score5")
-          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          
-         ))
 ;test
 
 ;Purpose: Draws The Levels of the Color game 
@@ -552,32 +546,38 @@
 ;(define (swColorLevel2BlueSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 ;(define (swColorLevel2PurpleSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
+(define (drawColorScore world)
+      (cond
+          [(string=? (world-scene world) "colorLevel1Score5")
+          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
+         ))
+
+         
 (define (drawColorLevel2 world)
      (cond
           [(string=? (world-scene world) "colorLevel2")
           (place-image  colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "redFrameClicked")
-          (overlay/xy (rectangle 100 100 "solid" "red") 1125 988) colorLevel2Bg]
+          (overlay/xy (rectangle 100 100 "solid" "red") 169 405) colorLevel2Bg]
           
           [else world]))
 
-(define (mouseColor world x y)
-     (cond
-          [(string=? (world-scene world) "colorLevel2")
-          (cond
-               [(and (= x 712) (= y 951))
-                    (make-world "redFramedClicked" (world-character world))]
-                    [else world])]
-          [else world]))
 
-(define (mouseLevel2 world x y)
-     (cond 
-          [(string=? (world-scene world) "colorLevel2")
-          (cond
-               [(and (= x 712) (= y 951))
-                    (make-world "redFramedClicked" (world-character world))]
-               [else world])]
-          [else world]))
+;; Overlay red square on colorLevel2Bg bitmap or colorLevel2
+  ;; Add your code here to overlay the red square
+  ;; You can use the overlay/xy function to overlay the square at the specified coordinates
+  ;; For example:
+  ;; (define redSquare (rectangle 144 125 "solid" "red"))
+  ;; (define colorLevel2WithRedSquare (overlay/xy colorLevel2 redSquare 169 405))
+  ;; (set-world-scene w colorLevel2WithRedSquare)
+(define redSquare (rectangle 144 125 "solid" "red"))
+
+(define (overlayRedSquare w)
+     (define colorLevel2WithRedSquare (overlay/xy redSquare colorLevel2Bg 169 405))
+     (make-world colorLevel2WithRedSquare (world-character w)))
+
+
 
 
 
@@ -846,6 +846,7 @@
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
 
+
 ;defines the character select scene once clicked
 (define (cChSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
@@ -932,8 +933,8 @@
 
 ;Color Level 2:
 ;red frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  530(bottom)  405(top)
+;x-axiis:  169(left)  313(right)
 
 ;orange frame
 ;y-axis:  (bottom)  (top)
@@ -957,8 +958,8 @@
 
 
 ;red paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  446(bottom)  393(top)
+;x-axiis:  898(left)  942(right)
 
 ;orange paint bucket
 ;y-axis:  (bottom)  (top)
@@ -992,12 +993,14 @@
 ;LeaderBoard button y-axis start from ?(bottom) to ?(top)
 ;LeaderBoard button x-axis start from ?(left) to ?(right)
 
+
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
 ;function
+
+
 (define (mouseRegister w x y me)
   (cond
-
      [(and (and (string=? (world-scene w) "menu") ;Play button
                 (mouse=? me "button-down"))
           (and (<= y 480) 
@@ -1413,7 +1416,20 @@
              (>= y 917))
         (and (>= x 1028)   
              (<= x 1397)))
-         (swColorLobbyL2 w)]  
+         (swColorLobbyL2 w)]
+
+
+    [(and (and (string=? (world-scene w) "colorLevel2") 
+               (mouse=? me "button-down"))
+          (and (<= y 446) 
+               (>= y 393))
+          (and (>= x 898)   
+               (<= x 942))
+          (and (<= y 530) 
+               (>= y 405))
+          (and (>= x 169)   
+               (<= x 313)))
+     (overlayRedSquare w)] 
 
 
   [else w]))
