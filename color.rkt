@@ -232,20 +232,20 @@
 (define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
 (define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
-(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
-
-
 (define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
 ;(define colorLevel2GameBg (bitmap ""))
-;(define colorLevel2RedSquare (bitmap ""))
-;(define colorLevel2OrangeSquare (bitmap ""))
-;(define colorLevel2YellowSquare (bitmap ""))
-;(define colorLevel2GreenSquare (bitmap ""))
-;(define colorLevel2BlueSquare (bitmap ""))
-;(define colorLevel2PurpleSquare (bitmap ""))
+;(define colorLevel2RedSquareBg (bitmap ""))
+;(define colorLevel2OrangeSquareBg (bitmap ""))
+;(define colorLevel2YellowSquareBg (bitmap ""))
+;(define colorLevel2GreenSquareBg (bitmap ""))
+;(define colorLevel2BlueSquareBg (bitmap ""))
+;(define colorLevel2PurpleSquareBg (bitmap ""))
 
 
 (define colorLevel3Bg (empty-scene 1920 1080))
+
+;Score 5 Background
+(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
 
 ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
@@ -264,7 +264,22 @@
 
 
 ;NumberLobby 
-(define numberLobbyBg (empty-scene 1920 1080))
+(define numberLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 1.jpg"))
+(define numberLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 2.jpg"))
+(define numberLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 3.jpg"))
+
+(define numberLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 1.jpg"))
+(define numberLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 2.jpg"))
+(define numberLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 3.jpg"))
+(define numberLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 4.jpg"))
+(define numberLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 5.jpg"))
+
+(define numberLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/scores/score 5.jpg"))
+
+(define numberLevel2Bg (empty-scene 1920 1080))
+
+
+(define numberLevel3Bg (empty-scene 1920 1080))
 
 
 
@@ -440,7 +455,12 @@
      [(string=? (world-scene w) "colorLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "colorLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "colorLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
+     [(string=? (world-scene w) "colorLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "numberLevel1Q1") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "numberLevel1Q2") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "numberLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "numberLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     [(string=? (world-scene w) "numberLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
 ;test
 
 
@@ -453,6 +473,7 @@
 
 (define (drawColorLobby world) 
      (cond
+
           [(string=? (world-scene world) "colorLobbyL1")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
              #f 'modern 'italic 'normal #f)
@@ -518,8 +539,6 @@
           ;(place-image colorLevel2PurpleSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           ))
           
-
-
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLobbyL2 w) (begin (thread playBellRingSound) (make-world "colorLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLobbyL3 w) (begin (thread playBellRingSound) (make-world "colorLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -564,13 +583,7 @@
           [else world]))
 
 
-;; Overlay red square on colorLevel2Bg bitmap or colorLevel2
-  ;; Add your code here to overlay the red square
-  ;; You can use the overlay/xy function to overlay the square at the specified coordinates
-  ;; For example:
-  ;; (define redSquare (rectangle 144 125 "solid" "red"))
-  ;; (define colorLevel2WithRedSquare (overlay/xy colorLevel2 redSquare 169 405))
-  ;; (set-world-scene w colorLevel2WithRedSquare)
+
 (define redSquare (rectangle 144 125 "solid" "red"))
 
 (define (overlayRedSquare w)
@@ -585,15 +598,78 @@
 ;************************************ Number Game **************************************
 ;=======================================================================================
 
-(define (drawNumberLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+(define (drawNumberLobby world) 
+     (cond
+          [(string=? (world-scene world) "numberLobbyL1")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                              (ChPos-x (Character-pos (world-character world))) 
+                                              (ChPos-y (Character-pos (world-character world)))
+                                              numberLobbyL1Bg)]
+          [(string=? (world-scene world) "numberLobbyL2")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         numberLobbyBg))
+                                         numberLobbyL2Bg)]   
+          [(string=? (world-scene world) "numberLobbyL3")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         numberLobbyL3Bg)]))
 
-(define (swNumber w) (begin (thread playBellRingSound) (make-world "numberLobby" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
+(define (drawNumberScore world)
+      (cond
+          [(string=? (world-scene world) "numberLevel1Score5")
+          (place-image numberLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
+         ))
+
+;test
+
+;Purpose: Draws The Levels of the shape game 
+(define (drawNumberLevel world) 
+     (cond
+
+          [(string=? (world-scene world) "numberLevel1Q1")
+          (place-image numberLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel1Q2")
+          (place-image numberLevel1Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel1Q3")
+          (place-image numberLevel1Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel1Q4")
+          (place-image numberLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel1Q5")
+          (place-image numberLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+
+          [(string=? (world-scene world) "numberLevel2")
+          (place-image numberLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel3")
+          (place-image numberLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+
+
+(define (swNumberLobbyL1 w) (begin (thread playBellRingSound) (make-world "numberLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLobbyL2 w) (begin (thread playBellRingSound) (make-world "numberLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLobbyL3 w) (begin (thread playBellRingSound) (make-world "numberLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swNumberLevel1 w) (begin (thread playBellRingSound) (make-world "numberLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLevel2 w) (begin (thread playBellRingSound) (make-world "numberLevel2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLevel3 w) (begin (thread playBellRingSound) (make-world "numberLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swNumberElevator w) (begin (thread playBellRingSound) (make-world "numberElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swNumberLevel1Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLevel1Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swNumberLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swNumberLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 
 ;=======================================================================================
@@ -698,6 +774,8 @@
 ;number door y coordinates 300(bottom) 300(top)
 ;number door x coordinates 1060 (left) 1140(right)
 
+;exit lobby door y coordinates  792(bottom)  726(top)
+;exit lobby door x coordinates 1515(left)  1693(right)
 
 
 
@@ -705,7 +783,7 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "numberLobby"))                                          
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3"))                                          
     (cond                                       
 
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -780,12 +858,42 @@
                (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
                (swColorLevel3 w)]
 
+     
+
      [(and (string=? (world-scene w) "Lobby") ;Number Door
-          (and (<= (ChPos-y (Character-pos (world-character w))) 300)
-               (>= (ChPos-y (Character-pos (world-character w))) 300))
-          (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
-               (<= (ChPos-x (Character-pos (world-character w))) 1140))) 
-               (swNumber w)]
+       (and (<= (ChPos-y (Character-pos (world-character w))) 300)
+            (>= (ChPos-y (Character-pos (world-character w))) 300))
+       (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
+            (<= (ChPos-x (Character-pos (world-character w))) 1693))) 
+            (swNumberLobbyL1 w)]
+
+      [(and (or (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3")) ;number elevator
+     (and (<= (ChPos-y (Character-pos (world-character w))) 850)
+          (>= (ChPos-y (Character-pos (world-character w))) 390))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 130)
+          (<= (ChPos-x (Character-pos (world-character w))) 340))) 
+          (swNumberElevator w)]
+
+     [(and (string=? (world-scene w) "numberLobbyL1") ;number Level 1 door
+     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+          (>= (ChPos-y (Character-pos (world-character w))) 290))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+          (swNumberLevel1 w)]
+
+     [(and (string=? (world-scene w) "numberLobbyL2") ;number Level 2 door
+     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+          (>= (ChPos-y (Character-pos (world-character w))) 290))
+     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+          (swNumberLevel2 w)]
+
+     [(and (string=? (world-scene w) "numberLobbyL3") ;number Level 3 door
+          (and (<= (ChPos-y (Character-pos (world-character w))) 630)
+               (>= (ChPos-y (Character-pos (world-character w))) 290))
+          (and (>= (ChPos-x (Character-pos (world-character w))) 820)
+               (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+               (swNumberLevel3 w)]
 
 
      [(or (key=? ki "left") (key=? ki "a")) 
@@ -1378,7 +1486,7 @@
              (<= x 855))) 
              (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q") ;color Level 5 topRight wrong button
+     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topRight wrong button
                 (mouse=? me "button-down"))
         (and (<= y 808)
              (>= y 663))
@@ -1427,18 +1535,205 @@
          (swColorLobbyL2 w)]
 
 
-    [(and (and (string=? (world-scene w) "colorLevel2") 
-               (mouse=? me "button-down"))
-          (and (<= y 446) 
-               (>= y 393))
-          (and (>= x 898)   
-               (<= x 942))
-          (and (<= y 530) 
-               (>= y 405))
-          (and (>= x 169)   
-               (<= x 313)))
-     (overlayRedSquare w)] 
+    [(and (and (string=? (world-scene w) "numberElevator") ;Level 1 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 453)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swNumberLobbyL1 w)]
 
+     [(and (and (string=? (world-scene w) "numberElevator") ;Level 2 Elevator Button
+                (mouse=? me "button-down"))
+        (and (<= y 505)
+             (>= y 419))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swNumberLobbyL2 w)]
+
+     [(and (and (string=? (world-scene w) "numberElevator") ;Level 3 Elevator Button3
+                (mouse=? me "button-down"))
+        (and (<= y 556)
+             (>= y 522))
+        (and (>= x 1443)
+             (<= x 1480))) 
+             (swNumberLobbyL3 w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topLeft correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swNumberLevel1Q2 w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomRight correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swNumberLevel1Q3 w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]  
+        
+     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topRight Correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomLeft correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swNumberLevel1Q4 w)]   
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topRight correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (swNumberLevel1Q5 w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topRight correct button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomRight wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 1067)
+             (<= x 1564))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topLeft wrong button
+                (mouse=? me "button-down"))
+        (and (<= y 808)
+             (>= y 663))
+        (and (>= x 357)
+             (<= x 855))) 
+             (wrongAnswer w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomLeft correct button
+                (mouse=? me "button-down"))
+        (and (<= y 990)
+             (>= y 844))
+        (and (>= x 357)
+             (<= x 855))) 
+             (swNumberLevel1Score5 w)]
+
+     [(and (and (string=? (world-scene w) "numberLevel1Score5") ;level 1 score board exit button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 910))
+        (and (>= x 584)   
+             (<= x 953)))
+         (swNumberLobbyL1 w)]  
+
+     [(and (and (string=? (world-scene w) "numberLevel1Score5") ;level 1 next button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 917))
+        (and (>= x 1028)   
+             (<= x 1397)))
+         (swNumberLobbyL2 w)]
 
   [else w]))
 
@@ -1517,7 +1812,34 @@
                     elevator]
        [(string=? (world-scene world) "colorLevel1Score5")
                     (drawColorScore world)]
-
+       
+       [(string=? (world-scene world) "numberLobbyL1")
+                    (drawNumberLobby world)]
+        [(string=? (world-scene world) "numberLobbyL2")
+                    (drawNumberLobby world)]
+        [(string=? (world-scene world) "numberLobbyL3")
+                    (drawNumberLobby world)]
+       [(string=? (world-scene world) "numberLobby")
+                    (drawNumberLobby world)]
+       [(string=? (world-scene world) "numberLevel1Q1")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel1Q2")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel1Q3")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel1Q4")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel1Q5")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel2")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberLevel3")
+                    (drawNumberLevel world)]
+       [(string=? (world-scene world) "numberElevator")
+                    elevator]
+       [(string=? (world-scene world) "numberLevel1Score5")
+                    (drawNumberScore world)]
+       
         [else (empty-scene 1920 1080)]))
 
 ;test
@@ -1540,8 +1862,8 @@
                     (swShapeLobbyL1)]
         [(string=? (world-scene world) "colorLobbyL1")
                     (swColorLobbyL1)] 
-        [(string=? (world-scene world) "numberLobby")
-                    (swNumber)]            
+        [(string=? (world-scene world) "numberLobbyL1")
+                    (swNumberLobbyL1)]            
 
         [else world]))
   
