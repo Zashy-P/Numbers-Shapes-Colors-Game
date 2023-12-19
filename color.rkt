@@ -563,7 +563,7 @@
 ;cotract: drawCharacterInfo: world --> image
 (define (drawCharacterInfo world)
      (cond
-          [(string=? (world-scene world) "characterInfo")
+          [(string=? (world-scene world) "characterInfoButton")
           (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))] 
           [(string=? (world-scene world) "characterInfo1")
           (place-image characterInfo1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
@@ -574,20 +574,18 @@
           [(string=? (world-scene world) "characterInfo4")
           (place-image characterInfo4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
 
-;define the character info scene once clicked
-(define (cChInfo) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the boy skin character info once clicked
-(define (infoBoySelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoBoySelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the janitor skin character info once clicked
-(define (infoJanitorSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoJanitorSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the scientist skin character info once clicked
-(define (infoScientistSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoScientistSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the policeWoman skin character info once clicked
-(define (infoPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoPoliceWomanSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;=======================================================================================
 ;************************************ Shape Game ***************************************
@@ -1339,13 +1337,13 @@
                (<= x 1148))) 
           (cChSelect)]
      
-     [(and (and (string=? (world-scene w) "characterInfo") ;charcter info button
+     [(and (and (string=? (world-scene w) "characterInfoButton") ;charcter info button
                 (mouse=? me "button-down"))
           (and (<= y 715) 
                (>= y 606))
           (and (>= x 761)   
                (<= x 1151))) 
-          (cChInfo)]
+          (swInfoBoySelect w)]
      
      [(and (and (string=? (world-scene w) "characterInfo1") ;charcter info button
                 (mouse=? me "button-down"))
@@ -1353,7 +1351,7 @@
                (>= y 606))
           (and (>= x 761)   
                (<= x 1151))) 
-          (cChInfo)]
+          (swInfoBoySelect w)]
 
      [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
                 (mouse=? me "button-down"))
@@ -1987,22 +1985,25 @@
                     characterSelect3]
         [(string=? (world-scene world) "chSelect4")
                     characterSelect4]
-        [(string=? (world-scene world) "characterInfo")
-                    characterSelectMenu]             
+
+        [(string=? (world-scene world) "characterInfoButton")
+                    (drawCharacterInfo world)]             
         [(string=? (world-scene world) "characterInfo1")
-                    drawCharacterInfo]          
+                    (drawCharacterInfo world)]          
         [(string=? (world-scene world) "characterInfo2")
-                    drawCharacterInfo]
+                    (drawCharacterInfo world)]
         [(string=? (world-scene world) "characterInfo3")
-                    drawCharacterInfo]
+                    (drawCharacterInfo world)]
         [(string=? (world-scene world) "characterInfo4")
-                    drawCharacterInfo]
+                    (drawCharacterInfo world)]
+
         [(string=? (world-scene world) "Lobby") 
                     (drawLobby world)]
         [(string=? (world-scene world) "tutorialPopUp")
                     drawTutorialPopUp]
         [(string=? (world-scene world) "tutorial")
                     (drawTutorial world)]
+
         [(string=? (world-scene world) "shapeLobbyL1")
                     (drawShapeLobby world)]
         [(string=? (world-scene world) "shapeLobbyL2")
