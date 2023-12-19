@@ -64,62 +64,367 @@
 ;abdulrahman's bitmaps
 
 ;boy skin
-(define skinBoyWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
-(define skinBoyEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
-(define skinBoyNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
-(define skinBoySouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
-(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+;(define skinBoyWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
+;(define skinBoyEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
+;(define skinBoyNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
+;(define skinBoySouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
+;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;Janitor skin
-(define skinJanitorWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
-(define skinJanitorEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
-(define skinJanitorNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
-(define skinJanitorSouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
-(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+;(define skinJanitorWest(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
+;;(define skinJanitorEast(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
+;(define skinJanitorNorth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
+;(define skinJanitorSouth(bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
+;(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
 
 ;Scientist skin
-(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
-(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
-(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
+;(define skinScientistWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
+;(define skinScientistEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
+;(define skinScientistNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
+;(define skinScientistSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+;;(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
 
 ;Police woman skin
-(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
-(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
-(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
-(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
-(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+;(define skinPoliceWomanWest (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
+;(define skinPoliceWomanEast (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
+;(define skinPoliceWomanNorth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
+;(define skinPoliceWomanSouth (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
+;(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+
+;boy colors skins
+;red
+;(define redBoyWest (bitmap ""))
+;(define redBoyEast (bitmap ""))
+;(define redBoyNorth (bitmap ""))
+;(define redBoySouth (bitmap ""))
+;(define redBoySkin (make-skinD redBoyWest redBoyEast redBoySouth redBoyNorth))
+;orange
+;(define orangeBoyWest (bitmap ""))
+;(define orangeBoyEast (bitmap ""))
+;;(define orangeBoyNorth (bitmap ""))
+;(define orangeBoySouth (bitmap ""))
+;(define orangeBoySkin (make-skinD orangeBoyWest orangeBoyEast orangeBoySouth orangeBoyNorth))
+;yellow
+;(define yellowBoyWest (bitmap ""))
+;(define yellowBoyEast (bitmap ""))
+;(define yellowBoyNorth (bitmap ""))
+;(define yellowBoySouth (bitmap ""))
+;(define yellowBoySkin (make-skinD yellowBoyWest yellowBoyEast yellowBoySouth yellowBoyNorth))
+;green
+;(define greenBoyWest (bitmap ""))
+;(define greenBoyEast (bitmap ""))
+;(define greenBoyNorth (bitmap ""))
+;(define greenBoySouth (bitmap ""))
+;(define greenBoySkin (make-skinD greenBoyWest greenBoyEast greenBoySouth greenBoyNorth))
+;blue
+;(define blueBoyWest (bitmap ""))
+;(define blueBoyEast (bitmap ""))
+;(define blueBoyNorth (bitmap ""))
+;(define blueBoySouth (bitmap ""))
+;(define blueBoySkin (make-skinD blueBoyWest blueBoyEast blueBoySouth blueBoyNorth))
+;purple
+;(define purpleBoyWest (bitmap ""))
+;(define purpleBoyEast (bitmap ""))
+;(define purpleBoyNorth (bitmap ""))
+;(define purpleBoySouth (bitmap ""))
+;(define purpleBoySkin (make-skinD purpleBoyWest purpleBoyEast purpleBoySouth purpleBoyNorth))
+
+;janitor colors skins
+;red
+;(define redJanitorWest (bitmap ""))
+;(define redJanitorEast (bitmap ""))
+;(define redJanitorNorth (bitmap ""))
+;(define redJanitorSouth (bitmap ""))
+;(define redJanitorSkin (make-skinD redJanitorWest redJanitorEast redJanitorSouth redJanitorNorth))
+;orange
+;(define orangeJanitorWest (bitmap ""))
+;(define orangeJanitorEast (bitmap ""))
+;;(define orangeJanitorNorth (bitmap ""))
+;;(define orangeJanitorSouth (bitmap ""))
+;(define orangeJanitorSkin (make-skinD orangeJanitorWest orangeJanitorEast orangeJanitorSouth orangeJanitorNorth))
+;yellow
+;;;(define yellowJanitorWest (bitmap ""))
+;(define yellowJanitorEast (bitmap ""))
+;(define yellowJanitorNorth (bitmap ""))
+;(define yellowJanitorSouth (bitmap ""))
+;(define yellowJanitorSkin (make-skinD yellowJanitorWest yellowJanitorEast yellowJanitorSouth yellowJanitorNorth))
+;green
+;(define greenJanitorWest (bitmap ""))
+;(define greenJanitorEast (bitmap ""))
+;(define greenJanitorNorth (bitmap ""))
+;(define greenJanitorSouth (bitmap ""))
+;(define greenJanitorSkin (make-skinD greenJanitorWest greenJanitorEast greenJanitorSouth greenJanitorNorth))
+;blue
+;(define blueJanitorWest (bitmap ""))
+;(define blueJanitorEast (bitmap ""))
+;(define blueJanitorNorth (bitmap ""))
+;(define blueJanitorSouth (bitmap ""))
+;(define blueJanitorSkin (make-skinD blueJanitorWest blueJanitorEast blueJanitorSouth blueJanitorNorth))
+;purple
+;(define purpleJanitorWest (bitmap ""))
+;(define purpleJanitorEast (bitmap ""))
+;(define purpleJanitorNorth (bitmap ""))
+;(define purpleJanitorSouth (bitmap ""))
+;(define purpleJanitorSkin (make-skinD purpleJanitorWest purpleJanitorEast purpleJanitorSouth purpleJanitorNorth))
+
+;scientist colors skins
+;red
+;(define redScientistWest (bitmap ""))
+;;(define redScientistEast (bitmap ""))
+;(define redScientistNorth (bitmap ""))
+;(define redScientistSouth (bitmap ""))
+;(define redScientistSkin (make-skinD redScientistWest redScientistEast redScientistSouth redScientistNorth))
+;orange
+;(define orangeScientistWest (bitmap ""))
+;(define orangeScientistEast (bitmap ""))
+;(define orangeScientistNorth (bitmap ""))
+;(define orangeScientistSouth (bitmap ""))
+;(define orangeScientistSkin (make-skinD orangeScientistWest orangeScientistEast orangeScientistSouth orangeScientistNorth))
+;yellow
+;(define yellowScientistWest (bitmap ""))
+;(define yellowScientistEast (bitmap ""))
+;(define yellowScientistNorth (bitmap ""))
+;(define yellowScientistSouth (bitmap ""))
+;;(define yellowScientistSkin (make-skinD yellowScientistWest yellowScientistEast yellowScientistSouth yellowScientistNorth))
+;green
+;(define greenScientistWest (bitmap ""))
+;(define greenScientistEast (bitmap ""))
+;(define greenScientistNorth (bitmap ""))
+;(define greenScientistSouth (bitmap ""))
+;(define greenScientistSkin (make-skinD greenScientistWest greenScientistEast greenScientistSouth greenScientistNorth))
+;blue
+;(define blueScientistWest (bitmap ""))
+;(define blueScientistEast (bitmap ""))
+;(define blueScientistNorth (bitmap ""))
+;(define blueScientistSouth (bitmap ""))
+;(define blueScientistSkin (make-skinD blueScientistWest blueScientistEast blueScientistSouth blueScientistNorth))
+;purple
+;(define purpleScientistWest (bitmap ""))
+;(define purpleScientistEast (bitmap ""))
+;(define purpleScientistNorth (bitmap ""))
+;(define purpleScientistSouth (bitmap ""))
+
+;police woman colors skins
+;red
+;(define redPoliceWomanWest (bitmap ""))
+;(define redPoliceWomanEast (bitmap ""))
+;(define redPoliceWomanNorth (bitmap ""))
+;(define redPoliceWomanSouth (bitmap ""))
+;(define redPoliceWomanSkin (make-skinD redPoliceWomanWest redPoliceWomanEast redPoliceWomanSouth redPoliceWomanNorth))
+;orange
+;(define orangePoliceWomanWest (bitmap ""))
+;(define orangePoliceWomanEast (bitmap ""))
+;(define orangePoliceWomanNorth (bitmap ""))
+;(define orangePoliceWomanSouth (bitmap ""))
+;(define orangePoliceWomanSkin (make-skinD orangePoliceWomanWest orangePoliceWomanEast orangePoliceWomanSouth orangePoliceWomanNorth))
+;yellow
+;(define yellowPoliceWomanWest (bitmap ""))
+;(define yellowPoliceWomanEast (bitmap ""))
+;(define yellowPoliceWomanNorth (bitmap ""))
+;(define yellowPoliceWomanSouth (bitmap ""))
+;(define yellowPoliceWomanSkin (make-skinD yellowPoliceWomanWest yellowPoliceWomanEast yellowPoliceWomanSouth yellowPoliceWomanNorth))
+;green
+;(define greenPoliceWomanWest (bitmap ""))
+;(define greenPoliceWomanEast (bitmap ""))
+;(define greenPoliceWomanNorth (bitmap ""))
+;(define greenPoliceWomanSouth (bitmap ""))
+;(define greenPoliceWomanSkin (make-skinD greenPoliceWomanWest greenPoliceWomanEast greenPoliceWomanSouth greenPoliceWomanNorth))
+;blue
+;(define bluePoliceWomanWest (bitmap ""))
+;(define bluePoliceWomanEast (bitmap ""))
+;(define bluePoliceWomanNorth (bitmap ""))
+;(define bluePoliceWomanSouth (bitmap ""))
+;(define bluePoliceWomanSkin (make-skinD bluePoliceWomanWest bluePoliceWomanEast bluePoliceWomanSouth bluePoliceWomanNorth))
+;purple
+;(define purplePoliceWomanWest (bitmap ""))
+;(define purplePoliceWomanEast (bitmap ""))
+;(define purplePoliceWomanNorth (bitmap ""))
+;(define purplePoliceWomanSouth (bitmap ""))
+;(define purplePoliceWomanSkin (make-skinD purplePoliceWomanWest purplePoliceWomanEast purplePoliceWomanSouth purplePoliceWomanNorth))
 
 ;zainab's bitmaps
 
 ;boy skin
-;(define skinBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
-;(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
-;(define skinBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
-;(define skinBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
-;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+(define skinBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_left_side.png"))
+(define skinBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy right side.png"))
+(define skinBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_backside.png"))
+(define skinBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/boy/boy_frontside.png"))
+(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;janitor skin
-;(define skinJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
-;(define skinJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
-;(define skinJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
-;(define skinJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
-;(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
+(define skinJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor left side.png"))
+(define skinJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor right side.png"))
+(define skinJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor backside.png"))
+(define skinJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/janitor/janitor frontside.png"))
+(define janitorSkin (make-skinD skinJanitorWest skinJanitorEast skinJanitorSouth skinJanitorNorth))
 
 ;Scientist skin
-;(define skinScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
-;(define skinScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
-;(define skinScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
-;(define skinScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
-;(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
+(define skinScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist left side.png"))
+(define skinScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist right side.png"))
+(define skinScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist backside.png"))
+(define skinScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/scientist/scientist frontside.png"))
+(define scientistSkin (make-skinD skinScientistWest skinScientistEast skinScientistSouth skinScientistNorth))
 
 ;Police woman skin
-;(define skinPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
-;(define skinPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
-;(define skinPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
-;(define skinPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
-;(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+(define skinPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman leftside.png"))
+(define skinPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman right side.png"))
+(define skinPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman backside.png"))
+(define skinPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Characters/police woman/police woman frontside.png"))
+(define policeWomanSkin (make-skinD skinPoliceWomanWest skinPoliceWomanEast skinPoliceWomanSouth skinPoliceWomanNorth))
+
+;boy colors skins
+;red
+(define redBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/1 red/red_boy_leftside.png"))
+(define redBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/1 red/red_boy_rightside.png"))
+(define redBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/1 red/red_boy_backside.png"))
+(define redBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/1 red/red_boy_frontside.png"))
+(define redBoySkin (make-skinD redBoyWest redBoyEast redBoySouth redBoyNorth))
+;orange
+(define orangeBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/2 orange/orange_boy_leftside.png"))
+(define orangeBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/2 orange/orange_boy_rightside.png"))
+(define orangeBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/2 orange/orange_boy_backside.png"))
+(define orangeBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/2 orange/orange_boy_frontside.png"))
+(define orangeBoySkin (make-skinD orangeBoyWest orangeBoyEast orangeBoySouth orangeBoyNorth))
+;yellow
+(define yellowBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/3 yellow/yellow_boy_leftside.png"))
+(define yellowBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/3 yellow/yellow_boy_rightside.png"))
+(define yellowBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/3 yellow/yellow_boy_backside.png"))
+(define yellowBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/3 yellow/yellow_boy_frontside.png"))
+(define yellowBoySkin (make-skinD yellowBoyWest yellowBoyEast yellowBoySouth yellowBoyNorth))
+;green
+(define greenBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/4 green/green_boy_leftside-removebg-preview.png"))
+(define greenBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/4 green/green_boy_rightside-removebg-preview.png"))
+(define greenBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/4 green/green_boy_backside-removebg-preview.png"))
+(define greenBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/4 green/green_boy_frontside-removebg-preview.png"))
+(define greenBoySkin (make-skinD greenBoyWest greenBoyEast greenBoySouth greenBoyNorth))
+;blue
+(define blueBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/5 blue/blue_boy_leftside-removebg-preview.png"))
+(define blueBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/5 blue/blue_boy_rightside-removebg-preview.png"))
+(define blueBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/5 blue/blue_boy_backside-removebg-preview.png"))
+(define blueBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/5 blue/blue_boy_frontside-removebg-preview.png"))
+(define blueBoySkin (make-skinD blueBoyWest blueBoyEast blueBoySouth blueBoyNorth))
+;purple
+(define purpleBoyWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/6 purple/purple_boy_leftside-removebg-preview.png"))
+(define purpleBoyEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/6 purple/purple_boy_rightsdie-removebg-preview.png"))
+(define purpleBoyNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/6 purple/purple_boy_backside-removebg-preview.png"))
+(define purpleBoySouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/boy/6 purple/purple_boy_frontsdie-removebg-preview.png"))
+(define purpleBoySkin (make-skinD purpleBoyWest purpleBoyEast purpleBoySouth purpleBoyNorth))
+
+;janitor colors skins
+;red
+(define redJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/1 red/red_janitor_leftside-removebg-preview.png"))
+(define redJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/1 red/red_janitor_rightside-removebg-preview.png"))
+(define redJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/1 red/red_janitor_backside-removebg-preview.png"))
+(define redJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/1 red/red_janitor_frontside-removebg-preview.png"))
+(define redJanitorSkin (make-skinD redJanitorWest redJanitorEast redJanitorSouth redJanitorNorth))
+;orange
+(define orangeJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/2 orange/orange_janitor_leftside-removebg-preview.png"))
+(define orangeJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/2 orange/orange_janitor_rightside-removebg-preview.png"))
+(define orangeJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/2 orange/orange_janitor_backside-removebg-preview.png"))
+(define orangeJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/2 orange/orange_janitor_frontside-removebg-preview.png"))
+(define orangeJanitorSkin (make-skinD orangeJanitorWest orangeJanitorEast orangeJanitorSouth orangeJanitorNorth))
+;yellow
+(define yellowJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/3 yellow/yellow_janitor_leftside-removebg-preview.png"))
+(define yellowJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/3 yellow/yellow_janitor_rightside-removebg-preview.png"))
+(define yellowJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/3 yellow/yellow_janitor_backside-removebg-preview.png"))
+(define yellowJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/3 yellow/yellow_janitor_frontside-removebg-preview.png"))
+(define yellowJanitorSkin (make-skinD yellowJanitorWest yellowJanitorEast yellowJanitorSouth yellowJanitorNorth))
+;green
+(define greenJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/4 green/green_janitor_leftside-removebg-preview.png"))
+(define greenJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/4 green/green_janitor_rightside-removebg-preview.png"))
+(define greenJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/4 green/green_janitor__backside-removebg-preview.png"))
+(define greenJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/4 green/green_janitor_frontside-removebg-preview.png"))
+(define greenJanitorSkin (make-skinD greenJanitorWest greenJanitorEast greenJanitorSouth greenJanitorNorth))
+;blue
+(define blueJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/5 blue/blue_janitor__leftside-removebg-preview.png"))
+(define blueJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/5 blue/blue_janitor_rightside-removebg-preview.png"))
+(define blueJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/5 blue/blue_janitor__backside-removebg-preview.png"))
+(define blueJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/5 blue/blue_janitor__frontside-removebg-preview.png"))
+(define blueJanitorSkin (make-skinD blueJanitorWest blueJanitorEast blueJanitorSouth blueJanitorNorth))
+;purple
+(define purpleJanitorWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/6 purple/purple_janitor_leftside-removebg-preview.png"))
+(define purpleJanitorEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/6 purple/purple_janitor_rightside-removebg-preview.png"))
+(define purpleJanitorNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/6 purple/purple_janitor_backside-removebg-preview.png"))
+(define purpleJanitorSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/janitor/6 purple/purple_janitor_frontside-removebg-preview.png"))
+(define purpleJanitorSkin (make-skinD purpleJanitorWest purpleJanitorEast purpleJanitorSouth purpleJanitorNorth))
+
+;scientist colors skins
+;red
+(define redScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/1 red/red_scientist_leftside-removebg-preview.png"))
+(define redScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/1 red/red_scientist_rightside-removebg-preview.png"))
+(define redScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/1 red/red_scientist_backside-removebg-preview.png"))
+(define redScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/1 red/red_scientist_frontside-removebg-preview.png"))
+(define redScientistSkin (make-skinD redScientistWest redScientistEast redScientistSouth redScientistNorth))
+;orange
+(define orangeScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/2 orange/orange_scientist_leftside-removebg-preview.png"))
+(define orangeScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/2 orange/orange_scientist_rightside-removebg-preview.png"))
+(define orangeScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/2 orange/orange_scientist_backside-removebg-preview.png"))
+(define orangeScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/2 orange/orange_scientist_frontside-removebg-preview.png"))
+(define orangeScientistSkin (make-skinD orangeScientistWest orangeScientistEast orangeScientistSouth orangeScientistNorth))
+;yellow
+(define yellowScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/3 yellow/yellow_scientist_leftside-removebg-preview.png"))
+(define yellowScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/3 yellow/yellow_scientsist_rightside-removebg-preview.png"))
+(define yellowScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/3 yellow/yellow_scientist_backside-removebg-preview.png"))
+(define yellowScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/3 yellow/yellow_scientist_frontside-removebg-preview.png"))
+(define yellowScientistSkin (make-skinD yellowScientistWest yellowScientistEast yellowScientistSouth yellowScientistNorth))
+;green
+(define greenScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/4 green/green_scientist_leftside-removebg-preview.png"))
+(define greenScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/4 green/green_scientist_rightside-removebg-preview.png"))
+(define greenScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/4 green/green_scientist_backside-removebg-preview.png"))
+(define greenScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/4 green/green_scientist_frontside-removebg-preview.png"))
+(define greenScientistSkin (make-skinD greenScientistWest greenScientistEast greenScientistSouth greenScientistNorth))
+;blue
+(define blueScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/5 blue/blue_scientist_leftside-removebg-preview.png"))
+(define blueScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/5 blue/blue_scientist_rightside-removebg-preview.png"))
+(define blueScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/5 blue/blue_scientist___frontside-removebg-preview.png"))
+(define blueScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/5 blue/blue_scientist_backside-removebg-preview.png"))
+(define blueScientistSkin (make-skinD blueScientistWest blueScientistEast blueScientistSouth blueScientistNorth))
+;purple
+(define purpleScientistWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/6 purple/purple_scientist_leftside-removebg-preview.png"))
+(define purpleScientistEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/6 purple/purple_scientist_rightside-removebg-preview.png"))
+(define purpleScientistNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/6 purple/purple_scientist_backside-removebg-preview.png"))
+(define purpleScientistSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/scientist/6 purple/purple_scientist_frontside-removebg-preview.png"))
+
+;police woman colors skins
+;red
+(define redPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/1 red/red_police_woman_leftside-.png"))
+(define redPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/1 red/red_police_woman_rightside-.png"))
+(define redPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/1 red/red_police_woman_backside-.png"))
+(define redPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/1 red/red_police_woman_frontside-.png"))
+(define redPoliceWomanSkin (make-skinD redPoliceWomanWest redPoliceWomanEast redPoliceWomanSouth redPoliceWomanNorth))
+;orange
+(define orangePoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/2 orange/orange_police_woman_leftside-removebg-preview.png"))
+(define orangePoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/2 orange/orange_police_woman_rightside-removebg-preview.png"))
+(define orangePoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/2 orange/orange_police_woman_backside-removebg-preview.png"))
+(define orangePoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/2 orange/orange_police_woman_frontside-removebg-preview.png"))
+(define orangePoliceWomanSkin (make-skinD orangePoliceWomanWest orangePoliceWomanEast orangePoliceWomanSouth orangePoliceWomanNorth))
+;yellow
+(define yellowPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/3 yellow/yellow_police_woman_leftside-removebg-preview.png"))
+(define yellowPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/3 yellow/yellow_police_woman_rightside-removebg-preview.png"))
+(define yellowPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/3 yellow/yellow_police_woman_backside-removebg-preview.png"))
+(define yellowPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/3 yellow/yellow_police_woman_frontside-removebg-preview.png"))
+(define yellowPoliceWomanSkin (make-skinD yellowPoliceWomanWest yellowPoliceWomanEast yellowPoliceWomanSouth yellowPoliceWomanNorth))
+;green
+(define greenPoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/4 green/green_police_womnan__rightside-removebg-preview.png"))
+(define greenPoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/4 green/green_police_womnan_frontside-removebg-preview.png"))
+(define greenPoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/4 green/green_police_womnan__backside-removebg-preview.png"))
+(define greenPoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/4 green/green_police_womnan__leftside-removebg-preview.png"))
+(define greenPoliceWomanSkin (make-skinD greenPoliceWomanWest greenPoliceWomanEast greenPoliceWomanSouth greenPoliceWomanNorth))
+;blue
+(define bluePoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/5 blue/blue_police_woman_leftside-removebg-preview.png"))
+(define bluePoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/5 blue/blue_police_woman_rightside-removebg-preview.png"))
+(define bluePoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/5 blue/blue_police_woman_backside-removebg-preview.png"))
+(define bluePoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/5 blue/blue_police_woman_frontside-removebg-preview.png"))
+(define bluePoliceWomanSkin (make-skinD bluePoliceWomanWest bluePoliceWomanEast bluePoliceWomanSouth bluePoliceWomanNorth))
+;purple
+(define purplePoliceWomanWest (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/6 purple/purple_police_woman_leftside-removebg-preview.png"))
+(define purplePoliceWomanEast (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/6 purple/purple_police_woman_rightside-removebg-preview.png"))
+(define purplePoliceWomanNorth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/6 purple/purple_police_woman_backside-removebg-preview.png"))
+(define purplePoliceWomanSouth (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Charcters with paint buckets/police woman/6 purple/purple_police_woman_frontside-removebg-preview.png"))
+(define purplePoliceWomanSkin (make-skinD purplePoliceWomanWest purplePoliceWomanEast purplePoliceWomanSouth purplePoliceWomanNorth))
+
+
+
 
 ;maysam's bitmaps
 
@@ -148,120 +453,268 @@
 ;(define skinPoliceWomantNorth (bitmap ""))
 ;(define skinPoliceWomantSouth (bitmap ""))
 
+
+;boy colors skins
+;red
+;(define redBoyWest (bitmap ""))
+;(define redBoyEast (bitmap ""))
+;(define redBoyNorth (bitmap ""))
+;(define redBoySouth (bitmap ""))
+;(define redBoySkin (make-skinD redBoyWest redBoyEast redBoySouth redBoyNorth))
+;orange
+;(define orangeBoyWest (bitmap ""))
+;(define orangeBoyEast (bitmap ""))
+;;(define orangeBoyNorth (bitmap ""))
+;(define orangeBoySouth (bitmap ""))
+;(define orangeBoySkin (make-skinD orangeBoyWest orangeBoyEast orangeBoySouth orangeBoyNorth))
+;yellow
+;(define yellowBoyWest (bitmap ""))
+;(define yellowBoyEast (bitmap ""))
+;(define yellowBoyNorth (bitmap ""))
+;(define yellowBoySouth (bitmap ""))
+;(define yellowBoySkin (make-skinD yellowBoyWest yellowBoyEast yellowBoySouth yellowBoyNorth))
+;green
+;(define greenBoyWest (bitmap ""))
+;(define greenBoyEast (bitmap ""))
+;(define greenBoyNorth (bitmap ""))
+;(define greenBoySouth (bitmap ""))
+;(define greenBoySkin (make-skinD greenBoyWest greenBoyEast greenBoySouth greenBoyNorth))
+;blue
+;(define blueBoyWest (bitmap ""))
+;(define blueBoyEast (bitmap ""))
+;(define blueBoyNorth (bitmap ""))
+;(define blueBoySouth (bitmap ""))
+;(define blueBoySkin (make-skinD blueBoyWest blueBoyEast blueBoySouth blueBoyNorth))
+;purple
+;(define purpleBoyWest (bitmap ""))
+;(define purpleBoyEast (bitmap ""))
+;(define purpleBoyNorth (bitmap ""))
+;(define purpleBoySouth (bitmap ""))
+;(define purpleBoySkin (make-skinD purpleBoyWest purpleBoyEast purpleBoySouth purpleBoyNorth))
+
+;janitor colors skins
+;red
+;(define redJanitorWest (bitmap ""))
+;(define redJanitorEast (bitmap ""))
+;(define redJanitorNorth (bitmap ""))
+;(define redJanitorSouth (bitmap ""))
+;(define redJanitorSkin (make-skinD redJanitorWest redJanitorEast redJanitorSouth redJanitorNorth))
+;orange
+;(define orangeJanitorWest (bitmap ""))
+;(define orangeJanitorEast (bitmap ""))
+;;(define orangeJanitorNorth (bitmap ""))
+;;(define orangeJanitorSouth (bitmap ""))
+;(define orangeJanitorSkin (make-skinD orangeJanitorWest orangeJanitorEast orangeJanitorSouth orangeJanitorNorth))
+;yellow
+;;;(define yellowJanitorWest (bitmap ""))
+;(define yellowJanitorEast (bitmap ""))
+;(define yellowJanitorNorth (bitmap ""))
+;(define yellowJanitorSouth (bitmap ""))
+;(define yellowJanitorSkin (make-skinD yellowJanitorWest yellowJanitorEast yellowJanitorSouth yellowJanitorNorth))
+;green
+;(define greenJanitorWest (bitmap ""))
+;(define greenJanitorEast (bitmap ""))
+;(define greenJanitorNorth (bitmap ""))
+;(define greenJanitorSouth (bitmap ""))
+;(define greenJanitorSkin (make-skinD greenJanitorWest greenJanitorEast greenJanitorSouth greenJanitorNorth))
+;blue
+;(define blueJanitorWest (bitmap ""))
+;(define blueJanitorEast (bitmap ""))
+;(define blueJanitorNorth (bitmap ""))
+;(define blueJanitorSouth (bitmap ""))
+;(define blueJanitorSkin (make-skinD blueJanitorWest blueJanitorEast blueJanitorSouth blueJanitorNorth))
+;purple
+;(define purpleJanitorWest (bitmap ""))
+;(define purpleJanitorEast (bitmap ""))
+;(define purpleJanitorNorth (bitmap ""))
+;(define purpleJanitorSouth (bitmap ""))
+;(define purpleJanitorSkin (make-skinD purpleJanitorWest purpleJanitorEast purpleJanitorSouth purpleJanitorNorth))
+
+;scientist colors skins
+;red
+;(define redScientistWest (bitmap ""))
+;;(define redScientistEast (bitmap ""))
+;(define redScientistNorth (bitmap ""))
+;(define redScientistSouth (bitmap ""))
+;(define redScientistSkin (make-skinD redScientistWest redScientistEast redScientistSouth redScientistNorth))
+;orange
+;(define orangeScientistWest (bitmap ""))
+;(define orangeScientistEast (bitmap ""))
+;(define orangeScientistNorth (bitmap ""))
+;(define orangeScientistSouth (bitmap ""))
+;(define orangeScientistSkin (make-skinD orangeScientistWest orangeScientistEast orangeScientistSouth orangeScientistNorth))
+;yellow
+;(define yellowScientistWest (bitmap ""))
+;(define yellowScientistEast (bitmap ""))
+;(define yellowScientistNorth (bitmap ""))
+;(define yellowScientistSouth (bitmap ""))
+;;(define yellowScientistSkin (make-skinD yellowScientistWest yellowScientistEast yellowScientistSouth yellowScientistNorth))
+;green
+;(define greenScientistWest (bitmap ""))
+;(define greenScientistEast (bitmap ""))
+;(define greenScientistNorth (bitmap ""))
+;(define greenScientistSouth (bitmap ""))
+;(define greenScientistSkin (make-skinD greenScientistWest greenScientistEast greenScientistSouth greenScientistNorth))
+;blue
+;(define blueScientistWest (bitmap ""))
+;(define blueScientistEast (bitmap ""))
+;(define blueScientistNorth (bitmap ""))
+;(define blueScientistSouth (bitmap ""))
+;(define blueScientistSkin (make-skinD blueScientistWest blueScientistEast blueScientistSouth blueScientistNorth))
+;purple
+;(define purpleScientistWest (bitmap ""))
+;(define purpleScientistEast (bitmap ""))
+;(define purpleScientistNorth (bitmap ""))
+;(define purpleScientistSouth (bitmap ""))
+
+;police woman colors skins
+;red
+;(define redPoliceWomanWest (bitmap ""))
+;(define redPoliceWomanEast (bitmap ""))
+;(define redPoliceWomanNorth (bitmap ""))
+;(define redPoliceWomanSouth (bitmap ""))
+;(define redPoliceWomanSkin (make-skinD redPoliceWomanWest redPoliceWomanEast redPoliceWomanSouth redPoliceWomanNorth))
+;orange
+;(define orangePoliceWomanWest (bitmap ""))
+;(define orangePoliceWomanEast (bitmap ""))
+;(define orangePoliceWomanNorth (bitmap ""))
+;(define orangePoliceWomanSouth (bitmap ""))
+;(define orangePoliceWomanSkin (make-skinD orangePoliceWomanWest orangePoliceWomanEast orangePoliceWomanSouth orangePoliceWomanNorth))
+;yellow
+;(define yellowPoliceWomanWest (bitmap ""))
+;(define yellowPoliceWomanEast (bitmap ""))
+;(define yellowPoliceWomanNorth (bitmap ""))
+;(define yellowPoliceWomanSouth (bitmap ""))
+;(define yellowPoliceWomanSkin (make-skinD yellowPoliceWomanWest yellowPoliceWomanEast yellowPoliceWomanSouth yellowPoliceWomanNorth))
+;green
+;(define greenPoliceWomanWest (bitmap ""))
+;(define greenPoliceWomanEast (bitmap ""))
+;(define greenPoliceWomanNorth (bitmap ""))
+;(define greenPoliceWomanSouth (bitmap ""))
+;(define greenPoliceWomanSkin (make-skinD greenPoliceWomanWest greenPoliceWomanEast greenPoliceWomanSouth greenPoliceWomanNorth))
+;blue
+;(define bluePoliceWomanWest (bitmap ""))
+;(define bluePoliceWomanEast (bitmap ""))
+;(define bluePoliceWomanNorth (bitmap ""))
+;(define bluePoliceWomanSouth (bitmap ""))
+;(define bluePoliceWomanSkin (make-skinD bluePoliceWomanWest bluePoliceWomanEast bluePoliceWomanSouth bluePoliceWomanNorth))
+;purple
+;(define purplePoliceWomanWest (bitmap ""))
+;(define purplePoliceWomanEast (bitmap ""))
+;(define purplePoliceWomanNorth (bitmap ""))
+;(define purplePoliceWomanSouth (bitmap ""))
+;(define purplePoliceWomanSkin (make-skinD purplePoliceWomanWest purplePoliceWomanEast purplePoliceWomanSouth purplePoliceWomanNorth))
+
 ;Backgrounds just comment others bitmap and uncomment yours
 
 ;abdulrahman's bitmap
 
 ;Menu Background 
-(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
+;(define menuBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
 
 ;Character Select Backgrounds
-(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
-(define chSelect2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
-(define chSelect3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
-(define chSelect4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
+;(define chSelectBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
+;(define chSelect2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
+;(define chSelect3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
+;(define chSelect4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
 
 ;Tutorial Pop Up Background
-(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+;(define tutorialPopUpBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
 
 ;Tutorial Background
-(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
+;(define tutorialBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/tutorial pop up with background.jpg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
+;(define lobbyBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Lobby Background.jpg")) 
 
 ;ShapeLobby 
-(define shapeLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
-(define shapeLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
-(define shapeLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
-(define shapeLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
-(define shapeLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
-(define shapeLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
-(define shapeLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
-(define shapeLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 5.jpg"))
-(define shapeLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/scores/score 5.jpg"))
+;(define shapeLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
+;(define shapeLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
+;(define shapeLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
+;(define shapeLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
+;(define shapeLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
+;(define shapeLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
+;(define shapeLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
+;(define shapeLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/question 5.jpg"))
+;(define shapeLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Shapes/level 1/scores/score 5.jpg"))
 
-(define shapeLevel2Bg (empty-scene 1920 1080))
+;(define shapeLevel2Bg (empty-scene 1920 1080))
 
-(define shapeLevel3Bg (empty-scene 1920 1080))
+;(define shapeLevel3Bg (empty-scene 1920 1080))
 
 
 ;ColorLobby 
-(define colorLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 1.jpg"))
-(define colorLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 2.jpg"))
-(define colorLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 3.jpg"))
-(define colorLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 1.jpg"))
-(define colorLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
-(define colorLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
-(define colorLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
-(define colorLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
-(define colorLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
+;(define colorLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 1.jpg"))
+;(define colorLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 2.jpg"))
+;(define colorLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/colors level 3.jpg"))
+;(define colorLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 1.jpg"))
+;(define colorLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
+;(define colorLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
+;(define colorLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
+;(define colorLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
+;;(define colorLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
 
-(define colorLevel2Bg (empty-scene 1920 1080))
+;(define colorLevel2Bg (empty-scene 1920 1080))
 
-(define colorLevel3Bg (empty-scene 1920 1080))
+;(define colorLevel3Bg (empty-scene 1920 1080))
 
 
 ;Elevator Background
-(define ElevatorBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/elevator.jpg"))
+;(define ElevatorBg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/elevator.jpg"))
 
 ;NumberLobby 
-(define numberLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 1.jpg"))
-(define numberLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 2.jpg"))
-(define numberLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 3.jpg"))
+;(define numberLobbyL1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 1.jpg"))
+;(define numberLobbyL2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 2.jpg"))
+;(define numberLobbyL3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/numbers level 3.jpg"))
 
-(define numberLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 1.jpg"))
-(define numberLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 2.jpg"))
-(define numberLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 3.jpg"))
-(define numberLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 4.jpg"))
-(define numberLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 5.jpg"))
+;(define numberLevel1Q1Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 1.jpg"))
+;(define numberLevel1Q2Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 2.jpg"))
+;(define numberLevel1Q3Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 3.jpg"))
+;(define numberLevel1Q4Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 4.jpg"))
+;(define numberLevel1Q5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/question 5.jpg"))
 
-(define numberLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/scores/score 5.jpg"))
+;(define numberLevel1Score5Bg (bitmap "C:/Users/abdul/OneDrive/Documents/GitHub/CEMPE Project Term1/Shapes-Colors-Game/Photos/Numbers/level 1/scores/score 5.jpg"))
 
-(define numberLevel2Bg (empty-scene 1920 1080))
+;(define numberLevel2Bg (empty-scene 1920 1080))
 
-(define numberLevel3Bg (empty-scene 1920 1080))
+;(define numberLevel3Bg (empty-scene 1920 1080))
 
 ;zainab's bitmap
 
 ;Menu Background
-;(define menuBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
-;(define chSelect2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
-;(define chSelect3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
-;(define chSelect4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
+(define menuBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/backgrounds/Final menu background.jpg")) 
+(define chSelect2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 2.jpeg"))
+(define chSelect3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
+(define chSelect4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
 
 ;Character Select Background
-;(define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
+(define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
 
 ;Tutorial Pop Up Background
-;(define tutorialPopUpBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
+(define tutorialPopUpBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
 
 ;Tutorial Background
-;(define tutorialBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
+(define tutorialBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/tutorial pop up with background.jpg"))
 
 ;Lobby Background
-;(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
+(define lobbyBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Lobby Background.jpg"))
 
 ;Elevator Background
-;(define ElevatorBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/elevator.jpg"))
+(define ElevatorBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/elevator.jpg"))
 
 
 ;ColorLobby 
-;(define colorLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 1.jpg"))
-;(define colorLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 2.jpg"))
-;(define colorLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 3.jpg"))
+(define colorLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 1.jpg"))
+(define colorLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 2.jpg"))
+(define colorLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/colors level 3.jpg"))
 
-;(define colorLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 1.jpg"))
-;(define colorLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
-;(define colorLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
-;(define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
-;(define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
+(define colorLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 1.jpg"))
+(define colorLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 2.jpg"))
+(define colorLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 3.jpg"))
+(define colorLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 4.jpg"))
+(define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
-;(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
-
-
-;(define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
-
+(define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
 ;(define colorLevel2GameBg (bitmap ""))
 ;(define colorLevel2RedSquareBg (bitmap ""))
 ;(define colorLevel2OrangeSquareBg (bitmap ""))
@@ -271,43 +724,47 @@
 ;(define colorLevel2PurpleSquareBg (bitmap ""))
 
 
-;(define colorLevel3Bg (empty-scene 1920 1080))
+(define colorLevel3Bg (empty-scene 1920 1080))
+
+;Score 5 Background
+(define colorLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/scores/score 5.jpg"))
 
 ;ShapeLobby 
-;(define shapeLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
-;(define shapeLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
-;(define shapeLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
+(define shapeLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 1.jpg"))
+(define shapeLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 2.jpg"))
+(define shapeLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/shapes lobby level 3.jpg"))
 
-;(define shapeLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
-;(define shapeLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
-;(define shapeLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
-;(define shapeLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
-;(define shapeLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 5.jpg"))
-;(define shapeLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/scores/score 5.jpg"))
+(define shapeLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 1.jpg"))
+(define shapeLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 2.jpg"))
+(define shapeLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 3.jpg"))
+(define shapeLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 4.jpg"))
+(define shapeLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/question 5.jpg"))
+(define shapeLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Shapes/level 1/scores/score 5.jpg"))
 
-;(define shapeLevel2Bg (empty-scene 1920 1080))
+(define shapeLevel2Bg (empty-scene 1920 1080))
 
 
-;(define shapeLevel3Bg (empty-scene 1920 1080))
+(define shapeLevel3Bg (empty-scene 1920 1080))
 
 
 ;NumberLobby 
-;(define numberLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 1.jpg"))
-;(define numberLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 2.jpg"))
-;(define numberLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 3.jpg"))
+(define numberLobbyL1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 1.jpg"))
+(define numberLobbyL2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 2.jpg"))
+(define numberLobbyL3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/numbers level 3.jpg"))
 
-;(define numberLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 1.jpg"))
-;(define numberLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 2.jpg"))
-;(define numberLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 3.jpg"))
-;(define numberLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 4.jpg"))
-;(define numberLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 5.jpg"))
+(define numberLevel1Q1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 1.jpg"))
+(define numberLevel1Q2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 2.jpg"))
+(define numberLevel1Q3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 3.jpg"))
+(define numberLevel1Q4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 4.jpg"))
+(define numberLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/question 5.jpg"))
 
-;(define numberLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/scores/score 5.jpg"))
+(define numberLevel1Score5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Numbers/level 1/scores/score 5.jpg"))
 
-;(define numberLevel2Bg (empty-scene 1920 1080))
+(define numberLevel2Bg (empty-scene 1920 1080))
 
 
-;(define numberLevel3Bg (empty-scene 1920 1080))
+(define numberLevel3Bg (empty-scene 1920 1080))
+
 
 
 
@@ -550,22 +1007,7 @@
                                          colorLevel2Bg)]
 
           [(string=? (world-scene world) "colorLevel3")
-          (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-
-          ;[(string=? (world-scene world) "colorLevel2Game")
-          ;[(string=? (world-scene world) "colorLevel2RedSquare")
-          ;(place-image colorLevel2RedSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2OrangeSquare")
-          ;(place-image colorLevel2OrangeSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2YellowSquare")
-          ;(place-image colorLevel2YellowSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2GreenSquare")
-          ;(place-image colorLevel2GreenSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2BlueSquare")
-          ;(place-image colorLevel2BlueSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2PurpleSquare")
-          ;(place-image colorLevel2PurpleSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ))
+          (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
           
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLobbyL2 w) (begin (thread playBellRingSound) (make-world "colorLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -747,15 +1189,61 @@
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boy"))
      (skinD-north boySkin)]
      
-    ;[(and (string=? (skin-direction s) "left") (string=? (skin-name s) "boyRed"))
-    ; (skinD-west boyRedSkin)]
-    ;[(and (string=? (skin-direction s) "right") (string=? (skin-name s) "boyRed"))
-    ; (skinD-east boyRedSkin)]
-    ;[(and (string=? (skin-direction s) "down") (string=? (skin-name s) "boyRed"))
-     ;(skinD-south boyRedSkin)]
-    ;[(and (string=? (skin-direction s) "up") (string=? (skin-name s) "boyRed"))
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "redBoy"))
+     (skinD-west redBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "redBoy"))
+     (skinD-east redBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "redBoy"))
+     (skinD-south redBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "redBoy"))
+    (skinD-north redBoySkin)]
 
-     
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "orangeBoy"))
+     (skinD-west orangeBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "orangeBoy"))
+     (skinD-east orangeBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "orangeBoy"))
+     (skinD-south orangeBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "orangeBoy"))
+    (skinD-north orangeBoySkin)]
+
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "yellowBoy"))
+     (skinD-west yellowBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "yellowBoy"))
+     (skinD-east yellowBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "yellowBoy"))
+     (skinD-south yellowBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowBoy"))
+    (skinD-north yellowBoySkin)]
+
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "greenBoy"))
+     (skinD-west greenBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "greenBoy"))
+     (skinD-east greenBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "greenBoy"))
+     (skinD-south greenBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "greenBoy"))
+    (skinD-north greenBoySkin)]
+
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "blueBoy"))
+     (skinD-west blueBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "blueBoy"))
+     (skinD-east blueBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "blueBoy"))
+     (skinD-south blueBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "blueBoy"))
+    (skinD-north blueBoySkin)]
+
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "purpleBoy"))
+     (skinD-west purpleBoySkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "purpleBoy"))
+     (skinD-east purpleBoySkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "purpleBoy"))
+     (skinD-south purpleBoySkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "purpleBoy"))
+    (skinD-north purpleBoySkin)]
+
+    
     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "janitor"))
      (skinD-west janitorSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "janitor"))
@@ -765,6 +1253,59 @@
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "janitor"))
         (skinD-north janitorSkin)]
 
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "redJanitor"))
+     (skinD-west redJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "redJanitor"))
+        (skinD-east redJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "redJanitor"))
+        (skinD-south redJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "redJanitor"))
+        (skinD-north redJanitorSkin)]
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "orangeJanitor"))
+     (skinD-west orangeJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "orangeJanitor"))
+        (skinD-east orangeJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "orangeJanitor"))
+        (skinD-south orangeJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "orangeJanitor"))
+        (skinD-north orangeJanitorSkin)]
+
+    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "yellowJanitor"))
+     (skinD-west yellowJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "yellowJanitor"))
+        (skinD-east yellowJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "yellowJanitor"))
+        (skinD-south yellowJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowJanitor"))
+        (skinD-north yellowJanitorSkin)]
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "greenJanitor"))
+     (skinD-west greenJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "greenJanitor"))
+        (skinD-east greenJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "greenJanitor"))
+        (skinD-south greenJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "greenJanitor"))
+        (skinD-north greenJanitorSkin)]
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "blueJanitor"))
+     (skinD-west blueJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "blueJanitor"))
+        (skinD-east blueJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "blueJanitor"))
+        (skinD-south blueJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "blueJanitor"))
+        (skinD-north blueJanitorSkin)]
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "purpleJanitor"))
+     (skinD-west purpleJanitorSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "purpleJanitor"))
+        (skinD-east purpleJanitorSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "purpleJanitor"))
+        (skinD-south purpleJanitorSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "purpleJanitor"))
+        (skinD-north purpleJanitorSkin)]
 
    [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "scientist"))
      (skinD-west scientistSkin)]
@@ -774,6 +1315,61 @@
         (skinD-south scientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "scientist"))
         (skinD-north scientistSkin)] 
+     
+     
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "redScientist"))
+     (skinD-west redScientistSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "redScientist"))
+        (skinD-east redScientistSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "redScientist"))
+        (skinD-south redScientistSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "redScientist"))
+        (skinD-north redScientistSkin)] 
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "orangeScientist"))
+     (skinD-west orangeScientistWest)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "orangeScientist"))
+        (skinD-east orangeScientistWest)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "orangeScientist"))
+        (skinD-south orangeScientistWest)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "orangeScientist"))
+        (skinD-north orangeScientistWest)] 
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "yellowScientist"))
+     (skinD-west yellowScientistWest)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "yellowScientist"))
+        (skinD-east yellowScientistWest)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "yellowScientist"))
+        (skinD-south yellowScientistWest)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowScientist"))
+        (skinD-north yellowScientistWest)] 
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "greenScientist"))
+     (skinD-west greenScientistWest)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "greenScientist"))
+        (skinD-east greenScientistWest)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "greenScientist"))
+        (skinD-south greenScientistWest)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "greenScientist"))
+        (skinD-north greenScientistWest)] 
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "blueScientist"))
+     (skinD-west blueScientistWest)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "blueScientist"))
+        (skinD-east blueScientistWest)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "blueScientist"))
+        (skinD-south blueScientistWest)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "blueScientist"))
+        (skinD-north blueScientistWest)] 
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "purpleScientist"))
+     (skinD-west purpleScientistSouth)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "purpleScientist"))
+        (skinD-east purpleScientistSouth)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "purpleScientist"))
+        (skinD-south purpleScientistSouth)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "purpleScientist"))
+        (skinD-north purpleScientistSouth)] 
 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "policeWoman"))
@@ -783,7 +1379,61 @@
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "policeWoman"))
         (skinD-south policeWomanSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "policeWoman"))
-        (skinD-north policeWomanSkin)] ))
+        (skinD-north policeWomanSkin)]
+
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "redPoliceWoman"))
+     (skinD-west redPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "redPoliceWoman"))
+        (skinD-east redPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "redPoliceWoman"))
+        (skinD-south redPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "redPoliceWoman"))
+        (skinD-north redPoliceWomanSkin)]
+        
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "orangePoliceWoman"))
+     (skinD-west orangePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "orangePoliceWoman"))
+        (skinD-east orangePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "orangePoliceWoman"))
+        (skinD-south orangePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "orangePoliceWoman"))
+        (skinD-north orangePoliceWomanSkin)]
+        
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "yellowPoliceWoman"))
+     (skinD-west yellowPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "yellowPoliceWoman"))
+        (skinD-east yellowPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "yellowPoliceWoman"))
+        (skinD-south yellowPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowPoliceWoman"))
+        (skinD-north yellowPoliceWomanSkin)]
+        
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "greenPoliceWoman"))
+     (skinD-west greenPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "greenPoliceWoman"))
+        (skinD-east greenPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "greenPoliceWoman"))
+        (skinD-south greenPoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "greenPoliceWoman"))
+        (skinD-north greenPoliceWomanSkin)]
+        
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "bluePoliceWoman"))
+     (skinD-west bluePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "bluePoliceWoman"))
+        (skinD-east bluePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "bluePoliceWoman"))
+        (skinD-south bluePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "bluePoliceWoman"))
+        (skinD-north bluePoliceWomanSkin)]
+        
+     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "purplePoliceWoman"))
+     (skinD-west purplePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "purplePoliceWoman"))
+        (skinD-east purplePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "purplePoliceWoman"))
+        (skinD-south purplePoliceWomanSkin)]
+    [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "purplePoliceWoman"))
+        (skinD-north purplePoliceWomanSkin)] ))
 
 
 ;x,y coordinates of the doors 
@@ -1019,6 +1669,7 @@
         [(string=? (skin-name (Character-skin (world-character world))) "policeWoman") (begin (thread playButtonClick1Sound) (make-world "tutorial"(make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))]
         [else world]))
 
+
 ;makes the skin boy once clicked
 (define (cBoySelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
@@ -1030,6 +1681,62 @@
 
 ;makes the skin janitor once clicked
 (define (cPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+
+
+;purpose: changes the skin of the character to the red version of the skin
+;contract: cColorLevel2SkinUpdater: world(w) --> world
+(define (cColorLevel2SkinUpdater world) 
+      (cond 
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+    
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "bluePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+    
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+     
+     [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purplePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (make-ChPos (ChPos-y (Character-pos (world-character world)))) 0))))]
+    
+     [else world]))
+
 
 ;Coordinates of the buttons
 
@@ -1104,24 +1811,24 @@
 ;x-axiis:  898(left)  942(right)
 
 ;orange paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  378(bottom)  326(top)
+;x-axiis:  894(left)  939(right)
 
 ;yellow paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  378(bottom)  324(top)
+;x-axiis:  1001(left)  1045(right)
 
 ;green paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  447(bottom)  393(top)
+;x-axiis:  949(left)  992(right)
 
 ;blue paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  448(bottom)  393(top)
+;x-axiis:  1000(left)  1044(right)
 
 ;purple paint bucket
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  377(bottom)  325(top)
+;x-axiis:  948(left)  992(right)
 
 
 ;ScoreBoard next button:
@@ -1810,6 +2517,59 @@
          (swNumberLobbyL2 w)]
 
 
+
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on red bucket
+                (mouse=? me "button-down"))
+        (and (<= y 446) 
+             (>= y 393))
+        (and (>= x 898)   
+             (<= x 942)))
+         (cColorLevel2SkinUpdater w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on orange bucket
+                (mouse=? me "button-down"))
+        (and (<= y 378) 
+             (>= y 326))
+        (and (>= x 894)   
+             (<= x 939)))
+         (cColorLevel2SkinUpdater w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on yellow bucket
+                (mouse=? me "button-down"))
+        (and (<= y 378) 
+             (>= y 324))
+        (and (>= x 1001)   
+             (<= x 1045)))
+         (cColorLevel2SkinUpdater w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on green bucket
+                (mouse=? me "button-down"))
+        (and (<= y 447) 
+             (>= y 393))
+        (and (>= x 949)   
+             (<= x 992)))
+         (cColorLevel2SkinUpdater w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on blue bucket
+                (mouse=? me "button-down"))
+        (and (<= y 448) 
+             (>= y 393))
+        (and (>= x 1000)   
+             (<= x 1044)))
+         (cColorLevel2SkinUpdater w)]
+
+     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on purple bucket
+                (mouse=? me "button-down"))
+        (and (<= y 377) 
+             (>= y 325))
+        (and (>= x 948)   
+             (<= x 992)))
+         (cColorLevel2SkinUpdater w)]
+     
+     
+
+
   [else w]))
 
 ;test
@@ -1903,7 +2663,8 @@
         [(string=? (world-scene world) "colorLobbyL1")
                     (swColorLobbyL1)] 
         [(string=? (world-scene world) "numberLobbyL1")
-                    (swNumberLobbyL1)]            
+                    (swNumberLobbyL1)]
+          
 
         [else world]))
   
