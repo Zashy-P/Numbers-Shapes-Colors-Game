@@ -411,13 +411,14 @@
 (define colorLevel1Q5Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 1/question 5.jpg"))
 
 (define colorLevel2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
-;(define colorLevel2GameBg (bitmap ""))
-;(define colorLevel2RedSquareBg (bitmap ""))
-;(define colorLevel2OrangeSquareBg (bitmap ""))
-;(define colorLevel2YellowSquareBg (bitmap ""))
-;(define colorLevel2GreenSquareBg (bitmap ""))
-;(define colorLevel2BlueSquareBg (bitmap ""))
-;(define colorLevel2PurpleSquareBg (bitmap ""))
+
+(define colorLevel2EmptyFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/0 start.jpg"))
+(define colorLevel2RedFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/1 red.jpg"))
+(define colorLevel2OrangeFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/2 orange.jpg"))
+(define colorLevel2YellowFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/3 yellow.jpg"))
+(define colorLevel2GreenFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/4 green.jpg"))
+(define colorLevel2BlueFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/5 blue.jpg"))
+(define colorLevel2PurpleFrameBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/Colors/level 2/6 purple.jpg"))
 
 
 (define colorLevel3Bg (empty-scene 1920 1080))
@@ -576,16 +577,16 @@
 
 
 ;shows the boy skin character info once clicked
-(define (swInfoBoySelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoBoy w) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the janitor skin character info once clicked
-(define (swInfoJanitorSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoJanitor w) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the scientist skin character info once clicked
-(define (swInfoScientistSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoScientist w) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;shows the policeWoman skin character info once clicked
-(define (swInfoPoliceWomanSelect w) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+(define (swInfoPoliceWoman w) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;=======================================================================================
 ;************************************ Shape Game ***************************************
@@ -734,19 +735,20 @@
           [(string=? (world-scene world) "colorLevel3")
           (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
-          ;[(string=? (world-scene world) "colorLevel2Game")
-          ;[(string=? (world-scene world) "colorLevel2RedSquare")
-          ;(place-image colorLevel2RedSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2OrangeSquare")
-          ;(place-image colorLevel2OrangeSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2YellowSquare")
-          ;(place-image colorLevel2YellowSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2GreenSquare")
-          ;(place-image colorLevel2GreenSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2BlueSquare")
-          ;(place-image colorLevel2BlueSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "colorLevel2PurpleSquare")
-          ;(place-image colorLevel2PurpleSquare worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2EmptyFrame")
+          (place-image colorLevel2EmptyFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2RedFrame")
+          (place-image colorLevel2RedFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2OrangeFrame")
+          (place-image colorLevel2OrangeFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2YellowFrame")
+          (place-image colorLevel2YellowFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2GreenFrame")
+          (place-image colorLevel2GreenFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2BlueFrame")
+          (place-image colorLevel2BlueFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2PurpleFrame")
+          (place-image colorLevel2PurpleFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           ))
           
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -767,41 +769,76 @@
 (define (swColorLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 ;change sound effecta
-;(define (swColorLevel2Game w) (begin (thread playBellRingSound) (make-world "colorLevel2Game" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2RedSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2RedSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2OrangeSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2OrangeSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2YellowSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2YellowSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2GreenSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2GreenSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2BlueSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-;(define (swColorLevel2PurpleSquare w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleSquare" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorLevel2RedFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2OrangeFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2YellowFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2GreenFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2BlueFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel2PurpleFrame w) (begin (thread playBellRingSound) (make-world "colorLevel2PurpleFrame" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 (define (drawColorScore world)
       (cond
           [(string=? (world-scene world) "colorLevel1Score5")
-          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          
-         ))
-
-         
-(define (drawColorLevel2 world)
-     (cond
-          [(string=? (world-scene world) "colorLevel2")
-          (place-image  colorLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "redFrameClicked")
-          (overlay/xy (rectangle 100 100 "solid" "red") 169 405) colorLevel2Bg]
-          
-          [else world]))
+          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
 
 
+(define (correctSkinToFrame w)
+  (cond
+     [(string=? (skin-name (Character-skin (world-character w))) "redBoy")
+          (make-world "colorLevel2RedFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "orangeBoy")
+          (make-world "colorLevel2OrangeFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "yellowBoy")
+          (make-world "colorLevel2YellowFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "greenBoy")
+          (make-world "colorLevel2GreenFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "blueBoy")
+          (make-world "colorLevel2BlueFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "purpleBoy")
+          (make-world "colorLevel2PurpleFrame" (world-character w))]
 
-(define redSquare (rectangle 144 125 "solid" "red"))
+     [(string=? (skin-name (Character-skin (world-character w))) "redJanitor")
+          (make-world "colorLevel2RedFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "orangeJanitor")
+          (make-world "colorLevel2OrangeFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "yellowJanitor")
+          (make-world "colorLevel2YellowFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "greenJanitor")
+          (make-world "colorLevel2GreenFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "blueJanitor")
+          (make-world "colorLevel2BlueFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "purpleJanitor")
+          (make-world "colorLevel2PurpleFrame" (world-character w))]
 
-(define (overlayRedSquare w)
-     (define colorLevel2WithRedSquare (overlay/xy redSquare colorLevel2Bg 169 405))
-     (make-world colorLevel2WithRedSquare (world-character w)))
+     [(string=? (skin-name (Character-skin (world-character w))) "redScientist")
+          (make-world "colorLevel2RedFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "orangeScientist")
+          (make-world "colorLevel2OrangeFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "yellowScientist")
+          (make-world "colorLevel2YellowFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "greenScientist")
+          (make-world "colorLevel2GreenFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "blueScientist")
+          (make-world "colorLevel2BlueFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "purpleScientist")
+          (make-world "colorLevel2PurpleFrame" (world-character w))]
 
+     [(string=? (skin-name (Character-skin (world-character w))) "redPoliceWoman")
+          (make-world "colorLevel2RedFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "orangePoliceWoman")
+          (make-world "colorLevel2OrangeFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "yellowPoliceWoman")
+          (make-world "colorLevel2YellowFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "greenPoliceWoman")
+          (make-world "colorLevel2GreenFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "bluePoliceWoman")
+          (make-world "colorLevel2BlueFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character w))) "purplePoliceWoman")
+          (make-world "colorLevel2PurpleFrame" (world-character w))]
 
-
+   
+     [else (wrongAnswer w)]))
 
 
 ;=======================================================================================
@@ -1321,6 +1358,18 @@
 ;Character Info button y-axis start from 715(bottom)  606(top)
 ;Character Info button x-axis start from 761(left)  1151(right)
 
+;boy character info button y-axis start from  354(bottom)  85(top)
+;boy character info button x-axis start from  906(left)  1084(right)
+
+;janitor character info button y-axis start from  349(bottom)  81(top)
+;janitor character info button x-axis start from  1158(left)  1336(right)
+
+;scientist character info button y-axis start from  351(bottom)  83(top)
+;scientist character info button x-axis start from  1413(left)  1592(right)
+
+;police woman character info button y-axis start from  352(bottom)  81(top)
+;police woman character info button x-axis start from  1652(left)  1834(right)
+
 
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
@@ -1343,15 +1392,39 @@
                (>= y 606))
           (and (>= x 761)   
                (<= x 1151))) 
-          (swInfoBoySelect w)]
+          (swInfoBoy w)]
      
-     [(and (and (string=? (world-scene w) "characterInfo1") ;charcter info button
+     [(and (and (string=? (world-scene w) "characterInfo1") ;boy charcter info button
                 (mouse=? me "button-down"))
-          (and (<= y 715) 
-               (>= y 606))
-          (and (>= x 761)   
-               (<= x 1151))) 
-          (swInfoBoySelect w)]
+          (and (<= y ) 
+               (>= y ))
+          (and (>= x )   
+               (<= x ))) 
+          (swInfoBoy w)]
+     
+     [(and (and (string=? (world-scene w) "characterInfo2") ; janitor charcter info button
+                (mouse=? me "button-down"))
+          (and (<= y ) 
+               (>= y ))
+          (and (>= x )   
+               (<= x ))) 
+          (swInfoJanitor w)]
+     
+     [(and (and (string=? (world-scene w) "characterInfo3") ; scientist charcter info button
+                (mouse=? me "button-down"))
+          (and (<= y ) 
+               (>= y ))
+          (and (>= x )   
+               (<= x ))) 
+          (swInfoScientist w)]
+     
+     [(and (and (string=? (world-scene w) "characterInfo4") ;police woman charcter info button
+                (mouse=? me "button-down"))
+          (and (<= y ) 
+               (>= y ))
+          (and (>= x )   
+               (<= x ))) 
+          (swInfoPoliceWoman w)]
 
      [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
                 (mouse=? me "button-down"))
@@ -1762,6 +1835,20 @@
              (<= x 1397)))
          (swColorLobbyL2 w)]
 
+     
+     [(and (and (string=? (world-scene w) "colorLevel2EmptyFrame") ; frame becomes red when clicked
+                (mouse=? me "button-down"))
+        (and (<= y 169) 
+             (>= y 313))
+        (and (>= x 405)   
+             (<= x 530)))
+         (correctSkinToFrame w)]
+
+
+
+
+
+
 
     [(and (and (string=? (world-scene w) "numberElevator") ;Level 1 Elevator Button
                 (mouse=? me "button-down"))
@@ -1963,6 +2050,15 @@
              (<= x 1397)))
          (swNumberLobbyL2 w)]
 
+     [(and (and (string=? (world-scene w) "numberLevel1Score5") ;level 1 next button
+                (mouse=? me "button-down"))
+        (and (<= y 1018) 
+             (>= y 917))
+        (and (>= x 1028)   
+             (<= x 1397)))
+         (swNumberLobbyL2 w)]
+     
+
   [else w]))
 
 ;test
@@ -2053,7 +2149,22 @@
                     elevator]
        [(string=? (world-scene world) "colorLevel1Score5")
                     (drawColorScore world)]
-       
+       [(string=? (world-scene world) "colorLevel2EmptyFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2RedFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2OrangeFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2YellowFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2GreenFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2BlueFrame")
+                    (drawColorLevel world)]
+       [(string=? (world-scene world) "colorLevel2PurpleFrame")
+                    (drawColorLevel world)]
+           
+
        [(string=? (world-scene world) "numberLobbyL1")
                     (drawNumberLobby world)]
         [(string=? (world-scene world) "numberLobbyL2")
