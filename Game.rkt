@@ -60,11 +60,8 @@
 ;=======================================================================================
 ;************************************ Images *******************************************
 ;=======================================================================================
-;Character skins
-;abdulrahman's bitmaps
 
 ;Character skins
-;abdulrahman's bitmaps
 
 ;boy skin
 (define skinBoyWest(bitmap "Photos/Characters/boy/boy_left_side.png"))
@@ -387,6 +384,8 @@
 (define triangleScientistNorth (bitmap "Photos/Characters with shapes/scientist/triangle scientist/triangle scientist backside.png"))
 (define triangleScientistSouth (bitmap "Photos/Characters with shapes/scientist/triangle scientist/triagnle scientist frontside.png"))
 (define triangleScientistSkin (make-skinD triangleScientistWest triangleScientistEast triangleScientistSouth triangleScientistNorth))
+
+;Backgrounds
 
 ;Menu Background 
 (define menuBg (bitmap "Photos/backgrounds/Final menu background.jpg")) 
