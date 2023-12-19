@@ -377,6 +377,12 @@
 (define chSelect3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 3.jpeg"))
 (define chSelect4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/charcater select  4.jpeg"))
 
+;Character Info Background
+(define characterInfo1Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/charcater info boy.jpg"))
+(define characterInfo2Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/charcater info janitor.jpg"))
+(define characterInfo3Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/character info scientist.jpg"))
+(define characterInfo4Bg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/character info police woman.jpg"))
+
 ;Character Select Background
 (define chSelectBg (bitmap "C:/Users/zaina/OneDrive/Documents/GitHub/Numbers-Shapes-Colors-Game/Photos/selection/character select 1.jpeg")) 
 
@@ -548,6 +554,40 @@
 
 (define characterSelect4
     (place-image chSelect4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+
+;=======================================================================================
+;************************************ Character Info ***********************************
+;=======================================================================================
+;purpose:draw the character info selections
+;cotract: drawCharacterInfo: world --> image
+(define (drawCharacterInfo world)
+     (cond
+          [(string=? (world-scene world) "characterInfo")
+          (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))] 
+          [(string=? (world-scene world) "characterInfo1")
+          (place-image characterInfo1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "characterInfo2")
+          (place-image characterInfo2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "characterInfo3")
+          (place-image characterInfo3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "characterInfo4")
+          (place-image characterInfo4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+
+;define the character info scene once clicked
+(define (cChInfo) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+
+;shows the boy skin character info once clicked
+(define (infoBoySelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+
+;shows the janitor skin character info once clicked
+(define (infoJanitorSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+
+;shows the scientist skin character info once clicked
+(define (infoScientistSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
+
+;shows the policeWoman skin character info once clicked
+(define (infoPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ;=======================================================================================
 ;************************************ Shape Game ***************************************
@@ -1177,6 +1217,8 @@
 ;makes the skin janitor once clicked
 (define (cPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
+
+
 ;Coordinates of the buttons
 
 ;Play button y-axis Play from 480(bottom) to 377(top)
@@ -1278,8 +1320,8 @@
 ;y-axis:  1018(bottom)  910(top)
 ;x-axiis:  584(left)  953(right)
 
-;LeaderBoard button y-axis start from ?(bottom) to ?(top)
-;LeaderBoard button x-axis start from ?(left) to ?(right)
+;Character Info button y-axis start from 715(bottom)  606(top)
+;Character Info button x-axis start from 761(left)  1151(right)
 
 
 ;Purpose: Register the mouse input on the buttons
@@ -1296,6 +1338,22 @@
           (and (>= x 757)   
                (<= x 1148))) 
           (cChSelect)]
+     
+     [(and (and (string=? (world-scene w) "characterInfo") ;charcter info button
+                (mouse=? me "button-down"))
+          (and (<= y 715) 
+               (>= y 606))
+          (and (>= x 761)   
+               (<= x 1151))) 
+          (cChInfo)]
+     
+     [(and (and (string=? (world-scene w) "characterInfo1") ;charcter info button
+                (mouse=? me "button-down"))
+          (and (<= y 715) 
+               (>= y 606))
+          (and (>= x 761)   
+               (<= x 1151))) 
+          (cChInfo)]
 
      [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
                 (mouse=? me "button-down"))
@@ -1929,6 +1987,16 @@
                     characterSelect3]
         [(string=? (world-scene world) "chSelect4")
                     characterSelect4]
+        [(string=? (world-scene world) "characterInfo")
+                    characterSelectMenu]             
+        [(string=? (world-scene world) "characterInfo1")
+                    drawCharacterInfo]          
+        [(string=? (world-scene world) "characterInfo2")
+                    drawCharacterInfo]
+        [(string=? (world-scene world) "characterInfo3")
+                    drawCharacterInfo]
+        [(string=? (world-scene world) "characterInfo4")
+                    drawCharacterInfo]
         [(string=? (world-scene world) "Lobby") 
                     (drawLobby world)]
         [(string=? (world-scene world) "tutorialPopUp")
