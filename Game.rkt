@@ -1115,117 +1115,117 @@
           (string=? (world-scene w) "numberLevel3"))
     (cond                                       
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 700)
-             (>= (ChPos-y (Character-pos (world-character w))) 670))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 370)
-             (<= (ChPos-x (Character-pos (world-character w))) 420))) 
-             (swShapeLobbyL1 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 700)
+           (>= (ChPos-y (Character-pos (world-character w))) 670)
+           (>= (ChPos-x (Character-pos (world-character w))) 370)
+           (<= (ChPos-x (Character-pos (world-character w))) 420)) 
+           (swShapeLobbyL1 w)]
           
-         [(and (or (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3")) ;Shape elevator
-      (and (<= (ChPos-y (Character-pos (world-character w))) 850)
-             (>= (ChPos-y (Character-pos (world-character w))) 390))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 130)
-             (<= (ChPos-x (Character-pos (world-character w))) 340))) 
-             (swShapeElevator w)]
+     [(and (or (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3")) ;Shape elevator
+           (<= (ChPos-y (Character-pos (world-character w))) 850)
+           (>= (ChPos-y (Character-pos (world-character w))) 390)
+           (>= (ChPos-x (Character-pos (world-character w))) 130)
+           (<= (ChPos-x (Character-pos (world-character w))) 340)) 
+           (swShapeElevator w)]
 
      [(and (string=? (world-scene w) "shapeLobbyL1") ;Shape Level 1 door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-             (>= (ChPos-y (Character-pos (world-character w))) 290))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-             (swShapeLevel1 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swShapeLevel1 w)]
 
      [(and (string=? (world-scene w) "shapeLobbyL2") ;Shape Level 2 door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-             (>= (ChPos-y (Character-pos (world-character w))) 290))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
              (swShapeLevel2 w)]
 
      [(and (string=? (world-scene w) "shapeLobbyL3") ;Shape Level 3 door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-          (>= (ChPos-y (Character-pos (world-character w))) 290))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-             (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-             (swShapeLevel3 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swShapeLevel3 w)]
 
      [(and (or (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "numberLobbyL1")) ;Shape Level 1 exit door
-      (and (<= (ChPos-y (Character-pos (world-character w))) 792)
-          (>= (ChPos-y (Character-pos (world-character w))) 726))
-      (and (>= (ChPos-x (Character-pos (world-character w))) 1515)
-             (<= (ChPos-x (Character-pos (world-character w))) 1693))) 
-             (cLobby w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 792)
+           (>= (ChPos-y (Character-pos (world-character w))) 726)
+           (>= (ChPos-x (Character-pos (world-character w))) 1515)
+           (<= (ChPos-x (Character-pos (world-character w))) 1693)) 
+           (cLobby w)]
 
      [(and (string=? (world-scene w) "Lobby") ;Color Door
-       (and (<= (ChPos-y (Character-pos (world-character w))) 710)
-            (>= (ChPos-y (Character-pos (world-character w))) 660))
-       (and (>= (ChPos-x (Character-pos (world-character w))) 1530)
-            (<= (ChPos-x (Character-pos (world-character w))) 1550))) 
-            (swColorLobbyL1 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 710)
+           (>= (ChPos-y (Character-pos (world-character w))) 660)
+           (>= (ChPos-x (Character-pos (world-character w))) 1530)
+           (<= (ChPos-x (Character-pos (world-character w))) 1550)) 
+           (swColorLobbyL1 w)]
 
      [(and (or (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3")) ;color elevator
-     (and (<= (ChPos-y (Character-pos (world-character w))) 850)
-          (>= (ChPos-y (Character-pos (world-character w))) 390))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 130)
-          (<= (ChPos-x (Character-pos (world-character w))) 340))) 
-          (swColorElevator w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 850)
+           (>= (ChPos-y (Character-pos (world-character w))) 390)
+           (>= (ChPos-x (Character-pos (world-character w))) 130)
+           (<= (ChPos-x (Character-pos (world-character w))) 340)) 
+           (swColorElevator w)]
 
      [(and (string=? (world-scene w) "colorLobbyL1") ;color Level 1 door
-     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-          (>= (ChPos-y (Character-pos (world-character w))) 290))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-          (swColorLevel1 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swColorLevel1 w)]
 
      [(and (string=? (world-scene w) "colorLobbyL2") ;color Level 2 door
-     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-          (>= (ChPos-y (Character-pos (world-character w))) 290))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-          (swColorLevel2 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swColorLevel2 w)]
 
      [(and (string=? (world-scene w) "colorLobbyL3") ;color Level 3 door
-          (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-               (>= (ChPos-y (Character-pos (world-character w))) 290))
-          (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-               (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-               (swColorLevel3 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swColorLevel3 w)]
 
 
-      [(and (string=? (world-scene w) "Lobby") ;Number Door
-       (and (<= (ChPos-y (Character-pos (world-character w))) 300)
-            (>= (ChPos-y (Character-pos (world-character w))) 300))
-       (and (>= (ChPos-x (Character-pos (world-character w))) 1060)
-            (<= (ChPos-x (Character-pos (world-character w))) 1693))) 
-            (swNumberLobbyL1 w)]
+     [(and (string=? (world-scene w) "Lobby") ;Number Door
+           (<= (ChPos-y (Character-pos (world-character w))) 300)
+           (>= (ChPos-y (Character-pos (world-character w))) 300)
+           (>= (ChPos-x (Character-pos (world-character w))) 1060)
+           (<= (ChPos-x (Character-pos (world-character w))) 1693)) 
+           (swNumberLobbyL1 w)]
 
-      [(and (or (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3")) ;number elevator
-     (and (<= (ChPos-y (Character-pos (world-character w))) 850)
-          (>= (ChPos-y (Character-pos (world-character w))) 390))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 130)
-          (<= (ChPos-x (Character-pos (world-character w))) 340))) 
-          (swNumberElevator w)]
+     [(and (or (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3")) ;number elevator
+           (<= (ChPos-y (Character-pos (world-character w))) 850)
+           (>= (ChPos-y (Character-pos (world-character w))) 390)
+           (>= (ChPos-x (Character-pos (world-character w))) 130)
+           (<= (ChPos-x (Character-pos (world-character w))) 340))
+           (swNumberElevator w)]
 
      [(and (string=? (world-scene w) "numberLobbyL1") ;number Level 1 door
-     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-          (>= (ChPos-y (Character-pos (world-character w))) 290))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-          (swNumberLevel1 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110))
+           (swNumberLevel1 w)]
 
      [(and (string=? (world-scene w) "numberLobbyL2") ;number Level 2 door
-     (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-          (>= (ChPos-y (Character-pos (world-character w))) 290))
-     (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-          (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-          (swNumberLevel2 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swNumberLevel2 w)]
 
      [(and (string=? (world-scene w) "numberLobbyL3") ;number Level 3 door
-          (and (<= (ChPos-y (Character-pos (world-character w))) 630)
-               (>= (ChPos-y (Character-pos (world-character w))) 290))
-          (and (>= (ChPos-x (Character-pos (world-character w))) 820)
-               (<= (ChPos-x (Character-pos (world-character w))) 1110))) 
-               (swNumberLevel3 w)]
+           (<= (ChPos-y (Character-pos (world-character w))) 630)
+           (>= (ChPos-y (Character-pos (world-character w))) 290)
+           (>= (ChPos-x (Character-pos (world-character w))) 820)
+           (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
+           (swNumberLevel3 w)]
 
 
      [(or (key=? ki "left") (key=? ki "a")) 
@@ -1553,722 +1553,722 @@
 ;function
 (define (mouseRegister w x y me)
   (cond
-     [(and (and (string=? (world-scene w) "menu") ;Play button
-                (mouse=? me "button-down"))
-          (and (<= y 480) 
-               (>= y 377))
-          (and (>= x 757)   
-               (<= x 1148))) 
-          (cChSelect)]
+     [(and (string=? (world-scene w) "menu") ;Play button
+           (mouse=? me "button-down")
+           (<= y 480) 
+           (>= y 377)
+           (>= x 757)   
+           (<= x 1148))
+           (cChSelect)]
 
-     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
-                (mouse=? me "button-down"))
-          (and (<= y 772) 
-               (>= y 271))
-          (and (>= x 66)   
-               (<= x 448))) 
-          (cBoySelect)]
+     [(and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2") (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Boy character select
+               (mouse=? me "button-down")
+           (<= y 772) 
+               (>= y 271)
+               (>= x 66)   
+           (<= x 448)) 
+               (cBoySelect)]
 
-     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Janitor character select
-                (mouse=? me "button-down"))
-          (and (<= y 772) 
-               (>= y 271))
-          (and (>= x 531)   
-               (<= x 913)))
-          (cJanitorSelect)]
+     [(and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2") (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Janitor character select
+           (mouse=? me "button-down")
+                (<= y 772) 
+                (>= y 271)
+                (>= x 531)   
+                (<= x 913))
+                (cJanitorSelect)]
 
-     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Scientist character select
-                (mouse=? me "button-down"))
-          (and (<= y 772) 
-               (>= y 271))
-          (and (>= x 990)   
-               (<= x 1370)))
+     [(and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2") (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Scientist character select
+           (mouse=? me "button-down")
+           (<= y 772) 
+           (>= y 271)
+           (>= x 990)   
+           (<= x 1370))
           (cScientistSelect)]
 
-     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Police Woman character select
-                (mouse=? me "button-down"))
-          (and (<= y 772) 
-               (>= y 271))
-          (and (>= x 1460)   
-               (<= x 1840)))
+     [(and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2") (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4")) ;Police Woman character select
+           (mouse=? me "button-down")
+           (<= y 772) 
+           (>= y 271)
+           (>= x 1460)   
+           (<= x 1840))
           (cPoliceWomanSelect)]
 
-     [(and (and (or (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2")) (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4"))  ;chSelect confirm button
-                (mouse=? me "button-down"))
-          (and (<= y 1080) 
-               (>= y 931))
-          (and (>= x 1570)   
-               (<= x 1855))) 
+     [(and (or (string=? (world-scene w) "chSelect") (string=? (world-scene w) "chSelect2") (string=? (world-scene w) "chSelect3") (string=? (world-scene w) "chSelect4"))  ;chSelect confirm button
+           (mouse=? me "button-down")
+           (<= y 1080) 
+           (>= y 931)
+           (>= x 1570)   
+           (<= x 1855)) 
           (cTutorialPopUp w)]
 
-     [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
-                (mouse=? me "button-down"))
-        (and (<= y 770) 
-             (>= y 670))
-        (and (>= x 567)   
-             (<= x 915)))
-         (cTutorial w)]
+     [(and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp yes button
+           (mouse=? me "button-down")
+           (<= y 770) 
+           (>= y 670)
+           (>= x 567)   
+           (<= x 915))
+          (cTutorial w)]
 
-     [(and (and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp no button
-                (mouse=? me "button-down"))
-        (and (<= y 770)
-             (>= y 670))
-        (and (>= x 1029)
-             (<= x 1376))) 
-             (cLobby w)]
+     [(and (string=? (world-scene w) "tutorialPopUp") ;tutorialPopUp no button
+           (mouse=? me "button-down")
+           (<= y 770)
+           (>= y 670)
+           (>= x 1029)
+           (<= x 1376))
+           (cLobby w)]
 
-     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 1 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 453)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swShapeLobbyL1 w)]
+     [(and (string=? (world-scene w) "shapeElevator") ;Level 1 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 453)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swShapeLobbyL1 w)]
 
-     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 2 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 505)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swShapeLobbyL2 w)]
+     [(and (string=? (world-scene w) "shapeElevator") ;Level 2 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 505)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swShapeLobbyL2 w)]
 
-     [(and (and (string=? (world-scene w) "shapeElevator") ;Level 3 Elevator Button3
-                (mouse=? me "button-down"))
-        (and (<= y 556)
-             (>= y 522))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swShapeLobbyL3 w)]
+     [(and (string=? (world-scene w) "shapeElevator") ;Level 3 Elevator Button3
+           (mouse=? me "button-down")
+           (<= y 556)
+           (>= y 522)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swShapeLobbyL3 w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 topRight Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swShapeLevel1Q2 w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 topRight Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swShapeLevel1Q2 w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q1") ;Shape Level 1 Q1 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 bottomLeft Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swShapeLevel1Q3 w)]  
+     [(and (string=? (world-scene w) "shapeLevel1Q2") ;Shape Level 1 Q2 bottomLeft Correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (swShapeLevel1Q3 w)]  
         
-     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 topRight Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 topRight Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swShapeLevel1Q4 w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swShapeLevel1Q4 w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]   
+     [(and (string=? (world-scene w) "shapeLevel1Q3") ;Shape Level 1 Q3 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]   
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 topLeft Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swShapeLevel1Q5 w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 topLeft Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (swShapeLevel1Q5 w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)] 
+     [(and (string=? (world-scene w) "shapeLevel1Q4") ;Shape Level 1 Q4 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)] 
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 bottomRight correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swShapeLevel1Score5 w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 bottomRight correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swShapeLevel1Score5 w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)] 
+     [(and (string=? (world-scene w) "shapeLevel1Q5") ;Shape Level 1 Q5 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)] 
      
-      [(and (and (string=? (world-scene w) "shapeLevel1Score5") ;level 1 score board exit button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 910))
-        (and (>= x 584)   
-             (<= x 953)))
-         (swShapeLobbyL1 w)]  
+      [(and (string=? (world-scene w) "shapeLevel1Score5") ;level 1 score board exit button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 910)
+           (>= x 584)   
+           (<= x 953))
+           (swShapeLobbyL1 w)]  
 
-     [(and (and (string=? (world-scene w) "shapeLevel1Score5") ;level 1 next button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 917))
-        (and (>= x 1028)   
-             (<= x 1397)))
-         (swShapeLobbyL2 w)]
+     [(and (string=? (world-scene w) "shapeLevel1Score5") ;level 1 next button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 917)
+           (>= x 1028)   
+           (<= x 1397))
+           (swShapeLobbyL2 w)]
 
 
-     [(and (and (string=? (world-scene w) "colorElevator") ;Level 1 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 453)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swColorLobbyL1 w)]
+     [(and (string=? (world-scene w) "colorElevator") ;Level 1 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 453)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swColorLobbyL1 w)]
 
-     [(and (and (string=? (world-scene w) "colorElevator") ;Level 2 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 505)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swColorLobbyL2 w)]
+     [(and (string=? (world-scene w) "colorElevator") ;Level 2 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 505)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swColorLobbyL2 w)]
 
-     [(and (and (string=? (world-scene w) "colorElevator") ;Level 3 Elevator Button3
-                (mouse=? me "button-down"))
-        (and (<= y 556)
-             (>= y 522))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swColorLobbyL3 w)]
+     [(and (string=? (world-scene w) "colorElevator") ;Level 3 Elevator Button3
+           (mouse=? me "button-down")
+           (<= y 556)
+           (>= y 522)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swColorLobbyL3 w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topRight Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topRight Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topLeft right button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swColorLevel1Q2  w)]
+     [(and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 topLeft right button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (swColorLevel1Q2  w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q1") ;color Level 1 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomLeft Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swColorLevel1Q3 w)]  
+     [(and (string=? (world-scene w) "colorLevel1Q2") ;color Level 2 bottomLeft Correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (swColorLevel1Q3 w)]  
         
-     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topRight Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swColorLevel1Q4 w)]
+     [(and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topRight Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swColorLevel1Q4 w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]   
+     [(and (string=? (world-scene w) "colorLevel1Q3") ;color Level 3 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]   
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight right button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swColorLevel1Q5 w)]
+     [(and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomRight right button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swColorLevel1Q5 w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topLeft Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 topLeft Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q4") ;color Level 4 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swColorLevel1Score5 w)]
+     [(and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomRight correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swColorLevel1Score5 w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "colorLevel1Q5") ;color Level 5 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 score board exit button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 910))
-        (and (>= x 584)   
-             (<= x 953)))
-         (swColorLobbyL1 w)]  
+     [(and (string=? (world-scene w) "colorLevel1Score5") ;level 1 score board exit button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 910)
+           (>= x 584)   
+           (<= x 953))
+           (swColorLobbyL1 w)]  
 
-     [(and (and (string=? (world-scene w) "colorLevel1Score5") ;level 1 next button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 917))
-        (and (>= x 1028)   
-             (<= x 1397)))
-         (swColorLobbyL2 w)]
+     [(and (string=? (world-scene w) "colorLevel1Score5") ;level 1 next button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 917)
+           (>= x 1028)   
+           (<= x 1397))
+           (swColorLobbyL2 w)]
 
 
-     [(and (and (string=? (world-scene w) "numberElevator") ;Level 1 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 453)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swNumberLobbyL1 w)]
+     [(and (string=? (world-scene w) "numberElevator") ;Level 1 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 453)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swNumberLobbyL1 w)]
 
-     [(and (and (string=? (world-scene w) "numberElevator") ;Level 2 Elevator Button
-                (mouse=? me "button-down"))
-        (and (<= y 505)
-             (>= y 419))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swNumberLobbyL2 w)]
+     [(and (string=? (world-scene w) "numberElevator") ;Level 2 Elevator Button
+           (mouse=? me "button-down")
+           (<= y 505)
+           (>= y 419)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swNumberLobbyL2 w)]
 
-     [(and (and (string=? (world-scene w) "numberElevator") ;Level 3 Elevator Button3
-                (mouse=? me "button-down"))
-        (and (<= y 556)
-             (>= y 522))
-        (and (>= x 1443)
-             (<= x 1480))) 
-             (swNumberLobbyL3 w)]
+     [(and (string=? (world-scene w) "numberElevator") ;Level 3 Elevator Button3
+           (mouse=? me "button-down")
+           (<= y 556)
+           (>= y 522)
+           (>= x 1443)
+           (<= x 1480)) 
+           (swNumberLobbyL3 w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topLeft correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swNumberLevel1Q2 w)]
+     [(and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 topLeft correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (swNumberLevel1Q2 w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q1") ;number Level 1 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topRight wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomRight correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swNumberLevel1Q3 w)]
+     [(and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomRight correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swNumberLevel1Q3 w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]  
+     [(and (string=? (world-scene w) "numberLevel1Q2") ;number Level 2 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]  
         
-     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topRight Correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topRight Correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomLeft correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swNumberLevel1Q4 w)]   
+     [(and (string=? (world-scene w) "numberLevel1Q3") ;number Level 3 bottomLeft correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (swNumberLevel1Q4 w)]   
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topRight correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (swNumberLevel1Q5 w)]
+     [(and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topRight correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (swNumberLevel1Q5 w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q4") ;number Level 4 bottomLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topRight correct button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topRight correct button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomRight wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 1067)
-             (<= x 1564))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomRight wrong button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 1067)
+           (<= x 1564)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topLeft wrong button
-                (mouse=? me "button-down"))
-        (and (<= y 808)
-             (>= y 663))
-        (and (>= x 357)
-             (<= x 855))) 
-             (wrongAnswer w)]
+     [(and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 topLeft wrong button
+           (mouse=? me "button-down")
+           (<= y 808)
+           (>= y 663)
+           (>= x 357)
+           (<= x 855)) 
+           (wrongAnswer w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomLeft correct button
-                (mouse=? me "button-down"))
-        (and (<= y 990)
-             (>= y 844))
-        (and (>= x 357)
-             (<= x 855))) 
-             (swNumberLevel1Score5 w)]
+     [(and (string=? (world-scene w) "numberLevel1Q5") ;number Level 5 bottomLeft correct button
+           (mouse=? me "button-down")
+           (<= y 990)
+           (>= y 844)
+           (>= x 357)
+           (<= x 855)) 
+           (swNumberLevel1Score5 w)]
 
-     [(and (and (string=? (world-scene w) "numberLevel1Score5") ;level 1 score board exit button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 910))
-        (and (>= x 584)   
-             (<= x 953)))
-         (swNumberLobbyL1 w)]  
+     [(and (string=? (world-scene w) "numberLevel1Score5") ;level 1 score board exit button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 910)
+           (>= x 584)   
+           (<= x 953))
+           (swNumberLobbyL1 w)]  
 
-     [(and (and (string=? (world-scene w) "numberLevel1Score5") ;level 1 next button
-                (mouse=? me "button-down"))
-        (and (<= y 1018) 
-             (>= y 917))
-        (and (>= x 1028)   
-             (<= x 1397)))
-         (swNumberLobbyL2 w)]
-
-
+     [(and (string=? (world-scene w) "numberLevel1Score5") ;level 1 next button
+           (mouse=? me "button-down")
+           (<= y 1018) 
+           (>= y 917)
+           (>= x 1028)   
+           (<= x 1397))
+           (swNumberLobbyL2 w)]
 
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on red bucket
-                (mouse=? me "button-down"))
-        (and (<= y 446) 
-             (>= y 393))
-        (and (>= x 898)   
-             (<= x 942)))
-         (cColorLevel2SkinUpdater w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on orange bucket
-                (mouse=? me "button-down"))
-        (and (<= y 378) 
-             (>= y 326))
-        (and (>= x 894)   
-             (<= x 939)))
-         (cColorLevel2SkinUpdater w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on yellow bucket
-                (mouse=? me "button-down"))
-        (and (<= y 378) 
-             (>= y 324))
-        (and (>= x 1001)   
-             (<= x 1045)))
-         (cColorLevel2SkinUpdater w)]
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on red bucket
+           (mouse=? me "button-down")
+           (<= y 446) 
+           (>= y 393)
+           (>= x 898)   
+           (<= x 942))
+           (cColorLevel2SkinUpdater w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on green bucket
-                (mouse=? me "button-down"))
-        (and (<= y 447) 
-             (>= y 393))
-        (and (>= x 949)   
-             (<= x 992)))
-         (cColorLevel2SkinUpdater w)]
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on orange bucket
+           (mouse=? me "button-down")
+           (<= y 378) 
+           (>= y 326)
+           (>= x 894)   
+           (<= x 939))
+           (cColorLevel2SkinUpdater w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on blue bucket
-                (mouse=? me "button-down"))
-        (and (<= y 448) 
-             (>= y 393))
-        (and (>= x 1000)   
-             (<= x 1044)))
-         (cColorLevel2SkinUpdater w)]
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on yellow bucket
+           (mouse=? me "button-down")
+           (<= y 378) 
+           (>= y 324)
+           (>= x 1001)   
+           (<= x 1045))
+           (cColorLevel2SkinUpdater w)]
 
-     [(and (and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on purple bucket
-                (mouse=? me "button-down"))
-        (and (<= y 377) 
-             (>= y 325))
-        (and (>= x 948)   
-             (<= x 992)))
-         (cColorLevel2SkinUpdater w)]
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on green bucket
+           (mouse=? me "button-down")
+           (<= y 447) 
+           (>= y 393)
+           (>= x 949)   
+           (<= x 992))
+           (cColorLevel2SkinUpdater w)]
+
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on blue bucket
+           (mouse=? me "button-down")
+           (<= y 448) 
+           (>= y 393)
+           (>= x 1000)   
+           (<= x 1044))
+           (cColorLevel2SkinUpdater w)]
+
+     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on purple bucket
+           (mouse=? me "button-down")
+           (<= y 377) 
+           (>= y 325)
+           (>= x 948)   
+           (<= x 992))
+           (cColorLevel2SkinUpdater w)]
      
      
 
