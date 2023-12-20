@@ -426,6 +426,13 @@
 
 (define shapeLevel3Bg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg"))
 
+;Shapes Level 3 Photos
+(define squareCartBg (bitmap "Photos/Shapes/level 3/full 1 square.jpg"))
+(define circleCartBg (bitmap "Photos/Shapes/level 3/full 2 circle.jpg"))
+(define triangleCartBg (bitmap "Photos/Shapes/level 3/full 3 triangle.jpg"))
+(define pentagonCartBg (bitmap "Photos/Shapes/level 3/full 5 pentagon.jpg"))
+(define rectangleCartBg (bitmap "Photos/Shapes/level 3/full 4 rectangle.jpg"))
+
 ;ColorLobby 
 (define colorLobbyL1Bg (bitmap "Photos/Colors/colors level 1.jpg"))
 (define colorLobbyL2Bg (bitmap "Photos/Colors/colors level 2.jpg"))
@@ -439,7 +446,7 @@
 
 (define colorLevel2Bg (bitmap "Photos/Colors/level 2/0 start.jpg"))
 
-(define colorLevel2EmptyFrameBg (bitmap "Photos/Colors/level 2/0 start.jpg"))
+;Color Level 2 Photos
 (define colorLevel2RedFrameBg (bitmap "Photos/Colors/level 2/1 red.jpg"))
 (define colorLevel2OrangeFrameBg (bitmap "Photos/Colors/level 2/2 orange.jpg"))
 (define colorLevel2YellowFrameBg (bitmap "Photos/Colors/level 2/3 yellow.jpg"))
@@ -565,7 +572,43 @@
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         shapeLobbyL3Bg)]))
+                                         shapeLobbyL3Bg)]
+                                         
+        [(string=? (world-scene world) "squareCart")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         squareCartBg)]
+        [(string=? (world-scene world) "circleCart")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         circleCartBg)]
+        [(string=? (world-scene world) "triangleCart")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         triangleCartBg)]
+        [(string=? (world-scene world) "pentagonCart")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         pentagonCartBg)]
+        [(string=? (world-scene world) "rectangleCart")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         rectangleCartBg)]))
 ;test
 
 ;Purpose: Draws The Levels of the shape game 
@@ -636,9 +679,59 @@
      [(string=? (world-scene w) "numberLevel1Q3") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "numberLevel1Q4") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
      [(string=? (world-scene w) "numberLevel1Q5") (begin (thread playWrongChoiceEffectSound) (make-world "numberLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
-     [(string=? (world-scene w) "colorLevel2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]))
+     [(string=? (world-scene w) "colorLevel2") (begin (thread playWrongChoiceEffectSound) (make-world "colorLevel2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))]
+     ))
 ;test
 
+;purpose: changes the skin of the character to the circle version of the skin
+;contract: changeSkinToCircle: world --> world
+(define (changeSkinToCircle world)
+      (cond
+      [(or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (skin-name (Character-skin (world-character world))) "triangleBoy"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "circleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (skin-name (Character-skin (world-character world))) "triangleJanitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "circleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (skin-name (Character-skin (world-character world))) "triangleScientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "circleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "trianglePoliceWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "circlePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [else world]))
+
+;purpose: changes the skin of the character to the pentagon version of the skin
+;contract: changeSkinToPentagon: world --> world
+(define (changeSkinToPentagon world)
+      (cond
+      [(or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "circleBoy") (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (skin-name (Character-skin (world-character world))) "triangleBoy"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "pentagonBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "circleJanitor") (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (skin-name (Character-skin (world-character world))) "triangleJanitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "pentagonJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "circleScientist") (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (skin-name (Character-skin (world-character world))) "triangleScientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "pentagonScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (skin-name (Character-skin (world-character world))) "circlePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "trianglePoliceWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "pentagonPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [else world]))
+
+;pupose: changes the skin of the character to the rectangle version of the skin
+;contract: changeSkinToRectangle: world --> world
+(define (changeSkinToRecatngle world)
+      (cond
+      [(or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (skin-name (Character-skin (world-character world))) "circleleBoy") (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (skin-name (Character-skin (world-character world))) "triangleBoy"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "rectangleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (skin-name (Character-skin (world-character world))) "circleleJanitor") (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (skin-name (Character-skin (world-character world))) "triangleJanitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "rectangleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (skin-name (Character-skin (world-character world))) "circleleScientist") (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (skin-name (Character-skin (world-character world))) "triangleScientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "rectangleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "circlelePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "trianglePoliceWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "rectanglePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [else world]))
+
+;purpose: changes the skin of the character to the square version of the skin
+;contract: changeSkinToSquare: world --> world
+(define (changeSkinToSqaure world)
+      (cond
+      [(or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (skin-name (Character-skin (world-character world))) "circleleBoy") (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (skin-name (Character-skin (world-character world))) "triangleBoy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "squareBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (skin-name (Character-skin (world-character world))) "circleleJanitor") (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (skin-name (Character-skin (world-character world))) "triangleJanitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "squareJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (skin-name (Character-skin (world-character world))) "circleleScientist") (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (skin-name (Character-skin (world-character world))) "triangleScientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "squareScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "circlelePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "trianglePoliceWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "squarePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [else world]))
+
+;purpose: changes the skin of the character to the triangle version of the skin
+;contract: changeSkinToTriangle: world --> world
+(define (changeSkinToTriangle world)
+      (cond
+      [(or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (skin-name (Character-skin (world-character world))) "circleBoy"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "triangleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (skin-name (Character-skin (world-character world))) "circleJanitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "triangleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (skin-name (Character-skin (world-character world))) "circleScientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "triangleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [(or (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "circlePoliceWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "trianglePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+      [else world]))
 
 ;=======================================================================================
 ;************************************ Color Game ***************************************
@@ -672,6 +765,54 @@
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
+                                         colorLobbyL3Bg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2RedFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2RedFrameBg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2OrangeFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2OrangeFrameBg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2YellowFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2YellowFrameBg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2GreenFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2GreenFrameBg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2BlueFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel2BlueFrameBg)]
+                                         
+                                          [(string=? (world-scene world) "colorLevel2PurpleFrame")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL3Bg)]))
 ;test
 
@@ -700,18 +841,6 @@
           [(string=? (world-scene world) "colorLevel3")
           (place-image colorLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
-          [(string=? (world-scene world) "colorLevel2RedFrame")
-          (place-image colorLevel2RedFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2OrangeFrame")
-          (place-image colorLevel2OrangeFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2YellowFrame")
-          (place-image colorLevel2YellowFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2GreenFrame")
-          (place-image colorLevel2GreenFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2BlueFrame")
-          (place-image colorLevel2BlueFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2PurpleFrame")
-          (place-image colorLevel2PurpleFrameBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           ))
           
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -746,123 +875,123 @@
          ))
 
 ;purpose: changes the skin of the character to the red version of the skin
-;contract: colorLevel2RedSkinUpdater: world(w) --> world
-(define (colorLevel2RedSkinUpdater world) 
+;contract: changeSkinToRed: world(w) --> world
+(define (changeSkinToRed world) 
       (cond 
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "redPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "redBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "redJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "redScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "redPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 ;pupose: changes the skin of the character to the orange version of the skin
-;contract: colorLevel2OrangeSkinUpdater: world(w) --> world
-(define (colorLevel2OrangeSkinUpdater world)
+;contract: changeSkinToOrange: world(w) --> world
+(define (changeSkinToOrange world)
       (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangeScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "orangePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "orangeBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "orangeJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "orangeScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "orangePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 ;pupose: changes the skin of the character to the yellow version of the skin
-;contract: colorLevel2YellowSkinUpdater: world(w) --> world
-(define (colorLevel2YellowSkinUpdater world)
+;contract: changeSkinToYellow: world(w) --> world
+(define (changeSkinToYellow world)
       (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "yellowPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "yellowBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "yellowJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "yellowScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "yellowPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 ;pupose: changes the skin of the character to the green version of the skin
-;contract: colorLevel2GreenSkinUpdater: world(w) --> world
-(define (colorLevel2GreenSkinUpdater world)
+;contract: changeSkinToGreen: world(w) --> world
+(define (changeSkinToGreen world)
        (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "greenPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "greenBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "greenJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "greenScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "greenPoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 ;pupose: changes the skin of the character to the blue version of the skin
-;contract: colorLevel2BlueSkinUpdater: world(w) --> world
-(define (colorLevel2BlueSkinUpdater world)
+;contract: changeSkinToBlue: world(w) --> world
+(define (changeSkinToBlue world)
        (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "blueScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "bluePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "blueBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "blueJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "blueScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "bluePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 ;pupose: changes the skin of the character to the purple version of the skin
-;contract: colorLevel2PurpleSkinUpdater: world(w) --> world
-(define (colorLevel2PurpleSkinUpdater world)
+;contract: changeSkinToPurple: world(w) --> world
+(define (changeSkinToPurple world)
        (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purpleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world "colorLevel2" (make-Character (make-skin "purplePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "boy")) (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "purpleBoy" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "janitor"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "purpleJanitor" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "scientist"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "purpleScientist" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+            [(or (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))  (begin (thread playButtonClick1Sound) (make-world (world-scene world) (make-Character (make-skin "purplePoliceWoman" "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
             [else world]))
 
 
 ;purpose:changes the color of the frame when the corect color skin clicks on it
-;contract: correctSkinToFrame: world(w) --> world
-(define (correctSkinToFrame w)
+;contract: correctSkinToFrame: world --> world
+(define (correctSkinToFrame world)
   (cond
-     [(string=? (skin-name (Character-skin (world-character w))) "redBoy")
-          (make-world "colorLevel2RedFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "orangeBoy")
-          (make-world "colorLevel2OrangeFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "yellowBoy")
-          (make-world "colorLevel2YellowFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "greenBoy")
-          (make-world "colorLevel2GreenFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "blueBoy")
-          (make-world "colorLevel2BlueFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "purpleBoy")
-          (make-world "colorLevel2PurpleFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character world))) "redBoy")
+           (thread playButtonClick1Sound) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "orangeBoy")
+          (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "yellowBoy")
+          (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "greenBoy")
+          (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "blueBoy")
+          (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "purpleBoy")
+          (make-world "colorLevel2PurpleFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
 
-     [(string=? (skin-name (Character-skin (world-character w))) "redJanitor")
-          (make-world "colorLevel2RedFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "orangeJanitor")
-          (make-world "colorLevel2OrangeFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "yellowJanitor")
-          (make-world "colorLevel2YellowFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "greenJanitor")
-          (make-world "colorLevel2GreenFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "blueJanitor")
-          (make-world "colorLevel2BlueFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "purpleJanitor")
-          (make-world "colorLevel2PurpleFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character world))) "redJanitor")
+          (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "orangeJanitor")
+          (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "yellowJanitor")
+          (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "greenJanitor")
+          (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "blueJanitor")
+          (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "purpleJanitor")
+          (make-world "colorLevel2PurpleFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
 
-     [(string=? (skin-name (Character-skin (world-character w))) "redScientist")
-          (make-world "colorLevel2RedFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "orangeScientist")
-          (make-world "colorLevel2OrangeFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "yellowScientist")
-          (make-world "colorLevel2YellowFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "greenScientist")
-          (make-world "colorLevel2GreenFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "blueScientist")
-          (make-world "colorLevel2BlueFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "purpleScientist")
-          (make-world "colorLevel2PurpleFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character world))) "redScientist")
+          (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "orangeScientist")
+          (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "yellowScientist")
+          (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "greenScientist")
+          (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "blueScientist")
+          (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "purpleScientist")
+          (make-world "colorLevel2PurpleFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
 
-     [(string=? (skin-name (Character-skin (world-character w))) "redPoliceWoman")
-          (make-world "colorLevel2RedFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "orangePoliceWoman")
-          (make-world "colorLevel2OrangeFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "yellowPoliceWoman")
-          (make-world "colorLevel2YellowFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "greenPoliceWoman")
-          (make-world "colorLevel2GreenFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "bluePoliceWoman")
-          (make-world "colorLevel2BlueFrame" (world-character w))]
-     [(string=? (skin-name (Character-skin (world-character w))) "purplePoliceWoman")
-          (make-world "colorLevel2PurpleFrame" (world-character w))]
+     [(string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman")
+          (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman")
+          (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman")
+          (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman")
+          (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman")
+          (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
+     [(string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman")
+          (make-world "colorLevel2PurpleFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
 
-     [else (wrongAnswer w)]))
+     [else (wrongAnswer world)]))
 
 
 
@@ -1401,7 +1530,10 @@
           (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") 
           (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3") (string=? (world-scene w) "numberLobbyL1") 
           (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") (string=? (world-scene w) "numberLevel2") 
-          (string=? (world-scene w) "numberLevel3"))
+          (string=? (world-scene w) "numberLevel3") (string=? (world-scene w) "colorLevel2RedFrame") (string=? (world-scene w) "colorLevel2YellowFrame")
+          (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") (string=? (world-scene w) "colorLevel2PurpleFrame")
+          (string=? (world-scene w) "colorLevel2OrangeFrame"))
+
     (cond                                       
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
            (<= (ChPos-y (Character-pos (world-character w))) 700)
@@ -1637,7 +1769,10 @@
 
 ;Character Info button y-axis start from 710(bottom) to 606(top)
 ;Character Info button x-axis start from 762(left) to 1151(right)
- 
+
+;Character Info exit button y-axis start from 68(bottom) to 16(top)
+;Character Info exit button x-axis start from 38(left) to 219(right)
+
 ;Boy button y-axis start from 357(bottom) to 81(top)
 ;Boy button x-axis start from 900(left) to 1087(right)
 
@@ -1703,24 +1838,24 @@
 ;x-axiis:  169(left)  313(right)
 
 ;orange frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  555(bottom)  365(top)
+;x-axiis:  421(left)  547(right)
 
 ;yellow frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  504(bottom)  312(top)
+;x-axiis:  698(left)  820(right)
 
 ;green frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  504(bottom)  314(top)
+;x-axiis:  1095(left)  1217(right)
 
 ;blue frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  555(bottom)  367(top)
+;x-axiis:  1360(left)  1485(right)
 
 ;purple frame
-;y-axis:  (bottom)  (top)
-;x-axiis:  (left)  (right)
+;y-axis:  511(bottom)  395(top)
+;x-axiis:  1589(left)  1768(right)
 
 
 ;red paint bucket
@@ -1802,6 +1937,14 @@
            (>= y 606)
            (>= x 762)   
            (<= x 1151))
+           (swInfoBoy w)]
+      
+       [(and (or (string=? (world-scene w) "characterInfo1") (string=? (world-scene w) "characterInfo2") (string=? (world-scene w) "characterInfo3") (string=? (world-scene w) "characterInfo4")) ;character info exit button
+           (mouse=? me "button-down")
+           (<= y 68) 
+           (>= y 16)
+           (>= x 38)   
+           (<= x 219))
            (swInfoBoy w)]
 
       [(and (or (string=? (world-scene w) "characterInfo1") (string=? (world-scene w) "characterInfo2") (string=? (world-scene w) "characterInfo3") (string=? (world-scene w) "characterInfo4")) ;boy character info
@@ -2494,67 +2637,171 @@
            (<= x 1397))
            (swNumberLobbyL2 w)]
 
-
-
-
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on red bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame") ;skin update once character clicks on red bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame")) 
            (mouse=? me "button-down")
            (<= y 446) 
            (>= y 393)
            (>= x 898)   
            (<= x 942))
-           (colorLevel2RedSkinUpdater w)]
+           (changeSkinToRed w)]
 
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on orange bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame") ;skin update once character clicks on orange bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame"))  
            (mouse=? me "button-down")
            (<= y 378) 
            (>= y 326)
            (>= x 894)   
            (<= x 939))
-           (colorLevel2OrangeSkinUpdater w)]
+           (changeSkinToOrange w)]
 
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on yellow bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame")  ;skin update once character clicks on yellow bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame")) 
            (mouse=? me "button-down")
            (<= y 378) 
            (>= y 324)
            (>= x 1001)   
            (<= x 1045))
-           (colorLevel2YellowSkinUpdater w)]
+           (changeSkinToYellow w)]
 
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on green bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame") ;skin update once character clicks on green bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame"))  
            (mouse=? me "button-down")
            (<= y 447) 
            (>= y 393)
            (>= x 949)   
            (<= x 992))
-           (colorLevel2GreenSkinUpdater w)]
+           (changeSkinToGreen w)]
 
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on blue bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame");skin update once character clicks on blue bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame"))  
            (mouse=? me "button-down")
            (<= y 448) 
            (>= y 393)
            (>= x 1000)   
            (<= x 1044))
-           (colorLevel2BlueSkinUpdater w)]
+           (changeSkinToBlue w)]
 
-     [(and (string=? (world-scene w) "colorLevel2") ;skin update once character clicks on purple bucket
+     [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame") ;skin update once character clicks on purple bucket
+               (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame") 
+               (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") 
+               (string=? (world-scene w) "colorLevel2PurpleFrame"))  
            (mouse=? me "button-down")
            (<= y 377) 
            (>= y 325)
            (>= x 948)   
            (<= x 992))
-           (colorLevel2PurpleSkinUpdater w)]
+           (changeSkinToPurple w)]
       
-      [(and (string=? (world-scene w) "colorLevel2") ; frame becomes red when clicked
+      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on circle crate
+                (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
+                (string=? (world-scene w) "pentagonCart") (string=? (world-scene w) "rectangleCart")) 
+            (mouse=? me "button-down")
+            (<= y 788) 
+            (>= y 668)
+            (>= x 26)   
+            (<= x 268))
+            (changeSkinToCircle w)]
+
+      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on rectangle crate
+                (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
+                (string=? (world-scene w) "pentagonCart") (string=? (world-scene w) "rectangleCart"))  
+            (mouse=? me "button-down")
+            (<= y 882) 
+            (>= y 752)
+            (>= x 1589)   
+            (<= x 1833))
+            (changeSkinToRecatngle w)]
+
+      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart"); skin updates once character clicks on pentagon crate
+                (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
+                (string=? (world-scene w) "pentagonCart") (string=? (world-scene w) "rectangleCart"))  
+            (mouse=? me "button-down")
+            (<= y 650) 
+            (>= y 537)
+            (>= x 39)   
+            (<= x 281))
+            (changeSkinToPentagon w)]
+
+       [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on triangle crate
+                 (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
+                 (string=? (world-scene w) "pentagonCart") (string=? (world-scene w) "rectangleCart"))  
+            (mouse=? me "button-down")
+            (<= y 936) 
+            (>= y 823)
+            (>= x 13)   
+            (<= x 257))
+            (changeSkinToTriangle w)]
+
+        [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on square crate
+                  (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
+                  (string=? (world-scene w) "pentagonCart") (string=? (world-scene w) "rectangleCart"))  
+            (mouse=? me "button-down")
+            (<= y 788) 
+            (>= y 668)
+            (>= x 26)   
+            (<= x 268))
+            (changeSkinToSqaure w)]
+
+        [(and (string=? (world-scene w) "colorLevel2") ; frame becomes red when clicked
             (mouse=? me "button-down")
             (<= y 530) 
             (>= y 405)
             (>= x 169)   
             (<= x 313))
             (correctSkinToFrame w)]
-     
-     
 
+        [(and (string=? (world-scene w) "colorLevel2RedFrame") ; frame becomes orange when clicked
+            (mouse=? me "button-down")
+            (<= y 555) 
+            (>= y 365)
+            (>= x 421)   
+            (<= x 547))
+            (correctSkinToFrame w)]
+
+        [(and (string=? (world-scene w) "colorLevel2OrangeFrame") ; frame becomes yellow when clicked
+            (mouse=? me "button-down")
+            (<= y 504) 
+            (>= y 312)
+            (>= x 698)   
+            (<= x 820))
+            (correctSkinToFrame w)]
+
+        [(and (string=? (world-scene w) "colorLevel2YellowFrame") ; frame becomes green when clicked
+            (mouse=? me "button-down")
+            (<= y 504) 
+            (>= y 312)
+            (>= x 1095)   
+            (<= x 1217))
+            (correctSkinToFrame w)]
+
+        [(and (string=? (world-scene w) "colorLevel2GreenFrame") ; frame becomes blue when clicked
+            (mouse=? me "button-down")
+            (<= y 555) 
+            (>= y 367)
+            (>= x 1360)   
+            (<= x 1485))
+            (correctSkinToFrame w)]
+
+        [(and (string=? (world-scene w) "colorLevel2BlueFrame") ; frame becomes purple when clicked
+            (mouse=? me "button-down")
+            (<= y 511) 
+            (>= y 395)
+            (>= x 1589)   
+            (<= x 1768))
+            (correctSkinToFrame w)]
+
+     
 
   [else w]))
 
@@ -2605,6 +2852,11 @@
 
        [(string=? (world-scene world) "shapeElevator")
                     elevator]
+       
+       [(or (string=? (world-scene world) "squareCart") (string=? (world-scene world) "circleCart") 
+            (string=? (world-scene world) "triangleCart") (string=? (world-scene world) "pentagonCart")
+           (string=? (world-scene world) "rectangleCart"))
+                        (drawShapeLobby world)]
 
        [(or (string=? (world-scene world) "colorLobbyL1") (string=? (world-scene world) "colorLobbyL2") (string=? (world-scene world) "colorLobbyL3"))
                     (drawColorLobby world)]
@@ -2619,10 +2871,10 @@
        [(string=? (world-scene world) "colorLevel1Score5")
                     (drawColorScore world)]
 
-      [(or (string=? (world-scene world) "colorLevel2RedFrame") (string=? (world-scene world) "colorLevel2RedFrame")
-           (string=? (world-scene world) "colorLevel2OrangeFrame") (string=? (world-scene world) "colorLevel2YellowFrame") (string=? (world-scene world) "colorLevel2GreenFrame")
+      [(or (string=? (world-scene world) "colorLevel2RedFrame") (string=? (world-scene world) "colorLevel2OrangeFrame") 
+            (string=? (world-scene world) "colorLevel2YellowFrame") (string=? (world-scene world) "colorLevel2GreenFrame")
            (string=? (world-scene world) "colorLevel2BlueFrame") (string=? (world-scene world) "colorLevel2PurpleFrame"))
-                        (drawColorLevel world)]
+                        (drawColorLobby world)]
 
 
      [(or (string=? (world-scene world) "numberLobbyL1") (string=? (world-scene world) "numberLobbyL2") (string=? (world-scene world) "numberLobbyL3"))
@@ -2682,7 +2934,7 @@
 ;since its all under the same struct we can easily change scenes we just need a function to detirmine 
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
 ;  untill we make that function
-(big-bang (sceneSelector initialWorld)
+(big-bang  initialWorld
 (name "Bilgi Kids")
 (on-draw drawWorld)
 (on-key keyboardControl)

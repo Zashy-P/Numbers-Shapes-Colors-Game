@@ -356,8 +356,9 @@
 ;Backgrounds
 
 ;Menu Background 
-;(define menuBg (bitmap "Photos/backgrounds/Final menu background.jpg")) 
-(define menuBg (bitmap "/Photos/Shapes/level 3/full 1 square.jpg"))
+(define menuBg (bitmap "Photos/backgrounds/Final menu background.jpg")) 
+;(define menuBg (bitmap "Photos/Shapes/level 3/full 1 square.jpg"))
+
 ;Character Select Backgrounds
 (define chSelectBg (bitmap "Photos/selection/character select 1.jpeg")) 
 (define chSelect2Bg (bitmap "Photos/selection/character select 2.jpeg"))
@@ -371,9 +372,10 @@
 (define tutorialBg (bitmap "Photos/character info police woman.jpg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg")) 
+;(define lobbyBg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg")) 
+(define lobbyBg (bitmap "Photos/Colors/level 2/1 red.jpg"))
 
-;ShapeLobby 
+ ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "Photos/Shapes/shapes lobby level 1.jpg"))
 (define shapeLobbyL2Bg (bitmap "Photos/Shapes/shapes lobby level 2.jpg"))
 (define shapeLobbyL3Bg (bitmap "Photos/Shapes/shapes lobby level 3.jpg"))
