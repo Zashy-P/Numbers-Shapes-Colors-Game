@@ -356,8 +356,8 @@
 ;Backgrounds
 
 ;Menu Background 
-(define menuBg (bitmap "Photos/backgrounds/Final menu background.jpg")) 
-
+;(define menuBg (bitmap "Photos/backgrounds/Final menu background.jpg")) 
+(define menuBg (bitmap "/Photos/Shapes/level 3/full 1 square.jpg"))
 ;Character Select Backgrounds
 (define chSelectBg (bitmap "Photos/selection/character select 1.jpeg")) 
 (define chSelect2Bg (bitmap "Photos/selection/character select 2.jpeg"))
