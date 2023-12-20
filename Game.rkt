@@ -8,9 +8,9 @@
 ;********************************* structs & world values ******************************
 ;=======================================================================================
 
-;World --> Scene, Character, Sound, LeaderBoard(not now later)
-(define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
-;Character --> image(skin), pos(x,y)
+;World --> Scene, Character
+(define-struct world (scene character)) 
+;Character --> image(skin), pos(x,y), stepCount
 (define-struct Character (skin pos stepCount))
 (define-struct ChPos (x y))
 ;skin --> name direction
@@ -418,7 +418,7 @@
 
 (define shapeLevel2Bg (empty-scene 1920 1080))
 
-(define shapeLevel3Bg (empty-scene 1920 1080))
+(define shapeLevel3Bg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg"))
 
 ;ColorLobby 
 (define colorLobbyL1Bg (bitmap "Photos/Colors/colors level 1.jpg"))
@@ -545,7 +545,12 @@
           (place-image shapeLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
           [(string=? (world-scene world) "shapeLevel3")
-          (place-image shapeLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  ; we can add name later on
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         shapeLevel3Bg)]))
 
 ;Elevator image basically 
 (define elevator    
@@ -784,7 +789,7 @@
 
 
 ;=======================================================================================
-;******************************* Character & Lobby**************************************
+;*********************** Character & Lobby & Keyboard Control **************************
 ;=======================================================================================
 
 ;defines character speed
@@ -1102,7 +1107,12 @@
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
 ;function
 (define (keyboardControl w ki)
-  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3") (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") (string=? (world-scene w) "numberLevel2") (string=? (world-scene w) "numberLevel3"))
+  (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") 
+          (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "shapeLevel3")
+          (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") 
+          (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3") (string=? (world-scene w) "numberLobbyL1") 
+          (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") (string=? (world-scene w) "numberLevel2") 
+          (string=? (world-scene w) "numberLevel3"))
     (cond                                       
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
       (and (<= (ChPos-y (Character-pos (world-character w))) 700)
@@ -1378,11 +1388,35 @@
     
      [else world]))
 
+;=======================================================================================
+;Coordinates of the buttons:
 
-;Coordinates of the buttons
+;=============================================================================
+;Play button:
 
-;Play button y-axis Play from 480(bottom) to 377(top)
-;Play button x-axis Play from 757(left) to 1148(right)
+;Play button y-axis start from 480(bottom) to 377(top)
+;Play button x-axis start from 757(left) to 1148(right)
+
+;=============================================================================
+;Character Info:
+
+;Character Info button y-axis start from 710(bottom) to 606(top)
+;Character Info button x-axis start from 762(left) to 1151(right)
+ 
+;Boy button y-axis start from 357(bottom) to 81(top)
+;Boy button x-axis start from 900(left) to 1087(right)
+
+;Janitor button y-axis start from 357(bottom) to 81(top)
+;Janitor button x-axis start from 1154(left) to 1345(right)
+
+;Scientist button y-axis start from 357(bottom) to 81(top)
+;Scientist button x-axis start from 1409(left) to 1596(right)
+
+;PoliceWoman button y-axis start from 357(bottom) to 81(top)
+;PoliceWoman button x-axis start from 1648(left) to 1840(right)
+
+;=============================================================================
+;Character Select:
 
 ;Character select confirm button y-axis start from 1080(bottom) to 931(top)
 ;Character select confirm button x-axis start from 1570(left) to 1855(right)
@@ -1405,12 +1439,18 @@
 ;TutorialPopUpNo button y-axis start from 770(bottom) to 670(top)
 ;TutorialPopUpNo button x-axis start from 1029(left) to 1376(right)
 
+;=============================================================================
+;Elevator buttons:
+
 ;Elevator Level 1 button y-axis start from 453(bottom) to 419(top)
 ;Elevator Level 1 button x-axis start from 1443(left) to 1480(right)
 ;Elevator Level 2 button y-axis start from 505(bottom) to 471(top)
 ;Elevator Level 2 button x-axis start from 1443(left) to 1480(right)
 ;Elevator Level 3 button y-axis start from 556(bottom) to 522(top)
 ;Elevator Level 3 button x-axis start from 1443(left) to 1480(right)
+
+;=============================================================================
+;Question buttons:
 
 ;Shape, Color, and Number Level 1 topLeft question button y-axis start from 808(bottom) to 663(top)
 ;Shape, Color, and Number Level 1 topLeft question button x-axis start from 357(left) to 855(right)
@@ -1421,6 +1461,7 @@
 ;Shape, Color, and Number Level 1 bottomRight question button y-axis start from 990(bottom) to 844(top)
 ;Shape, Color, and Number Level 1 bottomRight question button x-axis start from 1067(left) to 1564(right)
 
+;==================================
 ;Color Level 2:
 ;red frame
 ;y-axis:  530(bottom)  405(top)
@@ -1470,25 +1511,46 @@
 ;purple paint bucket
 ;y-axis:  377(bottom)  325(top)
 ;x-axiis:  948(left)  992(right)
+;==================================
+;Shape Level 2: 
 
+;carts y-axis start from 443(bottom) to 279(top)
+;cart 1 square x-axis start from 530(left) to 752(right)
+;cart 2 circle x-axis start from 771(left) to 991(right)
+;cart 3 triangle x-axis start from 1012(left) to 1233(right)
+;cart 4 rectangle x-axis start from 1253(left) to 1474(right)
+;cart 5 pentagon x-axis start from 1493(left) to 1714(right)
+
+;pentagon crate y-axis start from 650(bottom) to 537(top)
+;pentagon crate x-axis start from 39(left) to 281(right)
+
+;circle crate y-axis start from 788(bottom) to 668(top)
+;circle crate x-axis start from 26(left) to 268(right)
+
+;triangle crate y-axis start from 936(bottom) to 823(top)
+;triangle crate x-axis start from 13(left) to 257(right)
+
+;square crate y-axis start from 697(bottom) to 563(top)
+;square crate x-axis start from 1608(left) to 1851(right)
+
+;rectangle crate y-axis start from 882(bottom) to 752(top)
+;rectangle crate x-axis start from 1589(left) to 1833(right)
 
 ;ScoreBoard next button:
-;y-axis:  1018(bottom)  917(top)
-;x-axiis:  1028(left)  1397(right)
+;y-axis: 1018(bottom) 917(top)
+;x-axiis: 1028(left) 1397(right)
 
 ;ScoreBoard exit button:
 ;y-axis:  1018(bottom)  910(top)
 ;x-axiis:  584(left)  953(right)
+;=======================================================================================
 
-;LeaderBoard button y-axis start from ?(bottom) to ?(top)
-;LeaderBoard button x-axis start from ?(left) to ?(right)
 
 
 ;Purpose: Register the mouse input on the buttons
 ;Contract: mouseRegister: world(w), pos(x), pos(y) mouse-event(me)--> image
+
 ;function
-
-
 (define (mouseRegister w x y me)
   (cond
      [(and (and (string=? (world-scene w) "menu") ;Play button
