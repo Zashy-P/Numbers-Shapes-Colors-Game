@@ -373,7 +373,7 @@
 
 ;Lobby Background
 ;(define lobbyBg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg")) 
-(define lobbyBg (bitmap "Photos/Colors/level 3/classroom.jpg"))
+(define lobbyBg (bitmap "Photos/Colors/level 3/q1.jpg"))
 
  ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "Photos/Shapes/shapes lobby level 1.jpg"))

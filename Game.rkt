@@ -546,7 +546,7 @@
 
 (define colorLevel2Bg (bitmap "Photos/Colors/level 2/0 start.jpg"))
 
-;Color Level 2 Photos
+;Color Level 2 
 (define colorLevel2RedFrameBg (bitmap "Photos/Colors/level 2/1 red.jpg"))
 (define colorLevel2OrangeFrameBg (bitmap "Photos/Colors/level 2/2 orange.jpg"))
 (define colorLevel2YellowFrameBg (bitmap "Photos/Colors/level 2/3 yellow.jpg"))
@@ -556,10 +556,16 @@
 
 (define colorLevel2Score6Bg (bitmap "Photos/Colors/level 2/color level 2 score 5.jpeg"))
 
-;Color Levl 3 Photos
+;Color Level 3 
 (define colorLevel3KeyDoorBg (bitmap "Photos/Colors/level 3/key door.jpeg"))
 (define colorLevel3ClassroomBg (bitmap "Photos/Colors/level 3/classroom.jpg"))
 
+(define colorLevel3Q1Bg (bitmap "Photos/Colors/level 3/q1.jpg"))
+(define colorLevel3Q2Bg (bitmap "Photos/Colors/level 3/q2.jpg")) 
+(define colorLevel3Q3Bg (bitmap "Photos/Colors/level 3/q3.jpg"))
+(define colorLevel3Q4Bg (bitmap "Photos/Colors/level 3/q4.jpg"))
+
+(define colorlevel3SubScore4Bg (bitmap "Photos/Colors/level 3/sub total score 4.jpg"))
 (define colorLevel3Score7Bg (bitmap"Photos/Colors/level 3/color level 3 score 5.jpeg"))
 
 ;Elevator Background
@@ -988,7 +994,16 @@
           (place-image colorLevel1Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "colorLevel1Q5")
           (place-image colorLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-       
+
+          [(string=? (world-scene world) "colorLevel3Q1")
+          (place-image colorLevel3Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel3Q2")
+          (place-image colorLevel3Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel3Q3")
+          (place-image colorLevel3Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel3Q4")
+          (place-image colorLevel3Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
           [(string=? (world-scene world) "colorLevel2")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
              #f 'modern 'italic 'normal #f)
@@ -997,6 +1012,17 @@
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2Bg)]
           ))
+
+(define (drawColorScore world)
+      (cond
+          [(string=? (world-scene world) "colorLevel1Score5")
+          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Score6")
+          (place-image colorLevel2Score6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel3Score7")
+          (place-image colorLevel3Score7Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel3SubScore4")
+          (place-image colorlevel3SubScore4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
           
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLobbyL2 w) (begin (thread playBellRingSound) (make-world "colorLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -1022,16 +1048,17 @@
         [(string=? (skin-name (Character-skin (world-character w))) "purplePoliceWoman") (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Score6" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0)))]
         [else w])) 
 
+(define (swColorLevel3Q1 w) (begin (thread playButtonClick1Sound) (make-world "colorLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel3Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel3Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel3Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLeve3Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swColorLevel3SubScore4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3SubScore4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
+(define (swColorLevel3Classroom w) (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
 (define (swColorLevel3Score7 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Score7" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
-(define (drawColorScore world)
-      (cond
-          [(string=? (world-scene world) "colorLevel1Score5")
-          (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel2Score6")
-          (place-image colorLevel2Score6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel3Score7")
-          (place-image colorLevel3Score7Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+
 
 ;purpose: changes the skin of the character to the red version of the skin
 ;contract: changeSkinToRed: world(w) --> world
@@ -2284,6 +2311,21 @@
 
 ;play button y-axis start from 420(bottom) to 295(top)
 ;play button x-axis start from 775(left) to 1141 (right)
+
+;1st button y-axis start from  774(bottom) to  578(top)
+;1st button x-axis start from  488(left) to  694(right)
+
+;2nd button y-axis start from  772(bottom) to  576(top)
+;2nd button x-axis start from  754(left) to  974(right)
+
+;3rd button y-axis start from  770(bottom) to  573(top)
+;3rd button x-axis start from  1027(left) to  1236(right)
+
+;4th button y-axis start from  765(bottom) to  569(top)
+;4th button x-axis start from  1296(left) to  1502(right)
+
+;next question button y-axis start from  846(bottom) to  730(top)
+;next question button x-axis start from  1329(left) to  1656(right)
 ;=======================================================================================
 
 
@@ -3300,9 +3342,151 @@
             (<= x 1288))
             (correctSkinToDoor w)]
 
-        
+        [(and (string=? (world-scene w) "colorLevel3Classroom") ;color level 3 play button
+            (mouse=? me "button-down")
+            (<= y 420) 
+            (>= y 295)
+            (>= x 775)   
+            (<= x 1141))
+            (swColorLevel3Q1 w)]
 
-     
+         [(and (string=? (world-scene w) "colorLevel3Q1") ; q1 color level 3 1st button
+            (mouse=? me "button-down")
+            (<= y 774) 
+            (>= y 578)
+            (>= x 488)   
+            (<= x 694))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q1") ; q1 color level 3 2nd button
+            (mouse=? me "button-down")
+            (<= y 772) 
+            (>= y 576)
+            (>= x 754)   
+            (<= x 974))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q1") ; q1 color level 3 3rd button
+            (mouse=? me "button-down")
+            (<= y 770) 
+            (>= y 573)
+            (>= x 1027)   
+            (<= x 1236))
+            (swColorLevel3Q2 w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q1") ; q1 color level 3 4rth button
+            (mouse=? me "button-down")
+            (<= y 765) 
+            (>= y 569)
+            (>= x 1269)   
+            (<= x 1502))
+            (wrongAnswer w)]
+
+         [(and (string=? (world-scene w) "colorLevel3Q2") ; q2 color level 3 1st button
+            (mouse=? me "button-down")
+            (<= y 774) 
+            (>= y 578)
+            (>= x 488)   
+            (<= x 694))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q2") ; q2 color level 3 2nd button
+            (mouse=? me "button-down")
+            (<= y 772) 
+            (>= y 576)
+            (>= x 754)   
+            (<= x 974))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q2") ; q2 color level 3 3rd button
+            (mouse=? me "button-down")
+            (<= y 770) 
+            (>= y 573)
+            (>= x 1027)   
+            (<= x 1236))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q2") ; q2 color level 3 4rth button
+            (mouse=? me "button-down")
+            (<= y 765) 
+            (>= y 569)
+            (>= x 1269)   
+            (<= x 1502))
+            (swColorLevel3Q3 w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q3") ; q3 color level 3 1st button
+            (mouse=? me "button-down")
+            (<= y 774) 
+            (>= y 578)
+            (>= x 488)   
+            (<= x 694))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q3") ; q3 color level 3 2nd button
+            (mouse=? me "button-down")
+            (<= y 772) 
+            (>= y 576)
+            (>= x 754)   
+            (<= x 974))
+            (swColorLevel3Q4 w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q3") ; q3 color level 3 3rd button
+            (mouse=? me "button-down")
+            (<= y 770) 
+            (>= y 573)
+            (>= x 1027)   
+            (<= x 1236))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q3") ; q3 color level 3 4rth button
+            (mouse=? me "button-down")
+            (<= y 765) 
+            (>= y 569)
+            (>= x 1269)   
+            (<= x 1502))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q4") ; q4 color level 3 1st button
+            (mouse=? me "button-down")
+            (<= y 774) 
+            (>= y 578)
+            (>= x 488)   
+            (<= x 694))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q4") ; q4 color level 3 2nd button
+            (mouse=? me "button-down")
+            (<= y 772) 
+            (>= y 576)
+            (>= x 754)   
+            (<= x 974))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q4") ; q4 color level 3 3rd button
+            (mouse=? me "button-down")
+            (<= y 770) 
+            (>= y 573)
+            (>= x 1027)   
+            (<= x 1236))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel3Q4") ; q4 color level 3 4rth button
+            (mouse=? me "button-down")
+            (<= y 765) 
+            (>= y 569)
+            (>= x 1269)   
+            (<= x 1502))
+            (swColorLevel3SubScore4 w)]
+
+        [(and (string=? (world-scene w) "colorLevel3SubScore4") ; next button for color level 3
+            (mouse=? me "button-down")
+            (<= y 846) 
+            (>= y 730)
+            (>= x 1329)   
+            (<= x 1656))
+            (swColorLevel3Classroom w)]
+
+
 
   [else w]))
 
@@ -3361,7 +3545,9 @@
                     (drawColorLobby world)]
 
        [(or (string=? (world-scene world) "colorLevel1Q1") (string=? (world-scene world) "colorLevel1Q2") (string=? (world-scene world) "colorLevel1Q3") 
-            (string=? (world-scene world) "colorLevel1Q4")(string=? (world-scene world) "colorLevel1Q5") (string=? (world-scene world) "colorLevel2") )
+            (string=? (world-scene world) "colorLevel1Q4")(string=? (world-scene world) "colorLevel1Q5") (string=? (world-scene world) "colorLevel2") 
+            (string=? (world-scene world) "colorLevel3Q1") (string=? (world-scene world) "colorLevel3Q2") (string=? (world-scene world) "colorLevel3Q3") 
+            (string=? (world-scene world) "colorLevel3Q4"))
                     (drawColorLevel world)]
 
        [(string=? (world-scene world) "colorElevator")
@@ -3369,7 +3555,8 @@
 
        [(or (string=? (world-scene world) "colorLevel1Score5")
             (string=? (world-scene world) "colorLevel2Score6")
-            (string=? (world-scene world) "colorLevel3Score7"))
+            (string=? (world-scene world) "colorLevel3Score7")
+            (string=? (world-scene world) "colorLevel3SubScore4"))
                     (drawColorScore world)]
 
       [(or (string=? (world-scene world) "colorLevel2RedFrame") (string=? (world-scene world) "colorLevel2OrangeFrame") 
