@@ -763,8 +763,13 @@
 (define (swShapeLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swShapeLevel3Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-
+(define (swShapeLevel3Score5 w) 
+    (cond
+        [(string=? (skin-name (Character-skin (world-character w))) "pentagonBoy") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
+        [(string=? (skin-name (Character-skin (world-character w))) "pentagonJanitor") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "janitor" "up") (make-ChPos 960 890) 0)))]
+        [(string=? (skin-name (Character-skin (world-character w))) "pentagonScientist") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "scientist" "up") (make-ChPos 960 890) 0)))]
+        [(string=? (skin-name (Character-skin (world-character w))) "pentagonPoliceWoman") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "policewoman" "up") (make-ChPos 960 890) 0)))]
+        [else w]))
 
 
     
@@ -825,46 +830,46 @@
 (define (correctSkinToCart world)
   (cond
      [(and (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (world-scene world) "shapeLevel3"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleBoy") (string=? (world-scene world) "squareCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "triangleBoy") (string=? (world-scene world) "circleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (world-scene world) "triangleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (world-scene world) "rectangleCart"))
           (swShapeLevel3Score5 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (world-scene world)  "shapeLevel3"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleJanitor") (string=? (world-scene world)  "squareCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "triangleJanitor") (string=? (world-scene world)  "circleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (world-scene world)  "triangleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (world-scene world)   "rectangleCart"))
           (swShapeLevel3Score5 world)]
     
      [(and (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (world-scene world)  "shapeLevel3"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleScientist") (string=? (world-scene world)  "squareCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "triangleScientist") (string=? (world-scene world)  "circleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (world-scene world) "triangleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (world-scene world) "rectangleCart"))
           (swShapeLevel3Score5 world)]
    
      [(and (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (world-scene world) "shapeLevel3"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circlePoliceWoman") (string=? (world-scene world) "squareCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "trianglePoliceWoman") (string=? (world-scene world) "circleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "triangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (world-scene world) "triangleCart"))
-           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (world-scene world) "rectangleCart"))
           (swShapeLevel3Score5 world)]
     
@@ -1079,54 +1084,54 @@
 (define (correctSkinToFrame world)
   (cond
      [(and (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (world-scene world) "colorLevel2"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangeBoy") (string=? (world-scene world) "colorLevel2RedFrame"))
-          (begin (thread playPaintSoundEffect)(make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect)(make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (world-scene world) "colorLevel2OrangeFrame"))
-          (begin (thread playPaintSoundEffect)(make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect)(make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "greenBoy") (string=? (world-scene world) "colorLevel2YellowFrame"))
-          (begin (thread playPaintSoundEffect)(make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect)(make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (world-scene world) "colorLevel2GreenFrame"))
-          (begin (thread playPaintSoundEffect)(make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect)(make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (world-scene world)  "colorLevel2BlueFrame"))
         (swColorLevel2Score6 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (world-scene world)  "colorLevel2"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (world-scene world)  "colorLevel2RedFrame"))
-         (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+         (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (world-scene world)  "colorLevel2OrangeFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") (string=? (world-scene world)  "colorLevel2YellowFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (world-scene world)   "colorLevel2GreenFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (world-scene world)  "colorLevel2BlueFrame"))
           (swColorLevel2Score6 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (world-scene world)  "colorLevel2"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangeScientist") (string=? (world-scene world)  "colorLevel2RedFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (world-scene world)  "colorLevel2OrangeFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "greenScientist") (string=? (world-scene world)  "colorLevel2YellowFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (world-scene world)   "colorLevel2GreenFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (world-scene world)  "colorLevel2BlueFrame"))
           (swColorLevel2Score6 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (world-scene world)  "colorLevel2"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman") (string=? (world-scene world)  "colorLevel2RedFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2OrangeFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (world-scene world)  "colorLevel2OrangeFrame"))
-         (begin (thread playPaintSoundEffect)  (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+         (begin (thread playPaintSoundEffect)  (make-world "colorLevel2YellowFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") (string=? (world-scene world)  "colorLevel2YellowFrame"))
-         (begin (thread playPaintSoundEffect)  (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+         (begin (thread playPaintSoundEffect)  (make-world "colorLevel2GreenFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (world-scene world)   "colorLevel2GreenFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (world-scene world)  "colorLevel2BlueFrame"))
           (swColorLevel2Score6 world)]
 
@@ -3417,7 +3422,7 @@
 (on-key keyboardControl)
 (on-mouse mouseRegister)
 (on-tick addTime)
-(state #true) ;useful to see what is exactly going on
+;(state #true) ;useful to see what is exactly going on
 ;(display-mode 'fullscreen) ;we need to add a quit game thing if we r going to do
 )
 
