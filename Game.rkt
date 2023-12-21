@@ -558,6 +558,7 @@
 
 ;Color Levl 3 Photos
 (define colorLevel3KeyDoorBg (bitmap "Photos/Colors/level 3/key door.jpeg"))
+(define colorLevel3ClassroomBg (bitmap "Photos/Colors/level 3/classroom.jpg"))
 
 (define colorLevel3Score7Bg (bitmap"Photos/Colors/level 3/color level 3 score 5.jpeg"))
 
@@ -963,7 +964,15 @@
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         colorLevel3KeyDoorBg)]))
+                                         colorLevel3KeyDoorBg)]
+                                         
+                [(string=? (world-scene world) "colorLevel3Classroom")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         colorLevel3ClassroomBg)]))
 ;test
 
 ;Purpose: Draws The Levels of the Color game 
@@ -1011,10 +1020,9 @@
         [(string=? (skin-name (Character-skin (world-character w))) "purpleJanitor") (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Score6" (make-Character (make-skin "janitor" "up") (make-ChPos 960 890) 0)))]
         [(string=? (skin-name (Character-skin (world-character w))) "purpleScientist") (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Score6" (make-Character (make-skin "scientist" "up") (make-ChPos 960 890) 0)))]
         [(string=? (skin-name (Character-skin (world-character w))) "purplePoliceWoman") (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Score6" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0)))]
-        [else w]    
-        )) 
-(define (swColorLevel3Score7 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Score7" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+        [else w])) 
 
+(define (swColorLevel3Score7 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Score7" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 (define (drawColorScore world)
       (cond
@@ -1144,39 +1152,6 @@
 
      [else (wrongAnswer world)]))
 
-;pupose: changes the skin of the character to the default version of the skin
-;contract: resetSkinToDefault: world(w) --> world
-(define (resetSkinToDefault world)
-      (cond
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redBoy") (string=? (skin-name (Character-skin (world-character world))) "orangeBoy")
-                 (string=? (skin-name (Character-skin (world-character world))) "yellowBoy") (string=? (skin-name (Character-skin (world-character world))) "greenBoy") 
-                 (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (skin-name (Character-skin (world-character world))) "purpleBoy"))
-             (make-world (world-scene world) (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
-            
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor")
-                 (string=? (skin-name (Character-skin (world-character world))) "yellowJanitor") (string=? (skin-name (Character-skin (world-character world))) "greenJanitor") 
-                 (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor"))
-             (make-world (world-scene world) (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
-            
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (skin-name (Character-skin (world-character world))) "orangeScientist")
-                 (string=? (skin-name (Character-skin (world-character world))) "yellowScientist") (string=? (skin-name (Character-skin (world-character world))) "greenScientist") 
-                 (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (skin-name (Character-skin (world-character world))) "purpleScientist"))
-             (make-world (world-scene world) (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
-            
-            [(or (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "orangePoliceWoman")
-                 (string=? (skin-name (Character-skin (world-character world))) "yellowPoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "greenPoliceWoman") 
-                 (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman"))
-             (make-world (world-scene world) (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
-            [else world]))
-
-;purpose: to have the defualt skin character in the lobby
-;cotract: defualtSkinToLobby world --> world
-(define (defualtSkinToLobby world)
-  (cond
-    [(string=? (world-scene world) "colorLevel2Score6") (make-world "colorLobbyL2" (make-Character (make-skin (skin-name (Character-skin (resetSkinToDefault world))) (skin-direction (Character-skin (resetSkinToDefault world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))]
-    [else world]))
-
-
 ;purpose: changes the skin of the character to the blue key version of the skin
 ;contract: changeSkinToBlueKey: world(w) --> world
 (define (changeSkinToBlueKey world)
@@ -1211,14 +1186,14 @@
 ;contract: correctSkinToDoor: world --> world
 (define (correctSkinToDoor world)
   (cond
-     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyBoy") (string=? (world-scene world) "colorLevel2"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyJanitor") (string=? (world-scene world) "colorLevel2"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyPoliceWoman") (string=? (world-scene world) "colorLevel2"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyScientist") (string=? (world-scene world) "colorLevel2"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up") (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyBoy") (string=? (world-scene world) "colorLevel3KeyDoor"))
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
+     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyJanitor") (string=? (world-scene world) "colorLevel3KeyDoor"))
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
+     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyPoliceWoman") (string=? (world-scene world) "colorLevel3KeyDoor"))
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
+     [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyScientist") (string=? (world-scene world) "colorLevel3KeyDoor"))
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
 
      [else (wrongAnswer world)]))
 
@@ -1898,8 +1873,8 @@
 ;exit lobby door y coordinates  792(bottom)  726(top)
 ;exit lobby door x coordinates 1515(left)  1693(right)
 
-;color key door y coordinates  (bottom)  (top)
-;color key door x coordinates (left)  (right)
+;color level 3 key door y coordinates  (bottom)  (top)
+;color level 3 key door x coordinates (left)  (right)
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing  & changes the scene to the building he entered
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
@@ -1908,12 +1883,12 @@
   (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") 
           (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "shapeLevel3")
           (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") 
-          (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3KeyDoor") (string=? (world-scene w) "numberLobbyL1") 
-          (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") (string=? (world-scene w) "numberLevel2") 
-          (string=? (world-scene w) "numberLevel3") (string=? (world-scene w) "colorLevel2RedFrame") (string=? (world-scene w) "colorLevel2YellowFrame")
-          (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame") (string=? (world-scene w) "colorLevel2PurpleFrame")
-          (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "squareCart") (string=? (world-scene w) "circleCart") 
-          (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "rectangleCart")) 
+          (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3KeyDoor") (string=? (world-scene w) "colorLevel3Classroom")
+          (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") 
+          (string=? (world-scene w) "numberLevel2") (string=? (world-scene w) "numberLevel3") (string=? (world-scene w) "colorLevel2RedFrame")
+          (string=? (world-scene w) "colorLevel2YellowFrame") (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame")
+          (string=? (world-scene w) "colorLevel2PurpleFrame") (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "squareCart") 
+          (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "rectangleCart")) 
 
     (cond                                       
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -2306,6 +2281,9 @@
 
 ;door y-axis start from  780(bottom) to  297(top)
 ;door x-axis start from  976(left) to  1288(right)
+
+;play button y-axis start from 420(bottom) to 295(top)
+;play button x-axis start from 775(left) to 1141 (right)
 ;=======================================================================================
 
 
@@ -2858,7 +2836,7 @@
            (>= y 917)
            (>= x 1028)   
            (<= x 1397))
-           (swColorLevel3KeyDoor w)]
+           (swColorLobbyL3 w)]
 
      [(and (string=? (world-scene w) "colorLevel2Score6") ;level 2 score board exit button
            (mouse=? me "button-down")
@@ -2866,7 +2844,7 @@
            (>= y 910)
            (>= x 584)   
            (<= x 953))
-           (defualtSkinToLobby w)]
+           (swColorLobbyL2 w)]
 
     [(and (string=? (world-scene w) "colorLevel2Score6") ;level 3 next button
            (mouse=? me "button-down")
@@ -3314,6 +3292,14 @@
             (<= x 742))
             (changeSkinToYellowKey w)]
 
+        [(and (string=? (world-scene w) "colorLevel3KeyDoor") ;color level 3 door opens
+            (mouse=? me "button-down")
+            (<= y 780) 
+            (>= y 297)
+            (>= x 976)   
+            (<= x 1288))
+            (correctSkinToDoor w)]
+
         
 
      
@@ -3370,7 +3356,8 @@
            (string=? (world-scene world) "rectangleCart"))
                         (drawShapeLevel world)]
 
-       [(or (string=? (world-scene world) "colorLobbyL1") (string=? (world-scene world) "colorLobbyL2") (string=? (world-scene world) "colorLobbyL3") (string=? (world-scene world) "colorLevel3KeyDoor"))
+       [(or (string=? (world-scene world) "colorLobbyL1") (string=? (world-scene world) "colorLobbyL2") (string=? (world-scene world) "colorLobbyL3") 
+            (string=? (world-scene world) "colorLevel3KeyDoor") (string=? (world-scene world) "colorLevel3Classroom"))
                     (drawColorLobby world)]
 
        [(or (string=? (world-scene world) "colorLevel1Q1") (string=? (world-scene world) "colorLevel1Q2") (string=? (world-scene world) "colorLevel1Q3") 
