@@ -76,7 +76,6 @@
 ;=======================================================================================
 ;************************************ Images *******************************************
 ;=======================================================================================
-
 ;Character skins
 
 ;boy skin
@@ -2314,8 +2313,8 @@
 ;yellow key y-axis start from  454(bottom) to  390(top)
 ;yellow key x-axis start from  715(left) to  742(right)
 
-;door y-axis start from  780(bottom) to  297(top)
-;door x-axis start from  976(left) to  1288(right)
+;door key y-axis start from  780(bottom) to  297(top)
+;door key x-axis start from  976(left) to  1288(right)
 
 ;play button y-axis start from 420(bottom) to 295(top)
 ;play button x-axis start from 775(left) to 1141 (right)
@@ -2332,8 +2331,11 @@
 ;4th button y-axis start from  765(bottom) to  569(top)
 ;4th button x-axis start from  1296(left) to  1502(right)
 
-;next question button y-axis start from  846(bottom) to  730(top)
+;next question button -axyis start from  846(bottom) to  730(top)
 ;next question button x-axis start from  1329(left) to  1656(right)
+
+;door 2 y-axis start from  665(bottom) to  665(top)
+;door 2 x-axis start from  1550(left) to  1814(right)
 ;=======================================================================================
 
 
