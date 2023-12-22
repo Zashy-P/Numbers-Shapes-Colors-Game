@@ -580,16 +580,28 @@
 (define numberLobbyL2Bg (bitmap "Photos/Numbers/numbers level 2.jpg"))
 (define numberLobbyL3Bg (bitmap "Photos/Numbers/numbers level 3.jpg"))
 
+;Number Level 1
 (define numberLevel1Q1Bg (bitmap "Photos/Numbers/level 1/question 1.jpg"))
 (define numberLevel1Q2Bg (bitmap "Photos/Numbers/level 1/question 2.jpg"))
 (define numberLevel1Q3Bg (bitmap "Photos/Numbers/level 1/question 3.jpg"))
 (define numberLevel1Q4Bg (bitmap "Photos/Numbers/level 1/question 4.jpg"))
 (define numberLevel1Q5Bg (bitmap "Photos/Numbers/level 1/question 5.jpg"))
-
 (define numberLevel1Score5Bg (bitmap "Photos/Numbers/level 1/scores/score 5.jpg"))
 
-(define numberLevel2Bg (empty-scene 1920 1080))
+;Number Level 2
+;(define numberLevel2Q1Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q1.png"))
+;(define numberLevel2Q2Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q2.png"))
+;(define numberLevel2Q3Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q3.png"))
+;(define numberLevel2Q4Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q4.png"))
+;(define numberLevel2Q5Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q5.png"))
+;(define numberLevel2Q6Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q6.png"))
+;(define numberLevel2Q7Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q7.png"))
+;(define numberLevel2Q8Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q8.png"))
+;(define numberLevel2Q9Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q9.png"))
+;(define numberLevel2Q10Bg (bitmap "C:/Users/omara/Downloads/NumberLevel2Q10.png"))
+;(define numberLevel2Car (bitmap "C:/Users/omara/Downloads/NumberLevel2Car.png"))
 
+(define numberLevel2Bg (empty-scene 1920 1080))
 (define numberLevel3Bg (empty-scene 1920 1080))
 
 ; pixel character
@@ -1351,8 +1363,8 @@
           (place-image numberLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
 
-          [(string=? (world-scene world) "numberLevel2")
-          (place-image numberLevel2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel2Q1Bg")
+          (place-image numberLevel2Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel3")
           (place-image numberLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
 
@@ -3674,8 +3686,11 @@
                     (drawNumberLobby world)]
 
        [(or (string=? (world-scene world) "numberLevel1Q1") (string=? (world-scene world) "numberLevel1Q2") (string=? (world-scene world) "numberLevel1Q3") 
-            (string=? (world-scene world) "numberLevel1Q4") (string=? (world-scene world) "numberLevel1Q5") (string=? (world-scene world) "numberLevel2") 
-            (string=? (world-scene world) "numberLevel3"))
+            (string=? (world-scene world) "numberLevel1Q4") (string=? (world-scene world) "numberLevel1Q5") (string=? (world-scene world) "numberLevel2Q1Bg")
+            (string=? (world-scene world) "numberLevel2Q2Bg") (string=? (world-scene world) "numberLevel2Q3Bg") (string=? (world-scene world) "numberLevel2Q4Bg")
+            (string=? (world-scene world) "numberLevel2Q5Bg") (string=? (world-scene world) "numberLevel2Q6Bg") (string=? (world-scene world) "numberLevel2Q7Bg")
+            (string=? (world-scene world) "numberLevel2Q8Bg") (string=? (world-scene world) "numberLevel2Q9Bg") (string=? (world-scene world) "numberLevel2Q10Bg") 
+            (string=? (world-scene world) "numberLevel2Car") (string=? (world-scene world) "numberLevel3"))
                     (drawNumberLevel world)]
    
        [(string=? (world-scene world) "numberElevator")
