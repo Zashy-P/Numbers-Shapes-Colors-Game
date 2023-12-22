@@ -1986,9 +1986,9 @@
 ;deadEnd x coordinates 800(left) 1107(right)
 
 ;======================================================================================
-
-;color level 3 key door y coordinates  (bottom)  (top)
-;color level 3 key door x coordinates (left)  (right)
+;color level 3
+;door 2 y-axis start from  752(bottom) to  338(top)
+;door 2 x-axis start from  1580(left) to  1848(right)
 
 ;=============================================================================================================================================================
 
@@ -2413,20 +2413,20 @@
 ;x-axiis:  584(left)  953(right)
 ;=======================================================================================
 ;Color Level 3
-;blue key y-axis start from  454(bottom) to  390(top)
-;blue key x-axis start from  847(left) to  871(right)
+;blue key y-axis start from  542(bottom) to  463(top)
+;blue key x-axis start from  (left) to  930(right)
 
-;orange key y-axis start from  454(bottom) to  390(top)
-;orange key x-axis start from  803(left) to  827(right)
+;orange key y-axis start from  542(bottom) to  463(top)
+;orange key x-axis start from  944(left) to  977(right)
 
-;yellow key y-axis start from  454(bottom) to  390(top)
-;yellow key x-axis start from  715(left) to  742(right)
+;yellow key y-axis start from  542(bottom) to  463(top)
+;yellow key x-axis start from  846(left) to  879(right)
 
-;door key y-axis start from  780(bottom) to  297(top)
-;door key x-axis start from  976(left) to  1288(right)
+;door key y-axis start from  757(bottom) to  355(top)
+;door key x-axis start from  770(left) to  1387(right)
 
-;play button y-axis start from 420(bottom) to 295(top)
-;play button x-axis start from 775(left) to 1141 (right)
+;play button y-axis start from 525(bottom) to (430top)
+;play button x-axis start from 1356(left) to  1521(right)
 
 ;1st button y-axis start from  774(bottom) to  578(top)
 ;1st button x-axis start from  488(left) to  694(right)
@@ -2440,11 +2440,9 @@
 ;4th button y-axis start from  765(bottom) to  569(top)
 ;4th button x-axis start from  1296(left) to  1502(right)
 
-;next question button -axyis start from  846(bottom) to  730(top)
-;next question button x-axis start from  1329(left) to  1656(right)
+;exit  button -axyis start from  828(bottom) to  742(top)
+;exit  button x-axis start from  1380(left) to  1752(right)
 
-;door 2 y-axis start from  665(bottom) to  665(top)
-;door 2 x-axis start from  1550(left) to  1814(right)
 ;=======================================================================================
 
 
@@ -3448,42 +3446,42 @@
 
         [(and (string=? (world-scene w) "colorLevel3KeyDoor") ; skin changes to blue key 
             (mouse=? me "button-down")
-            (<= y 454) 
-            (>= y 390)
-            (>= x 847)   
-            (<= x 871))
+            (<= y 542) 
+            (>= y 463)
+            (>= x 900)   
+            (<= x 930))
             (changeSkinToBlueKey w)]
 
          [(and (string=? (world-scene w) "colorLevel3KeyDoor") ; skin changes to orange key 
             (mouse=? me "button-down")
-            (<= y 454) 
-            (>= y 390)
-            (>= x 803)   
-            (<= x 827))
+            (<= y 542) 
+            (>= y 463)
+            (>= x 944)   
+            (<= x 977))
             (changeSkinToOrangeKey w)]
 
          [(and (string=? (world-scene w) "colorLevel3KeyDoor") ; skin changes to yellow key 
             (mouse=? me "button-down")
-            (<= y 454) 
-            (>= y 390)
-            (>= x 715)   
-            (<= x 742))
+            (<= y 542) 
+            (>= y 463)
+            (>= x 846)   
+            (<= x 879))
             (changeSkinToYellowKey w)]
 
         [(and (string=? (world-scene w) "colorLevel3KeyDoor") ;color level 3 door opens
             (mouse=? me "button-down")
-            (<= y 780) 
-            (>= y 297)
-            (>= x 976)   
-            (<= x 1288))
+            (<= y 757) 
+            (>= y 355)
+            (>= x 770)   
+            (<= x 1387))
             (correctSkinToDoor w)]
 
         [(and (string=? (world-scene w) "colorLevel3Classroom") ;color level 3 play button
             (mouse=? me "button-down")
-            (<= y 420) 
-            (>= y 295)
-            (>= x 775)   
-            (<= x 1141))
+            (<= y 525) 
+            (>= y 430)
+            (>= x 1356)   
+            (<= x 1524))
             (swColorLevel3Q1 w)]
 
          [(and (string=? (world-scene w) "colorLevel3Q1") ; q1 color level 3 1st button
@@ -3582,12 +3580,12 @@
             (<= x 1502))
             (wrongAnswer w)]
 
-         [(and (string=? (world-scene w) "colorLevel3SubScore") ; subscore next button
+         [(and (string=? (world-scene w) "colorLevel3SubScore") ; subscore exit button
             (mouse=? me "button-down")
-            (<= y 846) 
-            (>= y 730)
-            (>= x 1329)   
-            (<= x 1656))
+            (<= y 828) 
+            (>= y 742)
+            (>= x 1380)   
+            (<= x 1752))
             (swColorLevel3Door2 w)]
 
         
