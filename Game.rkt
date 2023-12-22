@@ -31,14 +31,14 @@
 ;=======================================================================================
 
 ;Path to the Button Click sound effect
-(define buttonClick1Path "./buttonClick1.mp3")
-(define footstepPath "./Concretefootstep.mp3")
-(define footstep2Path "./Concretefootstep2.mp3")
+(define buttonClick1Path "Sounds/buttonClick1.mp3")
+(define footstepPath "Sounds/ConcreteFootstep.mp3")
+(define footstep2Path "Sounds/ConcreteFootstep2.MP3")
 (define footstepSounds (list footstepPath footstep2Path))
-(define bellRingPath "./bellRing.wav")
-(define wrongChoiceEffectPath "./wrongChoiceEffect.mp3")
-(define correctAnswerEffectPath "./correctAnswerEffect.wav")
-(define paintSoundEffectPath "./splat sound effects.mp3")
+(define bellRingPath "Sounds/bellRing.wav")
+(define wrongChoiceEffectPath "Sounds/wrongChoiceEffect.mp33")
+(define correctAnswerEffectPath "Sounds/CorrectAnswerEffect.wav")
+(define paintSoundEffectPath "Sounds/splat sound effects.mp3")
 
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
