@@ -567,7 +567,6 @@
 (define colorLevel3Q1Bg (bitmap "Photos/Colors/level 3/q1.jpg"))
 (define colorLevel3Q2Bg (bitmap "Photos/Colors/level 3/q2.jpg")) 
 (define colorLevel3Q3Bg (bitmap "Photos/Colors/level 3/q3.jpg"))
-(define colorLevel3Q4Bg (bitmap "Photos/Colors/level 3/q4.jpg"))
 
 (define colorlevel3SubScoreBg (bitmap "Photos/Colors/level 3/sub total score 4.jpg"))
 (define colorLevel3Score7Bg (bitmap"Photos/Colors/level 3/color level 3 score 5.jpeg"))
@@ -1074,8 +1073,6 @@
           (place-image colorLevel3Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "colorLevel3Q3")
           (place-image colorLevel3Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "colorLevel3Q4")
-          (place-image colorLevel3Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           
           [(string=? (world-scene world) "colorLevel2")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
@@ -1123,7 +1120,6 @@
 (define (swColorLevel3Q1 w) (begin (thread playButtonClick1Sound) (make-world "colorLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel3Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel3Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swColorLevel3Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLeve3Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swColorLevel3SubScore w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel3SubScore" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 (define (swColorLevel3Classroom w) (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
@@ -3647,8 +3643,7 @@
 
        [(or (string=? (world-scene world) "colorLevel1Q1") (string=? (world-scene world) "colorLevel1Q2") (string=? (world-scene world) "colorLevel1Q3") 
             (string=? (world-scene world) "colorLevel1Q4")(string=? (world-scene world) "colorLevel1Q5") (string=? (world-scene world) "colorLevel2") 
-            (string=? (world-scene world) "colorLevel3Q1") (string=? (world-scene world) "colorLevel3Q2") (string=? (world-scene world) "colorLevel3Q3") 
-            (string=? (world-scene world) "colorLevel3Q4"))
+            (string=? (world-scene world) "colorLevel3Q1") (string=? (world-scene world) "colorLevel3Q2") (string=? (world-scene world) "colorLevel3Q3"))
                     (drawColorLevel world)]
 
        [(string=? (world-scene world) "colorElevator")
