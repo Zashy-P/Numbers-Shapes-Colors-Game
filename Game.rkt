@@ -572,16 +572,16 @@
 
 (define colorLevel3ItemsFullBg (bitmap "Photos/Colors/level 3/baskets/items full.jpg"))
 (define colorLevel3Item1Bg (bitmap "Photos/Colors/level 3/baskets/item 1.jpg"))
-(define colorLevel3Item2Bg (bitmap "Photos/Colors/level 3/baskets/item 2.jpg"))
+(define colorLevel3Item2Bg (bitmap "Photos/Colors/level 3/baskets/item 2.jpg "))
 (define colorLevel3Item3Bg (bitmap "Photos/Colors/level 3/baskets/item 3.jpg"))
 (define colorLevel3Item4Bg (bitmap "Photos/Colors/level 3/baskets/item 4.jpg"))
-(define colorLevel3Item5Bg (bitmap "Photos/Colors/level 3/baskets/item 5.jpg"))
-(define colorLevel3Item6Bg (bitmap "Photos/Colors/level 3/baskets/item 6.jpg"))
+(define colorLevel3Item5Bg (bitmap "Photos/Colors/level 3/baskets/item 5.jpg "))
+(define colorLevel3Item6Bg (bitmap "Photos/Colors/level 3/baskets/item 6.jpg  "))
 (define colorLevel3Item7Bg (bitmap "Photos/Colors/level 3/baskets/item 7.jpg"))
 (define colorLevel3Item8Bg (bitmap "Photos/Colors/level 3/baskets/item 8.jpg"))
-(define colorLevel3Item9Bg (bitmap "Photos/Colors/level 3/baskets/item 9.jpg"))
+(define colorLevel3Item9Bg (bitmap "Photos/Colors/level 3/baskets/item 9.jpg  "))
 (define colorLevel3Item10Bg (bitmap "Photos/Colors/level 3/baskets/item 10.jpg"))
-(define colorLevel3Item11Bg (bitmap "Photos/Colors/level 3/baskets/item 11.jpg"))
+(define colorLevel3Item11Bg (bitmap "Photos/Colors/level 3/baskets/item 11.jpg "))
 (define colorLevel3Item12Bg (bitmap "Photos/Colors/level 3/baskets/item 12 next.jpg"))
 
 (define colorLevel3Score7BoyBg (bitmap "Photos/Colors/level 3/score 7 boy.jpg "))
@@ -636,7 +636,7 @@
 (define menu    
   (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
-
+(define swMenu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
 
 ; I have initialWorld in menu cuz its basically the menu
 (define initialWorld (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
@@ -1131,29 +1131,29 @@
           (place-image colorLevel3Item12Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           
           [(string=? (world-scene world) "item1")
-          (place-image colorLevel3Item1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3ItemsFullBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item2")
-          (place-image colorLevel3Item2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item3")
-          (place-image colorLevel3Item3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item4")
-          (place-image colorLevel3Item4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item5")
-          (place-image colorLevel3Item5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item6")
-          (place-image colorLevel3Item6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item7")
-          (place-image colorLevel3Item7Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item8")
-          (place-image colorLevel3Item8Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item7Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item9")
-          (place-image colorLevel3Item9Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item8Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item10")
-          (place-image colorLevel3Item10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item9Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item11")
-          (place-image colorLevel3Item11Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "item12")
-          (place-image colorLevel3Item12Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          (place-image colorLevel3Item11Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           
           [(string=? (world-scene world) "colorLevel2")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
@@ -1387,105 +1387,92 @@
 ;purpose: to store item1 when clicked
 ;contract: storeItem1Clicked: world(w) -> world
 (define (storeItem1Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item1") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item2 when clicked
 ;contract: storeItem2Clicked: world(w) -> world
 (define (storeItem2Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item2") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item3 when clicked
 ;contract: storeItem3Clicked: world(w) -> world
 (define (storeItem3Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item3") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item4 when clicked
 ;contract: storeItem4Clicked: world(w) -> world
 (define (storeItem4Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item4") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item5 when clicked
 ;contract: storeItem5Clicked: world(w) -> world
 (define (storeItem5Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item5") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item5" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item6 when clicked
 ;contract: storeItem6Clicked: world(w) -> world
 (define (storeItem6Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman"))
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item6") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item6" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item7 when clicked
 ;contract: storeItem7Clicked: world(w) -> world
 (define (storeItem7Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item7") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item7" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item8 when clicked
 ;contract: storeItem8Clicked: world(w) -> world
 (define (storeItem8Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item8") (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item8" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item9 when clicked
 ;contract: storeItem9Clicked: world(w) -> world
 (define (storeItem9Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item9")( make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item9"( make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item10 when clicked
 ;contract: storeItem10Clicked: world(w) -> world
 (define (storeItem10Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item10")(make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item10"(make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item11 when clicked
 ;contract: storeItem11Clicked: world(w) -> world
 (define (storeItem11Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item11")(make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item11"(make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;purpose: to store item12 when clicked
 ;contract: storeItem12Clicked: world(w) -> world
 (define (storeItem12Clicked world)
-    (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) 
-    (begin (thread playButtonClick1Sound) (make-world (world-scene "item12")(make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
+    (begin (thread playButtonClick1Sound) (make-world "item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 
 ;purpose: place the item into its correct basket
 ;contract: correctItemToBasket: world(w) -> world
 (define (correctItemToBasket world)
     (cond
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item1"))
+         [(string=? (world-scene world) "item1")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item2"))
+         [(string=? (world-scene world) "item2")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item3"))
+         [(string=? (world-scene world) "item3")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item4"))
+         [(string=? (world-scene world) "item4")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item5"))
+         [(string=? (world-scene world) "item5")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item5" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item6"))
+         [(string=? (world-scene world) "item6")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item6" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item7"))
+         [(string=? (world-scene world) "item7")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item7" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-        [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item8"))
+         [(string=? (world-scene world) "item8")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item8" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item9"))
+         [(string=? (world-scene world) "item9")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item9" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item10"))
+         [(string=? (world-scene world) "item10")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item10" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-        [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item11"))
+        [(string=? (world-scene world) "item11")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item11" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
-         [(and (or (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (skin-name (Character-skin (world-character world))) "janitor") (string=? (skin-name (Character-skin (world-character world))) "scientist") (string=? (skin-name (Character-skin (world-character world))) "policeWoman")) (string=? (world-scene world) "item12"))
+         [(string=? (world-scene world) "item12")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]))
-
 
 ;purpose: asign the correct level 3 score board to each character
 ;contract: correctScoreToSkin: world -> world
@@ -2739,6 +2726,15 @@
            (>= x 757)   
            (<= x 1148))
            (cChSelect)]
+
+    [(and (or (string=? (world-scene w) "characterInfo1") (string=? (world-scene w) "characterInfo2") (string=? (world-scene w) "characterInfo3") 
+           (string=? (world-scene w) "characterInfo4")) ;character info exit button
+           (mouse=? me "button-down")
+           (<= y 68) 
+           (>= y 16)
+           (>= x 38)   
+           (<= x 219))
+           (swInfoBoy w)]
       
       [(and (string=? (world-scene w) "menu") ;character info button
            (mouse=? me "button-down")
@@ -2746,15 +2742,6 @@
            (>= y 606)
            (>= x 762)   
            (<= x 1151))
-           (swInfoBoy w)]
-      
-       [(and (or (string=? (world-scene w) "characterInfo1") (string=? (world-scene w) "characterInfo2") (string=? (world-scene w) "characterInfo3") 
-           (string=? (world-scene w) "characterInfo4")) ;character info exit button
-           (mouse=? me "button-down")
-           (<= y 68) 
-           (>= y 16)
-           (>= x 38)   
-           (<= x 219))
            (swInfoBoy w)]
 
       [(and (or (string=? (world-scene w) "characterInfo1") (string=? (world-scene w) "characterInfo2") (string=? (world-scene w) "characterInfo3") 
@@ -3964,7 +3951,7 @@
             (<= x 1666))
             (storeItem12Clicked w)]
 
-        [(and (string=? (world-scene w) "colorLevel3Item11") ; red basket
+        [(and (string=? (world-scene w) "item1") ; red basket apple
             (mouse=? me "button-down")
             (<= y 280) 
             (>= y 179)
@@ -3972,6 +3959,94 @@
             (<= x 479))
             (correctItemToBasket w)]
 
+
+        [(and (string=? (world-scene w) "item2") ; yellow basket banna
+            (mouse=? me "button-down")
+            (<= y 715) 
+            (>= y 613)
+            (>= x 198)   
+            (<= x 491))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item3") ; blue basket fish
+            (mouse=? me "button-down")
+            (<= y 495) 
+            (>= y 393)
+            (>= x 802)   
+            (<= x 110))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item4") ; orange basket carrot
+            (mouse=? me "button-down")
+            (<= y 501) 
+            (>= y 393)
+            (>= x 192)   
+            (<= x 491))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item5") ; purple basket grapes
+            (mouse=? me "button-down")
+            (<= y 712) 
+            (>= y 607)
+            (>= x 807)   
+            (<= x 1106))
+            (correctItemToBasket w)]
+            
+        [(and (string=? (world-scene w) "item6") ; green basket leaf
+            (mouse=? me "button-down")
+            (<= y 272) 
+            (>= y 173)
+            (>= x 801)   
+            (<= x 1100))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item7") ; orange basket orange
+            (mouse=? me "button-down")
+            (<= y 501) 
+            (>= y 398)
+            (>= x 192)   
+            (<= x 491))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item8") ; red basket flower
+            (mouse=? me "button-down")
+            (<= y 280) 
+            (>= y 179)
+            (>= x 199)   
+            (<= x 479))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item9") ; yellow basket duck
+            (mouse=? me "button-down")
+            (<= y 715) 
+            (>= y 613)
+            (>= x 198)   
+            (<= x 491))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item10") ; blue basket butterfly
+            (mouse=? me "button-down")
+            (<= y 495) 
+            (>= y 393)
+            (>= x 802)   
+            (<= x 110))
+            (correctItemToBasket w)]
+
+         [(and (string=? (world-scene w) "item11") ; green basket lime
+            (mouse=? me "button-down")
+            (<= y 272) 
+            (>= y 173)
+            (>= x 801)   
+            (<= x 1100))
+            (correctItemToBasket w)]
+
+        [(and (string=? (world-scene w) "item12") ; purple basket plum
+            (mouse=? me "button-down")
+            (<= y 712) 
+            (>= y 607)
+            (>= x 807)   
+            (<= x 1106))
+            (correctItemToBasket w)]
         
 
         [(and (string=? (world-scene w) "colorLevel3Item12") ; color level 3  score board
