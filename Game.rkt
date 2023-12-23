@@ -633,13 +633,13 @@
 
 ;Purpose: Draws the menu 
 ;Contract: menu --> image
-(define menu    
+(define drawMenu    
   (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
 (define swMenu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
 
-; I have initialWorld in menu cuz its basically the menu
-(define initialWorld (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
+; I have Menu in menu cuz its basically the menu
+(define Menu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
 
 ;=======================================================================================
 ;******************************* Character Select**************************************
@@ -2737,7 +2737,7 @@
            (>= y 16)
            (>= x 38)   
            (<= x 219))
-           (swInfoBoy w)]
+           swMenu]
       
       [(and (string=? (world-scene w) "menu") ;character info button
            (mouse=? me "button-down")
@@ -4097,7 +4097,7 @@
 ;function
 (define (drawWorld world)
   (cond [(string=? (world-scene world) "menu") 
-                    menu]
+                    drawMenu]
         [(string=? (world-scene world) "chSelect")
                     characterSelectMenu]          
         [(string=? (world-scene world) "chSelect2")
@@ -4203,7 +4203,7 @@
 ;since its all under the same struct we can easily change scenes we just need a function to detirmine 
 ; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
 ;  untill we make that function
-(big-bang initialWorld
+(big-bang Menu
 (name "Bilgi Kids")
 (on-draw drawWorld)
 (on-key keyboardControl)
