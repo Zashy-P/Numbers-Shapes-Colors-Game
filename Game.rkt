@@ -36,7 +36,7 @@
 (define footstep2Path "Sounds/ConcreteFootstep2.MP3")
 (define footstepSounds (list footstepPath footstep2Path))
 (define bellRingPath "Sounds/bellRing.wav")
-(define wrongChoiceEffectPath "Sounds/wrongChoiceEffect.mp33")
+(define wrongChoiceEffectPath "Sounds/wrongChoiceEffect.mp3")
 (define correctAnswerEffectPath "Sounds/CorrectAnswerEffect.wav")
 (define paintSoundEffectPath "Sounds/splat sound effects.mp3")
 
