@@ -522,17 +522,17 @@
 (define shapeLevel1Q5Bg (bitmap "Photos/Shapes/level 1/question 5.jpg"))
 (define shapeLevel1Score5Bg (bitmap "Photos/Shapes/level 1/scores/score 5.jpg"))
 
-(define shapeLevel2Path1Bg (bitmap "Photos/Shapes/level 2/pentagon.jpeg"))
-(define shapeLevel2Path2Bg (bitmap "Photos/Shapes/level 2/square.jpeg" ))
-(define shapeLevel2Path3Bg (bitmap "Photos/Shapes/level 2/circle.jpeg" ))
-(define shapeLevel2PathDeadEndBg (bitmap "Photos/Shapes/level 2/dead end.jpg"))
-(define shapeLevel2TrainBg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg"))
-(define squareCartBg (bitmap "Photos/Shapes/level 3/full 1 square.jpg"))
-(define circleCartBg (bitmap "Photos/Shapes/level 3/full 2 circle.jpg"))
-(define triangleCartBg (bitmap "Photos/Shapes/level 3/full 3 triangle.jpg"))
-(define pentagonCartBg (bitmap "Photos/Shapes/level 3/full 5 pentagon.jpg"))
-(define rectangleCartBg (bitmap "Photos/Shapes/level 3/full 4 rectangle.jpg"))
-(define shapeLevel2Score8Bg (bitmap "Photos/Shapes/level 2/shape level 2 score 5.jpeg"))
+(define shapeLevel2Path1Bg (bitmap "Photos/Shapes/level 2/Paths/pentagon.jpeg"))
+(define shapeLevel2Path2Bg (bitmap "Photos/Shapes/level 2/Paths/square.jpeg" ))
+(define shapeLevel2Path3Bg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg" ))
+(define shapeLevel2PathDeadEndBg (bitmap "Photos/Shapes/level 2/Paths/dead end.jpg"))
+(define shapeLevel2TrainBg (bitmap "Photos/Shapes/level 2/Train/level 2 train bg.jpg"))
+(define squareCartBg (bitmap "Photos/Shapes/level 2/Train/full 1 square.jpg"))
+(define circleCartBg (bitmap "Photos/Shapes/level 2/Train/full 2 circle.jpg"))
+(define triangleCartBg (bitmap "Photos/Shapes/level 2/Train/full 3 triangle.jpg"))
+(define rectangleCartBg (bitmap "Photos/Shapes/level 2/Train/full 4 rectangle.jpg"))
+(define pentagonCartBg (bitmap "Photos/Shapes/level 2/Train/full 5 pentagon.jpg"))
+(define shapeLevel2Score8Bg (bitmap "Photos/Shapes/level 2/shape level 2 score 8.jpeg"))
 
 (define shapeLevel3Bg (empty-scene 1920 1080))
 (define shapeLevel3Score5Bg (bitmap "Photos/Shapes/level 3/shapes level 3 score 5.jpg"))
@@ -637,7 +637,7 @@
 (define drawMenu    
   (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
-(define swMenu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
+(define swMenu (begin (thread playButtonClick1Sound)(make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0))))
 
 ; I have Menu in menu cuz its basically the menu
 (define Menu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0)))
