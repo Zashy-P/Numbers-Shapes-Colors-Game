@@ -1230,11 +1230,6 @@
 
 (define (swColorLevel3ItemsFull w) (begin (thread playButtonClick1Sound) (make-world "colorLevel3ItemsFull" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
-(define (swColorLevel3Score7Boy w) (begin (thread playBellRingSound) (make-world "colorLevel3Score7Boy" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swColorLevel3Score7Janitor w) (begin (thread playBellRingSound) (make-world "colorLevel3Score7Janitor" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swColorLevel3Score7Scientist w) (begin (thread playBellRingSound) (make-world "colorLevel3Score7Scientist" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swColorLevel3Score7PoliceWoman w) (begin (thread playBellRingSound) (make-world "colorLevel3Score7PoliceWoman" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-
 ;purpose: changes the skin of the character to the red version of the skin
 ;contract: changeSkinToRed: world(w) --> world
 (define (changeSkinToRed world) 
@@ -1389,13 +1384,13 @@
 (define (correctSkinToDoor world)
   (cond
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyBoy") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyJanitor") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyPoliceWoman") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyScientist") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
+           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
 
      [else (wrongAnswer world)]))
 
@@ -1503,6 +1498,10 @@
          [(and (string=? (skin-name (Character-skin (world-character world))) "policeWoman") (string=? (world-scene world) "colorLevel3Item12"))
                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Score7PoliceWoman" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
           [else world]))
+
+(define (boyyy world)
+    (and (string=? (skin-name (Character-skin (world-character world))) "boy") (string=? (world-scene world) "colorLevel3Item12"))
+                (begin (thread playButtonClick1Sound) (make-world "colorLevel3Score7Boy" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0))))
 
 ;=======================================================================================
 ;************************************ Number Game **************************************
@@ -4071,8 +4070,7 @@
             (>= y 920)
             (>= x 1426)   
             (<= x 1880))
-            (correctScoreToSkin w)]
-        
+            (boyyy w)]
 
         [(and (or (string=? (world-scene w) "colorLevel3Score7Boy"); color level 3  next score board
                   (string=? (world-scene w) "colorLevel3Score7Boy")

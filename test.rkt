@@ -32,11 +32,11 @@
 ;Character skins
 
 ;boy skin
-(define skinBoyWest(bitmap "Photos/Characters/boy/boy_left_side.png"))
-(define skinBoyEast(bitmap "Photos/Characters/boy/boy right side.png"))
-(define skinBoyNorth(bitmap "Photos/Characters/boy/boy_backside.png"))
-(define skinBoySouth(bitmap "Photos/Characters/boy/boy_frontside.png"))
-(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+;(define skinBoyWest(bitmap "Photos/Characters/boy/boy_left_side.png"))
+;(define skinBoyEast(bitmap "Photos/Characters/boy/boy right side.png"))
+;(define skinBoyNorth(bitmap "Photos/Characters/boy/boy_backside.png"))
+;(define skinBoySouth(bitmap "Photos/Characters/boy/boy_frontside.png"))
+;define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;Janitor skin
 (define skinJanitorWest(bitmap "Photos/Characters/janitor/janitor left side.png"))
@@ -369,10 +369,10 @@
 (define tutorialPopUpBg (bitmap "Photos/tutorial pop up with background.jpg")) 
 
 ;Tutorial Background
-(define tutorialBg (bitmap "Photos/Shapes/level 2/dead end.jpg")) 
+(define tutorialBg (bitmap "Photos/tutorial pop up with background.jpg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/Colors/level 3/door 2.jpeg")) 
+(define lobbyBg (bitmap "Photos/Colors/level 3/baskets/item 12 next.jpg")) 
 
 ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "Photos/Shapes/shapes lobby level 1.jpg"))
@@ -398,7 +398,7 @@
 (define colorLevel1Q3Bg (bitmap "Photos/Colors/level 1/question 3.jpg"))
 (define colorLevel1Q4Bg (bitmap "Photos/Colors/level 1/question 4.jpg"))
 (define colorLevel1Q5Bg (bitmap "Photos/Colors/level 1/question 5.jpg"))
-(define colorLevel1Score5Bg (bitmap "Photos/Colors/level 1/scores/score 5.jpg"))
+(define colorLevel1Score5Bg (bitmap "Photos/Colors/level 3/baskets/item 12 next.jpg"))
 
 (define colorLevel2Bg (empty-scene 1920 1080))
 
@@ -427,11 +427,11 @@
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
-;(define skinBoyWest (line 0 2 "red"))
-;(define skinBoyEast (line 0 2 "red"))
-;(define skinBoyNorth (line 0 2 "red"))
-;(define skinBoySouth (line 0 2 "red"))
-;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+(define skinBoyWest (line 0 2 "red"))
+(define skinBoyEast (line 0 2 "red"))
+(define skinBoyNorth (line 0 2 "red"))
+(define skinBoySouth (line 0 2 "red"))
+(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;=======================================================================================
 ;************************************ MENU *********************************************
