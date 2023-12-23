@@ -526,14 +526,15 @@
 (define shapeLevel2Path2Bg (bitmap "Photos/Shapes/level 2/square.jpeg" ))
 (define shapeLevel2Path3Bg (bitmap "Photos/Shapes/level 2/circle.jpeg" ))
 (define shapeLevel2PathDeadEndBg (bitmap "Photos/Shapes/level 2/dead end.jpg"))
-(define shapeLevel2Score3Bg (bitmap "Photos/Shapes/level 2/shape level 2 score 5.jpeg"))
-
-(define shapeLevel3Bg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg"))
+(define shapeLevel2TrainBg (bitmap "Photos/Shapes/level 3/level 3 bg.jpg"))
 (define squareCartBg (bitmap "Photos/Shapes/level 3/full 1 square.jpg"))
 (define circleCartBg (bitmap "Photos/Shapes/level 3/full 2 circle.jpg"))
 (define triangleCartBg (bitmap "Photos/Shapes/level 3/full 3 triangle.jpg"))
 (define pentagonCartBg (bitmap "Photos/Shapes/level 3/full 5 pentagon.jpg"))
 (define rectangleCartBg (bitmap "Photos/Shapes/level 3/full 4 rectangle.jpg"))
+(define shapeLevel2Score8Bg (bitmap "Photos/Shapes/level 2/shape level 2 score 5.jpeg"))
+
+(define shapeLevel3Bg (empty-scene 1920 1080))
 (define shapeLevel3Score5Bg (bitmap "Photos/Shapes/level 3/shapes level 3 score 5.jpg"))
 
 ;ColorLobby 
@@ -733,8 +734,8 @@
           (place-image shapeLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "shapeLevel1Score5")
           (place-image shapeLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "shapeLevel2Score3")
-          (place-image shapeLevel2Score3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel2Score8")
+          (place-image shapeLevel2Score8Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "shapeLevel3Score5")
           (place-image shapeLevel3Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
@@ -770,13 +771,13 @@
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2PathDeadEndBg)]                                                                                                                       
 
-          [(string=? (world-scene world) "shapeLevel3")
+          [(string=? (world-scene world) "shapeLevel2Train")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
              #f 'modern 'italic 'normal #f)
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         shapeLevel3Bg)]                                                                           
+                                         shapeLevel2TrainBg)]                                                                           
 
         [(string=? (world-scene world) "squareCart")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
@@ -812,7 +813,17 @@
   -25 0 (skinUpdater (Character-skin (world-character world)))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
-                                         rectangleCartBg)]))
+                                         rectangleCartBg)]
+                                         
+          [(string=? (world-scene world) "shapeLevel3")
+          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
+             #f 'modern 'italic 'normal #f)
+  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+                                        (ChPos-x (Character-pos (world-character world))) 
+                                        (ChPos-y (Character-pos (world-character world)))
+                                         shapeLevel3Bg)] 
+
+                                         ))
 
 ;Elevator image basically 
 (define elevator    
@@ -825,6 +836,7 @@
 (define (swShapeLevel1 w) (begin (thread playBellRingSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel2 w) (begin (thread playBellRingSound) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel3 w) (begin (thread playBellRingSound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+(define (swShapeLevel2Train w) (begin (thread playBellRingSound) (make-world "shapeLevel2Train" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
 (define (swShapeElevator w) (begin (thread playBellRingSound) (make-world "shapeElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 
@@ -833,14 +845,15 @@
 (define (swShapeLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
 (define (swShapeLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swShapeLevel2Score3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel2Score3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
-(define (swShapeLevel3Score5 w) 
+(define (swShapeLevel2Score8 w) 
     (cond
-        [(string=? (skin-name (Character-skin (world-character w))) "pentagonBoy") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
+        [(string=? (skin-name (Character-skin (world-character w))) "pentagonBoy") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel2Score8" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0)))]
         [(string=? (skin-name (Character-skin (world-character w))) "pentagonJanitor") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "janitor" "up") (make-ChPos 960 890) 0)))]
         [(string=? (skin-name (Character-skin (world-character w))) "pentagonScientist") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "scientist" "up") (make-ChPos 960 890) 0)))]
         [(string=? (skin-name (Character-skin (world-character w))) "pentagonPoliceWoman") (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin "policewoman" "up") (make-ChPos 960 890) 0)))]
         [else w]))
+(define (swShapeLevel3Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0))))
+
 
 (define (swShapeLevel2Path1 w) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))
 (define (swShapeLevel2Path2 w) (make-world "shapeLevel2Path2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0)))
@@ -863,7 +876,7 @@
     (cond 
         [(string=? (world-scene world) "shapeLevel2Path1") (swShapeLevel2DeadEnd1 world)]
         [(string=? (world-scene world) "shapeLevel2Path2") (swShapeLevel2DeadEnd2 world)]
-        [(string=? (world-scene world) "shapeLevel2Path3") (swShapeLevel2Score3 world)]))
+        [(string=? (world-scene world) "shapeLevel2Path3") (swShapeLevel2Train world)]))
 
 
 ;purpose: switches the scenes of the right path 
@@ -930,7 +943,7 @@
 ;contract: correctSkinToCart: world --> world
 (define (correctSkinToCart world)
   (cond
-     [(and (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (world-scene world) "shapeLevel3"))
+     [(and (string=? (skin-name (Character-skin (world-character world))) "squareBoy") (string=? (world-scene world) "shapeLevel2Train"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleBoy") (string=? (world-scene world) "squareCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
@@ -939,9 +952,9 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleBoy") (string=? (world-scene world) "triangleCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonBoy") (string=? (world-scene world) "rectangleCart"))
-          (swShapeLevel3Score5 world)]
+          (swShapeLevel2Score8 world)]
 
-     [(and (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (world-scene world)  "shapeLevel3"))
+     [(and (string=? (skin-name (Character-skin (world-character world))) "squareJanitor") (string=? (world-scene world)  "shapeLevel2Train"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleJanitor") (string=? (world-scene world)  "squareCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
@@ -950,9 +963,9 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleJanitor") (string=? (world-scene world)  "triangleCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonJanitor") (string=? (world-scene world)   "rectangleCart"))
-          (swShapeLevel3Score5 world)]
+          (swShapeLevel2Score8 world)]
     
-     [(and (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (world-scene world)  "shapeLevel3"))
+     [(and (string=? (skin-name (Character-skin (world-character world))) "squareScientist") (string=? (world-scene world)  "shapeLevel2Train"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circleScientist") (string=? (world-scene world)  "squareCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
@@ -961,9 +974,9 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectangleScientist") (string=? (world-scene world) "triangleCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonScientist") (string=? (world-scene world) "rectangleCart"))
-          (swShapeLevel3Score5 world)]
+          (swShapeLevel2Score8 world)]
    
-     [(and (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (world-scene world) "shapeLevel3"))
+     [(and (string=? (skin-name (Character-skin (world-character world))) "squarePoliceWoman") (string=? (world-scene world) "shapeLevel2Train"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "squareCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "circlePoliceWoman") (string=? (world-scene world) "squareCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "circleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
@@ -972,7 +985,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "rectanglePoliceWoman") (string=? (world-scene world) "triangleCart"))
            (begin (thread playCorrectAnswerEffectSound) (make-world "rectangleCart" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0)))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "pentagonPoliceWoman") (string=? (world-scene world) "rectangleCart"))
-          (swShapeLevel3Score5 world)]
+          (swShapeLevel2Score8 world)]
     
      [else (wrongAnswer world)]))
 
@@ -2196,16 +2209,17 @@
 ;function
 (define (keyboardControl w ki)
   (if (or (string=? (world-scene w) "Lobby") (string=? (world-scene w) "tutorial") (string=? (world-scene w) "shapeLobbyL1") 
-          (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "shapeLevel3")
+          (string=? (world-scene w) "shapeLobbyL2") (string=? (world-scene w) "shapeLobbyL3") (string=? (world-scene w) "shapeLevel2Train")
           (string=? (world-scene w) "colorLobbyL1") (string=? (world-scene w) "colorLobbyL2") (string=? (world-scene w) "colorLobbyL3") 
           (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel3KeyDoor") (string=? (world-scene w) "colorLevel3Classroom")
-          (string=? (world-scene w) "colorLevel3Door2") (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") (string=? (world-scene w) "numberLobbyL3") 
+          (string=? (world-scene w) "colorLevel3Door2") (string=? (world-scene w) "numberLobbyL1") (string=? (world-scene w) "numberLobbyL2") 
+          (string=? (world-scene w) "numberLobbyL3") (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "deadEnd3")
           (string=? (world-scene w) "numberLevel2") (string=? (world-scene w) "numberLevel3") (string=? (world-scene w) "colorLevel2RedFrame")
           (string=? (world-scene w) "colorLevel2YellowFrame") (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame")
           (string=? (world-scene w) "colorLevel2PurpleFrame") (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "squareCart") 
           (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "rectangleCart")
           (string=? (world-scene w) "shapeLevel2Path1") (string=? (world-scene w) "shapeLevel2Path2") (string=? (world-scene w) "shapeLevel2Path3")
-          (string=? (world-scene w) "deadEnd1") (string=? (world-scene w) "deadEnd2") (string=? (world-scene w) "deadEnd3")) 
+          (string=? (world-scene w) "deadEnd1") (string=? (world-scene w) "deadEnd2")) 
 
     (cond                                       
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
@@ -3044,7 +3058,7 @@
            (<= x 1397))
            (swShapeLobbyL2 w)]
 
-      [(and (string=? (world-scene w) "shapeLevel2Score3") ;level 1 score board exit button
+      [(and (string=? (world-scene w) "shapeLevel2Score8") ;level 1 score board exit button
            (mouse=? me "button-down")
            (<= y 1018) 
            (>= y 910)
@@ -3052,7 +3066,7 @@
            (<= x 953))
            (swShapeLobbyL2 w)]  
 
-     [(and (string=? (world-scene w) "shapeLevel2Score3") ;level 1 next button
+     [(and (string=? (world-scene w) "shapeLevel2Score8") ;level 1 next button
            (mouse=? me "button-down")
            (<= y 1018) 
            (>= y 917)
@@ -3576,7 +3590,7 @@
            (<= x 992))
            (changeSkinToPurple w)]
       
-      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on circle crate
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on circle crate
                 (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
                 (string=? (world-scene w) "rectangleCart")) 
             (mouse=? me "button-down")
@@ -3586,7 +3600,7 @@
             (<= x 268))
             (changeSkinToCircle w)]
 
-      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on rectangle crate
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on rectangle crate
                 (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
                 (string=? (world-scene w) "rectangleCart"))  
             (mouse=? me "button-down")
@@ -3596,7 +3610,7 @@
             (<= x 1833))
             (changeSkinToRecatngle w)]
 
-      [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart"); skin updates once character clicks on pentagon crate
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart"); skin updates once character clicks on pentagon crate
                 (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
                 (string=? (world-scene w) "rectangleCart"))  
             (mouse=? me "button-down")
@@ -3606,7 +3620,7 @@
             (<= x 281))
             (changeSkinToPentagon w)]
 
-       [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on triangle crate
+       [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on triangle crate
                  (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
                 (string=? (world-scene w) "rectangleCart"))  
             (mouse=? me "button-down")
@@ -3616,7 +3630,7 @@
             (<= x 257))
             (changeSkinToTriangle w)]
 
-        [(and (or (string=? (world-scene w) "shapeLevel3") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on square crate
+        [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") ;skin updates once character clicks on square crate
                   (string=? (world-scene w) "circleCart") (string=? (world-scene w) "triangleCart")
                 (string=? (world-scene w) "rectangleCart"))  
             (mouse=? me "button-down")
@@ -3626,7 +3640,7 @@
             (<= x 1851))
             (changeSkinToSqaure w)]
 
-        [(and (string=? (world-scene w) "shapeLevel3") ; square cart becomes full when clicked
+        [(and (string=? (world-scene w) "shapeLevel2Train") ; square cart becomes full when clicked
             (mouse=? me "button-down")
             (<= y 443) 
             (>= y 279)
@@ -4125,11 +4139,11 @@
         
        [(or (string=? (world-scene world) "shapeLevel1Q1") (string=? (world-scene world) "shapeLevel1Q2") (string=? (world-scene world) "shapeLevel1Q3") 
             (string=? (world-scene world) "shapeLevel1Q4") (string=? (world-scene world) "shapeLevel1Q5") (string=? (world-scene world) "shapeLevel2Path1") 
-            (string=? (world-scene world) "shapeLevel3") (string=? (world-scene world) "shapeLevel1Score5") (string=? (world-scene world) "shapeLevel3Score5")
+            (string=? (world-scene world) "shapeLevel2Train") (string=? (world-scene world) "shapeLevel1Score5") (string=? (world-scene world) "shapeLevel3Score5")
             (string=? (world-scene world) "shapeLevel2Path1") (string=? (world-scene world) "shapeLevel2Path2") (string=? (world-scene world) "shapeLevel2Path3")
             (string=? (world-scene world) "deadEnd1") (string=? (world-scene world) "deadEnd2") (string=? (world-scene world) "deadEnd3") (string=? (world-scene world) "squareCart") (string=? (world-scene world) "circleCart") 
             (string=? (world-scene world) "triangleCart") (string=? (world-scene world) "pentagonCart") (string=? (world-scene world) "rectangleCart")
-            (string=? (world-scene world) "shapeLevel2Score3"))
+            (string=? (world-scene world) "shapeLevel2Score8") (string=? (world-scene world) "shapeLevel3"))
                     (drawShapeLevel world)]
 
        [(string=? (world-scene world) "shapeElevator")
