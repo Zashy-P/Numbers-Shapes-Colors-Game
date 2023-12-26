@@ -369,10 +369,10 @@
 (define tutorialPopUpBg (bitmap "Photos/tutorial pop up with background.jpg")) 
 
 ;Tutorial Background
-(define tutorialBg (bitmap "Photos/tutorial pop up with background.jpg")) 
+(define tutorialBg (bitmap "Photos/tutorial/movement control.jpg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/Colors/level 3/baskets/item 12 next.jpg")) 
+(define lobbyBg (bitmap "Photos/Shapes/level 3/1 rectangle.jpg")) 
 
 ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "Photos/Shapes/shapes lobby level 1.jpg"))
