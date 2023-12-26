@@ -1511,7 +1511,8 @@
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item11" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
          [(string=? (world-scene world) "item12")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-        [else (wrongAnswer world)]))
+        
+        [else (begin (wrongAnswer world))]))
 
 ;purpose: asign the correct level 3 score board to each character
 ;contract: correctScoreToSkin: world -> world
@@ -1585,10 +1586,13 @@
           (place-image numberLevel1Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
 
-          ;[(string=? (world-scene world) "numberLevel2Q1Bg")
-          ;(place-image numberLevel2Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          ;[(string=? (world-scene world) "numberLevel3")
-          ;(place-image numberLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel2Q1")
+          (place-image numberLevel2Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel2Q2")
+          (place-image numberLevel2Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+          [(string=? (world-scene world) "numberLevel3")
+          (place-image numberLevel3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           ))
 
 
@@ -1608,6 +1612,9 @@
 (define (swNumberLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 (define (swNumberLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+
+(define (swNumberLevel2Q1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swNumberLevel2Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 
 ;=======================================================================================
@@ -2376,7 +2383,7 @@
            (>= (ChPos-y (Character-pos (world-character w))) 290)
            (>= (ChPos-x (Character-pos (world-character w))) 820)
            (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
-           (swNumberLevel2 w)]
+           (swNumberLevel2Q1 w)]
 
      [(and (string=? (world-scene w) "numberLobbyL3") ;number Level 3 door
            (<= (ChPos-y (Character-pos (world-character w))) 630)
@@ -2784,6 +2791,10 @@
 ;p5Pentagon x-axis start from  1432(left) to  1643(right)
 
 ;=======================================================================================
+;Number Level 2
+
+;Balloon 1 y-axis start from  1065(bottom) to  876(top)
+;Balloon 1 x-axis start from  581(left) to  719(right)
 
 
 ;Purpose: Register the mouse input on the buttons
@@ -4229,7 +4240,15 @@
             (>= y 357)
             (>= x 1427)   
             (<= x 1589))
-            (wrongAnswerShapeLevel3 w)]    
+            (wrongAnswerShapeLevel3 w)] 
+
+         [(and (string=? (world-scene w) "numberLevel2Q1") ; balloon 1
+            (mouse=? me "button-down")
+            (<= y 1065) 
+            (>= y 876)
+            (>= x 581)   
+            (<= x 719))
+            (swNumberLevel2Q2 w)]  
 
   [else w]))
 
@@ -4324,10 +4343,12 @@
                     (drawNumberLobby world)]
 
        [(or (string=? (world-scene world) "numberLevel1Q1") (string=? (world-scene world) "numberLevel1Q2") (string=? (world-scene world) "numberLevel1Q3") 
-            (string=? (world-scene world) "numberLevel1Q4") (string=? (world-scene world) "numberLevel1Q5") (string=? (world-scene world) "numberLevel2Q1Bg")
-            (string=? (world-scene world) "numberLevel2Q2Bg") (string=? (world-scene world) "numberLevel2Q3Bg") (string=? (world-scene world) "numberLevel2Q4Bg")
-            (string=? (world-scene world) "numberLevel2Q5Bg") (string=? (world-scene world) "numberLevel2Q6Bg") (string=? (world-scene world) "numberLevel2Q7Bg")
-            (string=? (world-scene world) "numberLevel2Q8Bg") (string=? (world-scene world) "numberLevel2Q9Bg") (string=? (world-scene world) "numberLevel2Q10Bg") 
+            (string=? (world-scene world) "numberLevel1Q4") (string=? (world-scene world) "numberLevel1Q5") 
+            
+            (string=? (world-scene world) "numberLevel2Q1")
+            (string=? (world-scene world) "numberLevel2Q2") (string=? (world-scene world) "numberLevel2Q3Bg") (string=? (world-scene world) "numberLevel2Q4")
+            (string=? (world-scene world) "numberLevel2Q5") (string=? (world-scene world) "numberLevel2Q6") (string=? (world-scene world) "numberLevel2Q7")
+            (string=? (world-scene world) "numberLevel2Q8") (string=? (world-scene world) "numberLevel2Q9") (string=? (world-scene world) "numberLevel2Q10") 
             (string=? (world-scene world) "numberLevel2Car") (string=? (world-scene world) "numberLevel3"))
                     (drawNumberLevel world)]
    
