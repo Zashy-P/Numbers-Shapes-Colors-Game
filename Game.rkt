@@ -667,7 +667,14 @@
 (define numberLevel2Car (bitmap "Photos/Numbers/level 2/NumberLevel2Car.png"))
 
 ;Number Level 3
-
+(define numberLevel3DoorBg (bitmap "Photos/Numbers/level 3/NumberLevel3Door.png"))
+(define numberLevel3StartBg (bitmap "Photos/Numbers/level 3/NumberLevel3Start.png"))
+(define numberLevel3Q1Bg (bitmap "Photos/Numbers/level 3/NumberLevel3Q1.png"))
+(define numberLevel3Q2Bg (bitmap "Photos/Numbers/level 3/NumberLevel3Q2.png"))
+(define numberLevel3Q3Bg (bitmap "Photos/Numbers/level 3/NumberLevel3Q3.png"))
+(define numberLevel3Q4Bg (bitmap "Photos/Numbers/level 3/NumberLevel3Q4.png"))
+(define numberLevel3Q5Bg (bitmap "Photos/Numbers/level 3/NumberLevel3Q5.png"))
+(define numberLevel3ScoreBg (bitmap "Photos/Numbers/level 3/level 3 score 5.jpeg"))
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
