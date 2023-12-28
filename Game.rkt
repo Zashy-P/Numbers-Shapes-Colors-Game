@@ -39,6 +39,7 @@
 (define wrongChoiceEffectPath "Sounds/wrongChoiceEffect.mp3")
 (define correctAnswerEffectPath "Sounds/CorrectAnswerEffect.wav")
 (define paintSoundEffectPath "Sounds/splat sound effects.mp3")
+(define shapeTutorialAudioPath "Sounds/Shape Tutorial.MP3")
 
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
@@ -60,6 +61,9 @@
 
 (define (playPaintSoundEffect)
   (play-sound paintSoundEffectPath #f)) 
+
+(define (playShapeTutorialAudio)
+  (play-sound shapeTutorialAudioPath #f))  
 
 ;Purpose: plays the wrong answer sound effect and returns the world to the same state it was in
 ;Contract: wrongAnswer: world --> world
@@ -551,6 +555,35 @@
 (define shapeLevel3P5Bg (bitmap "Photos/Shapes/level 3/5 pentagon.jpg"))
 (define shapeLevel3Score5Bg (bitmap "Photos/Shapes/level 3/shapes level 3 score 5.jpg"))
 
+;shape tutorial
+(define circleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 2.jpg"))
+(define cSunTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 3.jpg"))
+(define cBallTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 4.jpg"))
+(define cTireTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 5.jpg"))
+(define cManyOtherPlacesBg (bitmap "Photos/tutorial/shapes/shape scene 6.jpg"))
+(define squareTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 7.jpg"))
+(define sPizzaBoxTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 8.jpg"))
+(define sWaffleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 9.jpg"))
+(define sTostTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 10.jpg"))
+(define sManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 11.jpg"))
+(define triangleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 12.jpg"))
+(define tBirthdayHatTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 13.jpg"))
+(define tSandwhichTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 14.jpg"))
+(define tSailingBoatTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 15.jpg"))
+(define tManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 16.jpg"))
+(define rectangleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 17.jpg"))
+(define rBookTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 18.jpg"))
+(define rPuzzleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 19.jpg"))
+(define rDoorTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 20.jpg"))
+(define rManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 21.jpg"))
+(define pentagonTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 22.jpg"))
+(define pGemTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 23.jpg"))
+(define pDogHouseTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 24.jpg"))
+(define pClockTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 25.jpg"))
+(define pManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 26.jpg"))
+
+
+
 ;ColorLobby 
 (define colorLobbyL1Bg (bitmap "Photos/Colors/colors level 1.jpg"))
 (define colorLobbyL2Bg (bitmap "Photos/Colors/colors level 2.jpg"))
@@ -717,16 +750,12 @@
                                               (ChPos-y (Character-pos (world-character world)))
                                               shapeLobbyL1Bg)]
           [(string=? (world-scene world) "shapeLobbyL2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLobbyL2Bg)]   
           [(string=? (world-scene world) "shapeLobbyL3")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLobbyL3Bg)]))
@@ -754,37 +783,27 @@
           (place-image shapeLevel3Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           
           [(string=? (world-scene world) "shapeLevel3")
-         (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+         (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel3P1Bg)]
           [(string=? (world-scene world) "p1Rectangle")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel3P2Bg)]
           [(string=? (world-scene world) "p2Square")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel3P3Bg)]
           [(string=? (world-scene world) "p3Circle")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel3P4Bg)]
           [(string=? (world-scene world) "p4Triangle")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel3P5Bg)]
@@ -794,77 +813,57 @@
           
 
           [(string=? (world-scene world) "shapeLevel2Path1")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2Path1Bg)]       
 
           [(string=? (world-scene world) "shapeLevel2Path2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2Path2Bg)] 
 
           [(string=? (world-scene world) "shapeLevel2Path3")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2Path3Bg)]       
 
           [(or (string=? (world-scene world) "deadEnd1") (string=? (world-scene world) "deadEnd2") (string=? (world-scene world) "deadEnd3"))
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2PathDeadEndBg)]                                                                                                                       
 
           [(string=? (world-scene world) "shapeLevel2Train")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          shapeLevel2TrainBg)]                                                                           
 
         [(string=? (world-scene world) "squareCart")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          squareCartBg)]
         [(string=? (world-scene world) "circleCart")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          circleCartBg)]
         [(string=? (world-scene world) "triangleCart")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          triangleCartBg)]
         [(string=? (world-scene world) "pentagonCart")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          pentagonCartBg)]
         [(string=? (world-scene world) "rectangleCart")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          rectangleCartBg)] 
@@ -911,6 +910,13 @@
 (define (swSquareP2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p2Square" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 688 377) 0) 0)))
 (define (swCircleP3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p3Circle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 957 633) 0) 0)))
 (define (swTriangleP4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p4Triangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 1210 374) 0) 0)))
+
+(define (swCircleTutorial w) (begin (thread playShapeTutorialAudio) (make-world "circleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) 0)))
+(define (swCSunTutorial w) (make-world "cSunTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swCBallTutorial w) (make-world "cBallTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swCTireTutorial w) (make-world "cTireTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swCManyOtherPlacesTutorial w) (make-world "cManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swSquareTutorial w) (make-world "squareTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
 
 
 ;purpose: switches the scenes of the right path 
@@ -1569,16 +1575,12 @@
                                               (ChPos-y (Character-pos (world-character world)))
                                               numberLobbyL1Bg)]
           [(string=? (world-scene world) "numberLobbyL2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          numberLobbyL2Bg)]   
           [(string=? (world-scene world) "numberLobbyL3")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          numberLobbyL3Bg)]))
@@ -1676,9 +1678,7 @@
 
 ;Purpose: Draws the Character in the Lobby
 ;Contract: drawLobby: world --> image
-(define (drawLobby world) (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+(define (drawLobby world) (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          lobbyBg))
@@ -2496,25 +2496,6 @@
 ;test 
 
 ;=======================================================================================
-;******************************* Tutorial**************************************
-;=======================================================================================
-
-;Purpose: Draws the Tutorial Pop up
-;Contract: drawTutorial: world(w) --> image
-(define drawTutorialPopUp
-  (place-image tutorialPopUpBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-
-;Purpose: Draws the Tutorial
-;Contract: drawTutorial: world(w) --> image
-(define (drawTutorial world)
-  (place-image (skinUpdater (Character-skin (world-character world))) 
-               (ChPos-x (Character-pos (world-character world))) 
-               (ChPos-y (Character-pos (world-character world))) 
-                tutorialMovementBg))
-
-;test
-
-;=======================================================================================
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
 
@@ -3001,6 +2982,14 @@
            (>= x 1029)
            (<= x 1376))
            (cLobby w)]
+
+     [(and (string=? (world-scene w) "tutorialMovement") ;next movement tutorial button
+           (mouse=? me "button-down")
+           (<= y 1032)
+           (>= y 936)
+           (>= x 1570)
+           (<= x 1855)) 
+           (swCircleTutorial w)]      
 
      [(and (string=? (world-scene w) "shapeElevator") ;Level 1 Elevator Button
            (mouse=? me "button-down")
@@ -4402,6 +4391,74 @@
 [else w]))
 
 ;test
+ 
+
+;=======================================================================================
+;********************************** Tutorial *******************************************
+;=======================================================================================
+
+;Purpose; Draws The Tutorial scenes
+;Contract: drawTutorial: world(w) --> image
+(define (drawTutorial w)
+    (cond 
+
+        [(string=? (world-scene w) "tutorialPopUp") 
+        (place-image tutorialPopUpBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "tutorialMovement")
+         (place-image (skinUpdater (Character-skin (world-character w))) 
+               (ChPos-x (Character-pos (world-character w))) 
+               (ChPos-y (Character-pos (world-character w))) 
+                tutorialMovementBg)]
+
+        [(string=? (world-scene w) "circleTutorial") 
+        (place-image circleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "cSunTutorial") 
+        (place-image cSunTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "cBallTutorial") 
+        (place-image cBallTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "cTireTutorial") 
+        (place-image cTireTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "cManyOtherPlacesTutorial") 
+        (place-image cManyOtherPlacesBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "squareTutorial") 
+        (place-image squareTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [else (empty-scene 1920 1080)]))
+
+;test
+
+
+;Purpose: changes the tutorial scene when time for the next scene
+;Contract: changeTutorialScene: world --> world
+;function
+(define (changeTutorialScene world)
+    (cond 
+        [(and (= (world-t world) 45) (string=? (world-scene world) "circleTutorial")) (swCSunTutorial world)]
+        [(and (= (world-t world) 80) (string=? (world-scene world) "cSunTutorial")) (swCBallTutorial world)]
+        [(and (= (world-t world) 110) (string=? (world-scene world) "cBallTutorial")) (swCTireTutorial world)]
+        [(and (= (world-t world) 120) (string=? (world-scene world) "cTireTutorial")) (swCManyOtherPlacesTutorial world)]
+        [(and (= (world-t world) 140) (string=? (world-scene world) "cManyOtherPlacesTutorial")) (swSquareTutorial world)]
+        [else world]))
+
+;Purpose: keeps track of time in ticks in tutorial scene
+;contract: addTime: world --> world
+;function
+(define (addTime world)
+        (changeTutorialScene (make-world (world-scene world) 
+                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world))))
+                                                (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 
+                                                (Character-stepCount (world-character world))) 
+                                                (add1 (world-t world)))))
+
+
+
+
 
 ;=======================================================================================
 ;***************************** Drawing World + big-bang ********************************
@@ -4425,10 +4482,11 @@
                     characterSelect4]
         [(string=? (world-scene world) "Lobby") 
                     (drawLobby world)]
-        [(string=? (world-scene world) "tutorialPopUp")
-                    drawTutorialPopUp]
-        [(string=? (world-scene world) "tutorialMovement")
-                    (drawTutorial world)]
+        [(or (string=? (world-scene world) "tutorialPopUp") (string=? (world-scene world) "tutorialMovement") (string=? (world-scene world) "circleTutorial")
+             (string=? (world-scene world) "cSunTutorial") (string=? (world-scene world) "cBallTutorial") (string=? (world-scene world) "cTireTutorial") 
+             (string=? (world-scene world) "cManyOtherPlacesTutorial") (string=? (world-scene world) "squareTutorial")) 
+        (drawTutorial world)]
+                    
 
         [(or (string=? (world-scene world) "characterInfo1")                 
              (string=? (world-scene world) "characterInfo2")
@@ -4511,29 +4569,11 @@
 
 ;test
 
-;Purpose: changes the tutorial scene when time for the next scene
-;Contract: changeTutorialScene: world --> world
-;function
-(define (changeTutorialScene world)
-    (cond 
-        [(and (>= (world-t world) 200) (string=? (world-scene world) "tutorialMovement")) (swColorLobbyL1 world)]
-        [else world]))
 
-;Purpose: keeps track of time in ticks in tutorial scene
-;contract: addTime: world --> world
-;function
-(define (addTime world)
-    (cond 
-        [(string=? (world-scene world) "tutorialMovement") (changeTutorialScene (make-world "tutorialMovement" 
-                                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world))))
-                                                                (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 
-                                                                0) (add1 (world-t world))))]    
-        [else world]))
+;=======================================================================================
+;********************************** Big-Bang *******************************************
+;=======================================================================================
 
-
-;since its all under the same struct we can easily change scenes we just need a function to detirmine 
-; when to use which scene and put it next to big-bang rn i  will have both scenes in diff big-bangs
-;  untill we make that function
 (big-bang Menu
 (name "Bilgi Kids")
 (on-draw drawWorld)
