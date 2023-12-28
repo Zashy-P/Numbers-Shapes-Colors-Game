@@ -663,6 +663,7 @@
 (define numberLevel2Q8Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q8.png"))
 (define numberLevel2Q9Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q9.png"))
 (define numberLevel2Q10Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q10.png"))
+(define numberLevel2Q11Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q11.png"))
 (define numberLevel2Car (bitmap "Photos/Numbers/level 2/NumberLevel2Car.png"))
 
 
@@ -1631,6 +1632,8 @@
           (place-image numberLevel2Q9Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel2Q10")
           (place-image numberLevel2Q10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel2Q11")
+          (place-image numberLevel2Q11Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel2Car")
           (place-image numberLevel2Car worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
@@ -1668,7 +1671,7 @@
 (define (swNumberLevel2Q8 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q8" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 (define (swNumberLevel2Q9 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q9" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 (define (swNumberLevel2Q10 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q10" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
-
+(define (swNumberLevel2Q11 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q11" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 ;=======================================================================================
 ;*********************** Character & Lobby & Keyboard Control **************************
 ;=======================================================================================
@@ -4380,13 +4383,13 @@
             (<= x 905))
             (swNumberLevel2Q10 w)] 
 
-       ; [(and (string=? (world-scene w) "numberLevel2Q10") ; balloon 10
-           ; (mouse=? me "button-down")
-            ;(<= y 1065) 
-            ;(>= y 876)
-           ; (>= x 1726)   
-           ; (<= x 1825))
-           ; (swNumberLevel2Q3 w)]   
+        [(and (string=? (world-scene w) "numberLevel2Q10") ; balloon 10
+            (mouse=? me "button-down")
+            (<= y 1065) 
+            (>= y 876)
+            (>= x 1726)   
+            (<= x 1825))
+            (swNumberLevel2Q11 w)]   
  
 [else w]))
 
@@ -4556,7 +4559,7 @@
             (string=? (world-scene world) "numberLevel2Q2") (string=? (world-scene world) "numberLevel2Q3") (string=? (world-scene world) "numberLevel2Q4")
             (string=? (world-scene world) "numberLevel2Q5") (string=? (world-scene world) "numberLevel2Q6") (string=? (world-scene world) "numberLevel2Q7")
             (string=? (world-scene world) "numberLevel2Q8") (string=? (world-scene world) "numberLevel2Q9") (string=? (world-scene world) "numberLevel2Q10") 
-            (string=? (world-scene world) "numberLevel2Car") (string=? (world-scene world) "numberLevel3"))
+            (string=? (world-scene world) "numberLevel2Q11") (string=? (world-scene world) "numberLevel2Car") (string=? (world-scene world) "numberLevel3"))
                     (drawNumberLevel world)]
    
        [(string=? (world-scene world) "numberElevator")
