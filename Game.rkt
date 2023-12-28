@@ -605,6 +605,13 @@
 (define colorLevel2BlueFrameBg (bitmap "Photos/Colors/level 2/5 blue.jpg"))
 (define colorLevel2PurpleFrameBg (bitmap "Photos/Colors/level 2/6 purple.jpg"))
 
+(define colorLevel2Q1Bg (bitmap "Photos/Colors/level 2/q1.jpg"))
+(define colorLevel2Q2Bg (bitmap "Photos/Colors/level 2/q2.jpg"))
+(define colorLevel2Q3Bg (bitmap "Photos/Colors/level 2/q3.jpg"))
+(define colorLevel2Q4Bg (bitmap "Photos/Colors/level 2/q4.jpg"))
+(define colorLevel2Q5Bg (bitmap "Photos/Colors/level 2/q5.jpg"))
+(define colorLevel2Q6Bg (bitmap "Photos/Colors/level 2/q6.jpg"))
+
 (define colorLevel2Score6Bg (bitmap "Photos/Colors/level 2/color level 2 score 5.jpeg"))
 
 ;Color Level 3 
@@ -1235,7 +1242,21 @@
           (place-image colorLevel3Item10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
          [(string=? (world-scene world) "item12")
           (place-image colorLevel3Item11Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          
+        
+         [(string=? (world-scene world) "colorLevel2Q1")
+          (place-image colorLevel2Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Q2")
+          (place-image colorLevel2Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Q3")
+          (place-image colorLevel2Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Q4")
+          (place-image colorLevel2Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Q5")
+          (place-image colorLevel2Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "colorLevel2Q6")
+          (place-image colorLevel2Q6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+
           [(string=? (world-scene world) "colorLevel2")
           (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
              #f 'modern 'italic 'normal #f)
@@ -1278,6 +1299,14 @@
 (define (swColorLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 (define (swColorLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+
+(define (swColorLevel2Q1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swColorLevel2Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swColorLevel2Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swColorLevel2Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swColorLevel2Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swColorLevel2Q6 w) (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Q6" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+
 (define (swColorLevel2Score6 w)
     (cond
         [(string=? (skin-name (Character-skin (world-character w))) "purpleBoy") (begin (thread playCorrectAnswerEffectSound) (make-world "colorLevel2Score6" (make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0) 0))]
@@ -1373,7 +1402,7 @@
           (begin (thread playPaintSoundEffect)(make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (world-scene world)  "colorLevel2BlueFrame"))
         (swColorLevel2Score6 world)]
-
+        
      [(and (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (world-scene world)  "colorLevel2RedFrame"))
@@ -1385,7 +1414,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-          (swColorLevel2Score6 world)]
+           (swColorLevel2Score6 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
@@ -1398,7 +1427,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-          (swColorLevel2Score6 world)]
+           (swColorLevel2Score6 world)]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
@@ -1411,7 +1440,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-          (swColorLevel2Score6 world)]
+           (swColorLevel2Score6 world)]
 
      [else (wrongAnswer world)]))
 
@@ -2409,7 +2438,7 @@
            (>= (ChPos-y (Character-pos (world-character w))) 290)
            (>= (ChPos-x (Character-pos (world-character w))) 820)
            (<= (ChPos-x (Character-pos (world-character w))) 1110)) 
-           (swColorLevel2 w)]
+           (swColorLevel2Q1 w)]
 
      [(and (string=? (world-scene w) "colorLobbyL3") ;color Level 3 door
            (<= (ChPos-y (Character-pos (world-character w))) 630)
@@ -2678,6 +2707,24 @@
 ;purple paint bucket
 ;y-axis:  377(bottom)  325(top)
 ;x-axiis:  948(left)  992(right)
+
+;red paint bucket mcq y-axis start from  862(bottom) to  680(top)
+;red paint bucket mcq x-axis start from  560(left) to  802(right)
+
+;orange paint bucket mcq y-axis start from  864(bottom) to  681(top)
+;orange paint bucket mcq x-axis start from  1190(left) to 1434(right)
+
+;yellow paint bucket mcq y-axis start from  660(bottom) to  477(top)
+;yellow paint bucket mcq x-axis start from  1191(left) to  1434(right)
+
+;green paint bucket mcq y-axis start from  658(bottom) to  476(top)
+;green paint bucket mcq x-axis start from  867(left) to  1110(right)
+
+;blue paint bucket mcq y-axis start from  864(bottom) to  681(top)
+;blue paint bucket mcq x-axis start from  867(left) to  1109(right)
+
+;purple paint bucket mcq y-axis start from  659(bottom) to  475(top)
+;purple paint bucket mcq x-axis start from  561(left) to  802(right)
 ;==================================
 ;Shape Level 3: 
 
@@ -4397,7 +4444,300 @@
             (>= y 876)
             (>= x 1726)   
             (<= x 1825))
-            (swNumberLevel2Q11 w)]   
+            (swNumberLevel2Q11 w)]
+
+          [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 correct red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (swColorLevel2Q2 w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 wrong orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 wrong yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 wrong green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 wrong blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 wrong purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+
+
+       [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 wrong red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 wrong orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 wrong yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 correct green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (swColorLevel2Q3 w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 wrong blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q2") ; color level 2 q2 wrong purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (wrongAnswer w)]     
+
+
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 wrong red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 wrong orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 wrong yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 wrong green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 correct blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (swColorLevel2Q4 w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q3") ; color level 2 q3 wrong purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 wrong red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 wrong orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 correct yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (swColorLevel2Q5 w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 wrong green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 wrong blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q4") ; color level 2 q4 wrong purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 wrong red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 wrong orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 wrong yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 wrong green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 wrong blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q5") ; color level 2 q5 correct purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (swColorLevel2Q6 w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong red bucket
+            (mouse=? me "button-down")
+            (<= y 862) 
+            (>= y 680)
+            (>= x 560)   
+            (<= x 802))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 correct orange bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (swColorLevel2 w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong yellow bucket
+            (mouse=? me "button-down")
+            (<= y 660) 
+            (>= y 477)
+            (>= x 1191)   
+            (<= x 1434))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong green bucket
+            (mouse=? me "button-down")
+            (<= y 658) 
+            (>= y 476)
+            (>= x 867)   
+            (<= x 1110))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong blue bucket
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 867)   
+            (<= x 1109))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong purple bucket
+            (mouse=? me "button-down")
+            (<= y 659) 
+            (>= y 475)
+            (>= x 561)   
+            (<= x 802))
+            (wrongAnswer w)]
  
 [else w]))
 
@@ -4538,7 +4878,9 @@
             (string=? (world-scene world) "item3") (string=? (world-scene world) "item4") (string=? (world-scene world) "item5") 
             (string=? (world-scene world) "item6") (string=? (world-scene world) "item7") (string=? (world-scene world) "item8") 
             (string=? (world-scene world) "item9") (string=? (world-scene world) "item10") (string=? (world-scene world) "item11") 
-            (string=? (world-scene world) "itemFull") (string=? (world-scene world) "item12"))
+            (string=? (world-scene world) "itemFull") (string=? (world-scene world) "item12") (string=? (world-scene world) "colorLevel2Q1") 
+            (string=? (world-scene world) "colorLevel2Q2") (string=? (world-scene world) "colorLevel2Q3") (string=? (world-scene world) "colorLevel2Q4")
+            (string=? (world-scene world) "colorLevel2Q5") (string=? (world-scene world) "colorLevel2Q6"))
                     (drawColorLevel world)]
 
        [(string=? (world-scene world) "colorElevator")
