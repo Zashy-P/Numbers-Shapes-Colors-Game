@@ -561,6 +561,17 @@
 (define shapeLevel3Q4Bg (bitmap "Photos/Shapes/level 3/mcq/q4.jpg"))
 (define shapeLevel3Q5Bg (bitmap "Photos/Shapes/level 3/mcq/q5.jpg"))
 
+(define shapeLevel3Score0RetryBg (bitmap "Photos/Shapes/level 3/retry/score 0 retry.jpg"))
+(define shapeLevel3Score1RetryBg (bitmap "Photos/Shapes/level 3/retry/score 1 retry.jpg"))
+(define shapeLevel3Score2RetryBg (bitmap "Photos/Shapes/level 3/retry/score 2 retry.jpg"))
+(define shapeLevel3Score3RetryBg (bitmap "Photos/Shapes/level 3/retry/score 3 retry.jpg"))
+(define shapeLevel3Score4RetryBg (bitmap "Photos/Shapes/level 3/retry/score 4 retry.jpg"))
+(define shapeLevel3Score5RetryBg (bitmap "Photos/Shapes/level 3/retry/score 5 retry.jpg"))
+(define shapeLevel3Score6RetryBg (bitmap "Photos/Shapes/level 3/retry/score 6 retry.jpg"))
+(define shapeLevel3Score7RetryBg (bitmap "Photos/Shapes/level 3/retry/score 7 retry.jpg"))
+(define shapeLevel3Score8RetryBg (bitmap "Photos/Shapes/level 3/retry/score 8 retry.jpg"))
+(define shapeLevel3Score9RetryBg (bitmap "Photos/Shapes/level 3/retry/score 9 retry.jpg"))
+
 ;shape tutorial
 (define circleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 2.jpg"))
 (define cSunTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 3.jpg"))
@@ -900,7 +911,28 @@
           [(string=? (world-scene world) "shapeLevel3Q4")
           (place-image shapeLevel3Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "shapeLevel3Q5")
-          (place-image shapeLevel3Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))                                
+          (place-image shapeLevel3Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          
+          [(string=? (world-scene world) "shapeLevel3Score0Retry")
+          (place-image shapeLevel3Score0RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score1Retry")
+          (place-image shapeLevel3Score1RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score2Retry")
+          (place-image shapeLevel3Score2RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score3Retry")
+          (place-image shapeLevel3Score3RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score4Retry")
+          (place-image shapeLevel3Score4RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score5Retry")
+          (place-image shapeLevel3Score5RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score6Retry")
+          (place-image shapeLevel3Score6RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score7Retry")
+          (place-image shapeLevel3Score7RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score8Retry")
+          (place-image shapeLevel3Score8RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Score9Retry")
+          (place-image shapeLevel3Score9RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))                                
 
 ;Elevator image basically 
 (define elevator    
@@ -937,6 +969,19 @@
 (define (swShapeLevel3Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 (define (swShapeLevel3Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
+(define (swShapeLevel3Score0Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score0Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score1Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score1Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score2Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score2Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score3Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score3Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score4Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score4Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score5Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score5Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score6Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score6Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score7Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score7Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score8Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score8Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Score9Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score9Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+
+(define (swShapeLevel3RetryButton w) (begin (thread playButtonClick1Sound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0)))
+
 (define (swShapeLevel2Path1 w) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 (define (swShapeLevel2Path2 w) (make-world "shapeLevel2Path2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 (define (swShapeLevel2Path3 w) (make-world "shapeLevel2Path3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
@@ -944,6 +989,7 @@
 (define (swShapeLevel2DeadEnd2 w) (make-world "deadEnd2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 (define (swShapeLevel2DeadEnd3 w) (make-world "deadEnd3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 
+(define (swShapeLevel3Path w) (begin (thread playCorrectAnswerEffectSound) (make-world "p1Rectangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 436 634) 0) 0)))
 (define (swRectangleP1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p1Rectangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 436 634) 0) 0)))
 (define (swSquareP2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p2Square" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 688 377) 0) 0)))
 (define (swCircleP3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "p3Circle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 957 633) 0) 0)))
@@ -2914,6 +2960,9 @@
 ;bottom right y-axis start from  902(bottom) to  676(top)
 ;bottom right x-axis start from  1008(left) to  1371(right)
 
+;retry button y-axis start from  884(bottom) to  752(top)
+;retry button x-axis start from  740(left) to  1188(right)
+
 ;=======================================================================================
 ;Number Level 2
 
@@ -4327,7 +4376,15 @@
             (>= y 357)
             (>= x 327)   
             (<= x 529))
-            (wrongAnswerShapeLevel3 w)]
+            (swShapeLevel3Score0Retry w)]
+
+        [(and (string=? (world-scene w) "shapeLevel3Score0Retry") ; retry button
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton w)]
 
         [(and (string=? (world-scene w) "shapeLevel3") ; Rectangle 1
             (mouse=? me "button-down")
@@ -4351,7 +4408,15 @@
             (>= y 599)
             (>= x 601)   
             (<= x 800))
-            (wrongAnswerShapeLevel3 w)]
+            (swShapeLevel3Score1Retry w)]
+
+        [(and (string=? (world-scene w) "shapeLevel3Score1Retry") ; retry button
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton w)]
 
         [(and (string=? (world-scene w) "p2Square") ; Cirlce 3
             (mouse=? me "button-down")
@@ -4367,7 +4432,16 @@
             (>= y 357)
             (>= x 872)   
             (<= x 1093))
-            (wrongAnswerShapeLevel3 w)]    
+            (swShapeLevel3Score2Retry w)]  
+
+        [(and (string=? (world-scene w) "shapeLevel3Score2Retry") ; retry button
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton w)]
+  
 
         [(and (string=? (world-scene w) "p3Circle") ; Triangle 4
             (mouse=? me "button-down")
@@ -4383,8 +4457,16 @@
             (>= y 599)
             (>= x 1153)   
             (<= x 1362))
-            (wrongAnswerShapeLevel3 w)]    
-            
+            (swShapeLevel3Score3Retry w)]  
+
+        [(and (string=? (world-scene w) "shapeLevel3Score3Retry") ; retry button
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton w)]
+  
         [(and (string=? (world-scene w) "p4Triangle") ; Pentagon 5
             (mouse=? me "button-down")
             (<= y 818) 
@@ -4399,7 +4481,15 @@
             (>= y 357)
             (>= x 1427)   
             (<= x 1589))
-            (wrongAnswerShapeLevel3 w)] 
+            (swShapeLevel3Score4Retry w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Score4Retry") ; retry button
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton w)]
 
         [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 top left
             (mouse=? me "button-down")
@@ -5058,7 +5148,11 @@
             (string=? (world-scene world) "shapeLevel2Score8") (string=? (world-scene world) "shapeLevel3") (string=? (world-scene world) "p1Rectangle")
             (string=? (world-scene world) "p2Square") (string=? (world-scene world) "p3Circle") (string=? (world-scene world) "p4Triangle") 
             (string=? (world-scene world) "p5Pentagon") (string=? (world-scene world) "shapeLevel3Q1") (string=? (world-scene world) "shapeLevel3Q2") 
-            (string=? (world-scene world) "shapeLevel3Q3") (string=? (world-scene world) "shapeLevel3Q4") (string=? (world-scene world) "shapeLevel3Q5"))
+            (string=? (world-scene world) "shapeLevel3Q3") (string=? (world-scene world) "shapeLevel3Q4") (string=? (world-scene world) "shapeLevel3Q5")
+            (string=? (world-scene world) "shapeLevel3Score0Retry") (string=? (world-scene world) "shapeLevel3Score1Retry")  (string=? (world-scene world) "shapeLevel3Score2Retry") 
+            (string=? (world-scene world) "shapeLevel3Score3Retry") (string=? (world-scene world) "shapeLevel3Score4Retry") (string=? (world-scene world) "shapeLevel3Score5Retry") 
+            (string=? (world-scene world) "shapeLevel3Score6Retry") (string=? (world-scene world) "shapeLevel3Score7Retry") (string=? (world-scene world) "shapeLevel3Score8Retry") 
+            (string=? (world-scene world) "shapeLevel3Score9Retry"))
                     (drawShapeLevel world)]
 
        [(string=? (world-scene world) "shapeElevator")
