@@ -687,7 +687,7 @@
 (define numberLevel2Q8Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q8.png"))
 (define numberLevel2Q9Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q9.png"))
 (define numberLevel2Q10Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q10.png"))
-(define numberLevel2Q11Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q11.png"))
+(define numberLevel2Score10 (bitmap "Photos/Numbers/level 2/level 2 score 10.jpg"))
 (define numberLevel2Car (bitmap "Photos/Numbers/level 2/NumberLevel2Car.png"))
 
 ;Number Level 3
@@ -1766,8 +1766,8 @@
           (place-image numberLevel2Q9Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel2Q10")
           (place-image numberLevel2Q10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "numberLevel2Q11")
-          (place-image numberLevel2Q11Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "numberLevel2Score10")
+          (place-image numberLevel2Score10 worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel2Car")
           (place-image numberLevel2Car worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
@@ -1807,6 +1807,7 @@
 (define (swNumberLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 (define (swNumberLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swNumberLevel2Score10 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Score10" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 ; number level 2
 (define (swNumberLevel2Q1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
@@ -1819,7 +1820,33 @@
 (define (swNumberLevel2Q8 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q8" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 (define (swNumberLevel2Q9 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q9" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 (define (swNumberLevel2Q10 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q10" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
-(define (swNumberLevel2Q11 w) (begin (thread playCorrectAnswerEffectSound) (make-world "numberLevel2Q11" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+
+;Purpose: Switches the question scenes to the right one or plays the wrong answer sound
+;Contract: swNumberLevel2Q: world(w) Ballon-Number(n) -> world
+(define (swNumberLevel2Q w n)
+    (cond 
+        [(and (string=? (world-scene w) "numberLevel2Q1") (= n 1)) 
+        (swNumberLevel2Q2 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q2") (= n 2))
+        (swNumberLevel2Q3 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q3") (= n 3))
+        (swNumberLevel2Q4 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q4") (= n 4))
+        (swNumberLevel2Q5 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q5") (= n 5))
+        (swNumberLevel2Q6 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q6") (= n 6))
+        (swNumberLevel2Q7 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q7") (= n 7))
+        (swNumberLevel2Q8 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q8") (= n 8))
+        (swNumberLevel2Q9 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q9") (= n 9))
+        (swNumberLevel2Q10 w)]
+        [(and (string=? (world-scene w) "numberLevel2Q10") (= n 10))
+        (swNumberLevel2Score10 w)]
+        [else (wrongAnswer w)]))
+        
 
 ; number level 3
 (define (swNumberLevel3Door w) (begin (thread playBellRingSound) (make-world "numberLevel3Door" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
@@ -4723,79 +4750,107 @@
             (>= y 876)
             (>= x 581)   
             (<= x 719))
-            (swNumberLevel2Q2 w)] 
+            (swNumberLevel2Q w 1)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q2") ; balloon 2
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2")) ; balloon 2
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 218)   
             (<= x 349))
-            (swNumberLevel2Q3 w)] 
+            (swNumberLevel2Q w 2)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q3") ; balloon 3
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3")) ; balloon 3
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 1154)   
             (<= x 1285))
-            (swNumberLevel2Q4 w)] 
+            (swNumberLevel2Q w 3)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q4") ; balloon 4
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4")); balloon 4
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 1537)   
             (<= x 1663))
-            (swNumberLevel2Q5 w)]   
+            (swNumberLevel2Q w 4)]   
 
-        [(and (string=? (world-scene w) "numberLevel2Q5") ; balloon 5
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5")) ; balloon 5
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 52)   
             (<= x 184))
-            (swNumberLevel2Q6 w)] 
+            (swNumberLevel2Q w 5)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q6") ; balloon 6
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5") (string=? (world-scene w) "numberLevel2Q6")) ; balloon 6
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 1348)   
             (<= x 1478))
-            (swNumberLevel2Q7 w)] 
+            (swNumberLevel2Q w 6)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q7") ; balloon 7
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5") (string=? (world-scene w) "numberLevel2Q6") 
+                  (string=? (world-scene w) "numberLevel2Q7")) ; balloon 7
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 960)   
             (<= x 1091))
-            (swNumberLevel2Q8 w)] 
+            (swNumberLevel2Q w 7)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q8") ; balloon 8
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5") (string=? (world-scene w) "numberLevel2Q6") 
+                  (string=? (world-scene w) "numberLevel2Q7") (string=? (world-scene w) "numberLevel2Q8")) ; balloon 8
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 393)   
             (<= x 529))
-            (swNumberLevel2Q9 w)] 
+            (swNumberLevel2Q w 8)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q9") ; balloon 9
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5") (string=? (world-scene w) "numberLevel2Q6") 
+                  (string=? (world-scene w) "numberLevel2Q7") (string=? (world-scene w) "numberLevel2Q8") (string=? (world-scene w) "numberLevel2Q9")) ; balloon 9
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 775)   
             (<= x 905))
-            (swNumberLevel2Q10 w)] 
+            (swNumberLevel2Q w 9)] 
 
-        [(and (string=? (world-scene w) "numberLevel2Q10") ; balloon 10
+        [(and (or (string=? (world-scene w) "numberLevel2Q1") (string=? (world-scene w) "numberLevel2Q2") (string=? (world-scene w) "numberLevel2Q3") 
+                  (string=? (world-scene w) "numberLevel2Q4") (string=? (world-scene w) "numberLevel2Q5") (string=? (world-scene w) "numberLevel2Q6") 
+                  (string=? (world-scene w) "numberLevel2Q7") (string=? (world-scene w) "numberLevel2Q8") (string=? (world-scene w) "numberLevel2Q9") 
+                  (string=? (world-scene w) "numberLevel2Q10")) ; balloon 10
             (mouse=? me "button-down")
             (<= y 1065) 
             (>= y 876)
             (>= x 1726)   
             (<= x 1825))
-            (swNumberLevel2Q11 w)]
+            (swNumberLevel2Q w 10)]
+
+            [(and (string=? (world-scene w) "numberLevel2Score10") ; number level 2 score board (next button)
+            (mouse=? me "button-down")
+            (<= y 1019) 
+            (>= y 914)
+            (>= x 1026)   
+            (<= x 1396))
+            (swNumberLobbyL3 w)]  
+
+        [(and (string=? (world-scene w) "numberLevel2Score10") ; number level 2 score board (exit button)
+            (mouse=? me "button-down")
+            (<= y 1014) 
+            (>= y 910)
+            (>= x 585)   
+            (<= x 952))
+            (swNumberLobbyL2 w)]  
 
           [(and (string=? (world-scene w) "colorLevel2Q1") ; color level 2 q1 correct red bucket
             (mouse=? me "button-down")
@@ -5497,7 +5552,7 @@
             
             (string=? (world-scene world) "numberLevel3Q1") (string=? (world-scene world) "numberLevel3Q2") 
             (string=? (world-scene world) "numberLevel3Q3") (string=? (world-scene world) "numberLevel3Q4") (string=? (world-scene world) "numberLevel3Q5") 
-            (string=? (world-scene world) "numberLevel3Start") (string=? (world-scene world) "numberLevel3Score"))
+            (string=? (world-scene world) "numberLevel3Start") (string=? (world-scene world) "numberLevel3Score") (string=? (world-scene world) "numberLevel2Score10"))
                     (drawNumberLevel world)]
    
        [(string=? (world-scene world) "numberElevator")
