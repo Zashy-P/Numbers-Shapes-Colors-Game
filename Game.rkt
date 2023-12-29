@@ -3044,7 +3044,27 @@
 ;Number Level 3
 
 ;Number Level 3 Classrom Door y-axis start from  873(bottom) to  302(top)
-;;Number Level 3 Classrom Door x-axis start from  1004(left) to  1286(right)
+;Number Level 3 Classrom Door x-axis start from  1004(left) to  1286(right) ; done
+
+;Number level 3 (click to start) y-axis start from  536(bottom) to  482(top)
+;Number level 3 (click to start) x-axis start from  701(left) to  1131(right) ; done
+
+;Number level 3 all questions
+;Number level 3 Q (left option) y-axis start from  588(bottom) to  425(top)
+;Number level 3 Q (left option) x-axis start from  604(left) to  797(right) ; done
+
+;Number level 3 Q (middle option) y-axis start from  587(bottom) to  425(top)
+;Number level 3 Q (middle option) x-axis start from  863(left) to  1052(right) ; done
+
+;Number level 3 Q (right option) y-axis start from  587(bottom) to  426(top)
+;Number level 3 Q (right option) x-axis start from  1123(left) to  1317(right) ; done
+
+; Score
+;Number level 3 score (exit option) y-axis start from  1014(bottom) to  910(top) ; scene: number lobby 3
+;Number level 3 score (exit option) x-axis start from  585(left) to  952(right) ; done
+
+;Number level 3 score (next option) y-axis start from  1019(bottom) to  914(top) ; scene: color number shape lobby
+;Number level 3 score (next option) x-axis start from  1026(left) to  1396(right) ; done
 
 ;function
 (define (mouseRegister w x y me)
@@ -5074,6 +5094,14 @@
             (>= x 561)   
             (<= x 802))
             (wrongAnswer w)]
+        
+        [(and (string=? (world-scene w) "numberLevel2Start") ; number level 3 start board
+            (mouse=? me "button-down")
+            (<= y 864) 
+            (>= y 681)
+            (>= x 1190)   
+            (<= x 1434))
+            (swNumberLevel3Q1 w)] 
  
 [else w]))
 
