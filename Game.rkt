@@ -5128,9 +5128,9 @@
     (cond 
         [(and (= (world-t world) 45) (string=? (world-scene world) "circleTutorial")) (swCSunTutorial world)]
         [(and (= (world-t world) 80) (string=? (world-scene world) "cSunTutorial")) (swCBallTutorial world)]
-        [(and (= (world-t world) 110) (string=? (world-scene world) "cBallTutorial")) (swCTireTutorial world)]
+        [(and (= (world-t world) 100) (string=? (world-scene world) "cBallTutorial")) (swCTireTutorial world)]
         [(and (= (world-t world) 120) (string=? (world-scene world) "cTireTutorial")) (swCManyOtherPlacesTutorial world)]
-        [(and (= (world-t world) 140) (string=? (world-scene world) "cManyOtherPlacesTutorial")) (swSquareTutorial world)]
+        [(and (= (world-t world) 160) (string=? (world-scene world) "cManyOtherPlacesTutorial")) (swSquareTutorial world)]
         [else world]))
 
 ;Purpose: keeps track of time in ticks in tutorial scene
