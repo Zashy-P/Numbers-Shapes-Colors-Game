@@ -555,6 +555,12 @@
 (define shapeLevel3P5Bg (bitmap "Photos/Shapes/level 3/5 pentagon.jpg"))
 (define shapeLevel3Score5Bg (bitmap "Photos/Shapes/level 3/shapes level 3 score 5.jpg"))
 
+(define shapeLevel3Q1Bg (bitmap "Photos/Shapes/level 3/mcq/q1.jpg"))
+(define shapeLevel3Q2Bg (bitmap "Photos/Shapes/level 3/mcq/q2.jpg"))
+(define shapeLevel3Q3Bg (bitmap "Photos/Shapes/level 3/mcq/q3.jpg"))
+(define shapeLevel3Q4Bg (bitmap "Photos/Shapes/level 3/mcq/q4.jpg"))
+(define shapeLevel3Q5Bg (bitmap "Photos/Shapes/level 3/mcq/q5.jpg"))
+
 ;shape tutorial
 (define circleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 2.jpg"))
 (define cSunTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 3.jpg"))
@@ -883,7 +889,18 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          rectangleCartBg)] 
-                                         ))
+                                         
+                                         
+         [(string=? (world-scene world) "shapeLevel3Q1")
+          (place-image shapeLevel3Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Q2")
+          (place-image shapeLevel3Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Q3")
+          (place-image shapeLevel3Q3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Q4")
+          (place-image shapeLevel3Q4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+          [(string=? (world-scene world) "shapeLevel3Q5")
+          (place-image shapeLevel3Q5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))                                
 
 ;Elevator image basically 
 (define elevator    
@@ -914,6 +931,11 @@
         [else w]))
 (define (swShapeLevel3Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
+(define (swShapeLevel3Q1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
+(define (swShapeLevel3Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 (define (swShapeLevel2Path1 w) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 (define (swShapeLevel2Path2 w) (make-world "shapeLevel2Path2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
@@ -1401,8 +1423,8 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueBoy") (string=? (world-scene world) "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect)(make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleBoy") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-        (swColorLevel2Score6 world)]
-        
+        (begin (thread playPaintSoundEffect) (make-world "colorLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
+
      [(and (string=? (skin-name (Character-skin (world-character world))) "redJanitor") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "orangeJanitor") (string=? (world-scene world)  "colorLevel2RedFrame"))
@@ -1414,7 +1436,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueJanitor") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleJanitor") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-           (swColorLevel2Score6 world)]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redScientist") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
@@ -1427,7 +1449,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueScientist") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purpleScientist") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-           (swColorLevel2Score6 world)]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
 
      [(and (string=? (skin-name (Character-skin (world-character world))) "redPoliceWoman") (string=? (world-scene world)  "colorLevel2"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2RedFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
@@ -1440,7 +1462,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-           (swColorLevel2Score6 world)]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2Q1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
 
      [else (wrongAnswer world)]))
 
@@ -2878,6 +2900,19 @@
 ;p5Rectangle x-axis start from  1427(left) to  1589(right)
 ;p5Pentagon y-axis start from  818(bottom) to  599(top)
 ;p5Pentagon x-axis start from  1432(left) to  1643(right)
+
+;mcq
+;top left y-axis start from  636(bottom) to  410(top)
+;top left x-axis start from  526(left) to  890(right)
+
+;bottom left y-axis start from  902(bottom) to  675(top)
+;bottom left x-axis start from  525(left) to  889(right)
+
+;top right y-axis start from  637(bottom) to  412(top)
+;top right x-axis start from  1009(left) to  1372(right)
+
+;bottom right y-axis start from  902(bottom) to  676(top)
+;bottom right x-axis start from  1008(left) to  1371(right)
 
 ;=======================================================================================
 ;Number Level 2
@@ -4356,7 +4391,7 @@
             (>= y 599)
             (>= x 1432)   
             (<= x 1643))
-            (swShapeLevel3Score5 w)]
+            (swShapeLevel3Q1 w)]
 
         [(and (string=? (world-scene w) "p4Triangle") ; Rectangle 5
             (mouse=? me "button-down")
@@ -4365,6 +4400,171 @@
             (>= x 1427)   
             (<= x 1589))
             (wrongAnswerShapeLevel3 w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 top left
+            (mouse=? me "button-down")
+            (<= y 636) 
+            (>= y 410)
+            (>= x 526)   
+            (<= x 890))
+            (swShapeLevel3Q2 w)] 
+
+         [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 bottom left
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 675)
+            (>= x 525)   
+            (<= x 889))
+            (wrongAnswer w)] 
+        
+        [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 top right
+            (mouse=? me "button-down")
+            (<= y 637) 
+            (>= y 412)
+            (>= x 1009)   
+            (<= x 1372))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 bottom right
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 676)
+            (>= x 1008)   
+            (<= x 1371))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 top left
+            (mouse=? me "button-down")
+            (<= y 636) 
+            (>= y 410)
+            (>= x 526)   
+            (<= x 890))
+            (wrongAnswer w)] 
+
+         [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 bottom left
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 675)
+            (>= x 525)   
+            (<= x 889))
+            (wrongAnswer w)] 
+        
+        [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 top right
+            (mouse=? me "button-down")
+            (<= y 637) 
+            (>= y 412)
+            (>= x 1009)   
+            (<= x 1372))
+            (swShapeLevel3Q3 w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 bottom right
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 676)
+            (>= x 1008)   
+            (<= x 1371))
+            (wrongAnswer w)] 
+
+
+         [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 top left
+            (mouse=? me "button-down")
+            (<= y 636) 
+            (>= y 410)
+            (>= x 526)   
+            (<= x 890))
+            (wrongAnswer w)] 
+
+         [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 bottom left
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 675)
+            (>= x 525)   
+            (<= x 889))
+            (wrongAnswer w)] 
+        
+        [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 top right
+            (mouse=? me "button-down")
+            (<= y 637) 
+            (>= y 412)
+            (>= x 1009)   
+            (<= x 1372))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 bottom right
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 676)
+            (>= x 1008)   
+            (<= x 1371))
+            (swShapeLevel3Q4 w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 top left
+            (mouse=? me "button-down")
+            (<= y 636) 
+            (>= y 410)
+            (>= x 526)   
+            (<= x 890))
+            (wrongAnswer w)] 
+
+         [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 bottom left
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 675)
+            (>= x 525)   
+            (<= x 889))
+            (swShapeLevel3Q5 w)] 
+        
+        [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 top right
+            (mouse=? me "button-down")
+            (<= y 637) 
+            (>= y 412)
+            (>= x 1009)   
+            (<= x 1372))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 bottom right
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 676)
+            (>= x 1008)   
+            (<= x 1371))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 top left
+            (mouse=? me "button-down")
+            (<= y 636) 
+            (>= y 410)
+            (>= x 526)   
+            (<= x 890))
+            (wrongAnswer w)] 
+
+         [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 bottom left
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 675)
+            (>= x 525)   
+            (<= x 889))
+            (swShapeLevel3Score5 w)] 
+        
+        [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 top right
+            (mouse=? me "button-down")
+            (<= y 637) 
+            (>= y 412)
+            (>= x 1009)   
+            (<= x 1372))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 bottom right
+            (mouse=? me "button-down")
+            (<= y 902) 
+            (>= y 676)
+            (>= x 1008)   
+            (<= x 1371))
+            (wrongAnswer w)] 
+
+
+
+
 
          [(and (string=? (world-scene w) "numberLevel2Q1") ; balloon 1
             (mouse=? me "button-down")
@@ -4720,7 +4920,7 @@
             (<= y 658) 
             (>= y 476)
             (>= x 867)   
-            (<= x 1110))
+           ` (<= x 1110))
             (wrongAnswer w)] 
 
         [(and (string=? (world-scene w) "colorLevel2Q6") ; color level 2 q6 wrong blue bucket
@@ -4857,7 +5057,8 @@
             (string=? (world-scene world) "triangleCart") (string=? (world-scene world) "pentagonCart") (string=? (world-scene world) "rectangleCart")
             (string=? (world-scene world) "shapeLevel2Score8") (string=? (world-scene world) "shapeLevel3") (string=? (world-scene world) "p1Rectangle")
             (string=? (world-scene world) "p2Square") (string=? (world-scene world) "p3Circle") (string=? (world-scene world) "p4Triangle") 
-            (string=? (world-scene world) "p5Pentagon"))
+            (string=? (world-scene world) "p5Pentagon") (string=? (world-scene world) "shapeLevel3Q1") (string=? (world-scene world) "shapeLevel3Q2") 
+            (string=? (world-scene world) "shapeLevel3Q3") (string=? (world-scene world) "shapeLevel3Q4") (string=? (world-scene world) "shapeLevel3Q5"))
                     (drawShapeLevel world)]
 
        [(string=? (world-scene world) "shapeElevator")
