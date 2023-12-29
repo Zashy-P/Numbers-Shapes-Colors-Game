@@ -1692,6 +1692,7 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          numberLobbyL3Bg)]
+
            [(string=? (world-scene world) "numberLevel3Door")
           (place-image  (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
@@ -1752,9 +1753,6 @@
 
           
 ; level 3
-
-         [(string=? (world-scene world) "numberLevel3Door")
-         (place-image numberLevel3DoorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
          [(string=? (world-scene world) "numberLevel3Q1")
          (place-image numberLevel3Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
          [(string=? (world-scene world) "numberLevel3Q2")
@@ -5242,7 +5240,8 @@
                         (drawColorLobby world)]
 
 
-        [(or (string=? (world-scene world) "numberLobbyL1") (string=? (world-scene world) "numberLobbyL2") (string=? (world-scene world) "numberLobbyL3"))
+        [(or (string=? (world-scene world) "numberLobbyL1") (string=? (world-scene world) "numberLobbyL2") (string=? (world-scene world) "numberLobbyL3")
+        (string=? (world-scene world) "numberLevel3Door"))
                     (drawNumberLobby world)]
 
         [(or (string=? (world-scene world) "numberLevel1Q1") (string=? (world-scene world) "numberLevel1Q2") (string=? (world-scene world) "numberLevel1Q3") 
@@ -5254,7 +5253,7 @@
             (string=? (world-scene world) "numberLevel2Q8") (string=? (world-scene world) "numberLevel2Q9") (string=? (world-scene world) "numberLevel2Q10") 
             (string=? (world-scene world) "numberLevel2Q11") (string=? (world-scene world) "numberLevel2Car")
             
-            (string=? (world-scene world) "numberLevel3Door") (string=? (world-scene world) "numberLevel3Q1") (string=? (world-scene world) "numberLevel3Q2") 
+            (string=? (world-scene world) "numberLevel3Q1") (string=? (world-scene world) "numberLevel3Q2") 
             (string=? (world-scene world) "numberLevel3Q3") (string=? (world-scene world) "numberLevel3Q4") (string=? (world-scene world) "numberLevel3Q5") 
             (string=? (world-scene world) "numberLevel3Start") (string=? (world-scene world) "numberLevel3Score"))
                     (drawNumberLevel world)]
