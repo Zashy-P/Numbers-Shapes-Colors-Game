@@ -981,6 +981,8 @@
 (define (swShapeLevel3Score9Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score9Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
 
 (define (swShapeLevel3RetryButton w) (begin (thread playButtonClick1Sound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0)))
+(define (swShapeLevel3RetryButton2 w) (begin (thread playButtonClick1Sound) (make-world "shapeLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0)))
+
 
 (define (swShapeLevel2Path1 w) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
 (define (swShapeLevel2Path2 w) (make-world "shapeLevel2Path2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
@@ -4444,13 +4446,25 @@
             (<= x 529))
             (swShapeLevel3Score0Retry w)]
 
-        [(and (string=? (world-scene w) "shapeLevel3Score0Retry") ; retry button
+        [(and (or (string=? (world-scene w) "shapeLevel3Score0Retry") (string=? (world-scene w) "shapeLevel3Score1Retry") 
+                  (string=? (world-scene w) "shapeLevel3Score2Retry") (string=? (world-scene w) "shapeLevel3Score3Retry")
+                  (string=? (world-scene w) "shapeLevel3Score4Retry")); retry button part 1
             (mouse=? me "button-down")
             (<= y 884) 
             (>= y 752)
             (>= x 740)   
             (<= x 1188))
             (swShapeLevel3RetryButton w)]
+
+        [(and (or (string=? (world-scene w) "shapeLevel3Score5Retry") (string=? (world-scene w) "shapeLevel3Score6Retry") 
+                  (string=? (world-scene w) "shapeLevel3Score7Retry") (string=? (world-scene w) "shapeLevel3Score8Retry")
+                  (string=? (world-scene w) "shapeLevel3Score9Retry")); retry button part 2
+            (mouse=? me "button-down")
+            (<= y 884) 
+            (>= y 752)
+            (>= x 740)   
+            (<= x 1188))
+            (swShapeLevel3RetryButton2 w)]    
 
         [(and (string=? (world-scene w) "shapeLevel3") ; Rectangle 1
             (mouse=? me "button-down")
@@ -4476,14 +4490,6 @@
             (<= x 800))
             (swShapeLevel3Score1Retry w)]
 
-        [(and (string=? (world-scene w) "shapeLevel3Score1Retry") ; retry button
-            (mouse=? me "button-down")
-            (<= y 884) 
-            (>= y 752)
-            (>= x 740)   
-            (<= x 1188))
-            (swShapeLevel3RetryButton w)]
-
         [(and (string=? (world-scene w) "p2Square") ; Cirlce 3
             (mouse=? me "button-down")
             (<= y 818) 
@@ -4499,15 +4505,6 @@
             (>= x 872)   
             (<= x 1093))
             (swShapeLevel3Score2Retry w)]  
-
-        [(and (string=? (world-scene w) "shapeLevel3Score2Retry") ; retry button
-            (mouse=? me "button-down")
-            (<= y 884) 
-            (>= y 752)
-            (>= x 740)   
-            (<= x 1188))
-            (swShapeLevel3RetryButton w)]
-  
 
         [(and (string=? (world-scene w) "p3Circle") ; Triangle 4
             (mouse=? me "button-down")
@@ -4525,14 +4522,6 @@
             (<= x 1362))
             (swShapeLevel3Score3Retry w)]  
 
-        [(and (string=? (world-scene w) "shapeLevel3Score3Retry") ; retry button
-            (mouse=? me "button-down")
-            (<= y 884) 
-            (>= y 752)
-            (>= x 740)   
-            (<= x 1188))
-            (swShapeLevel3RetryButton w)]
-  
         [(and (string=? (world-scene w) "p4Triangle") ; Pentagon 5
             (mouse=? me "button-down")
             (<= y 818) 
@@ -4549,14 +4538,6 @@
             (<= x 1589))
             (swShapeLevel3Score4Retry w)] 
 
-        [(and (string=? (world-scene w) "shapeLevel3Score4Retry") ; retry button
-            (mouse=? me "button-down")
-            (<= y 884) 
-            (>= y 752)
-            (>= x 740)   
-            (<= x 1188))
-            (swShapeLevel3RetryButton w)]
-
         [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 top left
             (mouse=? me "button-down")
             (<= y 636) 
@@ -4571,7 +4552,7 @@
             (>= y 675)
             (>= x 525)   
             (<= x 889))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score5Retry w)] 
         
         [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 top right
             (mouse=? me "button-down")
@@ -4579,7 +4560,7 @@
             (>= y 412)
             (>= x 1009)   
             (<= x 1372))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score5Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q1") ; q1 bottom right
             (mouse=? me "button-down")
@@ -4587,7 +4568,7 @@
             (>= y 676)
             (>= x 1008)   
             (<= x 1371))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score5Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 top left
             (mouse=? me "button-down")
@@ -4595,7 +4576,7 @@
             (>= y 410)
             (>= x 526)   
             (<= x 890))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score6Retry w)] 
 
          [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 bottom left
             (mouse=? me "button-down")
@@ -4603,7 +4584,7 @@
             (>= y 675)
             (>= x 525)   
             (<= x 889))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score6Retry w)] 
         
         [(and (string=? (world-scene w) "shapeLevel3Q2") ; q2 top right
             (mouse=? me "button-down")
@@ -4619,7 +4600,7 @@
             (>= y 676)
             (>= x 1008)   
             (<= x 1371))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score6Retry w)] 
 
 
          [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 top left
@@ -4628,7 +4609,7 @@
             (>= y 410)
             (>= x 526)   
             (<= x 890))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score7Retry w)] 
 
          [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 bottom left
             (mouse=? me "button-down")
@@ -4636,7 +4617,7 @@
             (>= y 675)
             (>= x 525)   
             (<= x 889))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score7Retry w)] 
         
         [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 top right
             (mouse=? me "button-down")
@@ -4644,7 +4625,7 @@
             (>= y 412)
             (>= x 1009)   
             (<= x 1372))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score7Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q3") ; q3 bottom right
             (mouse=? me "button-down")
@@ -4660,7 +4641,7 @@
             (>= y 410)
             (>= x 526)   
             (<= x 890))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score8Retry w)] 
 
          [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 bottom left
             (mouse=? me "button-down")
@@ -4676,7 +4657,7 @@
             (>= y 412)
             (>= x 1009)   
             (<= x 1372))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score8Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 bottom right
             (mouse=? me "button-down")
@@ -4684,7 +4665,7 @@
             (>= y 676)
             (>= x 1008)   
             (<= x 1371))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score8Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 top left
             (mouse=? me "button-down")
@@ -4692,7 +4673,7 @@
             (>= y 410)
             (>= x 526)   
             (<= x 890))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score9Retry w)] 
 
          [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 bottom left
             (mouse=? me "button-down")
@@ -4708,7 +4689,7 @@
             (>= y 412)
             (>= x 1009)   
             (<= x 1372))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score9Retry w)] 
 
         [(and (string=? (world-scene w) "shapeLevel3Q5") ; q5 bottom right
             (mouse=? me "button-down")
@@ -4716,7 +4697,7 @@
             (>= y 676)
             (>= x 1008)   
             (<= x 1371))
-            (wrongAnswer w)] 
+            (swShapeLevel3Score9Retry w)] 
 
 
 
