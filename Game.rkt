@@ -5095,14 +5095,150 @@
             (<= x 802))
             (wrongAnswer w)]
         
-        [(and (string=? (world-scene w) "numberLevel2Start") ; number level 3 start board
+        [(and (string=? (world-scene w) "numberLevel3Start") ; number level 3 start board
             (mouse=? me "button-down")
-            (<= y 864) 
-            (>= y 681)
-            (>= x 1190)   
-            (<= x 1434))
+            (<= y 536) 
+            (>= y 302)
+            (>= x 701)   
+            (<= x 1131))
             (swNumberLevel3Q1 w)] 
+
+        [(and (string=? (world-scene w) "numberLevel3Q1") ; number level 3 Q1 correct answer (right)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 426)
+            (>= x 1123)   
+            (<= x 1317))
+            (swNumberLevel3Q2 w)] 
+
+        [(and (string=? (world-scene w) "numberLevel3Q1") ; number level 3 Q1 wrong answer
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 425)
+            (>= x 863)   
+            (<= x 1052))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "numberLevel3Q1") ; number level 3 Q1 wrong answer
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 604)   
+            (<= x 797))
+            (wrongAnswer w)]      
  
+        [(and (string=? (world-scene w) "numberLevel3Q2") ; number level 3 Q2 correct answer (middle)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 425)
+            (>= x 863)   
+            (<= x 1052))
+            (swNumberLevel3Q3 w)]
+
+        [(and (string=? (world-scene w) "numberLevel3Q2") ; number level 3 Q2 wrong answer (left)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 604)   
+            (<= x 797))
+            (wrongAnswer w)]    
+
+        [(and (string=? (world-scene w) "numberLevel3Q2") ; number level 3 Q2 wrong answer (right)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 426)
+            (>= x 1123)   
+            (<= x 1317))
+            (wrongAnswer w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Q3") ; number level 3 Q3 correct answer (middle)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 425)
+            (>= x 863)   
+            (<= x 1052))
+            (swNumberLevel3Q4 w)]
+
+        [(and (string=? (world-scene w) "numberLevel3Q3") ; number level 3 Q3 wrong answer (left)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 604)   
+            (<= x 797))
+            (wrongAnswer w)] 
+
+        [(and (string=? (world-scene w) "numberLevel3Q3") ; number level 3 Q3 wrong answer (right)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 1123)   
+            (<= x 1317))
+            (wrongAnswer w)]   
+
+        [(and (string=? (world-scene w) "numberLevel3Q4") ; number level 3 Q4 wrong answer (left)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 604)   
+            (<= x 797))
+            (wrongAnswer w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Q4") ; number level 3 Q4 wrong answer (middle)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 425)
+            (>= x 863)   
+            (<= x 1052))
+            (wrongAnswer w)]
+
+        [(and (string=? (world-scene w) "numberLevel3Q4") ; number level 3 Q4 correct answer (right)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 1123)   
+            (<= x 1317))
+            (swNumberLevel3Q5 w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Q5") ; number level 3 Q5 correct answer (right)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 1123)   
+            (<= x 1317))
+            (swNumberLevel3Score w)]  
+
+         [(and (string=? (world-scene w) "numberLevel3Q5") ; number level 3 Q5 wrong answer (middle)
+            (mouse=? me "button-down")
+            (<= y 587) 
+            (>= y 425)
+            (>= x 863)   
+            (<= x 1052))
+            (wrongAnswer w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Q5") ; number level 3 Q5 wrong answer (left)
+            (mouse=? me "button-down")
+            (<= y 588) 
+            (>= y 425)
+            (>= x 604)   
+            (<= x 797))
+            (wrongAnswer w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Score") ; number level 3 score board (next button)
+            (mouse=? me "button-down")
+            (<= y 1019) 
+            (>= y 914)
+            (>= x 1026)   
+            (<= x 1396))
+            (cLobby w)]  
+
+        [(and (string=? (world-scene w) "numberLevel3Score") ; number level 3 score board (exit button)
+            (mouse=? me "button-down")
+            (<= y 1014) 
+            (>= y 910)
+            (>= x 585)   
+            (<= x 952))
+            (swNumberLobbyL3 w)]  
+
 [else w]))
 
 ;test
