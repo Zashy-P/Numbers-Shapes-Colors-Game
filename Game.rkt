@@ -582,22 +582,22 @@
 (define sPizzaBoxTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 8.jpg"))
 (define sWaffleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 9.jpg"))
 (define sTostTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 10.jpg"))
-(define sManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 11.jpg"))
+(define sManyOtherPlacesBg (bitmap "Photos/tutorial/shapes/shape scene 11.jpg"))
 (define triangleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 12.jpg"))
 (define tBirthdayHatTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 13.jpg"))
 (define tSandwhichTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 14.jpg"))
 (define tSailingBoatTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 15.jpg"))
-(define tManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 16.jpg"))
+(define tManyOtherPlacesBg (bitmap "Photos/tutorial/shapes/shape scene 16.jpg"))
 (define rectangleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 17.jpg"))
 (define rBookTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 18.jpg"))
 (define rPuzzleTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 19.jpg"))
 (define rDoorTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 20.jpg"))
-(define rManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 21.jpg"))
+(define rManyOtherPlacesBg (bitmap "Photos/tutorial/shapes/shape scene 21.jpg"))
 (define pentagonTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 22.jpg"))
 (define pGemTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 23.jpg"))
 (define pDogHouseTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 24.jpg"))
 (define pClockTutorialBg (bitmap "Photos/tutorial/shapes/shape scene 25.jpg"))
-(define pManyOtherPLaces (bitmap "Photos/tutorial/shapes/shape scene 26.jpg"))
+(define pManyOtherPlacesBg (bitmap "Photos/tutorial/shapes/shape scene 26.jpg"))
 
 
 
@@ -1003,7 +1003,25 @@
 (define (swCTireTutorial w) (make-world "cTireTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
 (define (swCManyOtherPlacesTutorial w) (make-world "cManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
 (define (swSquareTutorial w) (make-world "squareTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
-
+(define (swSPizzaBoxTutorial w) (make-world "sPizzaBoxTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swSWaffleTutorial w) (make-world "sWaffleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swSTostTutorial w) (make-world "sTostTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swSManyOtherPlacesTutorial w) (make-world "sManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swTriangleTutorial w) (make-world "triangleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swTBirthdayHatTutorial w) (make-world "tBirthdayHatTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swTSandwhichTutorial w) (make-world "tSandwhichTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swTSailingBoatTutorial w) (make-world "tSailingBoatTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swTManyOtherPlacesTutorial w) (make-world "tManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swRectangleTutorial w) (make-world "rectangleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swRBookTutorial w) (make-world "rBookTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swRPuzzleTutorial w) (make-world "rPuzzleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swRDoorTutorial w) (make-world "rDoorTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swRManyOtherPlacesTutorial w) (make-world "rManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swPentagonTutorial w) (make-world "pentagonTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swPGemTutorial w) (make-world "pGemTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swPDogHouseTutorial w) (make-world "pDogHouseTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swPClockTutorial w) (make-world "pClockTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
+(define (swPManyOtherPlacesTutorial w) (make-world "pManyOtherPlacesTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w)))
 
 ;purpose: switches the scenes of the right path 
 ;contract swPathR: world --> world
@@ -4699,10 +4717,6 @@
             (<= x 1371))
             (swShapeLevel3Score9Retry w)] 
 
-
-
-
-
          [(and (string=? (world-scene w) "numberLevel2Q1") ; balloon 1
             (mouse=? me "button-down")
             (<= y 1065) 
@@ -5261,6 +5275,63 @@
         [(string=? (world-scene w) "squareTutorial") 
         (place-image squareTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
+        [(string=? (world-scene w) "sPizzaBoxTutorial")
+        (place-image sPizzaBoxTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "sWaffleTutorial")
+        (place-image sWaffleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "sTostTutorial")
+        (place-image sTostTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "sManyOtherPlacesTutorial")
+        (place-image sManyOtherPlacesBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "triangleTutorial")
+        (place-image triangleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "tBirthdayHatTutorial")
+        (place-image tBirthdayHatTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "tSandwhichTutorial")
+        (place-image tSandwhichTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "tSailingBoatTutorial")
+        (place-image tSailingBoatTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "tManyOtherPlacesTutorial")
+        (place-image tManyOtherPlacesBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "rectangleTutorial")
+        (place-image rectangleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "rBookTutorial")
+        (place-image rBookTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "rPuzzleTutorial")
+        (place-image rPuzzleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "rDoorTutorial")
+        (place-image rDoorTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "rManyOtherPlacesTutorial")
+        (place-image rManyOtherPlacesBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "pentagonTutorial")
+        (place-image pentagonTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "pGemTutorial")
+        (place-image pGemTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "pDogHouseTutorial")
+        (place-image pDogHouseTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "pClockTutorial")
+        (place-image pClockTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
+        [(string=? (world-scene w) "pManyOtherPlacesTutorial")
+        (place-image pManyOtherPlacesBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+
         [else (empty-scene 1920 1080)]))
 
 ;test
@@ -5276,6 +5347,26 @@
         [(and (= (world-t world) 100) (string=? (world-scene world) "cBallTutorial")) (swCTireTutorial world)]
         [(and (= (world-t world) 120) (string=? (world-scene world) "cTireTutorial")) (swCManyOtherPlacesTutorial world)]
         [(and (= (world-t world) 160) (string=? (world-scene world) "cManyOtherPlacesTutorial")) (swSquareTutorial world)]
+        [(and (= (world-t world) 200) (string=? (world-scene world) "squareTutorial")) (swSPizzaBoxTutorial world)]
+        [(and (= (world-t world) 230) (string=? (world-scene world) "sPizzaBoxTutorial")) (swSWaffleTutorial world)]
+        [(and (= (world-t world) 260) (string=? (world-scene world) "sWaffleTutorial")) (swSTostTutorial world)]
+        [(and (= (world-t world) 280) (string=? (world-scene world) "sTostTutorial")) (swSManyOtherPlacesTutorial world)]
+        [(and (= (world-t world) 320) (string=? (world-scene world) "sManyOtherPlacesTutorial")) (swTriangleTutorial world)]
+        [(and (= (world-t world) 360) (string=? (world-scene world) "triangleTutorial")) (swTBirthdayHatTutorial world)]
+        [(and (= (world-t world) 390) (string=? (world-scene world) "tBirthdayHatTutorial")) (swTSandwhichTutorial world)]
+        [(and (= (world-t world) 450) (string=? (world-scene world) "tSandwhichTutorial")) (swTSailingBoatTutorial world)]
+        [(and (= (world-t world) 490) (string=? (world-scene world) "tSailingBoatTutorial")) (swTManyOtherPlacesTutorial world)]
+        [(and (= (world-t world) 540) (string=? (world-scene world) "tManyOtherPlacesTutorial")) (swRectangleTutorial world)]
+        [(and (= (world-t world) 590) (string=? (world-scene world) "rectangleTutorial")) (swRBookTutorial world)]
+        [(and (= (world-t world) 620) (string=? (world-scene world) "rBookTutorial")) (swRPuzzleTutorial world)]
+        [(and (= (world-t world) 660) (string=? (world-scene world) "rPuzzleTutorial")) (swRDoorTutorial world)]
+        [(and (= (world-t world) 685) (string=? (world-scene world) "rDoorTutorial")) (swRManyOtherPlacesTutorial world)]
+        [(and (= (world-t world) 710) (string=? (world-scene world) "rManyOtherPlacesTutorial")) (swPentagonTutorial world)]
+        [(and (= (world-t world) 760) (string=? (world-scene world) "pentagonTutorial")) (swPGemTutorial world)]
+        [(and (= (world-t world) 790) (string=? (world-scene world) "pGemTutorial")) (swPDogHouseTutorial world)]
+        [(and (= (world-t world) 820) (string=? (world-scene world) "pDogHouseTutorial")) (swPClockTutorial world)]
+        [(and (= (world-t world) 860) (string=? (world-scene world) "pClockTutorial")) (swPManyOtherPlacesTutorial world)]
+        [(and (= (world-t world) 900) (string=? (world-scene world) "pManyOtherPlacesTutorial")) (cTutorialPopUp world)]
         [else world]))
 
 ;Purpose: keeps track of time in ticks in tutorial scene
@@ -5316,7 +5407,13 @@
                     (drawLobby world)]
         [(or (string=? (world-scene world) "tutorialPopUp") (string=? (world-scene world) "tutorialMovement") (string=? (world-scene world) "circleTutorial")
              (string=? (world-scene world) "cSunTutorial") (string=? (world-scene world) "cBallTutorial") (string=? (world-scene world) "cTireTutorial") 
-             (string=? (world-scene world) "cManyOtherPlacesTutorial") (string=? (world-scene world) "squareTutorial")) 
+             (string=? (world-scene world) "cManyOtherPlacesTutorial") (string=? (world-scene world) "squareTutorial") (string=? (world-scene world)"sPizzaBoxTutorial")
+             (string=? (world-scene world)"sWaffleTutorial") (string=? (world-scene world)"sTostTutorial") (string=? (world-scene world)"sManyOtherPlacesTutorial")
+             (string=? (world-scene world)"triangleTutorial") (string=? (world-scene world) "tBirthdayHatTutorial") (string=? (world-scene world) "tSandwhichTutorial")
+             (string=? (world-scene world) "tSailingBoatTutorial") (string=? (world-scene world) "tManyOtherPlacesTutorial") (string=? (world-scene world) "rectangleTutorial")
+             (string=? (world-scene world) "rBookTutorial") (string=? (world-scene world) "rPuzzleTutorial") (string=? (world-scene world) "rDoorTutorial") 
+             (string=? (world-scene world) "rManyOtherPlacesTutorial") (string=? (world-scene world) "pentagonTutorial") (string=? (world-scene world) "pGemTutorial")
+             (string=? (world-scene world) "pDogHouseTutorial") (string=? (world-scene world) "pClockTutorial") (string=? (world-scene world) "pManyOtherPlacesTutorial")) 
         (drawTutorial world)]
                     
 
