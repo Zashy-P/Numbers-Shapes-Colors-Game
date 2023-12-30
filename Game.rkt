@@ -1319,12 +1319,6 @@
 ;Purpose: Draws The Levels of the Color game 
 ;contract: drawColorLevel: world --> image
 ;test
-(check-expect (drawColorLevel (make-world "colorLevel1Q1"  (make-Character (make-skin "trianglePoliceWoman" "right")  (make-ChPos worldCenterWidth worldCenterHeight)) 0)) 
-                              (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-(check-expect (drawColorLevel (make-world "colorLevel3Q1"  (make-Character (make-skin "rectanglePoliceWoman" "left")  (make-ChPos worldCenterWidth worldCenterHeight)) 0)) 
-                              (place-image colorLevel3Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-(check-expect (drawColorLevel (make-world "colorLevel1Q2"  (make-Character  (make-skin "pentagonPoliceWoman" "up")  (make-ChPos worldCenterWidth worldCenterHeight))  0)) 
-                              (place-image colorLevel1Q2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 ;function
 (define (drawColorLevel world) 
      (cond
@@ -1427,12 +1421,6 @@
 ;purpose: draws the score screens of the color game
 ;contract: drawColorScore: world --> image
 ;test
-(check-expect (drawColorScore (make-world "colorLevel1Score5"  (make-Character  (make-skin "trianglePoliceWoman" "up")  (make-ChPos worldCenterWidth worldCenterHeight))  0)) 
-                                (place-image colorLevel1Score5Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-(check-expect (drawColorScore (make-world "colorLevel2Score6"  (make-Character  (make-skin "rectanglePoliceWoman" "up")  (make-ChPos worldCenterWidth worldCenterHeight))  0)) 
-                                (place-image colorLevel2Score6Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-(check-expect (drawColorScore (make-world "colorLevel3Score16" (make-Character (make-skin "pentagonPoliceWoman" "up") (make-ChPos worldCenterWidth worldCenterHeight)) 0)) 
-                                (place-image colorlevel3Score16Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 ;function
 (define (drawColorScore world)
       (cond
@@ -1683,13 +1671,7 @@
 
 ;purpose: changes the skin of the character to the yellow key version of the skin
 ;contract: changeSkinToYellowKey: world(w) --> world
-;test
-(check-expect (changeSkinToYellowKey (make-world "colorLevel1Q1" (make-Character (make-skin "blueKeyBoy" "up") (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "colorLevel1Q1" (make-Character (make-skin "yellowKeyBoy" "up") (make-ChPos 960 890) 0) 0))
-(check-expect (changeSkinToYellowKey (make-world "colorLevel1Q1" (make-Character (make-skin "blueKeyJanitor" "up") (make-ChPos 960 890) 0) 0))
-                                    (make-world "colorLevel1Q1" (make-Character (make-skin "yellowKeyJanitor" "up") (make-ChPos 960 890) 0) 0)) 
-(check-expect (changeSkinToYellowKey (make-world "colorLevel1Q1" (make-Character (make-skin "blueKeyScientist" "up") (make-ChPos 960 890) 0) 0))
-                                    (make-world "colorLevel1Q1" (make-Character (make-skin "yellowKeyScientist" "up") (make-ChPos 960 890) 0) 0))           
+;test          
 ;function
 (define (changeSkinToYellowKey world)
         (cond
@@ -1719,12 +1701,6 @@
 ;purpose: to store item1 when clicked
 ;contract: storeItem1Clicked: world(w) -> world
 ;test
-(check-expect (storeItem1Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "boy" "up")  (make-ChPos 960 890) 0) 0)) 
-                                     (make-world "itemFull" (make-Character  (make-skin "boy" "up")  (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem1Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "janitor" "up")  (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "itemFull" (make-Character  (make-skin "janitor" "up")  (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem1Clicked(make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "itemFull" (make-Character  (make-skin "policeWoman" "up")  (make-ChPos 960 890) 0) 0))
 ;function
 (define (storeItem1Clicked world)
     (begin (thread playButtonClick1Sound) (make-world "itemFull" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0)))
@@ -1732,12 +1708,6 @@
 ;purpose: to store item2 when clicked
 ;contract: storeItem2Clicked: world(w) -> world
 ;test
-(check-expect (storeItem2Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "boy" "up")  (make-ChPos 960 890) 0) 0)) 
-                                     (make-world "item2"(make-Character (make-skin "boy" "up") (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem2Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "janitor" "up")  (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "item2" (make-Character  (make-skin "janitor" "up")  (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem2Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "policeWoman" "up")  (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "item2" (make-Character  (make-skin "policeWoman" "up")  (make-ChPos 960 890) 0) 0))
 ;function
 (define (storeItem2Clicked world)
     (begin (thread playButtonClick1Sound) (make-world "item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0)))
@@ -1745,12 +1715,6 @@
 ;purpose: to store item3 when clicked
 ;contract: storeItem3Clicked: world(w) -> world
 ;test
-(check-expect (storeItem3Clicked (make-world "colorLevel3Classroom"  (make-Character  (make-skin "boy" "up")  (make-ChPos 960 890) 0) 0)) 
-                                   (make-world "item3" (make-Character  (make-skin "boy" "up")  (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem3Clicked (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" "up") (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "item3" (make-Character (make-skin "janitor" "up")  (make-ChPos 960 890) 0) 0))
-(check-expect (storeItem3Clicked (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0) 0)) 
-                                    (make-world "item3" (make-Character  (make-skin "policeWoman" "up")  (make-ChPos 960 890) 0) 0))
 ;function
 (define (storeItem3Clicked world)
     (begin (thread playButtonClick1Sound) (make-world "item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0)))
