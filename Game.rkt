@@ -2493,7 +2493,47 @@
           (string=? (world-scene w) "shapeLevel2Path1") (string=? (world-scene w) "shapeLevel2Path2") (string=? (world-scene w) "shapeLevel2Path3")
           (string=? (world-scene w) "deadEnd1") (string=? (world-scene w) "numberLevel3Door")) 
 
-    (cond                                       
+    (cond       
+
+     [(<= (ChPos-y (Character-pos (world-character w))) 0)
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "down")  
+                               (make-ChPos  
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w))]
+
+
+     [(>= (ChPos-y (Character-pos (world-character w))) 1080)
+            (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos  
+                                           (ChPos-x (Character-pos (world-character w))) (- (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w))]
+
+
+     [(<= (ChPos-x (Character-pos (world-character w))) 0)
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right")  
+                               (make-ChPos 
+                                           (+ (ChPos-x (Character-pos (world-character w))) 50) (ChPos-y (Character-pos (world-character w))))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w))]
+
+
+     [(>= (ChPos-x (Character-pos (world-character w))) 1920)
+            (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left")  
+                               (make-ChPos 
+                                           (- (ChPos-x (Character-pos (world-character w))) 50) (ChPos-y (Character-pos (world-character w))))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w))] 
+
+
+
+
+
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
            (<= (ChPos-y (Character-pos (world-character w))) 700)
            (>= (ChPos-y (Character-pos (world-character w))) 670)
