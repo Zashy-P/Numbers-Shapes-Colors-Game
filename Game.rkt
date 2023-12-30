@@ -1829,25 +1829,25 @@
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
          [(and (string=? (world-scene world) "item2") (string=? basket "yellowBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item3")
+         [(and (string=? (world-scene world) "item3") (string=? basket "blueBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item4")
+         [(and (string=? (world-scene world) "item4") (string=? basket "orangeBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item5")
+         [(and (string=? (world-scene world) "item5") (string=? basket "purpleBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item5" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item6")
+         [(and (string=? (world-scene world) "item6") (string=? basket "greenBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item6" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item7")
+         [(and (string=? (world-scene world) "item7") (string=? basket "orangeBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item7" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item8")
+         [(and (string=? (world-scene world) "item8") (string=? basket "redBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item8" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item9")
+         [(and (string=? (world-scene world) "item9") (string=? basket "yellowBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item9" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item10")
+         [(and (string=? (world-scene world) "item10") (string=? basket "blueBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item10" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-        [(string=? (world-scene world) "item11")
+        [(and (string=? (world-scene world) "item11") (string=? basket "greenBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item11" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item12")
+         [(and (string=? (world-scene world) "item12") (string=? basket "purpleBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
         
         [else (wrongAnswer world)]))
@@ -4479,7 +4479,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2")) ; red basket apple
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12")) ; red basket apple
             (mouse=? me "button-down")
             (<= y 280) 
             (>= y 179)
@@ -4499,7 +4499,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2")) ; yellow basket banna
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12")) ; yellow basket banna
             (mouse=? me "button-down")
             (<= y 715) 
             (>= y 613)
@@ -4519,7 +4519,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2")) ; blue basket fish
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12")) ; blue basket fish
             (mouse=? me "button-down")
             (<= y 495) 
             (>= y 393)
@@ -4539,7 +4539,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2"))  ; orange basket carrot
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12"))  ; orange basket carrot
             (mouse=? me "button-down")
             (<= y 501) 
             (>= y 393)
@@ -4559,7 +4559,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2"))  ; purple basket grapes
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12"))  ; purple basket grapes
             (mouse=? me "button-down")
             (<= y 712) 
             (>= y 607)
@@ -4579,7 +4579,7 @@
               (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
               (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
               (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
-              (string=? (world-scene w) "item2")) ; green basket leaf
+              (string=? (world-scene w) "item2") (string=? (world-scene w) "item12")) ; green basket leaf
             (mouse=? me "button-down")
             (<= y 272) 
             (>= y 173)
@@ -4618,8 +4618,6 @@
             (>= x 1383)   
             (<= x 1506))
             (storeItem10Clicked w)]
-
-        
 
         [(and (string=? (world-scene w) "colorLevel3Item10") ; item 11 lime
             (mouse=? me "button-down")
