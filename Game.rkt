@@ -1706,13 +1706,13 @@
 (define (correctSkinToDoor world)
   (cond
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyBoy") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyJanitor") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyPoliceWoman") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyScientist") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playPaintSoundEffect) (make-world "colorLevel3Classroom" (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
 
      [else (wrongAnswer world)]))
 
@@ -1820,14 +1820,14 @@
 
 
 ;purpose: place the item into its correct basket
-;contract: correctItemToBasket: world(w) -> world
+;contract: correctItemToBasket: world basket -> world
 ;test
 ;function
-(define (correctItemToBasket world)
+(define (correctItemToBasket world basket)
     (cond
-         [(string=? (world-scene world) "itemFull")
+         [(and (string=? (world-scene world) "itemFull") (string=? basket "redBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
-         [(string=? (world-scene world) "item2")
+         [(and (string=? (world-scene world) "item2") (string=? basket "yellowBasket"))
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
          [(string=? (world-scene world) "item3")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
@@ -1850,7 +1850,7 @@
          [(string=? (world-scene world) "item12")
                  (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0))]
         
-        [else (begin (wrongAnswer world))]))
+        [else (wrongAnswer world)]))
 
 ;=======================================================================================
 ;************************************ Number Game **************************************
@@ -3468,7 +3468,7 @@
            (>= y 936)
            (>= x 1570)
            (<= x 1855)) 
-           (swRedTutorial w)]      
+           (swCircleTutorial w)]      
 
      [(and (string=? (world-scene w) "shapeElevator") ;Level 1 Elevator Button
            (mouse=? me "button-down")
@@ -4475,13 +4475,17 @@
             (storeItem1Clicked w)]
 
 
-        [(and (string=? (world-scene w) "itemFull") ; red basket apple
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2")) ; red basket apple
             (mouse=? me "button-down")
             (<= y 280) 
             (>= y 179)
             (>= x 199)   
             (<= x 479))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "redBasket")]
 
         [(and (string=? (world-scene w) "colorLevel3Item1") ; item 2
             (mouse=? me "button-down")
@@ -4491,13 +4495,17 @@
             (<= x 1530))
             (storeItem2Clicked w)]
 
-        [(and (string=? (world-scene w) "item2") ; yellow basket banna
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2")) ; yellow basket banna
             (mouse=? me "button-down")
             (<= y 715) 
             (>= y 613)
             (>= x 198)   
             (<= x 491))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "yellowBasket")]
 
          [(and (string=? (world-scene w) "colorLevel3Item2") ; item3 fish
             (mouse=? me "button-down")
@@ -4507,13 +4515,17 @@
             (<= x 1716))
             (storeItem3Clicked w)]
 
-        [(and (string=? (world-scene w) "item3") ; blue basket fish
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2")) ; blue basket fish
             (mouse=? me "button-down")
             (<= y 495) 
             (>= y 393)
             (>= x 802)   
             (<= x 1100))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "blueBasket")]
 
         [(and (string=? (world-scene w) "colorLevel3Item3") ; item 4 carrot
             (mouse=? me "button-down")
@@ -4523,13 +4535,17 @@
             (<= x 1898))
             (storeItem4Clicked w)]
 
-        [(and (string=? (world-scene w) "item4") ; orange basket carrot
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2"))  ; orange basket carrot
             (mouse=? me "button-down")
             (<= y 501) 
             (>= y 393)
             (>= x 192)   
             (<= x 491))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "orangeBasket")]
 
          [(and (string=? (world-scene w) "colorLevel3Item4") ; item 5 grapes
             (mouse=? me "button-down")
@@ -4539,13 +4555,17 @@
             (<= x 1335))
             (storeItem5Clicked w)]
         
-        [(and (string=? (world-scene w) "item5") ; purple basket grapes
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2"))  ; purple basket grapes
             (mouse=? me "button-down")
             (<= y 712) 
             (>= y 607)
             (>= x 807)   
             (<= x 1106))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "purpleBasket")]
 
          [(and (string=? (world-scene w) "colorLevel3Item5") ; item 6 leaf
             (mouse=? me "button-down")
@@ -4555,13 +4575,17 @@
             (<= x 1480))
             (storeItem6Clicked w)]
 
-        [(and (string=? (world-scene w) "item6") ; green basket leaf
+        [(and (or (string=? (world-scene w) "item8") (string=? (world-scene w) "itemFull") (string=? (world-scene w) "item2")
+              (string=? (world-scene w) "item3") (string=? (world-scene w) "item4") (string=? (world-scene w) "item5")
+              (string=? (world-scene w) "item6") (string=? (world-scene w) "item7") (string=? (world-scene w) "item8")
+              (string=? (world-scene w) "item9") (string=? (world-scene w) "item10") (string=? (world-scene w) "item11")
+              (string=? (world-scene w) "item2")) ; green basket leaf
             (mouse=? me "button-down")
             (<= y 272) 
             (>= y 173)
             (>= x 801)   
             (<= x 1100))
-            (correctItemToBasket w)]
+            (correctItemToBasket w "greenBasket")]
 
         [(and (string=? (world-scene w) "colorLevel3Item6") ; item 7 orange
             (mouse=? me "button-down")
@@ -4571,14 +4595,6 @@
             (<= x 1651))
             (storeItem7Clicked w)]
 
-        [(and (string=? (world-scene w) "item7") ; orange basket orange
-            (mouse=? me "button-down")
-            (<= y 501) 
-            (>= y 398)
-            (>= x 192)   
-            (<= x 491))
-            (correctItemToBasket w)]
-
         [(and (string=? (world-scene w) "colorLevel3Item7") ; item 8 flower
             (mouse=? me "button-down")
             (<= y 491) 
@@ -4586,14 +4602,6 @@
             (>= x 1724)   
             (<= x 1799))
             (storeItem8Clicked w)]
-
-        [(and (string=? (world-scene w) "item8") ; red basket flower
-            (mouse=? me "button-down")
-            (<= y 280) 
-            (>= y 179)
-            (>= x 199)   
-            (<= x 479))
-            (correctItemToBasket w)]
 
         [(and (string=? (world-scene w) "colorLevel3Item8") ; item 9 duck
             (mouse=? me "button-down")
@@ -4603,14 +4611,6 @@
             (<= x 1347))
             (storeItem9Clicked w)]
 
-        [(and (string=? (world-scene w) "item9") ; yellow basket duck
-            (mouse=? me "button-down")
-            (<= y 715) 
-            (>= y 613)
-            (>= x 198)   
-            (<= x 491))
-            (correctItemToBasket w)]
-
            [(and (string=? (world-scene w) "colorLevel3Item9") ; item 10 butterfly
             (mouse=? me "button-down")
             (<= y 710) 
@@ -4619,13 +4619,7 @@
             (<= x 1506))
             (storeItem10Clicked w)]
 
-        [(and (string=? (world-scene w) "item10") ; blue basket butterfly
-            (mouse=? me "button-down")
-            (<= y 495) 
-            (>= y 393)
-            (>= x 802)   
-            (<= x 1100))
-            (correctItemToBasket w)]
+        
 
         [(and (string=? (world-scene w) "colorLevel3Item10") ; item 11 lime
             (mouse=? me "button-down")
@@ -4635,14 +4629,6 @@
             (<= x 1666))
             (storeItem11Clicked w)]
 
-         [(and (string=? (world-scene w) "item11") ; green basket lime
-            (mouse=? me "button-down")
-            (<= y 272) 
-            (>= y 173)
-            (>= x 801)   
-            (<= x 1100))
-            (correctItemToBasket w)]
-
         [(and (string=? (world-scene w) "colorLevel3Item11") ; item 12 plum
             (mouse=? me "button-down")
             (<= y 709) 
@@ -4650,14 +4636,6 @@
             (>= x 1744)   
             (<= x 1823))
             (storeItem12Clicked w)]
-
-        [(and (string=? (world-scene w) "item12") ; purple basket plum
-            (mouse=? me "button-down")
-            (<= y 712) 
-            (>= y 607)
-            (>= x 807)   
-            (<= x 1106))
-            (correctItemToBasket w)]
 
         [(and (string=? (world-scene w) "colorLevel3Item12") ;next buttom items
             (mouse=? me "button-down")
@@ -4903,7 +4881,7 @@
             (>= x 525)   
             (<= x 889))
             (swShapeLevel3Q5 w)] 
-        
+
         [(and (string=? (world-scene w) "shapeLevel3Q4") ; q4 top right
             (mouse=? me "button-down")
             (<= y 637) 
