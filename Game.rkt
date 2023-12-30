@@ -776,9 +776,8 @@
 (define (drawShapeLobby world) 
      (cond
           [(string=? (world-scene world) "shapeLobbyL1")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+            (skinUpdater (Character-skin (world-character world)))
                                               (ChPos-x (Character-pos (world-character world))) 
                                               (ChPos-y (Character-pos (world-character world)))
                                               shapeLobbyL1Bg)]
@@ -1160,97 +1159,85 @@
 (define (drawColorLobby world) 
      (cond
           [(string=? (world-scene world) "colorLobbyL1")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+            (skinUpdater (Character-skin (world-character world))) 
                                               (ChPos-x (Character-pos (world-character world))) 
                                               (ChPos-y (Character-pos (world-character world)))
                                               colorLobbyL1Bg)]
 
           [(string=? (world-scene world) "colorLobbyL2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL2Bg)]   
                                          
           [(string=? (world-scene world) "colorLobbyL3")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLobbyL3Bg)]
                                          
             [(string=? (world-scene world) "colorLevel2RedFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2RedFrameBg)]
                                          
              [(string=? (world-scene world) "colorLevel2OrangeFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2OrangeFrameBg)]
                                          
             [(string=? (world-scene world) "colorLevel2YellowFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2YellowFrameBg)]
                                          
             [(string=? (world-scene world) "colorLevel2GreenFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2GreenFrameBg)]
                                          
             [(string=? (world-scene world) "colorLevel2BlueFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2BlueFrameBg)]
                                          
             [(string=? (world-scene world) "colorLevel2PurpleFrame")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2PurpleFrameBg)]
                                          
             [(string=? (world-scene world) "colorLevel3KeyDoor")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel3KeyDoorBg)]
                                          
             [(string=? (world-scene world) "colorLevel3Classroom")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-   -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+    (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel3ClassroomBg)]
                                          
              [(string=? (world-scene world) "colorLevel3Door2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel3Door2Bg)]))
@@ -1348,9 +1335,8 @@
 
 
           [(string=? (world-scene world) "colorLevel2")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo"  
-             #f 'modern 'italic 'normal #f)
-  -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+   (skinUpdater (Character-skin (world-character world))) 
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          colorLevel2Bg)]))
@@ -1696,9 +1682,8 @@
 (define (drawNumberLobby world) 
      (cond
           [(string=? (world-scene world) "numberLobbyL1")
-          (place-image  (overlay/xy (text/font "Zashy" 18 "indigo" 
-             #f 'modern 'italic 'normal #f)
-           -25 0 (skinUpdater (Character-skin (world-character world)))) 
+          (place-image  
+            (skinUpdater (Character-skin (world-character world))) 
                                               (ChPos-x (Character-pos (world-character world))) 
                                               (ChPos-y (Character-pos (world-character world)))
                                               numberLobbyL1Bg)]
