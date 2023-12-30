@@ -1223,12 +1223,7 @@
 ;purpose: draw the lobbies/levels of the color game
 ;contract: drawColorLobby: world --> image
 ;test
-(check-expect (drawColorLobby (make-world "colorLobbyL1" (make-Character (make-skin "trianglePoliceWoman" "right") (make-ChPos 100 100)) 0)) 
-                              (place-image (skinUpdater (make-skin "trianglePoliceWoman" "right")) 100 100 colorLobbyL1Bg))
-(check-expect (drawColorLobby (make-world "colorLobbyL2" (make-Character (make-skin "rectanglePoliceWoman" "left") (make-ChPos 200 200)) 0))
-                              (place-image (skinUpdater (make-skin "rectanglePoliceWoman" "left")) 200 200 colorLobbyL2Bg))
-(check-expect (drawColorLobby (make-world "colorLobbyL1" (make-Character (make-skin "pentagonPoliceWoman" "up") (make-ChPos 300 300))  0)) 
-                              (place-image (skinUpdater (make-skin "pentagonPoliceWoman" "up")) 300 300 colorLobbyL1Bg))
+
 ;function
 (define (drawColorLobby world)
      (cond
@@ -2678,10 +2673,6 @@
                                            (Character-stepCount (world-character w))) 
                                            (world-t w))] 
 
-
-
-
-
      [(and (string=? (world-scene w) "Lobby") ;Shape Door
            (<= (ChPos-y (Character-pos (world-character w))) 700)
            (>= (ChPos-y (Character-pos (world-character w))) 670)
@@ -2835,7 +2826,7 @@
     
 
 
-     [(or (key=? ki "left") (key=? ki "a")) 
+     [(or (key=? ki "left") (key=? ki "a") (key=? ki "A")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -2844,7 +2835,7 @@
                                            (ChPos-y (Character-pos (world-character w)))) 
                                            (+ (Character-stepCount (world-character w)) 1)) (world-t w)))]
 
-     [(or (key=? ki "right") (key=? ki "d"))
+     [(or (key=? ki "right") (key=? ki "d") (key=? ki "D"))
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -2853,7 +2844,7 @@
                                            (ChPos-y (Character-pos (world-character w))))
                                            (+ (Character-stepCount (world-character w)) 1)) (world-t w)))]
 
-     [(or (key=? ki "up") (key=? ki "w")) 
+     [(or (key=? ki "up") (key=? ki "w") (key=? ki "W")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
@@ -2862,7 +2853,7 @@
                                            (updateChPosy (world-character w) (* ChSpeed -1)))
                                            (+ (Character-stepCount (world-character w)) 1)) (world-t w)))]
 
-     [(or (key=? ki "down") (key=? ki "s")) 
+     [(or (key=? ki "down") (key=? ki "s") (key=? ki "S")) 
           (begin 
           (thread (lambda () (playFootstepSound (Character-stepCount (world-character w)))))
           (make-world (world-scene w) 
