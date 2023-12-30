@@ -1944,25 +1944,25 @@
 
 ;tutorial
 (define (swNumb1Tutorial w) (begin (thread playNumberTutorialAudio) (make-world "numb1Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0)))
-(define (swNumb1Count w) (make-world "numb1Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb2Tutorial w) (make-world "numb2Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb2Count w) (make-world "numb2Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb3Tutorial w) (make-world "numb3Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb3Count w) (make-world "numb3Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb4Tutorial w) (make-world "numb4Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb4Count w) (make-world "numb4Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb5Tutorial w) (make-world "numb5Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb5Count w) (make-world "numb5Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb6Tutorial w) (make-world "numb6Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb6Count w) (make-world "numb6Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb7Tutorial w) (make-world "numb7Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb7Count w) (make-world "numb7Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb8Tutorial w) (make-world "numb8Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb8Count w) (make-world "numb8Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb9Tutorial w) (make-world "numb9Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb9Count w) (make-world "numb9Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb10Tutorial w) (make-world "numb10Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
-(define (swNumb10Count w) (make-world "numb10Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0))
+(define (swNumb1Count w) (make-world "numb1Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb2Tutorial w) (make-world "numb2Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb2Count w) (make-world "numb2Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb3Tutorial w) (make-world "numb3Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb3Count w) (make-world "numb3Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb4Tutorial w) (make-world "numb4Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb4Count w) (make-world "numb4Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb5Tutorial w) (make-world "numb5Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb5Count w) (make-world "numb5Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb6Tutorial w) (make-world "numb6Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb6Count w) (make-world "numb6Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb7Tutorial w) (make-world "numb7Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb7Count w) (make-world "numb7Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb8Tutorial w) (make-world "numb8Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb8Count w) (make-world "numb8Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb9Tutorial w) (make-world "numb9Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb9Count w) (make-world "numb9Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb10Tutorial w) (make-world "numb10Tutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
+(define (swNumb10Count w) (make-world "numb10Count" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) (world-t w)))
 
 ;Purpose: Switches the question scenes to the right one or plays the wrong answer sound
 ;Contract: swNumberLevel2Q: world(w) Ballon-Number(n) -> world
@@ -5547,7 +5547,7 @@
         [(string=? (world-scene w) "orangeCarrot")
         (place-image orangeCarrotBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
-         [(string=? (world-scene w) "orangeEvrything")
+         [(string=? (world-scene w) "orangeEverything")
         (place-image orangeEvrythingBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
         [(string=? (world-scene w) "yellowTutorial")
@@ -5559,7 +5559,7 @@
         [(string=? (world-scene w) "yellowTennisBall")
         (place-image yellowTennisBallBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
-        [(string=? (world-scene w) "yellowEvrything")
+        [(string=? (world-scene w) "yellowEverything")
         (place-image yellowEvrythingBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
           [(string=? (world-scene w) "greenTutorial")
@@ -5571,7 +5571,7 @@
         [(string=? (world-scene w) "greenJuice2")
         (place-image greenJuice2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
-        [(string=? (world-scene w) "greenEvrything")
+        [(string=? (world-scene w) "greenEverything")
         (place-image greenEvrythingBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
         [(string=? (world-scene w) "blueTutorial")
@@ -5583,7 +5583,7 @@
          [(string=? (world-scene w) "blueFlag2")
         (place-image blueFlag2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
-        [(string=? (world-scene w) "blueEvrything")
+        [(string=? (world-scene w) "blueEverything")
         (place-image blueEvrythingBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
         [(string=? (world-scene w) "purpleTutorial")
@@ -5595,7 +5595,7 @@
         [(string=? (world-scene w) "purpleOctopuse2")
         (place-image purpleOctopuse2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
-        [(string=? (world-scene w) "purpleEvrything")
+        [(string=? (world-scene w) "purpleEverything")
         (place-image purpleEvrythingBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
         
         [(string=? (world-scene w) "numb1Tutorial")
@@ -5698,9 +5698,47 @@
         [(and (= (world-t world) 120) (string=? (world-scene world) "redStrawberry")) (swRedSign2 world)]
         [(and (= (world-t world) 160) (string=? (world-scene world) "redSign2")) (swRedEverything world)]
         [(and (= (world-t world) 200) (string=? (world-scene world) "redEverything")) (swOrangeTutorial world)]
-        [(and (= (world-t world) 280) (string=? (world-scene world) "orangeTutorial")) (swOrangeBasketBall world)]
-        [(and (= (world-t world) 360) (string=? (world-scene world) "orangeBasketBall")) (swOrangeCarrot world)]
+        [(and (= (world-t world) 290) (string=? (world-scene world) "orangeTutorial")) (swOrangeBasketBall world)]
+        [(and (= (world-t world) 350) (string=? (world-scene world) "orangeBasketBall")) (swOrangeCarrot world)]
+        [(and (= (world-t world) 385) (string=? (world-scene world) "orangeCarrot")) (swOrangeEverything world)]
+        [(and (= (world-t world) 415) (string=? (world-scene world) "orangeEverything")) (swYellowTutorial world)]
+        [(and (= (world-t world) 520) (string=? (world-scene world) "yellowTutorial")) (swYellowBanana world)]
+        [(and (= (world-t world) 550) (string=? (world-scene world) "yellowBanana")) (swYellowTennisBall world)]
+        [(and (= (world-t world) 575) (string=? (world-scene world) "yellowTennisBall")) (swYellowEverything world)]
+        [(and (= (world-t world) 620) (string=? (world-scene world) "yellowEverything")) (swGreenTutorial world)]
+        [(and (= (world-t world) 710) (string=? (world-scene world) "greenTutorial")) (swGreenPear world)]
+        [(and (= (world-t world) 745) (string=? (world-scene world) "greenPear")) (swGreenJuice2 world)]
+        [(and (= (world-t world) 775) (string=? (world-scene world) "greenJuice2")) (swGreenEverything world)]
+        [(and (= (world-t world) 810) (string=? (world-scene world) "greenEverything")) (swBlueTutorial world)]
+        [(and (= (world-t world) 915) (string=? (world-scene world) "blueTutorial")) (swBlueBalloon2 world)]
+        [(and (= (world-t world) 965) (string=? (world-scene world) "blueBalloon2")) (swBlueFlag2 world)]
+        [(and (= (world-t world) 995) (string=? (world-scene world) "blueFlag2")) (swBlueEverything world)]
+        [(and (= (world-t world) 1025) (string=? (world-scene world) "blueEverything")) (swPurpleTutorial world)]
+        [(and (= (world-t world) 1105) (string=? (world-scene world) "purpleTutorial")) (swPurpleEggplant world)]
+        [(and (= (world-t world) 1150) (string=? (world-scene world) "purpleEggplant")) (swPurpleOctopuse2 world)]
+        [(and (= (world-t world) 1195) (string=? (world-scene world) "purpleOctopuse2")) (swPurpleEverything world)]
+        [(and (= (world-t world) 1225) (string=? (world-scene world) "purpleEverything")) (swNumb1Tutorial world)]
 
+        [(and (= (world-t world) 80) (string=? (world-scene world) "numb1Tutorial")) (swNumb1Count world)]
+        [(and (= (world-t world) 245) (string=? (world-scene world) "numb1Count")) (swNumb2Tutorial world)]
+        [(and (= (world-t world) 290) (string=? (world-scene world) "numb2Tutorial")) (swNumb2Count world)]
+        [(and (= (world-t world) 500) (string=? (world-scene world) "numb2Count")) (swNumb3Tutorial world)]
+        [(and (= (world-t world) 550) (string=? (world-scene world) "numb3Tutorial")) (swNumb3Count world)]
+        [(and (= (world-t world) 710) (string=? (world-scene world) "numb3Count")) (swNumb4Tutorial world)]
+        [(and (= (world-t world) 775) (string=? (world-scene world) "numb4Tutorial")) (swNumb4Count world)]
+        [(and (= (world-t world) 980) (string=? (world-scene world) "numb4Count")) (swNumb5Tutorial world)]
+        [(and (= (world-t world) 1050) (string=? (world-scene world) "numb5Tutorial")) (swNumb5Count world)]
+        [(and (= (world-t world) 1280) (string=? (world-scene world) "numb5Count")) (swNumb6Tutorial world)]
+        [(and (= (world-t world) 1375) (string=? (world-scene world) "numb6Tutorial")) (swNumb6Count world)]
+        [(and (= (world-t world) 1600) (string=? (world-scene world) "numb6Count")) (swNumb7Tutorial world)]
+        [(and (= (world-t world) 1675) (string=? (world-scene world) "numb7Tutorial")) (swNumb7Count world)]
+        [(and (= (world-t world) 1905) (string=? (world-scene world) "numb7Count")) (swNumb8Tutorial world)]
+        [(and (= (world-t world) 1975) (string=? (world-scene world) "numb8Tutorial")) (swNumb8Count world)]
+        [(and (= (world-t world) 2180) (string=? (world-scene world) "numb8Count")) (swNumb9Tutorial world)]
+        [(and (= (world-t world) 2315) (string=? (world-scene world) "numb9Tutorial")) (swNumb9Count world)]
+        [(and (= (world-t world) 2600) (string=? (world-scene world) "numb9Count")) (swNumb10Tutorial world)]
+        [(and (= (world-t world) 2660) (string=? (world-scene world) "numb10Tutorial")) (swNumb10Count world)]
+        [(and (= (world-t world) 2990) (string=? (world-scene world) "numb10Count")) (cLobby world)]
 
 
         
@@ -5756,12 +5794,12 @@
              (string=? (world-scene world) "pDogHouseTutorial") (string=? (world-scene world) "pClockTutorial") (string=? (world-scene world) "pManyOtherPlacesTutorial")
              (string=? (world-scene world) "redTutorial") (string=? (world-scene world) "redStrawberry") (string=? (world-scene world) "redSign2") 
              (string=? (world-scene world) "redEverything") (string=? (world-scene world) "orangeTutorial")  (string=? (world-scene world)"orangeBasketBall") 
-             (string=? (world-scene world)"orangeCarrot") (string=? (world-scene world)"orangeEvrything") (string=? (world-scene world)"yellowTutorial") 
-             (string=? (world-scene world) "yellowBanana") (string=? (world-scene world) "yellowTennisBall") (string=? (world-scene world) "yellowEvrything")
+             (string=? (world-scene world)"orangeCarrot") (string=? (world-scene world)"orangeEverything") (string=? (world-scene world)"yellowTutorial") 
+             (string=? (world-scene world) "yellowBanana") (string=? (world-scene world) "yellowTennisBall") (string=? (world-scene world) "yellowEverything")
              (string=? (world-scene world) "greenTutorial")  (string=? (world-scene world) "greenPear") (string=? (world-scene world) "greenJuice2")
-             (string=? (world-scene world) "greenEvrything") (string=? (world-scene world) "blueTutorial") (string=? (world-scene world) "blueBalloon2")
-             (string=? (world-scene world) "blueFlag2") (string=? (world-scene world) "blueEvrything") (string=? (world-scene world) "purpleTutorial")  
-             (string=? (world-scene world)"purpleEggplant") (string=? (world-scene world)"purpleOctopuse2") (string=? (world-scene world)"purpleEvrything")
+             (string=? (world-scene world) "greenEverything") (string=? (world-scene world) "blueTutorial") (string=? (world-scene world) "blueBalloon2")
+             (string=? (world-scene world) "blueFlag2") (string=? (world-scene world) "blueEverything") (string=? (world-scene world) "purpleTutorial")  
+             (string=? (world-scene world)"purpleEggplant") (string=? (world-scene world)"purpleOctopuse2") (string=? (world-scene world)"purpleEverything")
              (string=? (world-scene world) "numb1Tutorial") (string=? (world-scene world) "numb1Count") (string=? (world-scene world) "numb2Tutorial")
              (string=? (world-scene world) "numb2Count")  (string=? (world-scene world) "numb3Tutorial") (string=? (world-scene world) "numb3Count")
              (string=? (world-scene world) "numb4Tutorial") (string=? (world-scene world) "numb4Count") (string=? (world-scene world) "numb5Tutorial")
