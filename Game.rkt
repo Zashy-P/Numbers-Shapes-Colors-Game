@@ -714,18 +714,17 @@
 (define numberLevel1Score5Bg (bitmap "Photos/Numbers/level 1/scores/score 5.jpg"))
 
 ;Number Level 2
-(define numberLevel2Q1Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q1.png"))
-(define numberLevel2Q2Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q2.png"))
-(define numberLevel2Q3Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q3.png"))
-(define numberLevel2Q4Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q4.png"))
-(define numberLevel2Q5Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q5.png"))
-(define numberLevel2Q6Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q6.png"))
-(define numberLevel2Q7Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q7.png"))
-(define numberLevel2Q8Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q8.png"))
-(define numberLevel2Q9Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q9.png"))
-(define numberLevel2Q10Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q10.png"))
+(define numberLevel2Q1Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q1Car.png"))
+(define numberLevel2Q2Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q2Car.png"))
+(define numberLevel2Q3Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q3Car.png"))
+(define numberLevel2Q4Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q4Car.png"))
+(define numberLevel2Q5Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q5Car.png"))
+(define numberLevel2Q6Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q6Car.png"))
+(define numberLevel2Q7Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q7Car.png"))
+(define numberLevel2Q8Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q8Car.png"))
+(define numberLevel2Q9Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q9Car.png"))
+(define numberLevel2Q10Bg (bitmap "Photos/Numbers/level 2/NumberLevel2Q10Car.png"))
 (define numberLevel2Score10 (bitmap "Photos/Numbers/level 2/level 2 score 10.jpg"))
-(define numberLevel2Car (bitmap "Photos/Numbers/level 2/NumberLevel2Car.png"))
 
 ;Number Level 3
 (define numberLevel3DoorBg (bitmap "Photos/Numbers/level 3/NumberLevel3Door.png"))
@@ -1889,8 +1888,6 @@
           (place-image numberLevel2Q10Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "numberLevel2Score10")
           (place-image numberLevel2Score10 worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
-          [(string=? (world-scene world) "numberLevel2Car")
-          (place-image numberLevel2Car worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
           
 ; level 3
@@ -5883,7 +5880,7 @@
             (string=? (world-scene world) "numberLevel2Q2") (string=? (world-scene world) "numberLevel2Q3") (string=? (world-scene world) "numberLevel2Q4")
             (string=? (world-scene world) "numberLevel2Q5") (string=? (world-scene world) "numberLevel2Q6") (string=? (world-scene world) "numberLevel2Q7")
             (string=? (world-scene world) "numberLevel2Q8") (string=? (world-scene world) "numberLevel2Q9") (string=? (world-scene world) "numberLevel2Q10") 
-            (string=? (world-scene world) "numberLevel2Q11") (string=? (world-scene world) "numberLevel2Car")
+            (string=? (world-scene world) "numberLevel2Q11") 
             
             (string=? (world-scene world) "numberLevel3Q1") (string=? (world-scene world) "numberLevel3Q2") 
             (string=? (world-scene world) "numberLevel3Q3") (string=? (world-scene world) "numberLevel3Q4") (string=? (world-scene world) "numberLevel3Q5") 
