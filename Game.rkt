@@ -42,6 +42,7 @@
 (define shapeTutorialAudioPath "Sounds/Shape Tutorial.MP3")
 (define colorTutorialAudioPath "Sounds/color tutorial.mp3")
 (define numberTutorialAudioPath "Sounds/number tutorial.mp3")
+(define movementTutorialAudioPath "Sounds/MovementTutorial.MP3")
 
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
@@ -63,6 +64,9 @@
 
 (define (playPaintSoundEffect)
   (play-sound paintSoundEffectPath #f)) 
+
+(define (playMovementTutorialAudio)
+    (play-sound movementTutorialAudioPath #f))
 
 (define (playShapeTutorialAudio)
   (play-sound shapeTutorialAudioPath #f))  
@@ -3001,7 +3005,7 @@
 
 ;defines the tutorial scene once yes on tutorial pop up is clicked
 (define (cTutorial world)   
-        (begin (thread playButtonClick1Sound) (make-world "movementTutorial" 
+        (begin (thread playMovementTutorialAudio) (make-world "movementTutorial" 
                                                 (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up")
                                                                 (make-ChPos worldCenterWidth worldCenterHeight) 
                                                                 0) 0 #f)))
@@ -5822,7 +5826,7 @@
 ;function
 (define (changeTutorialScene world)
     (cond 
-        [(and (= (world-t world) 80) (string=? (world-scene world) "movementTutorial")) (swNextMovementTutorial world)]
+        [(and (= (world-t world) 185) (string=? (world-scene world) "movementTutorial")) (swNextMovementTutorial world)]
         [(and (= (world-t world) 45) (string=? (world-scene world) "circleTutorial")) (swCSunTutorial world)]
         [(and (= (world-t world) 80) (string=? (world-scene world) "cSunTutorial")) (swCBallTutorial world)]
         [(and (= (world-t world) 100) (string=? (world-scene world) "cBallTutorial")) (swCTireTutorial world)]
