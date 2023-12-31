@@ -1714,13 +1714,13 @@
 (define (correctSkinToDoor world)
   (cond
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyBoy") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "boy" (skin-direction (Character-skin (world-character world)))) (make-ChPos 960 890) 0) 0 #f))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyJanitor") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "janitor" (skin-direction (Character-skin (world-character world)))) (make-ChPos 960 890) 0) 0 #f))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyPoliceWoman") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "policeWoman" (skin-direction (Character-skin (world-character world)))) (make-ChPos 960 890) 0) 0 #f))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "blueKeyScientist") (string=? (world-scene world) "colorLevel3KeyDoor"))
-           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+           (begin (thread playBellRingSound) (make-world "colorLevel3Classroom" (make-Character (make-skin "scientist" (skin-direction (Character-skin (world-character world)))) (make-ChPos 960 890) 0) 0 #f))]
 
      [else (wrongAnswer world)]))
 
@@ -2646,6 +2646,24 @@
 ;door 2 x-axis start from  1569(left) to  1854(right)
 
 ;=============================================================================================================================================================
+;"invisible walls"
+;color level 2 y coordinates 607(bottom) 8(top)
+;color level 2 x coordinates 13(left) 1852(right)
+
+;color level 3 key door  y coordinates 678(bottom) 5(top)
+;color level 3 key door  x coordinates 8(left) 1871(right)
+
+;color level 3 register  y coordinates 791(bottom) 4(top)
+;color level 3 register x coordinates 6(left) 1857(right)
+
+;color level 3 door 2  y coordinates 767(bottom) 4(top)
+;color level 3 door 2 x coordinates 6(left) 1522(right)
+
+;shape level 2 train y coordinates (bottom) (top)
+;shape level 2 train x coordinates (left) (right)
+
+;number level 3 door y coordinates (bottom) (top)
+;number level 3 door x coordinates (left) (right)
 
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing  & changes the scene if the character is in certain areas
@@ -2855,6 +2873,56 @@
            (swColorLevel3ItemsFull w)]
 
     
+      [(and (or (string=? (world-scene w) "colorLevel2") (string=? (world-scene w) "colorLevel2RedFrame")
+                (string=? (world-scene w) "colorLevel2OrangeFrame") (string=? (world-scene w) "colorLevel2YellowFrame")
+                (string=? (world-scene w) "colorLevel2GreenFrame") (string=? (world-scene w) "colorLevel2BlueFrame")
+                (string=? (world-scene w) "colorLevel2PurpleFrame")) ;color level 2 invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 607)
+           (>= (ChPos-y (Character-pos (world-character w))) 8)
+           (>= (ChPos-x (Character-pos (world-character w))) 13)
+           (<= (ChPos-x (Character-pos (world-character w))) 1852)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos 
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+
+     [(and (string=? (world-scene w) "colorLevel3KeyDoor") ;color level 3 key door invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 678)
+           (>= (ChPos-y (Character-pos (world-character w))) 4)
+           (>= (ChPos-x (Character-pos (world-character w))) 6)
+           (<= (ChPos-x (Character-pos (world-character w))) 1871)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos 
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+
+     [(and (string=? (world-scene w) "colorLevel3Classroom") ;color level 3 register invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 791)
+           (>= (ChPos-y (Character-pos (world-character w))) 4)
+           (>= (ChPos-x (Character-pos (world-character w))) 6)
+           (<= (ChPos-x (Character-pos (world-character w))) 1857)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos 
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+                                    
+      [(and (string=? (world-scene w) "colorLevel3Door2") ;color level 3 door 2 invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 767)
+           (>= (ChPos-y (Character-pos (world-character w))) 4)
+           (>= (ChPos-x (Character-pos (world-character w))) 6)
+           (<= (ChPos-x (Character-pos (world-character w))) 1522)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos 
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
 
 
      [(or (key=? ki "left") (key=? ki "a") (key=? ki "A")) 

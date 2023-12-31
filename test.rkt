@@ -32,11 +32,11 @@
 ;Character skins
 
 ;boy skin
-;(define skinBoyWest(bitmap "Photos/Characters/boy/boy_left_side.png"))
-;(define skinBoyEast(bitmap "Photos/Characters/boy/boy right side.png"))
-;(define skinBoyNorth(bitmap "Photos/Characters/boy/boy_backside.png"))
-;(define skinBoySouth(bitmap "Photos/Characters/boy/boy_frontside.png"))
-;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+(define skinBoyWest(bitmap "Photos/Characters/boy/boy_left_side.png"))
+(define skinBoyEast(bitmap "Photos/Characters/boy/boy right side.png"))
+(define skinBoyNorth(bitmap "Photos/Characters/boy/boy_backside.png"))
+(define skinBoySouth(bitmap "Photos/Characters/boy/boy_frontside.png"))
+(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;Janitor skin
 (define skinJanitorWest(bitmap "Photos/Characters/janitor/janitor left side.png"))
@@ -372,7 +372,10 @@
 (define tutorialBg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/esc menu.jpg")) 
+(define lobbyBg (bitmap "Photos/Colors/level 2/0 start.jpg")) 
+;Photos/Colors/level 3/classroom.jpg
+;Photos/Colors/level 3/door 2.jpeg
+;Photos/Colors/level 2/0 start.jpg
 
 ;ShapeLobby 
 (define shapeLobbyL1Bg (bitmap "Photos/Shapes/shapes lobby level 1.jpg"))
@@ -427,11 +430,11 @@
 
 ; pixel character
 ;for getting x,y position of stuff (Testing Purposes)
-(define skinBoyWest (line 0 2 "red"))
-(define skinBoyEast (line 0 2 "red"))
-(define skinBoyNorth (line 0 2 "red"))
-(define skinBoySouth (line 0 2 "red"))
-(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
+;(define skinBoyWest (line 0 2 "red"))
+;(define skinBoyEast (line 0 2 "red"))
+;(define skinBoyNorth (line 0 2 "red"))
+;(define skinBoySouth (line 0 2 "red"))
+;(define boySkin (make-skinD skinBoyWest skinBoyEast skinBoySouth skinBoyNorth))
 
 ;=======================================================================================
 ;************************************ MENU *********************************************
