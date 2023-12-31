@@ -7,6 +7,31 @@
 ;************************************ structs ******************************************
 ;=======================================================================================
 
+
+
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;This file is for finding the x and y coordinates of stuff be it mouse input or character pos This is 
+;not the game file its a copy of an old version of it we made this becase in the new version of our 
+;game code for some reason the state #true in big bang doesnt show the world state it shows world..... 
+;so we made this to find the x and y coordinates of the mouse and the character
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;World --> Scene, Character, LeaderBoard(not now later)
 (define-struct world (scene character)) ;leaderBoard)) will do leaderBoard Later
 
@@ -372,7 +397,7 @@
 (define tutorialBg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg")) 
+(define lobbyBg (bitmap "Photos/Lobby Background.jpg")) 
 
 
 ;ShapeLobby 
