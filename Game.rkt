@@ -51,6 +51,9 @@
 ; it will play the sound like before the game starts and say the test passed so we cannot 
 ;write a test case for sounds
 ; check-expect cant handle audio so we cannot test functions that have audio in them 
+; and for some reason if we try to do a test case for a function that changes the world state
+; it wont pass even though its correct and works in game it does not pass the test and i just get #world diff value than actual value
+; so we couldnt do test cases for a lot of functions
 ;;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ;Purpose: plays the button click sound effect
@@ -923,14 +926,18 @@
 ;Contract: quitGame: world --> world
 (define (quitGame world)
     (make-world (world-scene world) (world-character world) 0 #t))       
-;test
-(check-expect (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f)
-    (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #t))                                          
+                                        
 
 ;Purpose: Checks if the quit is true or false 
 ;Contract: quitCheck: world --> boolean
 (define (quitCheck world)
     (world-quit world))
+(check-expect (quitCheck (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    #f)
+(check-expect (quitCheck (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #t))
+    #t)    
+    
+
 
 ;=======================================================================================
 ;************************************ Shape Game ***************************************
@@ -1090,27 +1097,57 @@
           [(string=? (world-scene world) "shapeLevel3Score8Retry")
           (place-image shapeLevel3Score8RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "shapeLevel3Score9Retry")
-          (place-image shapeLevel3Score9RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))                                
+          (place-image shapeLevel3Score9RetryBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+;test
+(check-expect (drawShapeLevel (make-world "shapeLevel1Q1" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image shapeLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawShapeLevel (make-world "shapeLevel1Q1" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image shapeLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawShapeLevel (make-world "shapeLevel1Q1" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image shapeLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawShapeLevel (make-world "shapeLevel1Q1" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image shapeLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+(check-expect (drawShapeLevel (make-world "shapeLevel3" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 shapeLevel3P1Bg))
+(check-expect (drawShapeLevel (make-world "shapeLevel3" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 shapeLevel3P1Bg))                                           
+(check-expect (drawShapeLevel (make-world "shapeLevel3" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 shapeLevel3P1Bg))                                      
+(check-expect (drawShapeLevel(make-world "shapeLevel3" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 shapeLevel3P1Bg))        
+
 
 ;Elevator image basically 
 (define elevator    
   (place-image ElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+;test
+(check-expect elevator (place-image ElevatorBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
+;Purpose: switches the scene to the lobby of the shape game
+;Contract: swShapeLobby: world --> world
 (define (swShapeLobbyL1 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLobbyL2 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLobbyL3 w) (begin (thread playBellRingSound) (make-world "shapeLobbyL3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;Purpose: switches the scene to the shape level 
+;Contract: swShapeLevel: world --> world
 (define (swShapeLevel1 w) (begin (thread playBellRingSound) (make-world "shapeLevel1Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel2 w) (begin (thread playBellRingSound) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3 w) (begin (thread playBellRingSound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0 #f)))
 (define (swShapeLevel2Train w) (begin (thread playBellRingSound) (make-world "shapeLevel2Train" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;Purpose: switches the scene to the shape level
+;Contract: swShapeLevel: world --> world
 (define (swShapeElevator w) (begin (thread playBellRingSound) (make-world "shapeElevator" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;Purpose: switches the scenes of the questions of the level 1 of shape game
 (define (swShapeLevel1Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel1Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel1Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel1Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
+
+;purpose: switches the scene to the scoreboards of the shape game
 (define (swShapeLevel1Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel1Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel2Score8 w) 
     (cond
@@ -1121,12 +1158,14 @@
         [else w]))
 (define (swShapeLevel3Score5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Score5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;Purpose: switches the scene to the questions of level 3 shape game
 (define (swShapeLevel3Q1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Q2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Q3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Q4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Q5 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3Q5" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;purpose; switches the scene to the retry scoreboards of the shape game level3 
 (define (swShapeLevel3Score0Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score0Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Score1Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score1Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Score2Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score2Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
@@ -1138,23 +1177,26 @@
 (define (swShapeLevel3Score8Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score8Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swShapeLevel3Score9Retry w) (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3Score9Retry" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 
+;Purpose: switches the scene to the shape level 3 
 (define (swShapeLevel3RetryButton w) (begin (thread playButtonClick1Sound) (make-world "shapeLevel3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0 #f)))
 (define (swShapeLevel3RetryButton2 w) (begin (thread playButtonClick1Sound) (make-world "shapeLevel3Q1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 105 488) 0) 0 #f)))
 
-
+;Purpose: switches the scenes of the level 2 game part 1 shape game
 (define (swShapeLevel2Path1 w) (make-world "shapeLevel2Path1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
 (define (swShapeLevel2Path2 w) (make-world "shapeLevel2Path2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
 (define (swShapeLevel2Path3 w) (make-world "shapeLevel2Path3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
 (define (swShapeLevel2DeadEnd1 w) (make-world "shapeLevel2DeadEnd1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
 (define (swShapeLevel2DeadEnd2 w) (make-world "shapeLevel2DeadEnd2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
 (define (swShapeLevel2DeadEnd3 w) (make-world "shapeLevel2DeadEnd3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f))
-
 (define (swShapeLevel3Path w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3P1Rectangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 436 634) 0) 0 #f)))
+
+;Purpose: switches the scenes of the level 2 game part 2 shape game
 (define (swRectangleP1 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3P1Rectangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 436 634) 0) 0 #f)))
 (define (swSquareP2 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel2P2Square" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 688 377) 0) 0 #f)))
 (define (swCircleP3 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3P3Circle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 957 633) 0) 0 #f)))
 (define (swTriangleP4 w) (begin (thread playCorrectAnswerEffectSound) (make-world "shapeLevel3P4Triangle" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 1210 374) 0) 0 #f)))
 
+;Purpose: switches the scenes of the shape tutorial
 (define (swNextMovementTutorial w) (make-world "nextMovementTutorial" (world-character w) (world-t w) #f))
 (define (swCircleTutorial w) (begin (thread playShapeTutorialAudio) (make-world "circleTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) 0 #f)))
 (define (swCSunTutorial w) (make-world "cSunTutorial" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right") (make-ChPos 960 890) 0) (world-t w) #f))
@@ -1206,8 +1248,6 @@
         [(string=? (world-scene world) "shapeLevel2DeadEnd1") (swShapeLevel2Path1 world)]
         [(string=? (world-scene world) "shapeLevel2DeadEnd2") (swShapeLevel2Path2 world)]
         [(string=? (world-scene world) "shapeLevel2DeadEnd3") (swShapeLevel2Path3 world)]))
-
-;test
 
 ;purpose: changes the skin of the character to the circle version of the skin
 ;contract: changeSkinToCircle: world --> world
@@ -1505,6 +1545,24 @@
                                          colorLobbyL3Bg)]
                                          
           [else (place-image colorLevel2Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+;test
+(check-expect (drawColorLevel (make-world "colorLevel1Q1" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawColorLevel (make-world "colorLevel1Q1" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawColorLevel (make-world "colorLevel1Q1" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawColorLevel (make-world "colorLevel1Q1" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image colorLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+(check-expect (drawColorLevel (make-world "colorLobbyL3" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 colorLobbyL3Bg))
+(check-expect (drawColorLevel (make-world "colorLobbyL3" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 colorLobbyL3Bg))                                           
+(check-expect (drawColorLevel (make-world "colorLobbyL3" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 colorLobbyL3Bg))                                      
+(check-expect (drawColorLevel(make-world "colorLobbyL3" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 colorLobbyL3Bg)) 
 
 ;lobbies        
 (define (swColorLobbyL1 w) (begin (thread playBellRingSound) (make-world "colorLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
@@ -1973,6 +2031,24 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          numberLobbyL3Bg)]))
+;test
+(check-expect (drawNumberLevel (make-world "numberLevel1Q1" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numberLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawNumberLevel (make-world "numberLevel1Q1" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numberLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawNumberLevel (make-world "numberLevel1Q1" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numberLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawNumberLevel (make-world "numberLevel1Q1" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numberLevel1Q1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+(check-expect (drawNumberLevel (make-world "numberLobbyL3" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 numberLobbyL3Bg))
+(check-expect (drawNumberLevel (make-world "numberLobbyL3" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 numberLobbyL3Bg))                                           
+(check-expect (drawNumberLevel (make-world "numberLobbyL3" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 numberLobbyL3Bg))                                      
+(check-expect (drawNumberLevel(make-world "numberLobbyL3" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 numberLobbyL3Bg)) 
 
 (define (swNumberLobbyL1 w) (begin (thread playBellRingSound) (make-world "numberLobbyL1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
 (define (swNumberLobbyL2 w) (begin (thread playBellRingSound) (make-world "numberLobbyL2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos 960 890) 0) 0 #f)))
@@ -2076,7 +2152,15 @@
                                         (ChPos-x (Character-pos (world-character world))) 
                                         (ChPos-y (Character-pos (world-character world)))
                                          lobbyBg))
-;test 
+;test
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 lobbyBg))
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 lobbyBg))                                           
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 lobbyBg))                                      
+(check-expect (drawLobby(make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 lobbyBg))  
 
 ;Purpose: helper function to update the x coordinates of the Character
 ;Contract: updateChPosx: Character(c), number(cs) --> pos(x)
@@ -2085,6 +2169,8 @@
   (+ (ChPos-x (Character-pos c)) cs))
 
 ;test
+(check-expect (updateChPosx (make-Character (make-skin "boy" "left") (make-ChPos 200 300) 21) (* ChSpeed -1)) 190)
+(check-expect (updateChPosx (make-Character (make-skin "boy" "right") (make-ChPos 200 300) 21) ChSpeed) 210)
 
 ;Purpose: helper function to update the y coordinates of the Character
 ;Contract: updateChPosy: Character(c), number(cs) --> pos(y)
@@ -2093,6 +2179,8 @@
   (+ (ChPos-y (Character-pos c)) cs))
 
 ;test
+(check-expect (updateChPosy (make-Character (make-skin "boy" "up") (make-ChPos 200 300) 21) (* ChSpeed -1)) 290)
+(check-expect (updateChPosy (make-Character (make-skin "boy" "down") (make-ChPos 200 300) 21) ChSpeed) 310)
 
 ;defines the Lobby scene once clicked 
 (define (cLobby world) 
@@ -2257,49 +2345,49 @@
         (skinD-north redScientistSkin)] 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "orangeScientist"))
-        (skinD-west orangeScientistWest)]
+        (skinD-west orangeScientistSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "orangeScientist"))
-        (skinD-east orangeScientistWest)]
+        (skinD-east orangeScientistSkin)]
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "orangeScientist"))
-        (skinD-south orangeScientistWest)]
+        (skinD-south orangeScientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "orangeScientist"))
-        (skinD-north orangeScientistWest)] 
+        (skinD-north orangeScientistSkin)] 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "yellowScientist"))
-        (skinD-west yellowScientistWest)]
+        (skinD-west yellowScientistSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "yellowScientist"))
-        (skinD-east yellowScientistWest)]
+        (skinD-east yellowScientistSkin)]
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "yellowScientist"))
-        (skinD-south yellowScientistWest)]
+        (skinD-south yellowScientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowScientist"))
-        (skinD-north yellowScientistWest)] 
+        (skinD-north yellowScientistSkin)] 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "greenScientist"))
-        (skinD-west greenScientistWest)]
+        (skinD-west greenScientistSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "greenScientist"))
-        (skinD-east greenScientistWest)]
+        (skinD-east greenScientistSkin)]
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "greenScientist"))
-        (skinD-south greenScientistWest)]
+        (skinD-south greenScientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "greenScientist"))
-        (skinD-north greenScientistWest)] 
+        (skinD-north greenScientistSkin)] 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "blueScientist"))
-        (skinD-west blueScientistWest)]
+        (skinD-west blueScientistSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "blueScientist"))
-        (skinD-east blueScientistWest)]
+        (skinD-east blueScientistSkin)]
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "blueScientist"))
-        (skinD-south blueScientistWest)]
+        (skinD-south blueScientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "blueScientist"))
-        (skinD-north blueScientistWest)] 
+        (skinD-north blueScientistSkin)] 
 
      [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "purpleScientist"))
-        (skinD-west purpleScientistSouth)]
+        (skinD-west purpleScientistSkin)]
     [(and (string=? (skin-direction s) "right") (string=? (skin-name s) "purpleScientist"))
-        (skinD-east purpleScientistSouth)]
+        (skinD-east purpleScientistSkin)]
     [(and (string=? (skin-direction s) "down") (string=? (skin-name s) "purpleScientist"))
-        (skinD-south purpleScientistSouth)]
+        (skinD-south purpleScientistSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "purpleScientist"))
-        (skinD-north purpleScientistSouth)] 
+        (skinD-north purpleScientistSkin)] 
 
     [(and (string=? (skin-direction s) "left") (string=? (skin-name s) "redPoliceWoman"))
         (skinD-west redPoliceWomanSkin)]
@@ -2642,7 +2730,199 @@
             (skinD-south yellowKeyPoliceWomanSkin)]
     [(and (string=? (skin-direction s) "up") (string=? (skin-name s) "yellowKeyPoliceWoman"))
             (skinD-north yellowKeyPoliceWomanSkin)]))
-
+;test
+(check-expect (skinUpdater (make-skin "boy" "left")) skinBoyWest)
+(check-expect (skinUpdater (make-skin "boy" "right")) skinBoyEast)
+(check-expect (skinUpdater (make-skin "boy" "up")) skinBoyNorth)
+(check-expect (skinUpdater (make-skin "boy" "down")) skinBoySouth)
+(check-expect (skinUpdater (make-skin "redBoy" "left")) redBoyWest)
+(check-expect (skinUpdater (make-skin "redBoy" "right")) redBoyEast)
+(check-expect (skinUpdater (make-skin "redBoy" "up")) redBoyNorth)
+(check-expect (skinUpdater (make-skin "redBoy" "down")) redBoySouth)
+(check-expect (skinUpdater (make-skin "orangeBoy" "left")) orangeBoyWest)
+(check-expect (skinUpdater (make-skin "orangeBoy" "right")) orangeBoyEast)
+(check-expect (skinUpdater (make-skin "orangeBoy" "up")) orangeBoyNorth)
+(check-expect (skinUpdater (make-skin "orangeBoy" "down")) orangeBoySouth)
+(check-expect (skinUpdater (make-skin "yellowBoy" "left")) yellowBoyWest)
+(check-expect (skinUpdater (make-skin "yellowBoy" "right")) yellowBoyEast)
+(check-expect (skinUpdater (make-skin "yellowBoy" "up")) yellowBoyNorth)
+(check-expect (skinUpdater (make-skin "yellowBoy" "down")) yellowBoySouth)
+(check-expect (skinUpdater (make-skin "greenBoy" "left")) greenBoyWest)
+(check-expect (skinUpdater (make-skin "greenBoy" "right")) greenBoyEast)
+(check-expect (skinUpdater (make-skin "greenBoy" "up")) greenBoyNorth)
+(check-expect (skinUpdater (make-skin "greenBoy" "down")) greenBoySouth)
+(check-expect (skinUpdater (make-skin "blueBoy" "left")) blueBoyWest)
+(check-expect (skinUpdater (make-skin "blueBoy" "right")) blueBoyEast)
+(check-expect (skinUpdater (make-skin "blueBoy" "up")) blueBoyNorth)
+(check-expect (skinUpdater (make-skin "blueBoy" "down")) blueBoySouth)
+(check-expect (skinUpdater (make-skin "purpleBoy" "left")) purpleBoyWest)
+(check-expect (skinUpdater (make-skin "purpleBoy" "right")) purpleBoyEast)
+(check-expect (skinUpdater (make-skin "purpleBoy" "up")) purpleBoyNorth)
+(check-expect (skinUpdater (make-skin "purpleBoy" "down")) purpleBoySouth)
+(check-expect (skinUpdater (make-skin "circleBoy" "left")) circleBoyWest)
+(check-expect (skinUpdater (make-skin "circleBoy" "right")) circleBoyEast)
+(check-expect (skinUpdater (make-skin "circleBoy" "up")) circleBoyNorth)
+(check-expect (skinUpdater (make-skin "circleBoy" "down")) circleBoySouth)
+(check-expect (skinUpdater (make-skin "pentagonBoy" "left")) pentagonBoyWest)
+(check-expect (skinUpdater (make-skin "pentagonBoy" "right")) pentagonBoyEast)
+(check-expect (skinUpdater (make-skin "pentagonBoy" "up")) pentagonBoyNorth)
+(check-expect (skinUpdater (make-skin "pentagonBoy" "down")) pentagonBoySouth)
+(check-expect (skinUpdater (make-skin "rectangleBoy" "left")) rectangleBoyWest)
+(check-expect (skinUpdater (make-skin "rectangleBoy" "right")) rectangleBoyEast)
+(check-expect (skinUpdater (make-skin "rectangleBoy" "up")) rectangleBoyNorth)
+(check-expect (skinUpdater (make-skin "rectangleBoy" "down")) rectangleBoySouth)
+(check-expect (skinUpdater (make-skin "squareBoy" "left")) squareBoyWest)
+(check-expect (skinUpdater (make-skin "squareBoy" "right")) squareBoyEast)
+(check-expect (skinUpdater (make-skin "squareBoy" "up")) squareBoyNorth)
+(check-expect (skinUpdater (make-skin "squareBoy" "down")) squareBoySouth)
+(check-expect (skinUpdater (make-skin "triangleBoy" "left")) triangleBoyWest)
+(check-expect (skinUpdater (make-skin "triangleBoy" "right")) triangleBoyEast)
+(check-expect (skinUpdater (make-skin "triangleBoy" "up")) triangleBoyNorth)
+(check-expect (skinUpdater (make-skin "triangleBoy" "down")) triangleBoySouth)
+(check-expect (skinUpdater (make-skin "janitor" "left")) skinJanitorWest)
+(check-expect (skinUpdater (make-skin "janitor" "right")) skinJanitorEast)
+(check-expect (skinUpdater (make-skin "janitor" "up")) skinJanitorNorth)
+(check-expect (skinUpdater (make-skin "janitor" "down")) skinJanitorSouth)
+(check-expect (skinUpdater (make-skin "redJanitor" "left")) redJanitorWest)
+(check-expect (skinUpdater (make-skin "redJanitor" "right")) redJanitorEast)
+(check-expect (skinUpdater (make-skin "redJanitor" "up")) redJanitorNorth)
+(check-expect (skinUpdater (make-skin "redJanitor" "down")) redJanitorSouth)
+(check-expect (skinUpdater (make-skin "orangeJanitor" "left")) orangeJanitorWest)
+(check-expect (skinUpdater (make-skin "orangeJanitor" "right")) orangeJanitorEast)
+(check-expect (skinUpdater (make-skin "orangeJanitor" "up")) orangeJanitorNorth)
+(check-expect (skinUpdater (make-skin "orangeJanitor" "down")) orangeJanitorSouth)
+(check-expect (skinUpdater (make-skin "yellowJanitor" "left")) yellowJanitorWest)
+(check-expect (skinUpdater (make-skin "yellowJanitor" "right")) yellowJanitorEast)
+(check-expect (skinUpdater (make-skin "yellowJanitor" "up")) yellowJanitorNorth)
+(check-expect (skinUpdater (make-skin "yellowJanitor" "down")) yellowJanitorSouth)
+(check-expect (skinUpdater (make-skin "greenJanitor" "left")) greenJanitorWest)
+(check-expect (skinUpdater (make-skin "greenJanitor" "right")) greenJanitorEast)
+(check-expect (skinUpdater (make-skin "greenJanitor" "up")) greenJanitorNorth)
+(check-expect (skinUpdater (make-skin "greenJanitor" "down")) greenJanitorSouth)
+(check-expect (skinUpdater (make-skin "blueJanitor" "left")) blueJanitorWest)
+(check-expect (skinUpdater (make-skin "blueJanitor" "right")) blueJanitorEast)
+(check-expect (skinUpdater (make-skin "blueJanitor" "up")) blueJanitorNorth)
+(check-expect (skinUpdater (make-skin "blueJanitor" "down")) blueJanitorSouth)
+(check-expect (skinUpdater (make-skin "purpleJanitor" "left")) purpleJanitorWest)
+(check-expect (skinUpdater (make-skin "purpleJanitor" "right")) purpleJanitorEast)
+(check-expect (skinUpdater (make-skin "purpleJanitor" "up")) purpleJanitorNorth)
+(check-expect (skinUpdater (make-skin "purpleJanitor" "down")) purpleJanitorSouth)
+(check-expect (skinUpdater (make-skin "circleJanitor" "left")) circleJanitorWest)
+(check-expect (skinUpdater (make-skin "circleJanitor" "right")) circleJanitorEast)
+(check-expect (skinUpdater (make-skin "circleJanitor" "up")) circleJanitorNorth)
+(check-expect (skinUpdater (make-skin "circleJanitor" "down")) circleJanitorSouth)
+(check-expect (skinUpdater (make-skin "pentagonJanitor" "left")) pentagonJanitorWest)
+(check-expect (skinUpdater (make-skin "pentagonJanitor" "right")) pentagonJanitorEast)
+(check-expect (skinUpdater (make-skin "pentagonJanitor" "up")) pentagonJanitorNorth)
+(check-expect (skinUpdater (make-skin "pentagonJanitor" "down")) pentagonJanitorSouth)
+(check-expect (skinUpdater (make-skin "rectangleJanitor" "left")) rectangleJanitorWest)
+(check-expect (skinUpdater (make-skin "rectangleJanitor" "right")) rectangleJanitorEast)
+(check-expect (skinUpdater (make-skin "rectangleJanitor" "up")) rectangleJanitorNorth)
+(check-expect (skinUpdater (make-skin "rectangleJanitor" "down")) rectangleJanitorSouth)
+(check-expect (skinUpdater (make-skin "squareJanitor" "left")) squareJanitorWest)
+(check-expect (skinUpdater (make-skin "squareJanitor" "right")) squareJanitorEast)
+(check-expect (skinUpdater (make-skin "squareJanitor" "up")) squareJanitorNorth)
+(check-expect (skinUpdater (make-skin "squareJanitor" "down")) squareJanitorSouth)
+(check-expect (skinUpdater (make-skin "triangleJanitor" "left")) triangleJanitorWest)
+(check-expect (skinUpdater (make-skin "triangleJanitor" "right")) triangleJanitorEast)
+(check-expect (skinUpdater (make-skin "triangleJanitor" "up")) triangleJanitorNorth)
+(check-expect (skinUpdater (make-skin "triangleJanitor" "down")) triangleJanitorSouth)
+(check-expect (skinUpdater (make-skin "policeWoman" "left")) skinPoliceWomanWest)
+(check-expect (skinUpdater (make-skin "policeWoman" "right")) skinPoliceWomanEast)
+(check-expect (skinUpdater (make-skin "policeWoman" "up")) skinPoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "policeWoman" "down")) skinPoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "redPoliceWoman" "left")) redPoliceWomanWest)
+(check-expect (skinUpdater (make-skin "redPoliceWoman" "right")) redPoliceWomanEast)
+(check-expect (skinUpdater (make-skin "redPoliceWoman" "up")) redPoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "redPoliceWoman" "down")) redPoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "orangePoliceWoman" "left")) orangePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "orangePoliceWoman" "right")) orangePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "orangePoliceWoman" "up")) orangePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "orangePoliceWoman" "down")) orangePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "yellowPoliceWoman" "left")) yellowPoliceWomanWest)
+(check-expect (skinUpdater (make-skin "yellowPoliceWoman" "right")) yellowPoliceWomanEast)
+(check-expect (skinUpdater (make-skin "yellowPoliceWoman" "up")) yellowPoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "yellowPoliceWoman" "down")) yellowPoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "greenPoliceWoman" "left")) greenPoliceWomanWest)
+(check-expect (skinUpdater (make-skin "greenPoliceWoman" "right")) greenPoliceWomanEast)
+(check-expect (skinUpdater (make-skin "greenPoliceWoman" "up")) greenPoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "greenPoliceWoman" "down")) greenPoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "bluePoliceWoman" "left")) bluePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "bluePoliceWoman" "right")) bluePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "bluePoliceWoman" "up")) bluePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "bluePoliceWoman" "down")) bluePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "purplePoliceWoman" "left")) purplePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "purplePoliceWoman" "right")) purplePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "purplePoliceWoman" "up")) purplePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "purplePoliceWoman" "down")) purplePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "circlePoliceWoman" "left")) circlePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "circlePoliceWoman" "right")) circlePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "circlePoliceWoman" "up")) circlePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "circlePoliceWoman" "down")) circlePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "pentagonPoliceWoman" "left")) pentagonPoliceWomanWest)
+(check-expect (skinUpdater (make-skin "pentagonPoliceWoman" "right")) pentagonPoliceWomanEast)
+(check-expect (skinUpdater (make-skin "pentagonPoliceWoman" "up")) pentagonPoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "pentagonPoliceWoman" "down")) pentagonPoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "rectanglePoliceWoman" "left")) rectanglePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "rectanglePoliceWoman" "right")) rectanglePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "rectanglePoliceWoman" "up")) rectanglePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "rectanglePoliceWoman" "down")) rectanglePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "squarePoliceWoman" "left")) squarePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "squarePoliceWoman" "right")) squarePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "squarePoliceWoman" "up")) squarePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "squarePoliceWoman" "down")) squarePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "trianglePoliceWoman" "left")) trianglePoliceWomanWest)
+(check-expect (skinUpdater (make-skin "trianglePoliceWoman" "right")) trianglePoliceWomanEast)
+(check-expect (skinUpdater (make-skin "trianglePoliceWoman" "up")) trianglePoliceWomanNorth)
+(check-expect (skinUpdater (make-skin "trianglePoliceWoman" "down")) trianglePoliceWomanSouth)
+(check-expect (skinUpdater (make-skin "scientist" "left")) skinScientistWest)
+(check-expect (skinUpdater (make-skin "scientist" "right")) skinScientistEast)
+(check-expect (skinUpdater (make-skin "scientist" "up")) skinScientistNorth)
+(check-expect (skinUpdater (make-skin "scientist" "down")) skinScientistSouth)
+(check-expect (skinUpdater (make-skin "redScientist" "left")) redScientistWest)
+(check-expect (skinUpdater (make-skin "redScientist" "right")) redScientistEast)
+(check-expect (skinUpdater (make-skin "redScientist" "up")) redScientistNorth)
+(check-expect (skinUpdater (make-skin "redScientist" "down")) redScientistSouth)
+(check-expect (skinUpdater (make-skin "orangeScientist" "left")) orangeScientistWest)
+(check-expect (skinUpdater (make-skin "orangeScientist" "right")) orangeScientistEast)
+(check-expect (skinUpdater (make-skin "orangeScientist" "up")) orangeScientistNorth)
+(check-expect (skinUpdater (make-skin "orangeScientist" "down")) orangeScientistSouth)
+(check-expect (skinUpdater (make-skin "yellowScientist" "left")) yellowScientistWest)
+(check-expect (skinUpdater (make-skin "yellowScientist" "right")) yellowScientistEast)
+(check-expect (skinUpdater (make-skin "yellowScientist" "up")) yellowScientistNorth)
+(check-expect (skinUpdater (make-skin "yellowScientist" "down")) yellowScientistSouth)
+(check-expect (skinUpdater (make-skin "greenScientist" "left")) greenScientistWest)
+(check-expect (skinUpdater (make-skin "greenScientist" "right")) greenScientistEast)
+(check-expect (skinUpdater (make-skin "greenScientist" "up")) greenScientistNorth)
+(check-expect (skinUpdater (make-skin "greenScientist" "down")) greenScientistSouth)
+(check-expect (skinUpdater (make-skin "blueScientist" "left")) blueScientistWest)
+(check-expect (skinUpdater (make-skin "blueScientist" "right")) blueScientistEast)
+(check-expect (skinUpdater (make-skin "blueScientist" "up")) blueScientistNorth)
+(check-expect (skinUpdater (make-skin "blueScientist" "down")) blueScientistSouth)
+(check-expect (skinUpdater (make-skin "purpleScientist" "left")) purpleScientistWest)
+(check-expect (skinUpdater (make-skin "purpleScientist" "right")) purpleScientistEast)
+(check-expect (skinUpdater (make-skin "purpleScientist" "up")) purpleScientistNorth)
+(check-expect (skinUpdater (make-skin "purpleScientist" "down")) purpleScientistSouth)
+(check-expect (skinUpdater (make-skin "circleScientist" "left")) circleScientistWest)
+(check-expect (skinUpdater (make-skin "circleScientist" "right")) circleScientistEast)
+(check-expect (skinUpdater (make-skin "circleScientist" "up")) circleScientistNorth)
+(check-expect (skinUpdater (make-skin "circleScientist" "down")) circleScientistSouth)
+(check-expect (skinUpdater (make-skin "pentagonScientist" "left")) pentagonScientistWest)
+(check-expect (skinUpdater (make-skin "pentagonScientist" "right")) pentagonScientistEast)
+(check-expect (skinUpdater (make-skin "pentagonScientist" "up")) pentagonScientistNorth)
+(check-expect (skinUpdater (make-skin "pentagonScientist" "down")) pentagonScientistSouth)
+(check-expect (skinUpdater (make-skin "rectangleScientist" "left")) rectangleScientistWest)
+(check-expect (skinUpdater (make-skin "rectangleScientist" "right")) rectangleScientistEast)
+(check-expect (skinUpdater (make-skin "rectangleScientist" "up")) rectangleScientistNorth)
+(check-expect (skinUpdater (make-skin "rectangleScientist" "down")) rectangleScientistSouth)
+(check-expect (skinUpdater (make-skin "squareScientist" "left")) squareScientistWest)
+(check-expect (skinUpdater (make-skin "squareScientist" "right")) squareScientistEast)
+(check-expect (skinUpdater (make-skin "squareScientist" "up")) squareScientistNorth)
+(check-expect (skinUpdater (make-skin "squareScientist" "down")) squareScientistSouth)
+(check-expect (skinUpdater (make-skin "triangleScientist" "left")) triangleScientistWest)
+(check-expect (skinUpdater (make-skin "triangleScientist" "right")) triangleScientistEast)
+(check-expect (skinUpdater (make-skin "triangleScientist" "up")) triangleScientistNorth)
+(check-expect (skinUpdater (make-skin "triangleScientist" "down")) triangleScientistSouth)
 ;=============================================================================================================================================================
 ;x,y coordinates of stuff:
 
@@ -5860,9 +6140,42 @@
         (place-image numb10CountBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
 
         [else (empty-scene 1920 1080)]))
-
 ;test
+(check-expect (drawTutorial (make-world "circleTutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image circleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "circleTutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image circleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "circleTutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image circleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "circleTutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image circleTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
+(check-expect (drawTutorial (make-world "redTutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image redTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "redTutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image redTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "redTutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image redTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "redTutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image redTutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+(check-expect (drawTutorial (make-world "numb1Tutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "numb1Tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "numb1Tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawTutorial (make-world "numb1Tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))        
+
+(check-expect (drawTutorial (make-world "movementTutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 tutorialMovementBg))
+(check-expect (drawTutorial (make-world "movementTutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 tutorialMovementBg))                                           
+(check-expect (drawTutorial (make-world "movementTutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 tutorialMovementBg))                                      
+(check-expect (drawTutorial(make-world "movementTutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 tutorialMovementBg)) 
 
 ;Purpose: changes the tutorial scene when time for the next scene
 ;Contract: changeTutorialScene: world --> world
@@ -6017,7 +6330,32 @@
         [else (empty-scene 1920 1080)]))
 
 ;test
+(check-expect (drawWorld (make-world "numb1Tutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawWorld (make-world "numb1Tutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawWorld (make-world "numb1Tutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawWorld (make-world "numb1Tutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image numb1TutorialBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))        
 
+(check-expect (drawWorld (make-world "movementTutorial" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 tutorialMovementBg))
+(check-expect (drawWorld (make-world "movementTutorial" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 tutorialMovementBg))                                           
+(check-expect (drawWorld (make-world "movementTutorial" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 tutorialMovementBg))                                      
+(check-expect (drawWorld (make-world "movementTutorial" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 tutorialMovementBg)) 
+
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "boy" "right")) 970 680 lobbyBg))
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "janitor" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "janitor" "right")) 970 680 lobbyBg))                                           
+(check-expect (drawLobby (make-world "Lobby" (make-Character (make-skin "scientist" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "scientist" "right")) 970 680 lobbyBg))                                      
+(check-expect (drawLobby(make-world "Lobby" (make-Character (make-skin "policeWoman" "right") (make-ChPos 970 680) 21) 0 #f))
+    (place-image (skinUpdater (make-skin "policeWoman" "right")) 970 680 lobbyBg))      
 
 ;=======================================================================================
 ;********************************** Big-Bang *******************************************
