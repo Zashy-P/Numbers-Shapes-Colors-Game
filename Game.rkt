@@ -45,63 +45,77 @@
 (define movementTutorialAudioPath "Sounds/MovementTutorial.MP3")
 (define placingItemEffectPath "Sounds/placing inside basket.mp3")
 
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;test we cannot write a test case for sounds beacuse when we do 
+;(check-expect (playFootstepSound 2) (play-sound (first footstepSounds) #f))
+; it will play the sound like before the game starts and say the test passed so we cannot 
+;write a test case for sounds
+; check-expect cant handle audio so we cannot test functions that have audio in them 
+;;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+;Purpose: plays the button click sound effect
+;Contract: playButtonClick1Sound: --> sound
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
+;test
 
-(define (playFootstepSound x)
+;Purpose: plays the footstep sound
+;contract: playFootstepSound: number(stepCount) --> sound
+(define (playFootstepSound stepCount)
   (cond 
-     [(= (modulo x 2) 0) 0 (play-sound (first footstepSounds) #f)]
-     [(= (modulo x 2) 1) (begin (play-sound (second footstepSounds) #f))]))
+     [(= (modulo stepCount 2) 0) 0 (play-sound (first footstepSounds) #f)]
+     [(= (modulo stepCount 2) 1) (begin (play-sound (second footstepSounds) #f))]))
 
 
+;Purpose: plays the bell ring sound effect
+;Contract: playBellRingSound --> sound
 (define (playBellRingSound)
   (play-sound bellRingPath #f))
 
+;Purpose: plays the wrong answer sound effect
+;Contract: playWrongChoiceEffectSound: --> sound
 (define (playWrongChoiceEffectSound)
   (play-sound wrongChoiceEffectPath #f))
 
+;Purpose: plays the correct answer sound effect
+;Contract: playCorrectAnswerEffectSound: --> sound
 (define (playCorrectAnswerEffectSound)
   (play-sound correctAnswerEffectPath #f))
 
+;Purpose: plays the paint sound effect
+;Contract: playPaintSoundEffect: --> sound
 (define (playPaintSoundEffect)
   (play-sound paintSoundEffectPath #f)) 
 
+;Purpose: plays the movement tutorial audio
+;Contract: playMovementTutorialAudio: --> sound
 (define (playMovementTutorialAudio)
     (play-sound movementTutorialAudioPath #f))
 
+;Purpose: plays the shape tutorial audio
+;Contract: playShapeTutorialAudio: --> sound
 (define (playShapeTutorialAudio)
   (play-sound shapeTutorialAudioPath #f))  
 
+;Purpose: plays the color tutorial audio
+;Contract: playColorTutorialAudio: --> sound
 (define (playColorTutorialAudio)
   (play-sound colorTutorialAudioPath #f))
 
+;Purpose: plays the number tutorial audio
+;Contract: playNumberTutorialAudio: --> sound
 (define (playNumberTutorialAudio)
     (play-sound numberTutorialAudioPath #f))
 
+;Purpose: plays the placing item sound effect
+;Contract: playPlacingItemEffect: --> sound
 (define (playPlacingItemEffect)
   (play-sound placingItemEffectPath #f))
 
 ;Purpose: plays the wrong answer sound effect and returns the world to the same state it was in
 ;Contract: wrongAnswer: world --> world
 (define (wrongAnswer w)   
-    (begin (thread playWrongChoiceEffectSound) (make-world (world-scene w) 
-                                                 (make-Character (make-skin (skin-name (Character-skin (world-character w))) 
-                                                                            (skin-direction (Character-skin (world-character w)))) 
-                                                                 (make-ChPos (ChPos-x (Character-pos (world-character w))) 
-                                                                             (ChPos-y (Character-pos (world-character w)))) 0) 0 #f)))
-  
-
-;Purpose: plays the wrong answer sound effect and returns the world to the beggining of the level
-;Contract: wrongAnswer: world --> world
-(define (wrongAnswerShapeLevel3 w)
-     (begin (thread playWrongChoiceEffectSound) (make-world "shapeLevel3" 
-                                                  (make-Character (make-skin (skin-name (Character-skin (world-character w))) 
-                                                                             (skin-direction (Character-skin (world-character w)))) 
-                                                                  (make-ChPos 105 488) 
-                                                                              0) 
-                                                                              0 #f)))
-      
-
+    (begin (thread playWrongChoiceEffectSound) (make-world (world-scene w) (world-character w) (world-t w) #f)))
 
 ;=======================================================================================
 ;************************************ Images *******************************************
@@ -527,7 +541,7 @@
 (define characterInfo4Bg (bitmap "Photos/character info police woman.jpg"))
 
 ;Character Select Backgrounds
-(define chSelectBg (bitmap "Photos/selection/character select 1.jpeg")) 
+(define chSelect (bitmap "Photos/selection/character select 1.jpeg")) 
 (define chSelect2Bg (bitmap "Photos/selection/character select 2.jpeg"))
 (define chSelect3Bg (bitmap "Photos/selection/character select 3.jpeg"))
 (define chSelect4Bg (bitmap "Photos/selection/charcater select  4.jpeg"))
@@ -795,28 +809,58 @@
 ;Contract: menu --> image
 (define drawMenu    
   (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+;test 
+(check-expect drawMenu (place-image menuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
-(define swMenu (begin (thread playButtonClick1Sound) (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
-; I have Menu in menu cuz its basically the menu
+;Purpose: Switches the scene to the menu
+;Contract: swMenu --> world
 (define Menu (make-world "menu" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f))
 
 ;=======================================================================================
 ;******************************* Character Select**************************************
 ;=======================================================================================
               
-;Draw The Character Select Menu
-(define characterSelectMenu
-   (place-image chSelectBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-
-(define characterSelect2
+;purpose: draws the character select scenes
+;Contract: drawChSelect: world --> image
+(define (drawChSelect world)
+    (cond
+        [(string=? (world-scene world) "chSelect")
+        (place-image chSelect worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+        [(string=? (world-scene world) "chSelect2")
+        (place-image chSelect2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+        [(string=? (world-scene world) "chSelect3")
+        (place-image chSelect3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
+        [(string=? (world-scene world) "chSelect4")
+        (place-image chSelect4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
+;test
+(check-expect (drawChSelect (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
+    (place-image chSelect worldCenterWidth worldCenterHeight (empty-scene 1920 1080))) 
+(check-expect (drawChSelect (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
     (place-image chSelect2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-
-(define characterSelect3
+(check-expect (drawChSelect (make-world "chSelect3" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f))
     (place-image chSelect3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
-
-(define characterSelect4
+(check-expect (drawChSelect (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f))
     (place-image chSelect4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+
+
+
+;Purpose: Switches the scene to the character select
+;Contract: swChSelect --> world
+(define (cChSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f))) 
+;test
+;(check-expect (cChSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) for some reasons all the functions similar to this the test case does not pass but it should
+
+;makes the skin boy once clicked
+(define (cBoySelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+
+;makes the skin janitor once clicked
+(define (cJanitorSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+
+;makes the skin janitor once clicked
+(define (cScientistSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect3" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+
+;makes the skin janitor once clicked
+(define (cPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
 
 ;=======================================================================================
 ;************************************ Character Info ***********************************
@@ -833,26 +877,37 @@
           (place-image characterInfo3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]
           [(string=? (world-scene world) "characterInfo4")
           (place-image characterInfo4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080))]))
-
+;test
+(check-expect (drawCharacterInfo (make-world "characterInfo1" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
+    (place-image characterInfo1Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawCharacterInfo (make-world "characterInfo2" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
+    (place-image characterInfo2Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawCharacterInfo (make-world "characterInfo3" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
+    (place-image characterInfo3Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+(check-expect (drawCharacterInfo (make-world "characterInfo4" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)) 
+    (place-image characterInfo4Bg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))   
 
 ;shows the boy skin character info once clicked
-(define (swInfoBoy w) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0  #f)))
+(define (swInfoBoy w) (begin (thread playButtonClick1Sound) (make-world "characterInfo1" (world-character w) (world-t w) #f)))
 
 ;shows the janitor skin character info once clicked
-(define (swInfoJanitor w) (begin (thread playButtonClick1Sound) (make-world "characterInfo2" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+(define (swInfoJanitor w) (begin (thread playButtonClick1Sound) (make-world "characterInfo2"  (world-character w) (world-t w) #f)))
 
 ;shows the scientist skin character info once clicked
-(define (swInfoScientist w) (begin (thread playButtonClick1Sound) (make-world "characterInfo3" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+(define (swInfoScientist w) (begin (thread playButtonClick1Sound) (make-world "characterInfo3"  (world-character w) (world-t w) #f)))
 
 ;shows the policeWoman skin character info once clicked
-(define (swInfoPoliceWoman w) (begin (thread playButtonClick1Sound) (make-world "characterInfo4" (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
+(define (swInfoPoliceWoman w) (begin (thread playButtonClick1Sound) (make-world "characterInfo4"  (world-character w) (world-t w) #f)))
 
 ;=======================================================================================
 ;************************************ Escape Menu **************************************
 ;=======================================================================================
 
+;Purpose: Draws the Escape Menu
 (define (drawEscapeMenu)
     (place-image escapeMenuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
+;test
+(check-expect (drawEscapeMenu) (place-image escapeMenuBg worldCenterWidth worldCenterHeight (empty-scene 1920 1080)))
 
 ;Purpose:Switches the cene to the escape menu & storing the scene before the escape menu so that we can go back to it if he decides to resume
 ;Contract: swEscapeMenu: world --> world
@@ -867,7 +922,10 @@
 ;Purpose: quits the game by making the quit in world struct true
 ;Contract: quitGame: world --> world
 (define (quitGame world)
-    (make-world (world-scene world) (world-character world) 0 #t))                                                    
+    (make-world (world-scene world) (world-character world) 0 #t))       
+;test
+(check-expect (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #f)
+    (make-world "escapeMenuLobby" (make-Character (make-skin "boy" "right") (make-ChPos 970 680) 21) 0 #t))                                          
 
 ;Purpose: Checks if the quit is true or false 
 ;Contract: quitCheck: world --> boolean
@@ -2036,6 +2094,10 @@
 
 ;test
 
+;defines the Lobby scene once clicked 
+(define (cLobby world) 
+        (begin (thread playButtonClick1Sound) (make-world "Lobby" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "left") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0) 0 #f)))
+
 ;Purpose: helper function to update the skin of the character 
 ;Contract: skinUpdater: skin(s) --> skinD
 ;function
@@ -2990,45 +3052,20 @@
 
 ;test 
 
+
+
+
+;Tutorial clicks
+
+
+
+
+
+
+
 ;=======================================================================================
 ;************************************ Mouse-Input **************************************
 ;=======================================================================================
-
-
-;defines the character select scene once clicked
-(define (cChSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
-;defines the Lobby scene once clicked 
-(define (cLobby world) 
-        (begin (thread playButtonClick1Sound) (make-world "Lobby" (make-Character (make-skin (skin-name (Character-skin (world-character world))) "left") (make-ChPos lobbyCenterWidth lobbyCenterHeight) 0) 0 #f)))
-
-;defines the tutorial pop up scene once confirm on chSelect is clicked
-(define (cTutorialPopUp world)   
-        (begin (thread playButtonClick1Sound) (make-world "popUpTutorial" 
-                                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up")
-                                                                (make-ChPos worldCenterWidth worldCenterHeight) 
-                                                                0) 0 #f)))
-
-;defines the tutorial scene once yes on tutorial pop up is clicked
-(define (cTutorial world)   
-        (begin (thread playMovementTutorialAudio) (make-world "movementTutorial" 
-                                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up")
-                                                                (make-ChPos worldCenterWidth worldCenterHeight) 
-                                                                0) 0 #f)))
-
-
-;makes the skin boy once clicked
-(define (cBoySelect) (begin (thread playButtonClick1Sound) (make-world "chSelect" (make-Character (make-skin "boy" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
-;makes the skin janitor once clicked
-(define (cJanitorSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect2" (make-Character (make-skin "janitor" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
-;makes the skin janitor once clicked
-(define (cScientistSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect3" (make-Character (make-skin "scientist" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
-;makes the skin janitor once clicked
-(define (cPoliceWomanSelect) (begin (thread playButtonClick1Sound) (make-world "chSelect4" (make-Character (make-skin "policeWoman" "right") (make-ChPos worldCenterWidth worldCenterHeight) 0) 0 #f)))
-
 
 ;=======================================================================================
 ;Coordinates of the buttons:
@@ -3451,7 +3488,7 @@
            (>= y 485)
            (>= x 733)   
            (<= x 1180))
-           swMenu]
+           Menu]
 
     [(and (string-prefix? (world-scene w) "escapeMenu")
            (mouse=? me "button-down")
@@ -3468,7 +3505,7 @@
            (>= y 16)
            (>= x 38)   
            (<= x 219))
-           swMenu]
+           Menu]
       
       [(and (string=? (world-scene w) "menu") ;character info button
            (mouse=? me "button-down")
@@ -5922,6 +5959,22 @@
                                                 (add1 (world-t world))  #f)))
 
 
+;defines the tutorial pop up scene once confirm on chSelect is clicked
+(define (cTutorialPopUp world)   
+        (begin (thread playButtonClick1Sound) (make-world "popUpTutorial" 
+                                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up")
+                                                                (make-ChPos worldCenterWidth worldCenterHeight) 
+                                                                0) 0 #f)))
+
+;defines the tutorial scene once yes on tutorial pop up is clicked
+(define (cTutorial world)   
+        (begin (thread playMovementTutorialAudio) (make-world "movementTutorial" 
+                                                (make-Character (make-skin (skin-name (Character-skin (world-character world))) "up")
+                                                                (make-ChPos worldCenterWidth worldCenterHeight) 
+                                                                0) 0 #f)))
+
+
+
 
 
 
@@ -5937,14 +5990,8 @@
         
         [(string=? (world-scene world) "menu") 
                     drawMenu]
-        [(string=? (world-scene world) "chSelect")
-                    characterSelectMenu]          
-        [(string=? (world-scene world) "chSelect2")
-                    characterSelect2]
-        [(string=? (world-scene world) "chSelect3")
-                    characterSelect3]
-        [(string=? (world-scene world) "chSelect4")
-                    characterSelect4]
+        [(string-prefix? (world-scene world) "chSelect")
+                    (drawChSelect world)]
         [(string=? (world-scene world) "Lobby") 
                     (drawLobby world)]
         [(string-prefix? (world-scene world) "escapeMenu") (drawEscapeMenu)]
@@ -5986,3 +6033,4 @@
 (display-mode 'fullscreen) ;we need to add a quit game thing if we r going to do ;lol we did that but racket doesnt actually close the app just stops recieving events/inputs u cant do that using big bang 
 (stop-when quitCheck)
 )
+(test)
