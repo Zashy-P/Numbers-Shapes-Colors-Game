@@ -2659,12 +2659,15 @@
 ;color level 3 door 2  y coordinates 767(bottom) 4(top)
 ;color level 3 door 2 x coordinates 6(left) 1522(right)
 
-;shape level 2 train y coordinates (bottom) (top)
-;shape level 2 train x coordinates (left) (right)
+;shape level 2 left crate y coordinates 946(bottom) 476(top)
+;shape level 2 left crate x coordinates 24(left) 324(right)
 
-;number level 3 door y coordinates (bottom) (top)
-;number level 3 door x coordinates (left) (right)
+;shape level 2 right crate y coordinates 958(bottom) 434(top)
+;shape level 2 right crate x coordinates 1539(left) 1868(right)
 
+;shape level 2 train y coordinates 433(bottom) 44(top)
+;shape level 2 train x coordinates 302(left) 1869(right)
+;=============================================================================================================================================================
 
 ;Purpose: Move The Character & change the image of the character to the direction its facing  & changes the scene if the character is in certain areas
 ;Contract: keyboardControl: world(w), keyboard-input(ki) --> image
@@ -2923,6 +2926,46 @@
                                            (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
                                            (Character-stepCount (world-character w))) 
                                            (world-t w) #f)]
+                                    
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") (string=? (world-scene w) "circleCart") 
+                (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "pentagonCart")  (string=? (world-scene w) "rectangleCart")) ;train invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 433)
+           (>= (ChPos-y (Character-pos (world-character w))) 44)
+           (>= (ChPos-x (Character-pos (world-character w))) 302)
+           (<= (ChPos-x (Character-pos (world-character w))) 1869)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "up")  
+                               (make-ChPos  
+                                           (ChPos-x (Character-pos (world-character w))) (+ (ChPos-y (Character-pos (world-character w))) 50))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") (string=? (world-scene w) "circleCart") 
+                (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "pentagonCart")  (string=? (world-scene w) "rectangleCart")) ;left crates invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 946)
+           (>= (ChPos-y (Character-pos (world-character w))) 476)
+           (>= (ChPos-x (Character-pos (world-character w))) 24)
+           (<= (ChPos-x (Character-pos (world-character w))) 324)) 
+           (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "right")  
+                               (make-ChPos 
+                                           (+ (ChPos-x (Character-pos (world-character w))) 50) (ChPos-y (Character-pos (world-character w))))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+
+      [(and (or (string=? (world-scene w) "shapeLevel2Train") (string=? (world-scene w) "squareCart") (string=? (world-scene w) "circleCart") 
+                (string=? (world-scene w) "triangleCart") (string=? (world-scene w) "pentagonCart")  (string=? (world-scene w) "rectangleCart")) ;right crates invisible wall
+           (<= (ChPos-y (Character-pos (world-character w))) 958)
+           (>= (ChPos-y (Character-pos (world-character w))) 434)
+           (>= (ChPos-x (Character-pos (world-character w))) 1539)
+           (<= (ChPos-x (Character-pos (world-character w))) 1868)) 
+             (make-world (world-scene w) 
+               (make-Character (make-skin (skin-name (Character-skin (world-character w))) "left")  
+                               (make-ChPos 
+                                           (- (ChPos-x (Character-pos (world-character w))) 50) (ChPos-y (Character-pos (world-character w))))
+                                           (Character-stepCount (world-character w))) 
+                                           (world-t w) #f)]
+
 
 
      [(or (key=? ki "left") (key=? ki "a") (key=? ki "A")) 
