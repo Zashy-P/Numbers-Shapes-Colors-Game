@@ -372,7 +372,7 @@
 (define tutorialBg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg")) 
 
 ;Lobby Background
-(define lobbyBg (bitmap "Photos/Shapes/level 2/Train/level 2 train bg.jpg")) 
+(define lobbyBg (bitmap "Photos/Shapes/level 2/Paths/circle.jpeg")) 
 
 
 ;ShapeLobby 
