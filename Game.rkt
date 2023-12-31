@@ -43,6 +43,7 @@
 (define colorTutorialAudioPath "Sounds/color tutorial.mp3")
 (define numberTutorialAudioPath "Sounds/number tutorial.mp3")
 (define movementTutorialAudioPath "Sounds/MovementTutorial.MP3")
+(define placingItemEffectPath "Sounds/placing inside basket.mp3")
 
 (define (playButtonClick1Sound)
   (play-sound buttonClick1Path #f))
@@ -76,6 +77,9 @@
 
 (define (playNumberTutorialAudio)
     (play-sound numberTutorialAudioPath #f))
+
+(define (playPlacingItemEffect)
+  (play-sound placingItemEffectPath #f))
 
 ;Purpose: plays the wrong answer sound effect and returns the world to the same state it was in
 ;Contract: wrongAnswer: world --> world
@@ -1799,29 +1803,29 @@
 (define (correctItemToBasket world basket)
     (cond
          [(and (string=? (world-scene world) "colorLevel3ItemFull") (string=? basket "redBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item1" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item2") (string=? basket "yellowBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item2" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item3") (string=? basket "blueBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item3" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item4") (string=? basket "orangeBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item4" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3item5") (string=? basket "purpleBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item5" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item5" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item6") (string=? basket "greenBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item6" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item6" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item7") (string=? basket "orangeBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item7" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item7" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item8") (string=? basket "redBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item8" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item8" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item9") (string=? basket "yellowBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item9" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item9" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item10") (string=? basket "blueBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item10" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item10" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
         [(and (string=? (world-scene world) "colorLevel3Item11") (string=? basket "greenBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item11" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item11" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
          [(and (string=? (world-scene world) "colorLevel3Item12") (string=? basket "purpleBasket"))
-                 (begin (thread playButtonClick1Sound) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
+                 (begin (thread playPlacingItemEffect) (make-world "colorLevel3Item12" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
         
         [else (wrongAnswer world)]))
 
