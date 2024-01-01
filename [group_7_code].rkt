@@ -1772,7 +1772,7 @@
      [(and (string=? (skin-name (Character-skin (world-character world))) "bluePoliceWoman") (string=? (world-scene world)   "colorLevel2GreenFrame"))
           (begin (thread playPaintSoundEffect) (make-world "colorLevel2BlueFrame" (make-Character (make-skin (skin-name (Character-skin (world-character world))) (skin-direction (Character-skin (world-character world)))) (make-ChPos (ChPos-x (Character-pos (world-character world))) (ChPos-y (Character-pos (world-character world)))) 0) 0 #f))]
      [(and (string=? (skin-name (Character-skin (world-character world))) "purplePoliceWoman") (string=? (world-scene world)  "colorLevel2BlueFrame"))
-          (begin (thread playPaintSoundEffect) (make-world "colorLevel2Score" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0) 0 #f))]
+          (begin (thread playPaintSoundEffect) (make-world "colorLevel2Score6" (make-Character (make-skin "policeWoman" "up") (make-ChPos 960 890) 0) 0 #f))]
 
      [else (wrongAnswer world)]))
 
